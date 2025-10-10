@@ -1,4 +1,4 @@
-# Stunning Portfolio
+# Portfolio
 
 A beautiful, performance-optimized portfolio website built with modern web technologies. Features smooth animations, responsive design, and stunning visual effects.
 
