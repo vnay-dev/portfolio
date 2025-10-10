@@ -11,6 +11,7 @@ A beautiful, performance-optimized portfolio website built with modern web techn
 - **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/)
 - **3D Effects**: [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/)
 - **Icons**: [Material Icons](https://mui.com/material-ui/material-icons/)
+- **Fonts**: [Gabarito](https://fonts.google.com/specimen/Gabarito) (headings), [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) (body)
 
 ## ✨ Features
 
@@ -72,9 +73,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📚 Documentation
 
 - **[Getting Started Guide](GETTING_STARTED.md)** - Detailed walkthrough of everything that's been set up
+- **[Typography System](docs/TYPOGRAPHY.md)** - Complete guide to using the type scale
 - **[Custom Instructions](.cursorrules)** - Development guidelines and best practices
 - **[Public Assets](public/README.md)** - Guide for adding images, icons, and other assets
-- **[Custom Fonts](public/fonts/README.md)** - Instructions for adding custom fonts
 
 ## 📁 Project Structure
 

@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
+import { Gabarito, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
+import "./typography.css";
 import { SmoothScrollProvider } from "@/lib/lenis";
+
+const gabarito = Gabarito({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-gabarito",
+  display: "swap",
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hanken",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio | Your Name",
@@ -26,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased">
+      <body className={`${gabarito.variable} ${hankenGrotesk.variable} antialiased`}>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

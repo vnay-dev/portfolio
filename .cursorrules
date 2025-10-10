@@ -106,6 +106,8 @@
   - Keep custom CSS minimal
   - Use CSS variables for theme values
 - **Typography**:
+  - Use Gabarito font for headings (h1-h6)
+  - Use Hanken Grotesk font for body text and paragraphs
   - Maintain consistent scale and hierarchy
   - Ensure readability (line-height, letter-spacing, contrast)
 
@@ -143,6 +145,7 @@
 - **Animations**: Framer Motion, Lenis (smooth scroll)
 - **3D Effects**: Three.js, React Three Fiber (when needed)
 - **Icons**: Material Icons (@mui/icons-material)
+- **Fonts**: Gabarito (headings), Hanken Grotesk (body)
 
 ## Development Workflow
 1. Understand the requirement fully

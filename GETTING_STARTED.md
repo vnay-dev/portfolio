@@ -86,18 +86,15 @@ portfolio/
 - ✅ Proper ARIA setup ready
 - ✅ Keyboard navigation ready
 
-### 11. Icons
+### 11. Icons & Typography
 
 - ✅ Material Icons (@mui/icons-material)
-- ✅ Font system ready (add your preferred font in `app/globals.css`)
+- ✅ Google Fonts integrated (Gabarito for headings, Hanken Grotesk for body)
+- ✅ Optimized font loading with Next.js font system
 
 ## 📋 Next Steps
 
-### 1. Add Your Custom Font (Optional)
-
-Add your preferred font-face declarations in `app/globals.css` under the "Custom Fonts" section, and update the `--font-sans` variable in the `@theme inline` block.
-
-### 2. Start Development
+### 1. Start Development
 
 ```bash
 npm run dev
@@ -105,15 +102,14 @@ npm run dev
 
 Visit http://localhost:3000 to see your portfolio!
 
-### 3. Customize
+### 2. Customize
 
-- Add your custom font in `app/globals.css`
 - Update site metadata in `app/layout.tsx`
 - Modify colors in `app/globals.css` (`:root` variables)
 - Configure navigation in `constants/index.ts`
 - Adjust animations in `constants/animations.ts`
 
-### 4. Start Building
+### 3. Start Building
 
 Now you can start building components! The foundation is ready for:
 

@@ -1,0 +1,163 @@
+/* Typography System - Based on Material Design Type Scale */
+/* https://m2.material.io/design/typography/the-type-system.html#type-scale */
+
+/* Display Styles - Largest text, short and important */
+.display-large {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7rem); /* 56px - 112px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.display-medium {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(2.75rem, 6vw, 5.5rem); /* 44px - 88px */
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.display-small {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem); /* 36px - 72px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Headline Styles - High emphasis, shorter than body */
+.headline-large {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem); /* 32px - 56px */
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.headline-medium {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem); /* 28px - 44px */
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.headline-small {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem); /* 24px - 36px */
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+/* Title Styles - Medium emphasis */
+.title-large {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem); /* 22px - 28px */
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.title-medium {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem); /* 18px - 22px */
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+.title-small {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(1rem, 1.75vw, 1.125rem); /* 16px - 18px */
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Body Styles - Used for long-form content */
+.body-large {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem); /* 18px - 20px */
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.body-medium {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.125rem); /* 16px - 18px */
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.015em;
+}
+
+.body-small {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(0.875rem, 1vw, 1rem); /* 14px - 16px */
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Label Styles - UI elements like buttons */
+.label-large {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.125rem); /* 16px - 18px */
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.label-medium {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(0.875rem, 1vw, 1rem); /* 14px - 16px */
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.label-small {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: clamp(0.75rem, 0.875vw, 0.875rem); /* 12px - 14px */
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Utility Classes */
+.text-overline {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.text-caption {
+  font-family: var(--font-hanken), sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+
+/* Responsive Display on Mobile */
+@media (max-width: 640px) {
+  .display-large {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .display-medium {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .display-small {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+}
