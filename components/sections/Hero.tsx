@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { HeroBackground } from "./HeroBackground";
 
 const words = ["dream", "design", "build"];
 
 export function Hero() {
   const [index, setIndex] = useState(0);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,19 +18,18 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="container-padding bg-background relative flex min-h-screen items-center justify-start overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="bg-accent/10 absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
-      </div>
+    <section className="container-padding relative flex min-h-screen items-center justify-start overflow-hidden" style={{ backgroundColor: '#141414' }}>
+      {/* Water Tank Background */}
+      <HeroBackground currentWord={words[index]} />
 
       {/* Main content */}
-      <div className="flex w-full items-center justify-start">
+      <div className="relative z-10 flex w-full items-center justify-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="display-large text-center leading-none"
+          style={{ color: '#ffffff' }}
         >
           <span className="inline-block">I</span>
           <span> </span>
@@ -49,7 +47,13 @@ export function Hero() {
                   duration: 1.35,
                   ease: [0.65, 0, 0.35, 1],
                 }}
-                className="from-accent to-accent/70 absolute top-0 left-0 inline-block bg-gradient-to-r bg-clip-text text-transparent"
+                className={`absolute top-0 left-0 inline-block bg-clip-text text-transparent ${
+                  words[index] === "dream"
+                    ? "animate-gradient-dream"
+                    : words[index] === "design"
+                    ? "animate-gradient-design"
+                    : "animate-gradient-build"
+                }`}
               >
                 {words[index]}.
               </motion.span>

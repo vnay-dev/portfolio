@@ -174,11 +174,79 @@ img {
 
 @media (min-width: 1536px) {
   .container-padding {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
 
 .text-balance {
   text-wrap: balance;
+}
+
+
+/* Animated gradient for dream text */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-dream {
+  background: linear-gradient(
+    90deg,
+    #5fe56e 0%,
+    #cce96f 25%,
+    #5fe56e 50%,
+    #cce96f 75%,
+    #5fe56e 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.animate-gradient-design {
+  background: linear-gradient(
+    90deg,
+    #358df5 0%,
+    #35b5f5 25%,
+    #358df5 50%,
+    #35b5f5 75%,
+    #358df5 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.animate-gradient-build {
+  background: linear-gradient(
+    90deg,
+    #f8a341 0%,
+    #f5cf35 25%,
+    #f8a341 50%,
+    #f5cf35 75%,
+    #f8a341 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
 }
