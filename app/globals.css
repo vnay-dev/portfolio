@@ -207,32 +207,32 @@ img {
   background: linear-gradient(
     90deg,
     #5fe56e 0%,
-    #cce96f 25%,
+    #e1ff7f 25%,
     #5fe56e 50%,
-    #cce96f 75%,
+    #e1ff7f 75%,
     #5fe56e 100%
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 3.2s ease-in-out infinite;
 }
 
 .animate-gradient-design {
   background: linear-gradient(
     90deg,
     #358df5 0%,
-    #35b5f5 25%,
+    #74d1ff 25%,
     #358df5 50%,
-    #35b5f5 75%,
+    #74d1ff 75%,
     #358df5 100%
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 3.2s ease-in-out infinite;
 }
 
 .animate-gradient-build {
@@ -248,5 +248,5 @@ img {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 3.2s ease-in-out infinite;
 }

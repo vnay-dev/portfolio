@@ -29,14 +29,14 @@ export function HeroBackground({ currentWord = 'dream' }: HeroBackgroundProps) {
       const gradientColors = {
         dream: [
           [0.372, 0.898, 0.431], // #5FE56E
-          [0.8, 0.914, 0.435],   // #CCE96F
+          [0.882, 1.0, 0.498],   // #E1FF7F
           [0.6, 0.9, 0.55],      // Mix
           [0.7, 0.9, 0.48],      // Mix
           [0.5, 0.85, 0.6],      // Mix
         ],
         design: [
           [0.208, 0.553, 0.961], // #358DF5
-          [0.208, 0.710, 0.961], // #35B5F5
+          [0.455, 0.820, 1.0],   // #74D1FF
           [0.2, 0.6, 0.95],      // Mix
           [0.25, 0.65, 0.9],     // Mix
           [0.18, 0.58, 0.92],    // Mix
@@ -429,6 +429,11 @@ export function HeroBackground({ currentWord = 'dream' }: HeroBackgroundProps) {
      let mouseThrottleTime = 0;
 
     const handleMouseMove = (event: MouseEvent) => {
+      // Check if mouse is over navbar area (top 100px of screen)
+      if (event.clientY < 100) {
+        return; // Don't create ripples when mouse is over navbar area
+      }
+      
       const x = event.clientX;
       const y = event.clientY;
       const now = performance.now();
@@ -450,6 +455,11 @@ export function HeroBackground({ currentWord = 'dream' }: HeroBackgroundProps) {
     };
 
      const handleClick = (event: MouseEvent) => {
+       // Check if click is over navbar area (top 100px of screen)
+       if (event.clientY < 100) {
+         return; // Don't create splashes when clicking on navbar area
+       }
+       
        // Create splash on click
        addRipple(event.clientX, event.clientY, 1.8, true);
      };
@@ -501,7 +511,7 @@ export function HeroBackground({ currentWord = 'dream' }: HeroBackgroundProps) {
     <div
       ref={containerRef}
       className="absolute inset-0"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 0, pointerEvents: 'none' }}
     />
   );
 }
