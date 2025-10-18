@@ -3,6 +3,7 @@ import { Gabarito, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./typography.css";
 import { SmoothScrollProvider } from "@/lib/lenis";
+import { Navbar } from "@/components/layout";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -43,7 +44,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${gabarito.variable} ${hankenGrotesk.variable} antialiased`}>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SmoothScrollProvider>
+          <Navbar />
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
