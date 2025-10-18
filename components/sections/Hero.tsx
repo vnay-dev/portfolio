@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HeroBackground } from "./HeroBackground";
 
 const words = ["dream", "design", "build"];
 
@@ -18,16 +17,13 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="container-padding relative flex min-h-screen items-center justify-start overflow-hidden" style={{ backgroundColor: '#141414' }}>
-      {/* Water Tank Background */}
-      <HeroBackground currentWord={words[index]} />
-
+    <section className="container-padding relative flex min-h-screen items-center justify-start overflow-hidden w-full" style={{ backgroundColor: '#141414' }}>
       {/* Main content */}
-      <div className="relative z-10 flex w-full items-center justify-start">
+      <div className="relative z-10 flex w-full items-center justify-start max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="display-large text-center leading-none"
           style={{ color: '#ffffff' }}
         >

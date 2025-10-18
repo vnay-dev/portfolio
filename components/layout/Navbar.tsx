@@ -31,7 +31,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Work", href: "#work" },
-    { name: "About Me", href: "#about" },
+    { name: "About Me", href: "/about", newTab: true },
     { name: "Resume", href: "#resume" },
   ];
 
@@ -73,13 +73,13 @@ const Navbar = () => {
       <div className="relative mx-4 mt-4 max-w-6xl overflow-hidden" style={{ paddingBottom: '30px' }}>
         {/* Glassmorphism container - curved bottom only */}
         <div
-          className="relative rounded-b-2xl transition-all duration-300 overflow-hidden"
+          className="relative rounded-b-2xl transition-all duration-300 overflow-hidden w-full"
         style={{
           background: "rgba(255, 255, 255, 0.08)",
           backdropFilter: "blur(30px) saturate(200%) brightness(110%)",
           WebkitBackdropFilter: "blur(30px) saturate(200%) brightness(110%)",
           border: "1px solid rgba(255, 255, 255, 0.18)",
-          minWidth: "600px",
+          minWidth: "320px",
         }}
       >
         {/* Clean inner glow effect */}
@@ -129,6 +129,8 @@ const Navbar = () => {
                   key={item.name}
                   ref={(el) => { navRefs.current[index] = el; }}
                   href={item.href}
+                  target={item.newTab ? "_blank" : undefined}
+                  rel={item.newTab ? "noopener noreferrer" : undefined}
                   onClick={() => handleLinkClick(item.name)}
                   onMouseEnter={() => handleMouseEnter(item.name)}
                   onMouseLeave={handleMouseLeave}
@@ -197,6 +199,8 @@ const Navbar = () => {
                     <motion.a
                       key={item.name}
                       href={item.href}
+                      target={item.newTab ? "_blank" : undefined}
+                      rel={item.newTab ? "noopener noreferrer" : undefined}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
