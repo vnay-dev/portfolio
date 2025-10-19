@@ -2,6 +2,7 @@ import {
   Hero, 
   IntroSection, 
   WorkSection, 
+  AboutSection,
   GallerySection, 
   ExperimentsSection, 
   BlogSection, 
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <IntroSection />
       <WorkSection />
+      <AboutSection />
       <GallerySection />
       <ExperimentsSection />
       <BlogSection />

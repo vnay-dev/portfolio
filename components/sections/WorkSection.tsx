@@ -23,7 +23,7 @@ export function WorkSection() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4">
+    <section id="work" className="py-12 sm:py-16 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gabarito font-bold text-white text-center mb-8 sm:mb-12 md:mb-16">
           Curated Projects

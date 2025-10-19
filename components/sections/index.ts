@@ -2,6 +2,7 @@
 export { Hero } from "./Hero";
 export { IntroSection } from "./IntroSection";
 export { WorkSection } from "./WorkSection";
+export { AboutSection } from "./AboutSection";
 export { GallerySection } from "./GallerySection";
 export { ExperimentsSection } from "./ExperimentsSection";
 export { BlogSection } from "./BlogSection";

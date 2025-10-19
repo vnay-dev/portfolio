@@ -180,6 +180,12 @@ canvas {
   padding-right: 1rem;
 }
 
+/* Blinking cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 @media (min-width: 640px) {
   .container-padding {
     padding-left: 2rem;
@@ -228,33 +234,33 @@ canvas {
 .animate-gradient-dream {
   background: linear-gradient(
     90deg,
-    #5fe56e 0%,
-    #e1ff7f 25%,
-    #5fe56e 50%,
-    #e1ff7f 75%,
-    #5fe56e 100%
+    #3cd657 0%,
+    #cfed6d 25%,
+    #3cd657 50%,
+    #cfed6d 75%,
+    #3cd657 100%
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3.2s ease-in-out infinite;
+  animation: gradient-shift 5s ease-in-out infinite;
 }
 
 .animate-gradient-design {
   background: linear-gradient(
     90deg,
     #358df5 0%,
-    #74d1ff 25%,
+    #8cdfff 25%,
     #358df5 50%,
-    #74d1ff 75%,
+    #8cdfff 75%,
     #358df5 100%
   );
   background-size: 300% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3.2s ease-in-out infinite;
+  animation: gradient-shift 5s ease-in-out infinite;
 }
 
 .animate-gradient-build {
@@ -270,5 +276,5 @@ canvas {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3.2s ease-in-out infinite;
+  animation: gradient-shift 5s ease-in-out infinite;
 }
