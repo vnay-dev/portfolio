@@ -19,7 +19,6 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
         lerp: 0.1,
         duration: 1.2,
         smoothWheel: true,
-        smoothTouch: false, // Disable on touch devices for better performance
         wheelMultiplier: 1,
         touchMultiplier: 2,
       }}

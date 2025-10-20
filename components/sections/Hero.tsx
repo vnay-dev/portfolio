@@ -40,14 +40,8 @@ export function Hero() {
       setAnimAsteriskIds([]);
       setAnimFallbackIds([]);
 
-      const pick = (type: Shape['type'], predicate?: (s: Shape) => boolean) => {
-      const ids = shapes
-        .map((s, i) => ({ i, s }))
-        .filter(({ s }) => s.type === type && (predicate ? predicate(s) : true))
-        .map(({ i }) => i);
-      if (ids.length === 0) return null;
-      return ids[Math.floor(Math.random() * ids.length)];
-      };
+      // NOTE: keep for reference; we now use pickMany
+      // const pick = (type: Shape['type'], predicate?: (s: Shape) => boolean) => { ... };
 
       const pickMany = (type: Shape['type'], count: number, predicate?: (s: Shape) => boolean) => {
         const ids = shapes
@@ -125,7 +119,7 @@ export function Hero() {
       const maxPlacements = Math.max(4, Math.floor(cells.length * 0.25));
       const perType = Math.floor(maxPlacements / types.length);
       const remaining = maxPlacements - perType * types.length;
-      const typeTargets: Record<string, number> = { magic: perType, circle: perType, diamond: perType, magicCircle: perType, asterisk: perType } as any;
+      const typeTargets: Record<'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk', number> = { magic: perType, circle: perType, diamond: perType, magicCircle: perType, asterisk: perType };
       // Distribute any remainder
       for (let i = 0; i < remaining; i++) typeTargets[types[i]] += 1;
       // Guarantee at least one of each type when capacity allows
@@ -134,7 +128,7 @@ export function Hero() {
       }
 
       const placed: Array<Shape> = [];
-      const gridTypes: (null | string)[][] = Array.from({ length: rows }, () => Array(cols).fill(null));
+      const gridTypes: (null | 'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk' | 'reserved')[][] = Array.from({ length: rows }, () => Array(cols).fill(null));
 
       // Quadrant balancing to avoid empty corners and crowded areas
       const qTarget = Math.max(1, Math.floor(maxPlacements / 4));
@@ -183,7 +177,7 @@ export function Hero() {
               if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
               if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
             }
-            placed.push({ type: t as any, row: r, col: c, dir });
+            placed.push({ type: t as Shape['type'], row: r, col: c, dir });
             qCounts[q] += 1;
             return true;
           }
@@ -228,7 +222,7 @@ export function Hero() {
               if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
               if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
             }
-            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c, dir });
+            placed.push({ type: t as Shape['type'], row: cellPos.r, col: cellPos.c, dir });
             qCounts[q] += 1;
             break;
           }
@@ -261,7 +255,7 @@ export function Hero() {
               if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
               if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
             }
-            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c, dir });
+            placed.push({ type: t as Shape['type'], row: cellPos.r, col: cellPos.c, dir });
             qCounts[q] += 1;
             placedHere = true;
             break;
@@ -331,8 +325,7 @@ export function Hero() {
         const circleDelay = (seed % 2) * 0.04;
         const asteriskDur = 0.75 + (seed % 5) * 0.1;
         const asteriskDelay = (seed % 3) * 0.05;
-        const customDur = 0.9 + (seed % 5) * 0.1;
-        const customDelay = (seed % 4) * 0.04;
+        
         return (
           <motion.div
             key={`${s.type}-${i}`}

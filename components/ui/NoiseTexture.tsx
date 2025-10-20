@@ -40,25 +40,25 @@ export function NoiseTexture({
       const data = imageData.data;
       
       for (let i = 0; i < data.length; i += 4) {
-        // Generate very visible noise for testing
-        const baseNoise = Math.random() * 255;
-        const fineNoise = (Math.random() - 0.5) * 30; // Very visible fine detail
-        const microNoise = (Math.random() - 0.5) * 15; // Very visible micro detail
+        // Generate subtle noise
+        const baseNoise = Math.random() * 40; // base grain
+        const fineNoise = (Math.random() - 0.5) * 8; // fine detail
+        const microNoise = (Math.random() - 0.5) * 4; // micro detail
         
-        // Very visible white grain
-        const whiteBias = Math.random() * 40; // Very visible white grain
+        // subtle white bias
+        const whiteBias = Math.random() * 6;
         
         // Combine for subtle grain
         const combinedNoise = baseNoise + fineNoise + microNoise + whiteBias;
         
-        // Very visible color variation
-        const colorVariation = (Math.random() - 0.5) * 10;
+        // subtle color variation
+        const colorVariation = (Math.random() - 0.5) * 2;
         const finalNoise = Math.max(0, Math.min(255, combinedNoise + colorVariation));
         
         data[i] = finalNoise;     // R
         data[i + 1] = finalNoise; // G
         data[i + 2] = finalNoise; // B
-        data[i + 3] = 255;        // A - Full alpha
+        data[i + 3] = Math.floor(opacity * 255);        // A - scale by opacity
       }
       
       ctx.putImageData(imageData, 0, 0);
@@ -77,7 +77,7 @@ export function NoiseTexture({
       clearTimeout(initTimer);
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, []);
+  }, [opacity, blendMode]);
 
   return (
     <canvas
@@ -85,7 +85,7 @@ export function NoiseTexture({
       className={`absolute inset-0 pointer-events-none ${className}`}
       style={{ 
         zIndex: 1,
-        mixBlendMode: blendMode as any,
+        mixBlendMode: blendMode as React.CSSProperties['mixBlendMode'],
         opacity: opacity,
         width: '100%',
         height: '100%'

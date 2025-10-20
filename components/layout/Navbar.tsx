@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -12,29 +12,12 @@ const Navbar = () => {
   const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const navContainerRef = useRef<HTMLDivElement | null>(null);
 
-
-  // Initialize glow position for active link
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      updateGlowPosition(activeLink);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [activeLink]);
-
-  // Initialize position on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      updateGlowPosition("Home");
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const navItems = [
+  const navItems = useMemo(() => ([
     { name: "Home", href: "#home" },
     { name: "Work", href: "#work" },
     { name: "About Me", href: "#about" },
     { name: "Resume", href: "#resume" },
-  ];
+  ]), []);
 
   const handleLinkClick = (linkName: string, href: string) => {
     setActiveLink(linkName);
@@ -52,7 +35,7 @@ const Navbar = () => {
     }
   };
 
-  const updateGlowPosition = (linkName: string) => {
+  const updateGlowPosition = useCallback((linkName: string) => {
     const index = navItems.findIndex(item => item.name === linkName);
     if (index !== -1 && navRefs.current[index] && navContainerRef.current) {
       const element = navRefs.current[index];
@@ -63,7 +46,23 @@ const Navbar = () => {
       // Set tab width to match the text width plus padding
       setTabWidth(rect.width + 40); // 40px total padding (20px each side)
     }
-  };
+  }, [navItems]);
+
+  // Initialize glow position for active link
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateGlowPosition(activeLink);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [activeLink, updateGlowPosition]);
+
+  // Initialize position on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateGlowPosition("Home");
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [updateGlowPosition]);
 
   const handleMouseEnter = (linkName: string) => {
     setHoveredLink(linkName);

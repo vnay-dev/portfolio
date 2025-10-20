@@ -1,3 +1,4 @@
+import React from "react";
 import { cn } from "@/utils";
 import { TYPE_SCALE, TypeScale } from "@/constants/typography";
 
@@ -5,7 +6,7 @@ interface TypographyProps {
   variant?: TypeScale;
   children: React.ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
 }
 
 /**

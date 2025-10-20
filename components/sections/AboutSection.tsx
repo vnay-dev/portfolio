@@ -22,8 +22,8 @@ export function AboutSection() {
           <div className="flex-1 text-center lg:text-left">
             <div className="space-y-6 sm:space-y-8">
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed">
-                Hello! I'm Vinay Krishnan, a passionate designer and developer with a knack for creating engaging digital experiences. 
-                My journey began five years ago, bringing other designers' visions to life through code. 
+                Hello! I&apos;m Vinay Krishnan, a passionate designer and developer with a knack for creating engaging digital experiences. 
+                My journey began five years ago, bringing other designers&apos; visions to life through code. 
                 Now, I focus on designing experiences that truly need to be brought to life, blending aesthetics with functionality.
               </p>
 
