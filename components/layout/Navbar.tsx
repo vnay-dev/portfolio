@@ -85,9 +85,81 @@ const Navbar = () => {
         top: '0px'
       }}
     >
-      
-      {/* Glow container with overflow hidden */}
-      <div className="relative overflow-hidden" style={{ paddingBottom: '30px', width: '60%', margin: '0 auto', paddingTop: '12px', zIndex: 2 }}>
+      {/* Mobile Hamburger - compact, top-left (always available on mobile) */}
+      <motion.div
+        initial={{ filter: "blur(10px)", opacity: 0 }}
+        animate={{ filter: "blur(0px)", opacity: 1 }}
+        transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1] }}
+        className="md:hidden fixed top-4 left-4 z-[1001]"
+      >
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          className="transition-all duration-200"
+          style={{
+            padding: '8px',
+            borderRadius: '14px',
+            backgroundColor: isMobileMenuOpen ? '#e2e2e2' : '#fcfcfc',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
+            boxShadow: isMobileMenuOpen ? 'inset 0 2px 4px rgba(0,0,0,0.15)' : 'inset 0 1px 2px rgba(0,0,0,0.06)'
+          }}
+        >
+          <motion.svg
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-700"
+            animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+          >
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </motion.svg>
+        </button>
+      </motion.div>
+
+        {/* Mobile overlay menu - full screen with noise texture */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: "-100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "-100%" }}
+              transition={{ duration: 0.45, ease: [0.4, 0.0, 0.2, 1] }}
+            className="md:hidden fixed inset-0 z-[999]"
+              style={{
+                backgroundColor: "rgba(252,252,252,0.98)",
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E")`,
+                backgroundRepeat: 'repeat',
+                backgroundSize: 'auto',
+              height: '100vh'
+              }}
+            >
+              <div className="absolute inset-0 flex flex-col gap-8 items-center justify-center">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    initial={{ filter: "blur(10px)", opacity: 0 }}
+                    animate={{ filter: "blur(0px)", opacity: 1 }}
+                    transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1], delay: index * 0.1 + 0.2 }}
+                    onClick={() => { handleLinkClick(item.name, item.href); setIsMobileMenuOpen(false); }}
+                    className={`font-hanken text-xl transition-all duration-300 ${activeLink === item.name ? "text-gray-900 font-semibold" : "text-gray-600 hover:text-gray-900"}`}
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+      {/* Mobile overlay menu - full screen drop from top */}
+      {/* Overlay moved outside nav to avoid any clipping from nav styles */}
+
+      {/* Glow container with overflow hidden (desktop only) */}
+      {/* Desktop navbar container - hide on mobile to avoid stray block */}
+      <div className="hidden md:block relative overflow-hidden" style={{ paddingBottom: '30px', width: '60%', margin: '0 auto', paddingTop: '12px', zIndex: 2 }}>
         {/* Simple container - fully rounded */}
         <div
           className="relative transition-all duration-300 overflow-hidden w-full"
@@ -180,66 +252,41 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-600 hover:text-gray-800 transition-colors duration-200"
-              aria-label="Toggle mobile menu"
+            {/* Mobile Hamburger - compact, top-left */}
+            <motion.div
+              initial={{ filter: "blur(10px)", opacity: 0 }}
+              animate={{ filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1] }}
+              className="md:hidden fixed top-4 left-4 z-50"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+                className="transition-all duration-200"
+                style={{
+                  padding: '8px',
+                  borderRadius: '14px',
+                  backgroundColor: isMobileMenuOpen ? '#e2e2e2' : '#fcfcfc',
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
+                  boxShadow: isMobileMenuOpen ? 'inset 0 2px 4px rgba(0,0,0,0.15)' : 'inset 0 1px 2px rgba(0,0,0,0.06)'
+                }}
               >
-                <motion.path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                  animate={{ d: isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16" }}
-                  transition={{ duration: 0.2 }}
-                />
-              </svg>
-            </motion.button>
+                <motion.svg
+                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-700"
+                  animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                >
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </motion.svg>
+              </button>
+            </motion.div>
           </div>
 
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="md:hidden mt-4 pt-4 border-t border-gray-300/20 overflow-hidden"
-              >
-                <div className="flex flex-col space-y-3">
-                  {navItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => {
-                        handleLinkClick(item.name, item.href);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`font-hanken transition-colors duration-200 py-2 ${
-                        activeLink === item.name 
-                          ? "text-gray-800" 
-                          : "text-gray-600 hover:text-gray-800"
-                      }`}
-                    >
-                      {item.name}
-                    </motion.a>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Mobile Menu - rendered once at top-level above */}
         </div>
       </div>
       </div>
