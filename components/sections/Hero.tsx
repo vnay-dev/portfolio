@@ -457,7 +457,7 @@ export function Hero() {
        </div>
 
        {/* Mobile/Tablet Text Content - Centered */}
-       <div className="md:hidden relative z-10 flex w-full items-center justify-center max-w-full" style={{ marginTop: '2rem', marginLeft: '2.35rem' }}>
+       <div className="md:hidden relative z-10 flex w-full items-center justify-center max-w-full" style={{ marginTop: '2rem', marginLeft: '2rem' }}>
          <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
