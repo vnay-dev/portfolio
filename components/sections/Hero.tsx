@@ -450,14 +450,14 @@ export function Hero() {
            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
            className="px-2 py-2 text-center"
          >
-           <span style={{ color: '#585858', fontSize: '20px' }} className="text-lg italic font-light tracking-wide editorial-ultralight">
+           <span style={{ color: '#585858', fontSize: '24px' }} className="text-lg italic font-light tracking-wide editorial-ultralight">
              Vinay Krishnan
            </span>
          </motion.div>
        </div>
 
        {/* Mobile/Tablet Text Content - Centered */}
-       <div className="md:hidden relative z-10 flex w-full items-center justify-center max-w-full" style={{ marginTop: '4rem' }}>
+       <div className="md:hidden relative z-10 flex w-full items-center justify-center max-w-full" style={{ marginTop: '2rem', marginLeft: '2.35rem' }}>
          <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}

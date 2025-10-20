@@ -89,7 +89,7 @@ const Navbar = () => {
         initial={{ filter: "blur(10px)", opacity: 0 }}
         animate={{ filter: "blur(0px)", opacity: 1 }}
         transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1] }}
-        className="md:hidden fixed top-4 left-4 z-[1001]"
+        className="md:hidden fixed top-8 left-8 z-[1001]"
       >
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
