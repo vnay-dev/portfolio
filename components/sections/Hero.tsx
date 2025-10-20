@@ -429,8 +429,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="display-large text-center leading-none select-none"
-          style={{ color: '#000000' }}
+          className="display-large text-center leading-none select-none text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
+          style={{ color: '#000000', fontSize: 'clamp(3.25rem, 18vw, 8.5rem)' }}
         >
           <motion.span 
             className="inline-block"
