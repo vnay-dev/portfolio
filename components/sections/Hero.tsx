@@ -14,8 +14,13 @@ const wordColors = {
 
 export function Hero() {
   const [index, setIndex] = useState(0);
-  const [shapes, setShapes] = useState<Array<{ type: 'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk'; row: number; col: number }>>([]);
+  type Shape = { type: 'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk'; row: number; col: number; dir?: 'left' | 'right' };
+  const [shapes, setShapes] = useState<Array<Shape>>([]);
   const [grid, setGrid] = useState<{ cell: number; rows: number; cols: number }>({ cell: 40, rows: 0, cols: 0 });
+  const [animMagicIds, setAnimMagicIds] = useState<number[]>([]);
+  const [animCircleIds, setAnimCircleIds] = useState<number[]>([]);
+  const [animAsteriskIds, setAnimAsteriskIds] = useState<number[]>([]);
+  const [animFallbackIds, setAnimFallbackIds] = useState<number[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,6 +29,57 @@ export function Hero() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Trigger shape animations per current word
+  useEffect(() => {
+    if (shapes.length === 0) return;
+    const TEXT_FADE_DELAY_MS = 1000; // start when the new word begins to appear
+    const timer = setTimeout(() => {
+      setAnimMagicIds([]);
+      setAnimCircleIds([]);
+      setAnimAsteriskIds([]);
+      setAnimFallbackIds([]);
+
+      const pick = (type: Shape['type'], predicate?: (s: Shape) => boolean) => {
+      const ids = shapes
+        .map((s, i) => ({ i, s }))
+        .filter(({ s }) => s.type === type && (predicate ? predicate(s) : true))
+        .map(({ i }) => i);
+      if (ids.length === 0) return null;
+      return ids[Math.floor(Math.random() * ids.length)];
+      };
+
+      const pickMany = (type: Shape['type'], count: number, predicate?: (s: Shape) => boolean) => {
+        const ids = shapes
+          .map((s, i) => ({ i, s }))
+          .filter(({ s }) => s.type === type && (predicate ? predicate(s) : true))
+          .map(({ i }) => i);
+        for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
+        return ids.slice(0, Math.max(1, Math.min(count, ids.length)));
+      };
+
+      if (words[index] === 'dream') {
+        const ids = pickMany('magic', 3);
+        if (ids.length) setAnimMagicIds(ids);
+      } else if (words[index] === 'build') {
+        const ids = pickMany('circle', 3, (s) => !!s.dir);
+        if (ids.length) setAnimCircleIds(ids);
+      } else if (words[index] === 'design') {
+        const ids = pickMany('asterisk', 3);
+        if (ids.length) setAnimAsteriskIds(ids);
+      }
+
+      // Independently animate fallback shapes each cycle (ensure diamonds are included if present)
+      const diamondIds = shapes.map((s, i) => ({ s, i })).filter(({ s }) => s.type === 'diamond').map(({ i }) => i);
+      const customIds = shapes.map((s, i) => ({ s, i })).filter(({ s }) => s.type === 'magicCircle').map(({ i }) => i);
+      for (let i = diamondIds.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [diamondIds[i], diamondIds[j]] = [diamondIds[j], diamondIds[i]]; }
+      for (let i = customIds.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [customIds[i], customIds[j]] = [customIds[j], customIds[i]]; }
+      const chosenDiamonds = diamondIds.slice(0, Math.min(2, diamondIds.length));
+      const chosenCustoms = customIds.slice(0, Math.min(2, customIds.length));
+      setAnimFallbackIds([...chosenDiamonds, ...chosenCustoms]);
+    }, TEXT_FADE_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [index, shapes]);
 
   // Compute responsive grid and generate shapes respecting rules
   useEffect(() => {
@@ -77,7 +133,7 @@ export function Hero() {
         types.forEach(t => { if (typeTargets[t] === 0) typeTargets[t] = 1; });
       }
 
-      const placed: Array<{ type: 'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk'; row: number; col: number }> = [];
+      const placed: Array<Shape> = [];
       const gridTypes: (null | string)[][] = Array.from({ length: rows }, () => Array(cols).fill(null));
 
       // Quadrant balancing to avoid empty corners and crowded areas
@@ -98,6 +154,12 @@ export function Hero() {
             }
           }
         }
+        // For circles, ensure at least one horizontal neighbor is available for animation (reserve it)
+        if (t === 'circle') {
+          const rightFree = c + 1 < cols && gridTypes[r][c + 1] === null && !isExcluded(r, c + 1);
+          const leftFree = c - 1 >= 0 && gridTypes[r][c - 1] === null && !isExcluded(r, c - 1);
+          if (!rightFree && !leftFree) return false;
+        }
         return true;
       };
 
@@ -110,7 +172,18 @@ export function Hero() {
           if (canPlace(t, r, c)) {
             gridTypes[r][c] = t;
             typeTargets[t] -= 1;
-            placed.push({ type: t as any, row: r, col: c });
+            // if circle, reserve neighbor for roll direction
+            let dir: 'left' | 'right' | undefined;
+            if (t === 'circle') {
+              const rightFree = c + 1 < cols && gridTypes[r][c + 1] === null && !isExcluded(r, c + 1);
+              const leftFree = c - 1 >= 0 && gridTypes[r][c - 1] === null && !isExcluded(r, c - 1);
+              if (rightFree && leftFree) dir = Math.random() < 0.5 ? 'right' : 'left';
+              else if (rightFree) dir = 'right';
+              else if (leftFree) dir = 'left';
+              if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
+              if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
+            }
+            placed.push({ type: t as any, row: r, col: c, dir });
             qCounts[q] += 1;
             return true;
           }
@@ -144,7 +217,18 @@ export function Hero() {
           if (canPlace(t, cellPos.r, cellPos.c)) {
             gridTypes[cellPos.r][cellPos.c] = t;
             typeTargets[t] -= 1;
-            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c });
+            let dir: 'left' | 'right' | undefined;
+            if (t === 'circle') {
+              const r = cellPos.r, c = cellPos.c;
+              const rightFree = c + 1 < cols && gridTypes[r][c + 1] === null && !isExcluded(r, c + 1);
+              const leftFree = c - 1 >= 0 && gridTypes[r][c - 1] === null && !isExcluded(r, c - 1);
+              if (rightFree && leftFree) dir = Math.random() < 0.5 ? 'right' : 'left';
+              else if (rightFree) dir = 'right';
+              else if (leftFree) dir = 'left';
+              if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
+              if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
+            }
+            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c, dir });
             qCounts[q] += 1;
             break;
           }
@@ -166,7 +250,18 @@ export function Hero() {
           if (canPlace(t, cellPos.r, cellPos.c)) {
             gridTypes[cellPos.r][cellPos.c] = t;
             typeTargets[t] -= 1;
-            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c });
+            let dir: 'left' | 'right' | undefined;
+            if (t === 'circle') {
+              const r = cellPos.r, c = cellPos.c;
+              const rightFree = c + 1 < cols && gridTypes[r][c + 1] === null && !isExcluded(r, c + 1);
+              const leftFree = c - 1 >= 0 && gridTypes[r][c - 1] === null && !isExcluded(r, c - 1);
+              if (rightFree && leftFree) dir = Math.random() < 0.5 ? 'right' : 'left';
+              else if (rightFree) dir = 'right';
+              else if (leftFree) dir = 'left';
+              if (dir === 'right') gridTypes[r][c + 1] = 'reserved';
+              if (dir === 'left') gridTypes[r][c - 1] = 'reserved';
+            }
+            placed.push({ type: t as any, row: cellPos.r, col: cellPos.c, dir });
             qCounts[q] += 1;
             placedHere = true;
             break;
@@ -221,31 +316,103 @@ export function Hero() {
         const top = s.row * grid.cell;
         const left = s.col * grid.cell;
         const commonProps = { stroke: 'rgba(0, 0, 0, 0.1)', strokeWidth: 1, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, vectorEffect: 'non-scaling-stroke' as const };
+        const isMagicAnim = s.type === 'magic' && animMagicIds.includes(i);
+        const isCircleAnim = s.type === 'circle' && animCircleIds.includes(i);
+        const isAsteriskAnim = s.type === 'asterisk' && animAsteriskIds.includes(i);
+        const isFallbackAnim = (s.type === 'diamond' || s.type === 'magicCircle') && animFallbackIds.includes(i);
+        const isDiamondAnim = s.type === 'diamond' && isFallbackAnim;
+        const isMagicCircleAnim = s.type === 'magicCircle' && isFallbackAnim;
+        const circleShift = s.dir === 'right' ? grid.cell : s.dir === 'left' ? -grid.cell : 0;
+        // deterministic per-cell timing variation (avoids re-randomizing on every render)
+        const seed = (s.row * 31 + s.col * 17 + i) % 5;
+        const magicDur = 0.7 + seed * 0.12;
+        const magicDelay = (seed % 3) * 0.05;
+        const circleDur = 0.85 + (seed % 4) * 0.08;
+        const circleDelay = (seed % 2) * 0.04;
+        const asteriskDur = 0.75 + (seed % 5) * 0.1;
+        const asteriskDelay = (seed % 3) * 0.05;
+        const customDur = 0.9 + (seed % 5) * 0.1;
+        const customDelay = (seed % 4) * 0.04;
         return (
-          <div
+          <motion.div
             key={`${s.type}-${i}`}
             className="absolute opacity-60"
             style={{ top: `${top}px`, left: `${left}px`, width: `${size}px`, height: `${size}px`, zIndex: 3 }}
+            initial={false}
+            animate={{
+              // Diamonds: fade/glow only (no spin/scale)
+              // Custom: also pulse opacity so it’s noticeable while spinning
+              opacity: isDiamondAnim
+                ? [0.6, 1.0, 0.6]
+                : (isMagicCircleAnim ? [0.8, 1.0, 0.8] : 0.6),
+              // Custom (magic-in-circle): spin + slight scale
+              scale: isMagicCircleAnim ? [1, 1.06, 1] : 1,
+              rotate: isMagicCircleAnim ? 360 : 0,
+            }}
+            transition={{ duration: isMagicCircleAnim ? (0.9 + (seed % 5) * 0.1) : 1.0, delay: isMagicCircleAnim ? ((seed % 4) * 0.04) : 0, ease: isMagicCircleAnim ? 'linear' : [0.4, 0.0, 0.2, 1], repeat: (isDiamondAnim || isMagicCircleAnim) ? Infinity : 0, repeatType: isMagicCircleAnim ? 'loop' : 'mirror' }}
           >
             {s.type === 'magic' && (
-              <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none" width="100%" height="100%">
-                <path d="M170 96c-40.87 0-74 33.13-74 74 0-40.87-33.13-74-74-74 40.87 0 74-33.13 74-74 0 40.87 33.13 74 74 74Z" {...commonProps} fill="none" />
-              </svg>
+              <motion.svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none" width="100%" height="100%"
+                initial={false}
+                animate={{ scale: isMagicAnim ? [1, 0.9, 1] : 1 }}
+                transition={{ duration: magicDur, delay: magicDelay, ease: [0.4, 0.0, 0.2, 1], repeat: isMagicAnim ? Infinity : 0, repeatType: 'mirror' }}
+              >
+                <path d="M170 96c-40.87 0-74 33.13-74 74 0-40.87-33.13-74-74-74 40.87 0 74-33.13 74-74 0 40.87 33.13 74 74 74Z" {...commonProps}
+                  fill="none"
+                  style={{
+                    transition: 'stroke 0.6s ease',
+                    stroke: isMagicAnim ? wordColors.dream : commonProps.stroke
+                  }}
+                />
+              </motion.svg>
             )}
             {s.type === 'circle' && (
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" {...commonProps} />
-              </svg>
+              <motion.svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                initial={false}
+                animate={{ x: isCircleAnim ? [0, circleShift, 0] : 0 }}
+                transition={{ duration: circleDur, delay: circleDelay, ease: [0.4, 0.0, 0.2, 1], repeat: isCircleAnim ? Infinity : 0, repeatType: 'mirror' }}
+              >
+                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" {...commonProps}
+                  style={{
+                    transition: 'stroke 0.6s ease',
+                    stroke: isCircleAnim ? wordColors.build : commonProps.stroke
+                  }}
+                />
+              </motion.svg>
+            )}
+            {/* animate wrapper transforms */}
+            <style>{`
+              @keyframes scalePulse { 0%{transform:scale(1)} 50%{transform:scale(0.9)} 100%{transform:scale(1)} }
+              @keyframes spinOnce { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+            `}</style>
+            {isMagicAnim && (
+              <div style={{position:'absolute', inset:0, animation:'scalePulse 0.8s ease'}} />
+            )}
+            {isAsteriskAnim && (
+              <div style={{position:'absolute', inset:0, animation:'spinOnce 0.8s ease'}} />
+            )}
+            {isCircleAnim && (
+              <div style={{position:'absolute', inset:0, transform:`translateX(${s.dir==='right'?grid.cell: -grid.cell}px)`, animation:'scalePulse 0.01s linear'}} />
             )}
             {s.type === 'diamond' && (
               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" width="100%" height="100%">
-                <path d="M16 3 L29 16 L16 29 L3 16 Z" {...commonProps} fill="none" />
+                <style>{`@keyframes diamondGlow { 0% { filter: drop-shadow(0 0 0 rgba(0,0,0,0)); } 100% { filter: drop-shadow(0 0 6px rgba(0,0,0,0.28)); } }`}</style>
+                <path d="M16 3 L29 16 L16 29 L3 16 Z" {...commonProps} fill="none" style={{ animation: isDiamondAnim ? 'diamondGlow 1.1s ease-in-out infinite alternate' : 'none' }} />
               </svg>
             )}
             {s.type === 'asterisk' && (
-              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" width="100%" height="100%">
-                <path d="M16 4 L16 28 M4 16 L28 16 M6.5 6.5 L25.5 25.5 M25.5 6.5 L6.5 25.5" {...commonProps} fill="none" />
-              </svg>
+              <motion.svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" width="100%" height="100%"
+                initial={false}
+                animate={{ rotate: isAsteriskAnim ? 360 : 0 }}
+                transition={{ duration: asteriskDur, delay: asteriskDelay, ease: [0.4, 0.0, 0.2, 1], repeat: isAsteriskAnim ? Infinity : 0 }}
+              >
+                <path d="M16 4 L16 28 M4 16 L28 16 M6.5 6.5 L25.5 25.5 M25.5 6.5 L6.5 25.5" {...commonProps} fill="none"
+                  style={{
+                    transition: 'stroke 0.6s ease',
+                    stroke: isAsteriskAnim ? wordColors.design : commonProps.stroke
+                  }}
+                />
+              </motion.svg>
             )}
             {s.type === 'magicCircle' && (
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -259,7 +426,7 @@ export function Hero() {
                 </svg>
               </div>
             )}
-          </div>
+          </motion.div>
         );
       })}
       
