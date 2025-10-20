@@ -147,6 +147,51 @@
   letter-spacing: 0.025em;
 }
 
+/* Editorial Font Classes */
+.font-editorial {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+}
+
+.editorial-display {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.editorial-headline {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.editorial-body {
+  font-family: var(--font-editorial), var(--font-hanken), sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.editorial-italic {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.editorial-ultralight {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+  font-weight: 200;
+}
+
+.editorial-ultrabold {
+  font-family: var(--font-editorial), var(--font-gabarito), sans-serif;
+  font-weight: 800;
+}
+
 /* Responsive Display on Mobile */
 @media (max-width: 640px) {
   .display-large {
@@ -159,5 +204,13 @@
 
   .display-small {
     font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  .editorial-display {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .editorial-headline {
+    font-size: clamp(1.25rem, 3vw, 2rem);
   }
 }

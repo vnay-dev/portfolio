@@ -277,7 +277,7 @@ export function Hero() {
     <section id="home" className="container-padding relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff' }}>
       {/* Subtle Grid Background */}
       <div 
-        className="absolute inset-0 opacity-60"
+        className="absolute inset-0 opacity-60 md:opacity-80"
         style={{
           backgroundImage: `
             linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
@@ -329,7 +329,7 @@ export function Hero() {
         return (
           <motion.div
             key={`${s.type}-${i}`}
-            className="absolute opacity-60"
+            className="absolute opacity-60 md:opacity-80"
             style={{ top: `${top}px`, left: `${left}px`, width: `${size}px`, height: `${size}px`, zIndex: 3 }}
             initial={false}
             animate={{
@@ -423,15 +423,107 @@ export function Hero() {
         );
       })}
       
-      {/* Main content */}
-      <div className="relative z-10 flex w-full items-center justify-center max-w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="display-large text-center leading-none select-none text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
-          style={{ color: '#000000', fontSize: 'clamp(3.25rem, 18vw, 8.5rem)' }}
-        >
+       {/* Mobile/Tablet Profile + Name at Top */}
+       <div className="md:hidden absolute top-25 left-0 right-0 z-10 flex flex-col items-center gap-4" style={{ paddingTop: '2vh' }}>
+         {/* Profile Picture */}
+           <motion.div
+             initial={{ opacity: 0, scale: 0.8 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+             className="w-28 h-28"
+             style={{ 
+               backgroundImage: 'url(/images/profile_pic_head.jpg)',
+               backgroundSize: '120%',
+               backgroundPosition: 'center',
+               backgroundRepeat: 'no-repeat',
+               borderRadius: '50%',
+               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
+             }}
+           role="img"
+           aria-label="Vinay Krishnan profile picture"
+         />
+         
+         {/* Name */}
+         <motion.div
+           initial={{ opacity: 0, y: 10 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+           className="px-2 py-2 text-center"
+         >
+           <span style={{ color: '#585858', fontSize: '20px' }} className="text-lg italic font-light tracking-wide editorial-ultralight">
+             Vinay Krishnan
+           </span>
+         </motion.div>
+       </div>
+
+       {/* Mobile/Tablet Text Content - Centered */}
+       <div className="md:hidden relative z-10 flex w-full items-center justify-center max-w-full" style={{ marginTop: '4rem' }}>
+         <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+           className="display-large text-center leading-none select-none text-7xl sm:text-8xl"
+           style={{ color: '#000000', fontSize: 'clamp(4rem, 20vw, 6rem)' }}
+         >
+           <motion.span 
+             className="inline-block"
+             style={{ 
+               textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+               color: wordColors[words[index] as keyof typeof wordColors]
+             }}
+             animate={{
+               color: wordColors[words[index] as keyof typeof wordColors]
+             }}
+             transition={{
+               duration: 0.8,
+               ease: "linear",
+               delay: 1.0
+             }}
+           >
+             i
+           </motion.span>
+           <span> </span>
+           <span
+             className="relative inline-block overflow-hidden text-left align-bottom"
+             style={{ minWidth: "5.5ch", height: "1.1em" }}
+           >
+             <AnimatePresence mode="wait">
+               <motion.span
+                 key={words[index]}
+                 initial={{ filter: "blur(10px)", opacity: 0 }}
+                 animate={{ filter: "blur(0px)", opacity: 1 }}
+                 exit={{ filter: "blur(10px)", opacity: 0 }}
+                 transition={{
+                   duration: 2.0,
+                   ease: [0.4, 0.0, 0.2, 1],
+                 }}
+                 className={`absolute top-0 left-0 inline-block bg-clip-text text-transparent ${
+                   words[index] === "dream"
+                     ? "animate-gradient-dream"
+                     : words[index] === "design"
+                     ? "animate-gradient-design"
+                     : "animate-gradient-build"
+                 }`}
+                 style={{
+                   textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+                 }}
+               >
+                 {words[index]}.
+               </motion.span>
+             </AnimatePresence>
+           </span>
+         </motion.div>
+       </div>
+
+       {/* Desktop Main content */}
+       <div className="hidden md:block relative z-10 flex w-full items-center justify-center max-w-full">
+         <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+           className="display-large text-center leading-none select-none text-9xl lg:text-[12rem] xl:text-[14rem]"
+           style={{ color: '#000000', fontSize: 'clamp(8rem, 20vw, 14rem)' }}
+         >
           <motion.span 
             className="inline-block"
             style={{ 
