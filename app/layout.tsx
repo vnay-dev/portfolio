@@ -20,18 +20,18 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Your Name",
+  title: "Vinay Krishnan",
   description: "A stunning portfolio showcasing my work, skills, and experience",
   keywords: ["portfolio", "web developer", "designer", "creative"],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Vinay Krishnan" }],
   openGraph: {
-    title: "Portfolio | Your Name",
+    title: "Vinay Krishnan",
     description: "A stunning portfolio showcasing my work, skills, and experience",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio | Your Name",
+    title: "Vinay Krishnan",
     description: "A stunning portfolio showcasing my work, skills, and experience",
   },
 };

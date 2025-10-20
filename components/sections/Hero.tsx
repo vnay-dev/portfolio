@@ -25,6 +25,35 @@ export function Hero() {
 
   return (
     <section id="home" className="container-padding relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff' }}>
+      {/* Subtle Grid Background */}
+      <div 
+        className="absolute inset-0 opacity-50"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: 'clamp(40px, 5vw, 80px) clamp(40px, 5vw, 80px)',
+          backgroundPosition: '0 0, 0 0',
+          zIndex: 1
+        }}
+      />
+      
+      {/* Giant Ellipse with Radial Gradient - Responsive */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 100%)',
+          width: '100vw',
+          height: '100vh',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          borderRadius: '50%',
+          zIndex: 2
+        }}
+      />
+      
       {/* Main content */}
       <div className="relative z-10 flex w-full items-center justify-center max-w-full">
         <motion.div

@@ -81,7 +81,7 @@ export function FooterSection() {
         {/* Copyright */}
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-700/30">
           <p className="text-gray-400 text-sm">
-            © 2024 Your Name. All rights reserved.
+            © 2025 Vinay Krishnan. All rights reserved.
           </p>
         </div>
       </div>
