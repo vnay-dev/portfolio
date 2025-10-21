@@ -72,6 +72,11 @@ export const metadata: Metadata = {
     title: "Vinay Krishnan",
     description: "A stunning portfolio showcasing my work, skills, and experience",
   },
+  other: {
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  }
 };
 
 export default function RootLayout({
