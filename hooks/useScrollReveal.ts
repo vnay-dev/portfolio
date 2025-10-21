@@ -43,7 +43,7 @@ export const useScrollReveal = () => {
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.trigger === element || lines.includes(trigger.trigger as Element)) {
+        if (trigger.trigger === element || Array.from(lines).includes(trigger.trigger as Element)) {
           trigger.kill();
         }
       });
