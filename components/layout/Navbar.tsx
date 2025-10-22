@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./NavbarShiny.css";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -224,20 +225,19 @@ const Navbar = () => {
                   transition={{ delay: index * 0.1 + 0.3, duration: 1.5, ease: [0.4, 0.0, 0.2, 1] }}
                   className={`relative font-hanken transition-all duration-200 group z-10 ${
                     activeLink === item.name 
-                      ? "text-gray-800 opacity-100" 
-                      : hoveredLink === item.name
-                        ? "text-gray-800 opacity-100"
-                        : "text-gray-600 opacity-50"
+                      ? "text-gray-800" 
+                      : "text-gray-600"
                   }`}
                   style={{ padding: '10px 20px' }}
                 >
                   <motion.span
+                    className={`navbar-shiny-text ${
+                      activeLink === item.name ? 'active' : ''
+                    }`}
                     animate={hoveredLink === item.name && activeLink !== item.name ? {
                       scale: 1.04,
-                      textShadow: '0 0 8px rgba(255,255,255,0.6), 0 0 16px rgba(255,255,255,0.3)'
                     } : {
                       scale: 1,
-                      textShadow: 'none'
                     }}
                     transition={{ 
                       duration: 0.4, 
