@@ -18,7 +18,7 @@ export function useLetterReveal() {
     const lines = containerRef.current.querySelectorAll('.reveal-line');
     
     // Create scroll-triggered animations for each line (similar to Hero section)
-    lines.forEach((line, lineIndex) => {
+    lines.forEach((line) => {
       // Set initial state with blur, opacity, and scale
       gsap.set(line, { 
         opacity: 0, 
