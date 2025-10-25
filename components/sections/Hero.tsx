@@ -280,7 +280,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff' }}>
+    <section id="home" className="relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff', overflow: 'hidden' }}>
       {/* Subtle Grid Background */}
       <div 
         className="absolute inset-0 opacity-40 sm:opacity-50 md:opacity-60 lg:opacity-70"
@@ -311,7 +311,8 @@ export function Hero() {
       />
       
       {/* Rules-based shapes (generated) */}
-      {shapes.map((s, i) => {
+      <div className="absolute inset-0 overflow-hidden" style={{ zIndex: 3 }}>
+        {shapes.map((s, i) => {
         const size = grid.cell; // fit cell
         const top = s.row * grid.cell;
         const left = s.col * grid.cell;
@@ -437,6 +438,7 @@ export function Hero() {
           </motion.div>
         );
       })}
+      </div>
       
        {/* Main Content */}
        <div className="relative z-10 flex items-center justify-center w-full min-h-screen py-8 sm:py-12 md:py-16 lg:py-20">

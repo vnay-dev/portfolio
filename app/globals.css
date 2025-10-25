@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* Prevent horizontal scrollbar flash on load */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Fix double scrollbar issue with Lenis */
+html.lenis {
+  overflow: hidden !important;
+}
+
+html.lenis body {
+  overflow: hidden !important;
+}
+
+/* Ensure only one scrollbar */
+.lenis {
+  overflow: hidden !important;
+}
+
 /* Custom Fonts - Add your font-face declarations here */
 
 :root {
