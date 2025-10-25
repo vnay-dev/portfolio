@@ -1,19 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const words = ["dream", "design", "build"];
-
-// Define darker colors for each gradient
-const wordColors = {
-  dream: "#3cd657",    // Darker green from dream gradient
-  design: "#358df5",   // Darker blue from design gradient
-  build: "#f8a341"     // Darker orange from build gradient
-};
+import { motion } from "framer-motion";
 
 export function Hero() {
-  const [index, setIndex] = useState(0);
   type Shape = { type: 'magic' | 'circle' | 'diamond' | 'magicCircle' | 'asterisk'; row: number; col: number; dir?: 'left' | 'right' };
   const [shapes, setShapes] = useState<Array<Shape>>([]);
   const [grid, setGrid] = useState<{ cell: number; rows: number; cols: number }>({ cell: 40, rows: 0, cols: 0 });
@@ -22,26 +12,16 @@ export function Hero() {
   const [animAsteriskIds, setAnimAsteriskIds] = useState<number[]>([]);
   const [animFallbackIds, setAnimFallbackIds] = useState<number[]>([]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((current) => (current + 1) % words.length);
-    }, 5000); // Change word every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Trigger shape animations per current word
+  // Trigger shape animations periodically
   useEffect(() => {
     if (shapes.length === 0) return;
-    const TEXT_FADE_DELAY_MS = 1000; // start when the new word begins to appear
-    const timer = setTimeout(() => {
+    const ANIMATION_INTERVAL_MS = 3000; // animate shapes every 3 seconds
+    
+    const animateShapes = () => {
       setAnimMagicIds([]);
       setAnimCircleIds([]);
       setAnimAsteriskIds([]);
       setAnimFallbackIds([]);
-
-      // NOTE: keep for reference; we now use pickMany
-      // const pick = (type: Shape['type'], predicate?: (s: Shape) => boolean) => { ... };
 
       const pickMany = (type: Shape['type'], count: number, predicate?: (s: Shape) => boolean) => {
         const ids = shapes
@@ -52,18 +32,20 @@ export function Hero() {
         return ids.slice(0, Math.max(1, Math.min(count, ids.length)));
       };
 
-      if (words[index] === 'dream') {
+      // Randomly animate different shape types
+      const randomType = Math.random();
+      if (randomType < 0.33) {
         const ids = pickMany('magic', 3);
         if (ids.length) setAnimMagicIds(ids);
-      } else if (words[index] === 'build') {
+      } else if (randomType < 0.66) {
         const ids = pickMany('circle', 3, (s) => !!s.dir);
         if (ids.length) setAnimCircleIds(ids);
-      } else if (words[index] === 'design') {
+      } else {
         const ids = pickMany('asterisk', 3);
         if (ids.length) setAnimAsteriskIds(ids);
       }
 
-      // Independently animate fallback shapes each cycle (ensure diamonds are included if present)
+      // Independently animate fallback shapes
       const diamondIds = shapes.map((s, i) => ({ s, i })).filter(({ s }) => s.type === 'diamond').map(({ i }) => i);
       const customIds = shapes.map((s, i) => ({ s, i })).filter(({ s }) => s.type === 'magicCircle').map(({ i }) => i);
       for (let i = diamondIds.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [diamondIds[i], diamondIds[j]] = [diamondIds[j], diamondIds[i]]; }
@@ -71,17 +53,30 @@ export function Hero() {
       const chosenDiamonds = diamondIds.slice(0, Math.min(2, diamondIds.length));
       const chosenCustoms = customIds.slice(0, Math.min(2, customIds.length));
       setAnimFallbackIds([...chosenDiamonds, ...chosenCustoms]);
-    }, TEXT_FADE_DELAY_MS);
-    return () => clearTimeout(timer);
-  }, [index, shapes]);
+    };
+
+    const interval = setInterval(animateShapes, ANIMATION_INTERVAL_MS);
+    // Trigger initial animation
+    animateShapes();
+    
+    return () => clearInterval(interval);
+  }, [shapes]);
 
   // Compute responsive grid and generate shapes respecting rules
   useEffect(() => {
     const computeGrid = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const cellFromVw = Math.round(vw * 0.05); // 5vw
-      const cell = Math.max(40, Math.min(80, cellFromVw)); // clamp(40px, 5vw, 80px)
+      // More responsive cell sizing based on screen size
+      let cellFromVw;
+      if (vw < 640) { // Mobile
+        cellFromVw = Math.round(vw * 0.08); // 8vw for mobile
+      } else if (vw < 1024) { // Tablet
+        cellFromVw = Math.round(vw * 0.06); // 6vw for tablet
+      } else { // Desktop
+        cellFromVw = Math.round(vw * 0.05); // 5vw for desktop
+      }
+      const cell = Math.max(32, Math.min(100, cellFromVw)); // clamp(32px, responsive%, 100px)
       const cols = Math.ceil(vw / cell);
       const rows = Math.ceil(vh / cell);
       setGrid({ cell, rows, cols });
@@ -269,21 +264,32 @@ export function Hero() {
     };
 
     computeGrid();
-    window.addEventListener('resize', computeGrid);
-    return () => window.removeEventListener('resize', computeGrid);
+    
+    // Debounced resize handler to prevent excessive recalculations
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(computeGrid, 100);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
+    };
   }, []);
 
   return (
     <section id="home" className="relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff' }}>
       {/* Subtle Grid Background */}
       <div 
-        className="absolute inset-0 opacity-60 md:opacity-80"
+        className="absolute inset-0 opacity-40 sm:opacity-50 md:opacity-60 lg:opacity-70"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px)
           `,
-          backgroundSize: 'clamp(40px, 5vw, 80px) clamp(40px, 5vw, 80px)',
+          backgroundSize: `${grid.cell || 40}px ${grid.cell || 40}px`,
           backgroundPosition: '0 0, 0 0',
           zIndex: 1
         }}
@@ -363,7 +369,7 @@ export function Hero() {
                   fill="none"
                   style={{
                     transition: 'stroke 0.6s ease',
-                    stroke: isMagicAnim ? wordColors.dream : commonProps.stroke
+                    stroke: isMagicAnim ? '#3cd657' : commonProps.stroke
                   }}
                 />
               </motion.svg>
@@ -377,7 +383,7 @@ export function Hero() {
                 <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" {...commonProps}
                   style={{
                     transition: 'stroke 0.6s ease',
-                    stroke: isCircleAnim ? wordColors.build : commonProps.stroke
+                    stroke: isCircleAnim ? '#f8a341' : commonProps.stroke
                   }}
                 />
               </motion.svg>
@@ -411,7 +417,7 @@ export function Hero() {
                 <path d="M16 4 L16 28 M4 16 L28 16 M6.5 6.5 L25.5 25.5 M25.5 6.5 L6.5 25.5" {...commonProps} fill="none"
                   style={{
                     transition: 'stroke 0.6s ease',
-                    stroke: isAsteriskAnim ? wordColors.design : commonProps.stroke
+                    stroke: isAsteriskAnim ? '#358df5' : commonProps.stroke
                   }}
                 />
               </motion.svg>
@@ -433,107 +439,50 @@ export function Hero() {
       })}
       
        {/* Main Content */}
-       <div className="relative z-10 flex items-center justify-center w-full h-screen gap-8 md:gap-12">
-         {/* First Container - Profile Picture */}
-         <motion.div
-           initial={{ opacity: 0, scale: 0.8 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-           style={{ 
-             width: 'clamp(160px, 20vw, 240px)',
-             height: 'clamp(160px, 20vw, 240px)',
-             backgroundImage: 'url(/images/profile_pic_head.jpg)',
-             backgroundSize: '120%',
-             backgroundPosition: 'center',
-             backgroundRepeat: 'no-repeat',
-             borderRadius: '50%',
-             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
-           }}
-           role="img"
-           aria-label="Vinay Krishnan profile picture"
-         />
-
-         {/* Second Container - Text Content */}
-         <div className="flex flex-col items-center gap-8">
-           {/* Text Content - Letter i and Words */}
+       <div className="relative z-10 flex items-center justify-center w-full min-h-screen py-8 sm:py-12 md:py-16 lg:py-20">
+         <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 text-center max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+           {/* Title and Subtitle Container */}
+           <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+           {/* Profile Photo */}
            <motion.div
-             initial={{ opacity: 0, scale: 0.9 }}
+             initial={{ opacity: 0, scale: 0.8 }}
              animate={{ opacity: 1, scale: 1 }}
-             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-             className="mb-6 w-full"
+             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+             className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 2xl:w-44 2xl:h-44 rounded-full overflow-hidden shadow-lg flex-shrink-0"
+             style={{ 
+               backgroundImage: 'url(/images/profile_pic_head.jpg)',
+               backgroundSize: '120%',
+               backgroundPosition: 'center',
+               backgroundRepeat: 'no-repeat',
+               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08)'
+             }}
+             role="img"
+             aria-label="Vinay Krishnan profile picture"
+           />
+           
+           {/* Title */}
+           <motion.h1
+             initial={{ opacity: 0, y: 30 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+             className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold leading-tight max-w-5xl"
+             style={{ color: '#1c1c1c' }}
            >
-             <div className="display-large text-center leading-none select-none text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem]" style={{ color: '#000000' }}>
-                 <div className="flex items-center gap-2">
-                   <motion.span
-                     initial={{ opacity: 0, filter: "blur(10px)", color: '#3cd657' }}
-                     animate={{ 
-                       opacity: 1, 
-                       filter: "blur(0px)",
-                       color: words[index] === "dream" 
-                         ? '#3cd657' 
-                         : words[index] === "design" 
-                         ? '#358df5' 
-                         : '#f8a341'
-                     }}
-                     style={{
-                       textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                     }}
-                     transition={{ 
-                       duration: 2.0, 
-                       ease: [0.4, 0.0, 0.2, 1], 
-                       delay: 0.6,
-                       color: { duration: 1.2, ease: "easeInOut", delay: 1.2 }
-                     }}
-                     className="inline-block"
-                   >
-                     i&nbsp;
-                   </motion.span>
-                   <div className="w-32">
-                     <AnimatePresence mode="wait">
-                       <motion.span
-                         key={words[index]}
-                         initial={{ filter: "blur(10px)", opacity: 0 }}
-                         animate={{ filter: "blur(0px)", opacity: 1 }}
-                         exit={{ filter: "blur(10px)", opacity: 0 }}
-                         transition={{
-                           duration: 2.0,
-                           ease: [0.4, 0.0, 0.2, 1],
-                           delay: 0.6
-                         }}
-                         className={`inline-block bg-clip-text text-transparent ${
-                           words[index] === "dream"
-                             ? "animate-gradient-dream"
-                             : words[index] === "design"
-                             ? "animate-gradient-design"
-                             : "animate-gradient-build"
-                         }`}
-                         style={{
-                           textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                         }}
-                       >
-                         {words[index]}.
-                       </motion.span>
-                     </AnimatePresence>
-                   </div>
-                 </div>
-             </div>
-           </motion.div>
-
-           {/* Engineer and Designer Text */}
-           <motion.div
+             I design and build products that <br />
+             look beautiful and feel effortless
+           </motion.h1>
+           
+           {/* Subtitle */}
+           <motion.p
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
-             className="text-center"
+             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+             className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl leading-relaxed max-w-4xl"
+             style={{ color: '#666666' }}
            >
-              <div className="flex items-center gap-8 title-large" style={{ fontSize: '20px', color: '#858585', fontWeight:'400', letterSpacing: '0.18rem' }}>
-                <span style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}>ENGINEER</span>
-                <span>
-                 <div className="w-2 h-2 bg-gray-500 rounded-full" style={{ backgroundColor: '#C3C3C3' }} />
-                </span>
-                <span style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}>PRODUCT DESIGNER</span>
-              </div>
-           </motion.div>
+             Bridging design and code to turn ideas into memorable digital experiences
+           </motion.p>
+           </div>
          </div>
        </div>
     </section>
