@@ -280,7 +280,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative flex h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff', overflow: 'hidden' }}>
+    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden w-full" style={{ backgroundColor: '#ffffff' }}>
       {/* Subtle Grid Background */}
       <div 
         className="absolute inset-0 opacity-40 sm:opacity-50 md:opacity-60 lg:opacity-70"
