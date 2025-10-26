@@ -85,12 +85,12 @@ const Navbar = () => {
         top: '0px'
       }}
     >
-      {/* Mobile Hamburger - compact, top-left (always available on mobile) */}
+      {/* Mobile Hamburger - compact, top-right aligned with content */}
       <motion.div
         initial={{ filter: "blur(10px)", opacity: 0 }}
         animate={{ filter: "blur(0px)", opacity: 1 }}
         transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1] }}
-        className="md:hidden fixed top-8 left-8 z-[1001]"
+        className="md:hidden fixed top-8 right-6 z-[1001]"
       >
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -253,42 +253,7 @@ const Navbar = () => {
                 </motion.a>
               ))}
             </div>
-
-            {/* Mobile Hamburger - compact, top-left */}
-            <motion.div
-              initial={{ filter: "blur(10px)", opacity: 0 }}
-              animate={{ filter: "blur(0px)", opacity: 1 }}
-              transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1] }}
-              className="md:hidden fixed top-4 left-4 z-50"
-            >
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle mobile menu"
-                className="transition-all duration-200"
-                style={{
-                  padding: '8px',
-                  borderRadius: '14px',
-                  backgroundColor: isMobileMenuOpen ? '#e2e2e2' : '#fcfcfc',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
-                  boxShadow: isMobileMenuOpen ? 'inset 0 2px 4px rgba(0,0,0,0.15)' : 'inset 0 1px 2px rgba(0,0,0,0.06)'
-                }}
-              >
-                <motion.svg
-                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-gray-700"
-                  animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                >
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </motion.svg>
-              </button>
-            </motion.div>
           </div>
-
-          {/* Mobile Menu - rendered once at top-level above */}
         </div>
       </div>
       </div>

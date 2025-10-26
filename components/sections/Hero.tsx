@@ -441,17 +441,20 @@ export function Hero() {
       </div>
       
        {/* Main Content */}
-       <div className="relative z-10 flex items-center justify-center w-full min-h-screen py-8 sm:py-12 md:py-16 lg:py-20">
-         <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 text-center max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-           {/* Title and Subtitle Container */}
-           <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-           {/* Profile Photo */}
+       <div className="relative z-10 flex items-center justify-center w-full min-h-screen" style={{ padding: '0 24px' }}>
+         <div className="flex flex-col items-center text-center w-full" style={{ maxWidth: '1152px', margin: '0 auto', paddingTop: '0', paddingBottom: '0' }}>
+           {/* Profile Photo - At Top */}
            <motion.div
              initial={{ opacity: 0, scale: 0.8 }}
              animate={{ opacity: 1, scale: 1 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-             className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 2xl:w-44 2xl:h-44 rounded-full overflow-hidden shadow-lg flex-shrink-0"
              style={{ 
+               width: '120px',
+               height: '120px',
+               borderRadius: '50%',
+               overflow: 'hidden',
+               flexShrink: 0,
+               marginBottom: '40px',
                backgroundImage: 'url(/images/profile_pic_head.jpg)',
                backgroundSize: '120%',
                backgroundPosition: 'center',
@@ -467,8 +470,13 @@ export function Hero() {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-             className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold leading-tight max-w-5xl"
-             style={{ color: '#1c1c1c' }}
+             className="font-bold leading-tight"
+             style={{ 
+               color: '#1c1c1c',
+               fontSize: '2rem',
+               marginBottom: '24px',
+               maxWidth: '100%'
+             }}
            >
              I design and build products that <br />
              look beautiful and feel effortless
@@ -479,12 +487,15 @@ export function Hero() {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-             className="text-base xs:text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl leading-relaxed max-w-4xl"
-             style={{ color: '#666666' }}
+             className="leading-relaxed"
+             style={{ 
+               color: '#666666',
+               fontSize: '1.125rem',
+               maxWidth: '100%'
+             }}
            >
              Bridging design and code to turn ideas into memorable digital experiences
            </motion.p>
-           </div>
          </div>
        </div>
     </section>
