@@ -102,7 +102,7 @@ To complete the page, replace these placeholders with actual assets:
 
 ### 📝 File Location
 
-`app/projects/case-study/whatsapp/page.tsx`
+`app/projects/case-study/whatsapp/whatsapp-project.tsx`
 
 ### 🔗 Navigation
 
