@@ -22,11 +22,8 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
         wheelMultiplier: 1,
         touchMultiplier: 2,
         infinite: false,
-        // Better mobile support
         orientation: 'vertical',
         gestureOrientation: 'vertical',
-        smoothTouch: false, // Disable smooth scrolling on touch devices for better performance
-        touchInertiaMultiplier: 35,
       }}
     >
       {children}
