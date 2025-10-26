@@ -45,13 +45,14 @@ export function Projects() {
                 height={1234}
                 className="w-full h-full object-contain"
               />
-              {/* Hover Overlay */}
+              {/* Hover Overlay - Only visible on desktop with mouse (lg: 1024px+) */}
               <div 
-                className="absolute inset-0 flex items-center justify-center rounded-2xl pointer-events-none"
+                className="project-hover-overlay absolute inset-0 items-center justify-center rounded-2xl pointer-events-none"
                   style={{
                   opacity: isHovered ? 0.75 : 0,
                   backgroundColor: '#000000',
-                  transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                  transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  display: 'none'
                 }}
               >
                 <span className="text-white headline-small">

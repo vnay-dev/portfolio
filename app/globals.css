@@ -299,3 +299,84 @@ canvas {
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 5s ease-in-out infinite;
 }
+
+/* Hero Section Responsive Sizing */
+/* Mobile: Base sizes - good for mobile */
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 40px;
+}
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: 1.125rem;
+}
+
+/* Tablet: Medium sizes */
+@media (min-width: 768px) {
+  .hero-photo {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 44px;
+  }
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 28px;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop: Larger sizes - matching original */
+@media (min-width: 1024px) {
+  .hero-photo {
+    width: 144px;
+    height: 144px;
+    margin-bottom: 48px;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large Desktop: Even larger - matching original xl */
+@media (min-width: 1280px) {
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+  }
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Extra Large Desktop: Maximum sizes - matching original 2xl */
+@media (min-width: 1536px) {
+  .hero-photo {
+    width: 176px;
+    height: 176px;
+  }
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Projects Section - Hover overlay only on desktop (not touch devices) */
+@media (min-width: 1024px) {
+  .project-hover-overlay {
+    display: flex !important;
+  }
+}

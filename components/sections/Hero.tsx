@@ -448,13 +448,8 @@ export function Hero() {
              initial={{ opacity: 0, scale: 0.8 }}
              animate={{ opacity: 1, scale: 1 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+             className="hero-photo rounded-full overflow-hidden flex-shrink-0"
              style={{ 
-               width: '120px',
-               height: '120px',
-               borderRadius: '50%',
-               overflow: 'hidden',
-               flexShrink: 0,
-               marginBottom: '40px',
                backgroundImage: 'url(/images/profile_pic_head.jpg)',
                backgroundSize: '120%',
                backgroundPosition: 'center',
@@ -470,11 +465,9 @@ export function Hero() {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-             className="font-bold leading-tight"
+             className="hero-title font-bold leading-tight"
              style={{ 
                color: '#1c1c1c',
-               fontSize: '2rem',
-               marginBottom: '24px',
                maxWidth: '100%'
              }}
            >
@@ -487,10 +480,9 @@ export function Hero() {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-             className="leading-relaxed"
+             className="hero-subtitle leading-relaxed"
              style={{ 
                color: '#666666',
-               fontSize: '1.125rem',
                maxWidth: '100%'
              }}
            >
