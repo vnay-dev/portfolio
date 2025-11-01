@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 
 export function Projects() {
@@ -59,7 +58,7 @@ export function Projects() {
               onMouseLeave={() => setIsHovered(false)}
               onClick={handleCaseStudyClick}
             >
-              <Image
+              <img
                 src="/images/whatsapp_project_thumbnail.png"
                 alt="WhatsApp Case Study Poster"
                 width={2048}

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 
 const insightsData = [
   {
@@ -90,7 +89,7 @@ export default function WhatsAppCaseStudy() {
 
             {/* Hero GIF */}
             <div className="mx-auto w-full max-w-[952px]">
-              <Image
+              <img
                 src="https://framerusercontent.com/images/a9bWVGtcSNxqsigw9QiKdhFMQ.gif"
                 alt="WhatsApp voice notes feature demonstration"
                 width={952}
@@ -121,7 +120,7 @@ export default function WhatsAppCaseStudy() {
 
                 {/* Rocket Image */}
                 <div className="relative z-10">
-                  <Image
+                  <img
                     src="https://em-content.zobj.net/source/whatsapp/116/rocket_1f680.png"
                     alt="Rocket emoji"
                     width={48}
@@ -166,7 +165,7 @@ export default function WhatsAppCaseStudy() {
 
             {/* Phone Mockup */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/whatsapp_case_study_prototype.gif"
                 alt="WhatsApp Case Study Animation"
                 width={360}
@@ -186,7 +185,7 @@ export default function WhatsAppCaseStudy() {
 
             {/* Additional GIF */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="https://framerusercontent.com/images/PhWCFjNVHZ26RZa2gyAyfRt8oU.gif"
                 alt="WhatsApp voice notes scenario demonstration"
                 width={400}
@@ -216,7 +215,7 @@ export default function WhatsAppCaseStudy() {
               </div>
 
               <div className="flex min-h-[375px] items-center justify-end bg-transparent p-16">
-                <Image
+                <img
                   src="https://framerusercontent.com/images/w7zAWHfUipslwAkHjCYnTZHUeU.png"
                   alt="Scrolling animation"
                   width={375}
@@ -344,7 +343,7 @@ export default function WhatsAppCaseStudy() {
                   style={{ padding: "24px" }}
                 >
                   <div className="flex-shrink-0" style={{ width: "216px", height: "216px" }}>
-                    <Image
+                    <img
                       src={insight.icon}
                       alt={insight.title}
                       width={216}
@@ -395,7 +394,7 @@ export default function WhatsAppCaseStudy() {
                   border: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                <Image
+                <img
                   src="/images/user_job_1.png"
                   alt="Meeting scenario"
                   width={320}
@@ -419,7 +418,7 @@ export default function WhatsAppCaseStudy() {
                   border: "1px solid rgb(230, 230, 230)",
                 }}
               >
-                <Image
+                <img
                   src="/images/user_job_2.png"
                   alt="Search scenario"
                   width={320}
@@ -468,24 +467,91 @@ export default function WhatsAppCaseStudy() {
             </div>
 
             {/* Feature Showcase */}
-            <div className="mb-24 flex flex-col gap-4">
-              <div className="mb-12 text-center">
-                <h3 className="mb-4 text-[2.25rem] font-bold md:text-[3rem]">
-                  Read quick summaries
+            <div
+              className="mb-24 flex flex-col gap-4 rounded-[1.5rem]"
+              style={{ backgroundColor: "#073318", padding: "48px" }}
+            >
+              <div className="text-center" style={{ marginBottom: "48px" }}>
+                <h3 className="body-large" style={{ fontSize: "36px" }}>
+                  <span style={{ color: "#ffffff" }}>Read quick summaries</span>
+                  <span
+                    className="block text-[1.75rem] md:text-[2.25rem]"
+                    style={{ color: "#00db4b" }}
+                  >
+                    of your voice notes
+                  </span>
                 </h3>
-                <p className="text-[1.75rem] text-gray-600 md:text-[2.25rem]">
-                  of your voice notes
-                </p>
               </div>
 
               {/* Video Placeholder */}
-              <div className="overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
-                <Image
-                  src=""
-                  alt="Concept for WhatsApp: Summary for voice notes"
-                  width={320}
-                  height={568}
-                  className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
+              <div className="overflow-hidden p-6">
+                <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+                  <div
+                    className="flex items-center justify-center"
+                    style={{ flex: "1 1 0", maxWidth: "100%" }}
+                  >
+                    <img
+                      src="/images/uj1_scr_1.png"
+                      alt="WhatsApp AI summary - Screen 1"
+                      width={300}
+                      height={650}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxWidth: "100%",
+                        objectFit: "contain",
+                        transform: "scale(1)",
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="flex items-center justify-center"
+                    style={{ flex: "1 1 0", maxWidth: "100%" }}
+                  >
+                    <img
+                      src="/images/uj2_scr_2.png"
+                      alt="WhatsApp AI summary - Screen 2"
+                      width={300}
+                      height={650}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxWidth: "100%",
+                        objectFit: "contain",
+                        transform: "scale(1)",
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="flex items-center justify-center"
+                    style={{ flex: "1 1 0", maxWidth: "100%" }}
+                  >
+                    <img
+                      src="/images/uj3_scr_3.png"
+                      alt="WhatsApp AI summary - Screen 3"
+                      width={300}
+                      height={650}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxWidth: "100%",
+                        objectFit: "contain",
+                        transform: "scale(1)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-full max-w-4xl" style={{ aspectRatio: "16/9" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/WrmuKrA2ha4?autoplay=1&mute=1&playsinline=1&vq=hd1080"
+                  title="WhatsApp Voice Notes Feature Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="h-full w-full rounded-[1.5rem]"
+                  style={{ border: "none" }}
                 />
               </div>
             </div>
