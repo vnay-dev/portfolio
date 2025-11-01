@@ -60,7 +60,7 @@ export function Projects() {
               onClick={handleCaseStudyClick}
             >
               <Image
-                src="/images/whatsapp case study poster.png"
+                src="/images/whatsapp_project_thumbnail.png"
                 alt="WhatsApp Case Study Poster"
                 width={2048}
                 height={1234}

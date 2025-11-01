@@ -3,6 +3,39 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
+const insightsData = [
+  {
+    icon: "https://framerusercontent.com/images/J02tSVXkqewS9ImlAoTzMw8UeDo.gif",
+    title: "Personal comfort",
+    description:
+      "People feel most comfortable sending voice notes to friends and family they're close to.",
+  },
+  {
+    icon: "https://framerusercontent.com/images/tY35WmOPEAyRsEsFeddY5oueys.gif",
+    title: "Fast-forward usage",
+    description:
+      "Users who are in a hurry often speed up audio, usually to 1.5x speed, to save time.",
+  },
+  {
+    icon: "https://framerusercontent.com/images/dmVu8jyOfSDMNOfGe7XYhEl148.gif",
+    title: "Difficulty locating messages",
+    description:
+      "Users often struggle to find specific voice notes in a busy chat history. Many mentioned how tough it is to grasp the context and how time-consuming the whole process can be.",
+  },
+  {
+    icon: "https://framerusercontent.com/images/DMU1BcppKnsTn5BDV4hG4NCY.gif",
+    title: "Privacy concerns",
+    description:
+      "Users are often hesitant to listen to audio messages in public places due to privacy concerns, preferring headphones or private settings.",
+  },
+  {
+    icon: "https://framerusercontent.com/images/20wvr0pDRsiSsYWpxQCFsIlE.gif",
+    title: "Expressive communication",
+    description:
+      "People use voice notes to express emotions beyond emojis, avoid typing, mix languages or communicate on the go.",
+  },
+];
+
 export default function WhatsAppCaseStudy() {
   // Carousel data with questions and objectives
   const carouselData = [
@@ -134,7 +167,7 @@ export default function WhatsAppCaseStudy() {
             {/* Phone Mockup */}
             <div className="flex justify-center">
               <Image
-                src="/images/WhatsApp project-gif.gif"
+                src="/images/whatsapp_case_study_prototype.gif"
                 alt="WhatsApp Case Study Animation"
                 width={360}
                 height={640}
@@ -294,52 +327,40 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Insights Section */}
-        <section className="bg-gray-50 py-20 md:py-28">
+        <section className="py-20 md:py-28">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-16 text-[2.25rem] leading-[1.2] font-bold md:mb-20 md:text-[3rem]">
+            <h2
+              className="text-[2.25rem] leading-[1.2] font-bold md:mb-20 md:text-[3rem]"
+              style={{ marginBottom: "24px" }}
+            >
               Insights from user interviews
             </h2>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {[
-                {
-                  icon: "👥",
-                  title: "Personal comfort",
-                  description:
-                    "People feel most comfortable sending voice notes to friends and family they&apos;re close to.",
-                },
-                {
-                  icon: "⏩",
-                  title: "Fast-forward usage",
-                  description:
-                    "Users who are in a hurry often speed up audio, usually to 1.5x speed, to save time.",
-                },
-                {
-                  icon: "🔍",
-                  title: "Difficulty locating messages",
-                  description:
-                    "Users often struggle to find specific voice notes in a busy chat history. Many mentioned how tough it is to grasp the context and how time-consuming the whole process can be.",
-                },
-                {
-                  icon: "🔒",
-                  title: "Privacy concerns",
-                  description:
-                    "Users are often hesitant to listen to audio messages in public places due to privacy concerns, preferring headphones or private settings.",
-                },
-                {
-                  icon: "💬",
-                  title: "Expressive communication",
-                  description:
-                    "People use voice notes to express emotions beyond emojis, avoid typing, mix languages or communicate on the go.",
-                },
-              ].map((insight, index) => (
+            <div className="flex flex-col gap-6">
+              {insightsData.map((insight, index) => (
                 <div
                   key={index}
-                  className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#25d366] hover:shadow-xl"
+                  className="flex gap-6 rounded-[1.5rem] border-2 border-gray-200 bg-white"
+                  style={{ padding: "24px" }}
                 >
-                  <div className="mb-5 text-6xl">{insight.icon}</div>
-                  <h3 className="mb-4 text-xl font-bold">{insight.title}</h3>
-                  <p className="leading-relaxed text-gray-600">{insight.description}</p>
+                  <div className="flex-shrink-0" style={{ width: "216px", height: "216px" }}>
+                    <Image
+                      src={insight.icon}
+                      alt={insight.title}
+                      width={216}
+                      height={216}
+                      className="h-full w-full rounded-[0.75rem] object-cover"
+                      style={{ width: "216px", height: "216px", border: "2px solid white" }}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-start gap-4" style={{ paddingTop: "32px" }}>
+                    <h3 className="mb-4 text-xl font-bold" style={{ fontSize: "24px" }}>
+                      {insight.title}
+                    </h3>
+                    <p className="leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+                      {insight.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -349,60 +370,330 @@ export default function WhatsAppCaseStudy() {
         {/* Defining Problem Section */}
         <section className="py-20 md:py-28">
           <div className="mx-auto max-w-5xl">
-            <h2 className="mb-8 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]">
+            <h2
+              className="mb-8 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]"
+              style={{ marginBottom: "24px" }}
+            >
               Defining the problem
             </h2>
-            <p className="mb-16 max-w-3xl text-lg leading-relaxed text-gray-600 md:mb-20 md:text-xl">
+            <p
+              className="mb-16 max-w-3xl text-lg leading-relaxed text-gray-600 md:mb-20 md:text-xl"
+              style={{ fontSize: "20px", marginBottom: "32px" }}
+            >
               After analyzing the research and understanding the key insights, I was able to
               validate my initial hypothesis and define the problem statement(s) as user jobs:
             </p>
 
             {/* User Jobs */}
-            <div className="space-y-12 md:space-y-16">
+            <div className="flex justify-between gap-8">
               {/* Job 1 */}
-              <div className="grid items-center gap-8 lg:grid-cols-[320px_1fr]">
-                <div
-                  className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                  style={{ aspectRatio: "9/16" }}
-                >
-                  <div className="flex h-full items-center justify-center">
-                    <div className="space-y-3 text-center">
-                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-lg">
-                        <span className="text-4xl">💼</span>
-                      </div>
-                      <p className="text-sm font-semibold text-gray-900">Meeting scenario</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
-                  <p className="text-lg leading-relaxed text-gray-700 italic md:text-xl">
-                    &ldquo;When I receive a long audio message, I want to read a gist of it so that
-                    I can quickly understand the context.&rdquo;
+              <div
+                className="flex flex-1 flex-col gap-8 rounded-[1.5rem]"
+                style={{
+                  padding: "32px",
+                  backgroundColor: "rgb(250, 250, 250)",
+                  border: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                <Image
+                  src="/images/user_job_1.png"
+                  alt="Meeting scenario"
+                  width={320}
+                  height={568}
+                  className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
+                />
+                <div className="p-8 md:p-10">
+                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
+                    When I receive a long audio message, I want to read a gist of it so that I can
+                    quickly understand the context.
                   </p>
                 </div>
               </div>
 
               {/* Job 2 */}
-              <div className="grid items-center gap-8 lg:grid-cols-[320px_1fr]">
-                <div
-                  className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                  style={{ aspectRatio: "9/16" }}
-                >
-                  <div className="flex h-full items-center justify-center">
-                    <div className="space-y-3 text-center">
-                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-lg">
-                        <span className="text-4xl">🔍</span>
-                      </div>
-                      <p className="text-sm font-semibold text-gray-900">Search scenario</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
-                  <p className="text-lg leading-relaxed text-gray-700 italic md:text-xl">
-                    &ldquo;I want to search for keywords within voice notes to quickly find what I
-                    need in a chat history.&rdquo;
+              <div
+                className="flex flex-1 flex-col gap-8 rounded-[1.5rem]"
+                style={{
+                  padding: "32px",
+                  backgroundColor: "rgb(250, 250, 250)",
+                  border: "1px solid rgb(230, 230, 230)",
+                }}
+              >
+                <Image
+                  src="/images/user_job_2.png"
+                  alt="Search scenario"
+                  width={320}
+                  height={568}
+                  className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
+                />
+                <div className="p-8 md:p-10">
+                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
+                    I want to search for keywords within voice notes to quickly find what I need in
+                    a chat history.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Solution Section - User Job 1 */}
+        <section className="py-20 md:py-28">
+          <div className="mx-auto flex max-w-5xl flex-col gap-8">
+            <div className="mb-12 flex flex-col gap-4">
+              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 1</h2>
+              <p
+                className="text-lg leading-relaxed text-gray-600 italic md:text-xl"
+                style={{ fontSize: "20px" }}
+              >
+                &ldquo;When I receive a long audio message, I want to read a gist of it so that I
+                can quickly understand the context&rdquo;
+              </p>
+              <p
+                className="mb-8 text-lg leading-relaxed text-gray-600"
+                style={{ fontSize: "20px" }}
+              >
+                I figured that WhatsApp could use an AI model, which I&apos;m calling Meta AI, to
+                summarize voice notes. I knew the first version wouldn&apos;t be perfect, given how
+                AI is still evolving.
+              </p>
+
+              <p
+                className="mb-20 text-lg leading-relaxed text-gray-600"
+                style={{ fontSize: "20px" }}
+              >
+                So, here&apos;s my final solution, designed to tackle the challenges of
+                understanding voice notes in context.
+              </p>
+            </div>
+
+            {/* Feature Showcase */}
+            <div className="mb-24 flex flex-col gap-4">
+              <div className="mb-12 text-center">
+                <h3 className="mb-4 text-[2.25rem] font-bold md:text-[3rem]">
+                  Read quick summaries
+                </h3>
+                <p className="text-[1.75rem] text-gray-600 md:text-[2.25rem]">
+                  of your voice notes
+                </p>
+              </div>
+
+              {/* Video Placeholder */}
+              <div className="overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
+                <Image
+                  src=""
+                  alt="Concept for WhatsApp: Summary for voice notes"
+                  width={320}
+                  height={568}
+                  className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
+                />
+              </div>
+            </div>
+
+            {/* Iterations */}
+            <div className="space-y-20">
+              <p className="text-lg leading-relaxed text-gray-600">
+                Now, let me take you through the different iterations I went through before landing
+                on this final version.
+              </p>
+
+              {/* Iteration 1 */}
+              <div>
+                <h4 className="mb-10 text-2xl font-bold">Iteration 1 - Using a bottom sheet</h4>
+                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
+                  <div
+                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
+                    style={{ aspectRatio: "9/16" }}
+                  >
+                    <div className="flex h-full flex-col justify-between">
+                      <div className="pt-10 text-center">
+                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
+                          <span className="text-3xl">📱</span>
+                        </div>
+                      </div>
+                      <div className="rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur">
+                        <p className="text-center text-sm font-semibold text-gray-900">
+                          Bottom sheet UI
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
+                      Bottom sheet
+                      <br />
+                      to show summary of voice notes
+                    </h5>
+                    <p className="leading-relaxed text-gray-600">
+                      This iteration disrupted the chat flow. Displaying the AI summary in a bottom
+                      sheet would interrupt the ongoing conversation, leading to a poor user
+                      experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Iteration 1.5 */}
+              <div className="rounded-[2rem] border-2 border-amber-200 bg-amber-50 p-8 md:p-10">
+                <p className="mb-4 leading-relaxed text-gray-900">
+                  <strong className="text-lg">Iteration 1.5 - transcript or summary?</strong>
+                </p>
+                <p className="leading-relaxed text-gray-700">
+                  This iteration refines the copy. To save time, I opted for summarizing audio
+                  instead of transcribing it, as full transcriptions are not practical for long
+                  messages.
+                </p>
+              </div>
+
+              {/* Iteration 2 */}
+              <div>
+                <h4 className="mb-10 text-2xl font-bold">
+                  Iteration 2 - Expanding the voice notes UI element
+                </h4>
+                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
+                  <div
+                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
+                    style={{ aspectRatio: "9/16" }}
+                  >
+                    <div className="flex h-full items-center justify-center">
+                      <div className="space-y-3 text-center">
+                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
+                          <span className="text-3xl">✨</span>
+                        </div>
+                        <p className="text-xs font-medium text-gray-900">Expanded UI</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
+                      Vertical expansion of
+                      <br />
+                      the voice note UI element
+                    </h5>
+                    <p className="leading-relaxed text-gray-600">
+                      The problem with this iteration was that users wouldn&apos;t know what the AI
+                      summary button (the sparkle button) does. There&apos;s no clear indication of
+                      what to expect when they tap it.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Common Issues */}
+              <div className="rounded-[2rem] border-2 border-red-200 bg-red-50 p-8 md:p-10">
+                <p className="mb-6 text-lg font-semibold text-gray-900">
+                  Some common issues with the previous iterations (1 and 2):
+                </p>
+                <div className="space-y-6 text-gray-700">
+                  <div>
+                    <p className="mb-3 font-semibold text-gray-900">
+                      1. The AI summary button which the user taps on to see the summary:
+                    </p>
+                    <ul className="ml-6 space-y-2">
+                      <li>
+                        • <strong>Contextual placement:</strong> The AI summary button was misplaced
+                        outside the voice note UI, which felt counterintuitive since the summary
+                        remains within the chat context.
+                      </li>
+                      <li>
+                        • <strong>Confusion with forward button:</strong> The AI summary
+                        button&apos;s position, typically used for forwarding in text messages,
+                        could confuse users.
+                      </li>
+                    </ul>
+                  </div>
+                  <p>
+                    <strong className="text-gray-900">2. Lack of loading feedback:</strong> Users
+                    aren&apos;t told how long it takes to generate the summary, which could lead to
+                    uncertainty and frustration.
+                  </p>
+                  <p>
+                    <strong className="text-gray-900">3. Uncertainty about accuracy:</strong> The
+                    evolving AI technology might produce imperfect results. Users may assume
+                    complete accuracy due to the lack of information on its reliability and
+                    limitations.
+                  </p>
+                  <p>
+                    <strong className="text-gray-900">4. Unclear purpose:</strong> The lack of
+                    information about the generated text&apos;s nature can confuse users, as they
+                    may be unsure if it&apos;s a translation, transcript, or summary.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* User Job 2 - Search */}
+        <section className="py-20 md:py-28">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-12">
+              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 2 :</h2>
+              <p className="text-lg leading-relaxed text-gray-600 italic md:text-xl">
+                &ldquo;I want to search for keywords within voice notes to quickly find what I need
+                in a chat history&rdquo;
+              </p>
+            </div>
+
+            <p className="mb-20 text-lg leading-relaxed text-gray-600">
+              Taking all these issues into account, I developed the third iteration, which
+              ultimately became the final solution showcased in the first prototype.
+            </p>
+
+            {/* Redesigning Search Flow */}
+            <div className="mb-20">
+              <h3 className="mb-12 text-center text-[2rem] font-bold">
+                Redesigning the search flow
+              </h3>
+
+              {/* Video Placeholder */}
+              <div className="mb-12 overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
+                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                  <div className="space-y-6 text-center">
+                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl">
+                      <svg
+                        className="h-12 w-12 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <p className="font-medium text-gray-500">Video: Search in voice notes</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-center text-lg leading-relaxed text-gray-600">
+                This iteration automatically shows you the summary and highlights the part that
+                matches your search. So, no more scrolling through everything!
+              </p>
+            </div>
+
+            {/* Initial Iteration Issues */}
+            <div>
+              <h3 className="mb-10 text-2xl font-bold">Initial iteration of the search flow</h3>
+
+              <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
+                <p className="mb-8 font-medium text-gray-700">
+                  Now, let&apos;s break down the issues with this user flow.
+                </p>
+                <ul className="space-y-6 text-gray-700">
+                  <li>
+                    • <strong className="text-gray-900">Search results prioritization:</strong> On
+                    the search results screen, the audio summary takes priority over the actual
+                    audio files, which means the voice notes themselves aren&apos;t showing up in
+                    the results.
+                  </li>
+                  <li>
+                    • <strong className="text-gray-900">Visual clarity:</strong> It&apos;s visually
+                    difficult for users to tell that these are audio summaries linked to voice notes
+                    from different chats.
+                  </li>
+                </ul>
+                <p className="mt-8 font-medium text-gray-700">
+                  The final solution was created by considering all these loopholes.
+                </p>
               </div>
             </div>
           </div>
@@ -631,267 +922,6 @@ export default function WhatsAppCaseStudy() {
                 </span>
               </li>
             </ol>
-          </div>
-        </section>
-
-        {/* Solution Section - User Job 1 */}
-        <section className="bg-gray-50 py-20 md:py-28">
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-12">
-              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 1 :</h2>
-              <p className="text-lg leading-relaxed text-gray-600 italic md:text-xl">
-                &ldquo;When I receive a long audio message, I want to read a gist of it so that I
-                can quickly understand the context&rdquo;
-              </p>
-            </div>
-
-            <p className="mb-8 text-lg leading-relaxed text-gray-600">
-              I figured that WhatsApp could use an AI model, which I&apos;m calling Meta AI, to
-              summarize voice notes. I knew the first version wouldn&apos;t be perfect, given how AI
-              is still evolving.
-            </p>
-
-            <p className="mb-20 text-lg leading-relaxed text-gray-600">
-              So, here&apos;s my final solution, designed to tackle the challenges of understanding
-              voice notes in context.
-            </p>
-
-            {/* Feature Showcase */}
-            <div className="mb-24">
-              <div className="mb-12 text-center">
-                <h3 className="mb-4 text-[2.25rem] font-bold md:text-[3rem]">
-                  Read quick summaries
-                </h3>
-                <p className="text-[1.75rem] text-gray-600 md:text-[2.25rem]">
-                  of your voice notes
-                </p>
-              </div>
-
-              {/* Video Placeholder */}
-              <div className="overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
-                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                  <div className="space-y-6 text-center">
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl">
-                      <svg
-                        className="h-12 w-12 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="font-medium text-gray-500">Video: Summary for voice notes</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Iterations */}
-            <div className="space-y-20">
-              <p className="text-lg leading-relaxed text-gray-600">
-                Now, let me take you through the different iterations I went through before landing
-                on this final version.
-              </p>
-
-              {/* Iteration 1 */}
-              <div>
-                <h4 className="mb-10 text-2xl font-bold">Iteration 1 - Using a bottom sheet</h4>
-                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
-                  <div
-                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                    style={{ aspectRatio: "9/16" }}
-                  >
-                    <div className="flex h-full flex-col justify-between">
-                      <div className="pt-10 text-center">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
-                          <span className="text-3xl">📱</span>
-                        </div>
-                      </div>
-                      <div className="rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur">
-                        <p className="text-center text-sm font-semibold text-gray-900">
-                          Bottom sheet UI
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
-                      Bottom sheet
-                      <br />
-                      to show summary of voice notes
-                    </h5>
-                    <p className="leading-relaxed text-gray-600">
-                      This iteration disrupted the chat flow. Displaying the AI summary in a bottom
-                      sheet would interrupt the ongoing conversation, leading to a poor user
-                      experience.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Iteration 1.5 */}
-              <div className="rounded-[2rem] border-2 border-amber-200 bg-amber-50 p-8 md:p-10">
-                <p className="mb-4 leading-relaxed text-gray-900">
-                  <strong className="text-lg">Iteration 1.5 - transcript or summary?</strong>
-                </p>
-                <p className="leading-relaxed text-gray-700">
-                  This iteration refines the copy. To save time, I opted for summarizing audio
-                  instead of transcribing it, as full transcriptions are not practical for long
-                  messages.
-                </p>
-              </div>
-
-              {/* Iteration 2 */}
-              <div>
-                <h4 className="mb-10 text-2xl font-bold">
-                  Iteration 2 - Expanding the voice notes UI element
-                </h4>
-                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
-                  <div
-                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                    style={{ aspectRatio: "9/16" }}
-                  >
-                    <div className="flex h-full items-center justify-center">
-                      <div className="space-y-3 text-center">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
-                          <span className="text-3xl">✨</span>
-                        </div>
-                        <p className="text-xs font-medium text-gray-900">Expanded UI</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
-                      Vertical expansion of
-                      <br />
-                      the voice note UI element
-                    </h5>
-                    <p className="leading-relaxed text-gray-600">
-                      The problem with this iteration was that users wouldn&apos;t know what the AI
-                      summary button (the sparkle button) does. There&apos;s no clear indication of
-                      what to expect when they tap it.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Common Issues */}
-              <div className="rounded-[2rem] border-2 border-red-200 bg-red-50 p-8 md:p-10">
-                <p className="mb-6 text-lg font-semibold text-gray-900">
-                  Some common issues with the previous iterations (1 and 2):
-                </p>
-                <div className="space-y-6 text-gray-700">
-                  <div>
-                    <p className="mb-3 font-semibold text-gray-900">
-                      1. The AI summary button which the user taps on to see the summary:
-                    </p>
-                    <ul className="ml-6 space-y-2">
-                      <li>
-                        • <strong>Contextual placement:</strong> The AI summary button was misplaced
-                        outside the voice note UI, which felt counterintuitive since the summary
-                        remains within the chat context.
-                      </li>
-                      <li>
-                        • <strong>Confusion with forward button:</strong> The AI summary
-                        button&apos;s position, typically used for forwarding in text messages,
-                        could confuse users.
-                      </li>
-                    </ul>
-                  </div>
-                  <p>
-                    <strong className="text-gray-900">2. Lack of loading feedback:</strong> Users
-                    aren&apos;t told how long it takes to generate the summary, which could lead to
-                    uncertainty and frustration.
-                  </p>
-                  <p>
-                    <strong className="text-gray-900">3. Uncertainty about accuracy:</strong> The
-                    evolving AI technology might produce imperfect results. Users may assume
-                    complete accuracy due to the lack of information on its reliability and
-                    limitations.
-                  </p>
-                  <p>
-                    <strong className="text-gray-900">4. Unclear purpose:</strong> The lack of
-                    information about the generated text&apos;s nature can confuse users, as they
-                    may be unsure if it&apos;s a translation, transcript, or summary.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* User Job 2 - Search */}
-        <section className="py-20 md:py-28">
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-12">
-              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 2 :</h2>
-              <p className="text-lg leading-relaxed text-gray-600 italic md:text-xl">
-                &ldquo;I want to search for keywords within voice notes to quickly find what I need
-                in a chat history&rdquo;
-              </p>
-            </div>
-
-            <p className="mb-20 text-lg leading-relaxed text-gray-600">
-              Taking all these issues into account, I developed the third iteration, which
-              ultimately became the final solution showcased in the first prototype.
-            </p>
-
-            {/* Redesigning Search Flow */}
-            <div className="mb-20">
-              <h3 className="mb-12 text-center text-[2rem] font-bold">
-                Redesigning the search flow
-              </h3>
-
-              {/* Video Placeholder */}
-              <div className="mb-12 overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
-                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                  <div className="space-y-6 text-center">
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl">
-                      <svg
-                        className="h-12 w-12 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="font-medium text-gray-500">Video: Search in voice notes</p>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-center text-lg leading-relaxed text-gray-600">
-                This iteration automatically shows you the summary and highlights the part that
-                matches your search. So, no more scrolling through everything!
-              </p>
-            </div>
-
-            {/* Initial Iteration Issues */}
-            <div>
-              <h3 className="mb-10 text-2xl font-bold">Initial iteration of the search flow</h3>
-
-              <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
-                <p className="mb-8 font-medium text-gray-700">
-                  Now, let&apos;s break down the issues with this user flow.
-                </p>
-                <ul className="space-y-6 text-gray-700">
-                  <li>
-                    • <strong className="text-gray-900">Search results prioritization:</strong> On
-                    the search results screen, the audio summary takes priority over the actual
-                    audio files, which means the voice notes themselves aren&apos;t showing up in
-                    the results.
-                  </li>
-                  <li>
-                    • <strong className="text-gray-900">Visual clarity:</strong> It&apos;s visually
-                    difficult for users to tell that these are audio summaries linked to voice notes
-                    from different chats.
-                  </li>
-                </ul>
-                <p className="mt-8 font-medium text-gray-700">
-                  The final solution was created by considering all these loopholes.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 

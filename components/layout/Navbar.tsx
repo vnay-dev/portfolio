@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import "./NavbarShiny.css";
 
 const Navbar = () => {
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
@@ -14,15 +16,22 @@ const Navbar = () => {
   const navContainerRef = useRef<HTMLDivElement | null>(null);
 
   const navItems = useMemo(() => ([
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
     { name: "Work", href: "#work" },
     { name: "About Me", href: "#about" },
     { name: "Resume", href: "#resume" },
   ]), []);
 
-  const handleLinkClick = (linkName: string, href: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, linkName: string, href: string) => {
+    e.preventDefault();
     setActiveLink(linkName);
     updateGlowPosition(linkName);
+    
+    // Handle navigation to home page
+    if (href === "/") {
+      router.push("/");
+      return;
+    }
     
     // Handle smooth scrolling for internal links
     if (href.startsWith('#')) {
@@ -146,7 +155,7 @@ const Navbar = () => {
                     initial={{ filter: "blur(10px)", opacity: 0 }}
                     animate={{ filter: "blur(0px)", opacity: 1 }}
                     transition={{ duration: 2.0, ease: [0.4, 0.0, 0.2, 1], delay: index * 0.1 + 0.2 }}
-                    onClick={() => { handleLinkClick(item.name, item.href); setIsMobileMenuOpen(false); }}
+                    onClick={(e) => { handleLinkClick(e, item.name, item.href); setIsMobileMenuOpen(false); }}
                     className={`font-hanken text-xl transition-all duration-300 ${activeLink === item.name ? "text-gray-900 font-semibold" : "text-gray-600 hover:text-gray-900"}`}
                   >
                     {item.name}
@@ -218,7 +227,7 @@ const Navbar = () => {
                   key={item.name}
                   ref={(el) => { navRefs.current[index] = el; }}
                   href={item.href}
-                  onClick={() => handleLinkClick(item.name, item.href)}
+                  onClick={(e) => handleLinkClick(e, item.name, item.href)}
                   onMouseEnter={() => handleMouseEnter(item.name)}
                   onMouseLeave={handleMouseLeave}
                   initial={{ filter: "blur(8px)", opacity: 0 }}

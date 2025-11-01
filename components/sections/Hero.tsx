@@ -638,7 +638,7 @@ export function Hero() {
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="hero-photo flex-shrink-0 overflow-hidden rounded-full"
             style={{
-              backgroundImage: "url(/images/profile_pic_head.jpg)",
+              backgroundImage: "url(/images/profile_pic.jpg)",
               backgroundSize: "120%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
