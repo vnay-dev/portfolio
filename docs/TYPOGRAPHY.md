@@ -202,7 +202,7 @@ Replace hardcoded sizes with typography classes:
 ```tsx
 export default function ExamplePage() {
   return (
-    <div className="container-padding py-20">
+    <div className=" py-20">
       {/* Hero Section */}
       <div className="mb-16 text-center">
         <span className="text-overline text-accent mb-4 block">Welcome</span>

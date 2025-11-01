@@ -12,8 +12,11 @@ export function Projects() {
   };
 
   return (
-    <section className="relative w-full" style={{ backgroundColor: "#ffffff", padding: "64px 0" }}>
-      <div style={{ margin: "0 auto", padding: "0 32px" }}>
+    <section
+      className="relative flex w-full justify-center"
+      style={{ backgroundColor: "#ffffff", padding: "64px 0" }}
+    >
+      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -42,7 +45,6 @@ export function Projects() {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
             }}
           >
             <div
@@ -50,7 +52,6 @@ export function Projects() {
               style={{
                 borderRadius: "24px",
                 aspectRatio: "2048/1234",
-                width: "60%",
                 maxWidth: "100%",
                 alignItems: "center",
               }}

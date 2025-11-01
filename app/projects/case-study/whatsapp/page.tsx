@@ -1,17 +1,57 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function WhatsAppCaseStudy() {
+  // Carousel data with questions and objectives
+  const carouselData = [
+    {
+      question: "Who do you typically send audio messages to?",
+      objective: "To understand the personal comfort and context involved in using this feature",
+    },
+    {
+      question: "What is your experience with the fast forward feature for voice notes?",
+      objective: "To determine how often users make use of this feature",
+    },
+    {
+      question:
+        "How do you feel when someone continues to send you only audio messages in a conversation?",
+      objective: "To understand user tolerance levels and when the feature becomes frustrating",
+    },
+    {
+      question: "How do you find important conversations in chats with many voice notes?",
+      objective: "To assess the difficulty of locating specific voice notes in a busy chat history",
+    },
+    {
+      question: "When was the last time you sent or received an audio message?",
+      objective: "To understand how frequently users utilize this feature",
+    },
+    {
+      question: "How do you decide when to listen to audio messages?",
+      objective: "To explore how users manage their time to listening to audio messages",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide carousel every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [carouselData.length]);
+
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="flex min-h-screen justify-center bg-white text-gray-900">
       {/* Main Content Container */}
-      <div className="flex flex-col gap-[56px]">
+      <div className="mx-auto flex flex-col gap-[56px]" style={{ maxWidth: "1080px" }}>
         {/* Hero Section */}
-        <section className="container-padding" style={{ paddingTop: "240px" }}>
+        <section style={{ paddingTop: "240px" }}>
           <div className="mx-auto flex max-w-5xl flex-col gap-[56px] text-center">
-            <h1 className="mx-auto max-w-4xl text-[2rem] leading-[1.1] font-bold tracking-tight md:text-[3rem] xl:text-[3.75rem]">
+            <h1 className="mx-auto max-w-4xl text-[2rem] leading-[1.1] font-bold tracking-tight md:text-[3rem] xl:text-[3.5rem]">
               Smart voice notes: Keep the chat flowing
             </h1>
 
@@ -22,7 +62,7 @@ export default function WhatsAppCaseStudy() {
                 alt="WhatsApp voice notes feature demonstration"
                 width={952}
                 height={421}
-                className="h-auto w-full rounded-[3rem]"
+                className="h-auto w-full rounded-[1.5rem]"
               />
             </div>
 
@@ -30,7 +70,7 @@ export default function WhatsAppCaseStudy() {
             <div className="relative">
               {/* Container with pseudo-element border */}
               <div
-                className="relative flex flex-row items-center rounded-2xl"
+                className="relative flex flex-row items-center"
                 style={{
                   isolation: "isolate",
                   padding: "18px 24px",
@@ -39,7 +79,7 @@ export default function WhatsAppCaseStudy() {
               >
                 {/* Green border via pseudo-element */}
                 <div
-                  className="pointer-events-none absolute inset-0 rounded-2xl"
+                  className="pointer-events-none absolute inset-0 rounded-[0.75rem]"
                   style={{
                     zIndex: 1,
                     background: "#fff5eb",
@@ -60,7 +100,7 @@ export default function WhatsAppCaseStudy() {
                 {/* Text Content */}
                 <div
                   className="relative z-10 flex-1 text-left text-sm leading-relaxed text-black md:text-base"
-                  style={{ fontSize: "24px" }}
+                  style={{ fontSize: "20px" }}
                 >
                   Looks like WhatsApp and I were on the same page! They just released
                   &ldquo;Transcripts&rdquo;, which is pretty similar to what I visualized in this
@@ -81,9 +121,12 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Problem Statement 1 */}
-        <section className="container-padding">
+        <section>
           <div className="mx-auto flex max-w-5xl flex-col gap-[56px]">
-            <p className="max-w-4xl text-xl leading-relaxed font-normal md:text-2xl">
+            <p
+              className="max-w-4xl leading-relaxed font-normal md:text-2xl"
+              style={{ fontSize: "20px" }}
+            >
               Ever been stuck in a situation where someone important sends you a bunch of voice
               notes but you just can&apos;t listen or reply right away?
             </p>
@@ -95,13 +138,13 @@ export default function WhatsAppCaseStudy() {
                 alt="WhatsApp Case Study Animation"
                 width={360}
                 height={640}
-                className="w-full max-w-[360px] rounded-[3rem]"
+                className="w-full max-w-[360px] rounded-[1.5rem]"
               />
             </div>
 
             <p
               className="mx-auto max-w-3xl text-lg leading-relaxed md:text-xl"
-              style={{ fontSize: "24px" }}
+              style={{ fontSize: "20px" }}
             >
               Imagine you&apos;re in an important meeting and your parents send a bunch of voice
               notes. You can&apos;t check them and not knowing what they&apos;re about keeps you
@@ -115,34 +158,38 @@ export default function WhatsAppCaseStudy() {
                 alt="WhatsApp voice notes scenario demonstration"
                 width={400}
                 height={300}
-                className="w-full max-w-[400px] rounded-[3rem]"
+                className="w-full max-w-[400px] rounded-[1.5rem]"
               />
             </div>
           </div>
         </section>
 
         {/* Problem Statement 2 */}
-        <section className="container-padding">
+        <section>
           <div className="mx-auto max-w-6xl">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <h2 className="mb-6 text-[2rem] leading-[1.2] font-bold text-balance md:text-[2.5rem]">
+              <div className="flex flex-col gap-6">
+                <h2 className="text-[2rem] leading-[1.2] font-bold text-balance md:text-[2.5rem]">
                   Scrolling through a long list of voice notes..
                 </h2>
-                <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
+                <p
+                  className="text-lg leading-relaxed text-gray-600 md:text-xl"
+                  style={{ fontSize: "20px" }}
+                >
                   ...means playing each one separately. If they&apos;re all over the place or mixed
                   with other messages, it&apos;s tough to make sense of them, especially when the
                   conversation&apos;s old.
                 </p>
               </div>
 
-              <div className="flex min-h-[400px] items-center justify-center rounded-[2.5rem] bg-transparent p-16">
+              <div className="flex min-h-[375px] items-center justify-end bg-transparent p-16">
                 <Image
                   src="https://framerusercontent.com/images/w7zAWHfUipslwAkHjCYnTZHUeU.png"
                   alt="Scrolling animation"
-                  width={400}
-                  height={400}
-                  className="w-full max-w-[400px] rounded-2xl"
+                  width={375}
+                  height={375}
+                  className="w-full"
+                  style={{ maxWidth: "375px" }}
                 />
               </div>
             </div>
@@ -150,7 +197,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Validation Section */}
-        <section className="container-padding">
+        <section>
           <div className="mx-auto flex max-w-5xl flex-col gap-20">
             <div className="flex flex-col gap-8">
               <h2 className="text-[2.25rem] leading-[1.2] font-bold text-balance md:text-[3rem]">
@@ -164,43 +211,90 @@ export default function WhatsAppCaseStudy() {
             </div>
 
             {/* User Interview Card with Carousel */}
-            <div className="rounded-[2rem] bg-[#1A4331] p-20 shadow-xl">
-              <h3 className="mb-24 text-center text-[1.75rem] font-bold text-white md:text-[2.25rem]">
+            <div
+              className="flex flex-col gap-[24px] rounded-[1.5rem] bg-[#004931]"
+              style={{ padding: "48px" }}
+            >
+              <p className="text-center text-white" style={{ fontSize: "32px" }}>
                 User interviews questions and objectives
-              </h3>
+              </p>
 
-              {/* Current Question Display - Centered */}
-              <div className="flex justify-center">
-                <div className="w-full max-w-md rounded-[1.5rem] bg-[#E6F7E6] p-16 shadow-lg">
-                  <p className="mb-16 text-left text-xl leading-relaxed font-medium text-[#1A4331] md:text-2xl">
-                    Who do you typically send audio messages to?
-                  </p>
+              {/* Carousel Container */}
+              <div className="relative" style={{ padding: "0 8px 16px 8px", overflow: "hidden" }}>
+                <div
+                  className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+                  style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                  }}
+                >
+                  {carouselData.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex min-w-full justify-center"
+                      style={{ flexShrink: 0 }}
+                    >
+                      <div
+                        className="flex flex-col items-center gap-[48px] rounded-[1.5rem] bg-[#E6F7E6]"
+                        style={{
+                          padding: "36px",
+                          width: "720px",
+                          maxWidth: "75%",
+                          justifyContent: "space-between",
+                          boxShadow: "8px 8px 0px 0px #00d757",
+                        }}
+                      >
+                        <p className="mb-16 text-center text-xl leading-relaxed font-medium text-[#00754f] md:text-2xl">
+                          {item.question}
+                        </p>
 
-                  {/* Objective Separator */}
-                  <div className="relative mb-12">
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full border-t border-[#D8D8D8]"></div>
-                    </div>
-                    <div className="relative flex justify-center">
-                      <div className="rounded-full border border-[#D8D8D8] bg-[#E6F7E6] px-4 py-1">
-                        <span className="text-sm font-bold tracking-wide text-[#1A4331] uppercase">
-                          Objective
-                        </span>
+                        {/* Objective Separator */}
+                        <div className="relative mb-12 w-full">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div
+                              className="w-1/2 border-t border-[#00d757]"
+                              style={{ borderTopWidth: "0.5px" }}
+                            ></div>
+                          </div>
+                          <div className="relative flex justify-center">
+                            <div
+                              className="rounded-full border border-[#00d757] bg-[#E6F7E6]"
+                              style={{ padding: "4px 12px" }}
+                            >
+                              <span className="text-sm tracking-wide text-[#00d757]">
+                                Objective
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="text-center text-lg leading-relaxed text-[#1A4331]">
+                          {item.objective}
+                        </p>
                       </div>
                     </div>
-                  </div>
-
-                  <p className="text-left text-lg leading-relaxed text-[#1A4331]">
-                    To understand the personal comfort and context involved in using this feature
-                  </p>
+                  ))}
                 </div>
+              </div>
+
+              {/* Carousel Indicators */}
+              <div className="mt-6 flex justify-center gap-2">
+                {carouselData.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex ? "w-8 bg-[#00d757]" : "w-2 bg-white/50"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </section>
 
         {/* Insights Section */}
-        <section className="container-padding bg-gray-50 py-20 md:py-28">
+        <section className="bg-gray-50 py-20 md:py-28">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-16 text-[2.25rem] leading-[1.2] font-bold md:mb-20 md:text-[3rem]">
               Insights from user interviews
@@ -253,7 +347,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Defining Problem Section */}
-        <section className="container-padding py-20 md:py-28">
+        <section className="py-20 md:py-28">
           <div className="mx-auto max-w-5xl">
             <h2 className="mb-8 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]">
               Defining the problem
@@ -315,7 +409,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Tech Constraints Section */}
-        <section className="container-padding bg-gray-50 py-20 md:py-28">
+        <section className="bg-gray-50 py-20 md:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 md:mb-20">
               <h2 className="mb-8 text-[2.25rem] leading-[1.2] font-bold text-balance md:text-[3rem]">
@@ -514,7 +608,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Challenges Section */}
-        <section className="container-padding py-20 md:py-28">
+        <section className="py-20 md:py-28">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-16 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]">
               Challenges
@@ -541,7 +635,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Solution Section - User Job 1 */}
-        <section className="container-padding bg-gray-50 py-20 md:py-28">
+        <section className="bg-gray-50 py-20 md:py-28">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12">
               <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 1 :</h2>
@@ -727,7 +821,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* User Job 2 - Search */}
-        <section className="container-padding py-20 md:py-28">
+        <section className="py-20 md:py-28">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12">
               <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 2 :</h2>
@@ -802,7 +896,7 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Thanks Section */}
-        <section className="container-padding bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] py-24 md:py-32">
+        <section className="bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] py-24 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-10 text-[2.75rem] font-bold md:text-[4rem]">
               Thanks for sticking around!

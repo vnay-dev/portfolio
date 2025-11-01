@@ -626,13 +626,10 @@ export function Hero() {
       </div>
 
       {/* Main Content */}
-      <div
-        className="relative z-10 flex min-h-screen w-full items-center justify-center"
-        style={{ padding: "0 24px" }}
-      >
+      <div className="relative z-10 flex min-h-screen w-full items-center justify-center">
         <div
-          className="flex w-full flex-col items-center text-center"
-          style={{ maxWidth: "1152px", margin: "0 auto", paddingTop: "0", paddingBottom: "0" }}
+          className="mx-auto flex w-full flex-col items-center text-center"
+          style={{ maxWidth: "1080px", paddingTop: "0", paddingBottom: "0" }}
         >
           {/* Profile Photo - At Top */}
           <motion.div
