@@ -16,7 +16,7 @@ Welcome! This guide provides a detailed walkthrough of everything that's been se
 - ✅ Custom CSS with Gilroy font configuration
 - ✅ Dark mode support
 - ✅ Custom color scheme (easily customizable)
-- ✅ Responsive utilities (container-padding)
+- ✅ Responsive utilities ()
 - ✅ Custom scrollbar styles
 
 ### 3. Animation & Interactions
