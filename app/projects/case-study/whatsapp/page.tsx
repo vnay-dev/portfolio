@@ -483,7 +483,7 @@ export default function WhatsAppCaseStudy() {
                 </h3>
               </div>
 
-              {/* Video Placeholder */}
+              {/* Final screens placeholder */}
               <div className="overflow-hidden p-6">
                 <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
                   <div
@@ -558,39 +558,83 @@ export default function WhatsAppCaseStudy() {
 
             {/* Iterations */}
             <div className="space-y-20">
-              <p className="text-lg leading-relaxed text-gray-600">
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
                 Now, let me take you through the different iterations I went through before landing
                 on this final version.
               </p>
 
               {/* Iteration 1 */}
               <div>
-                <h4 className="mb-10 text-2xl font-bold">Iteration 1 - Using a bottom sheet</h4>
-                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
-                  <div
-                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                    style={{ aspectRatio: "9/16" }}
-                  >
-                    <div className="flex h-full flex-col justify-between">
-                      <div className="pt-10 text-center">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
-                          <span className="text-3xl">📱</span>
+                <h4 className="mb-10 text-2xl font-bold" style={{ marginBottom: "48px" }}>
+                  Iteration 1 - Using a bottom sheet
+                </h4>
+                <div className="flex flex-col items-start gap-10">
+                  <div className="p-8">
+                    <div className="overflow-hidden p-6">
+                      <div
+                        className="mb-24 flex flex-col gap-4 rounded-[1.5rem]"
+                        style={{ backgroundColor: "#e2fed7", padding: "48px" }}
+                      >
+                        <div className="text-center">
+                          <h3 className="body-large" style={{ fontSize: "36px" }}>
+                            <span style={{ color: "#1c1c1c", letterSpacing: "0" }}>
+                              Bottom sheet
+                            </span>
+                            <span
+                              className="block text-[1.75rem] md:text-[2.25rem]"
+                              style={{ color: "#00db4b" }}
+                            >
+                              to show summary of voice notes
+                            </span>
+                          </h3>
                         </div>
-                      </div>
-                      <div className="rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur">
-                        <p className="text-center text-sm font-semibold text-gray-900">
-                          Bottom sheet UI
-                        </p>
+
+                        {/* Final screens placeholder */}
+                        <div className="overflow-hidden p-6">
+                          <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+                            <div
+                              className="flex items-center justify-center"
+                              style={{ flex: "1 1 0", maxWidth: "100%" }}
+                            >
+                              <img
+                                src="/images/uj1_itr1_scr1.png"
+                                alt="WhatsApp AI summary - Screen 1"
+                                width={300}
+                                height={650}
+                                style={{
+                                  width: "100%",
+                                  height: "auto",
+                                  maxWidth: "100%",
+                                  objectFit: "contain",
+                                  transform: "scale(0.8)",
+                                }}
+                              />
+                            </div>
+                            <div
+                              className="flex items-center justify-center"
+                              style={{ flex: "1 1 0", maxWidth: "100%" }}
+                            >
+                              <img
+                                src="/images/uj1_itr1_scr2.png"
+                                alt="WhatsApp AI summary - Screen 2"
+                                width={300}
+                                height={650}
+                                style={{
+                                  width: "100%",
+                                  height: "auto",
+                                  maxWidth: "100%",
+                                  objectFit: "contain",
+                                  transform: "scale(0.8)",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
-                      Bottom sheet
-                      <br />
-                      to show summary of voice notes
-                    </h5>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
                       This iteration disrupted the chat flow. Displaying the AI summary in a bottom
                       sheet would interrupt the ongoing conversation, leading to a poor user
                       experience.
@@ -600,7 +644,7 @@ export default function WhatsAppCaseStudy() {
               </div>
 
               {/* Iteration 1.5 */}
-              <div className="rounded-[2rem] border-2 border-amber-200 bg-amber-50 p-8 md:p-10">
+              <div style={{ marginBottom: "48px" }}>
                 <p className="mb-4 leading-relaxed text-gray-900">
                   <strong className="text-lg">Iteration 1.5 - transcript or summary?</strong>
                 </p>
@@ -613,30 +657,68 @@ export default function WhatsAppCaseStudy() {
 
               {/* Iteration 2 */}
               <div>
-                <h4 className="mb-10 text-2xl font-bold">
+                <h4 className="text-2xl font-bold" style={{ marginBottom: "48px" }}>
                   Iteration 2 - Expanding the voice notes UI element
                 </h4>
-                <div className="grid items-start gap-10 md:grid-cols-[320px_1fr]">
+                <div className="flex flex-col gap-10">
                   <div
-                    className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-8 shadow-xl"
-                    style={{ aspectRatio: "9/16" }}
+                    className="rounded-[2.5rem]"
+                    style={{ backgroundColor: "#e2fed7", padding: "48px" }}
                   >
-                    <div className="flex h-full items-center justify-center">
-                      <div className="space-y-3 text-center">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
-                          <span className="text-3xl">✨</span>
+                    <div className="text-center">
+                      <h3 className="body-large" style={{ fontSize: "36px" }}>
+                        <span style={{ color: "#1c1c1c", letterSpacing: "0" }}>Bottom sheet</span>
+                        <span
+                          className="block text-[1.75rem] md:text-[2.25rem]"
+                          style={{ color: "#00db4b" }}
+                        >
+                          to show summary of voice notes
+                        </span>
+                      </h3>
+                    </div>
+                    <div className="overflow-hidden p-6">
+                      <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+                        <div
+                          className="flex items-center justify-center"
+                          style={{ flex: "1 1 0", maxWidth: "100%" }}
+                        >
+                          <img
+                            src="/images/uj1_itr2_scr1.png"
+                            alt="WhatsApp AI summary - Screen 1"
+                            width={300}
+                            height={650}
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                              maxWidth: "100%",
+                              objectFit: "contain",
+                              transform: "scale(0.75)",
+                            }}
+                          />
                         </div>
-                        <p className="text-xs font-medium text-gray-900">Expanded UI</p>
+                        <div
+                          className="flex items-center justify-center"
+                          style={{ flex: "1 1 0", maxWidth: "100%" }}
+                        >
+                          <img
+                            src="/images/uj1_itr2_scr2.png"
+                            alt="WhatsApp AI summary - Screen 2"
+                            width={300}
+                            height={650}
+                            style={{
+                              width: "100%",
+                              height: "auto",
+                              maxWidth: "100%",
+                              objectFit: "contain",
+                              transform: "scale(0.75)",
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h5 className="mb-4 text-xl font-bold text-[#25d366]">
-                      Vertical expansion of
-                      <br />
-                      the voice note UI element
-                    </h5>
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
                       The problem with this iteration was that users wouldn&apos;t know what the AI
                       summary button (the sparkle button) does. There&apos;s no clear indication of
                       what to expect when they tap it.
@@ -646,16 +728,19 @@ export default function WhatsAppCaseStudy() {
               </div>
 
               {/* Common Issues */}
-              <div className="rounded-[2rem] border-2 border-red-200 bg-red-50 p-8 md:p-10">
-                <p className="mb-6 text-lg font-semibold text-gray-900">
+              <div className="flex flex-col gap-10">
+                <p
+                  className="mb-6 text-lg font-semibold text-gray-900"
+                  style={{ fontSize: "20px" }}
+                >
                   Some common issues with the previous iterations (1 and 2):
                 </p>
-                <div className="space-y-6 text-gray-700">
-                  <div>
-                    <p className="mb-3 font-semibold text-gray-900">
+                <div className="flex flex-col gap-10 space-y-6 text-gray-700">
+                  <div className="flex flex-col gap-10">
+                    <p className="mb-3 font-semibold text-gray-900" style={{ fontSize: "20px" }}>
                       1. The AI summary button which the user taps on to see the summary:
                     </p>
-                    <ul className="ml-6 space-y-2">
+                    <ul className="ml-6 flex flex-col gap-4" style={{ fontSize: "20px" }}>
                       <li>
                         • <strong>Contextual placement:</strong> The AI summary button was misplaced
                         outside the voice note UI, which felt counterintuitive since the summary
@@ -668,21 +753,42 @@ export default function WhatsAppCaseStudy() {
                       </li>
                     </ul>
                   </div>
-                  <p>
-                    <strong className="text-gray-900">2. Lack of loading feedback:</strong> Users
-                    aren&apos;t told how long it takes to generate the summary, which could lead to
-                    uncertainty and frustration.
+                  <img
+                    src="/images/iteration2_poster1.jpg"
+                    alt="Iterations 2 poster"
+                    className="rounded-[1.5rem]"
+                  />
+                  <p style={{ fontSize: "20px" }}>
+                    <strong className="text-gray-900" style={{ fontSize: "20px" }}>
+                      2. Lack of loading feedback:
+                    </strong>{" "}
+                    Users aren&apos;t told how long it takes to generate the summary, which could
+                    lead to uncertainty and frustration.
                   </p>
-                  <p>
+                  <p style={{ fontSize: "20px" }}>
                     <strong className="text-gray-900">3. Uncertainty about accuracy:</strong> The
                     evolving AI technology might produce imperfect results. Users may assume
                     complete accuracy due to the lack of information on its reliability and
                     limitations.
                   </p>
-                  <p>
+                  <img
+                    src="/images/iteration2_poster2.jpg"
+                    alt="Iterations 2 poster"
+                    className="rounded-[1.5rem]"
+                  />
+                  <p style={{ fontSize: "20px" }}>
                     <strong className="text-gray-900">4. Unclear purpose:</strong> The lack of
                     information about the generated text&apos;s nature can confuse users, as they
                     may be unsure if it&apos;s a translation, transcript, or summary.
+                  </p>
+                  <img
+                    src="/images/iteration2_poster3.jpg"
+                    alt="Iterations 2 poster"
+                    className="rounded-[1.5rem]"
+                  />
+                  <p style={{ fontSize: "20px" }}>
+                    After taking all these issues into account, the third iteration was developed,
+                    which eventually became the final solution presented in the first prototype.
                   </p>
                 </div>
               </div>
