@@ -210,6 +210,16 @@ canvas {
   }
 }
 
+/* Infinite ticker scroll animation */
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .text-balance {
   text-wrap: balance;
 }

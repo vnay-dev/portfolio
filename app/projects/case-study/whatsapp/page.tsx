@@ -67,6 +67,30 @@ export default function WhatsAppCaseStudy() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Image carousel data for "Redesigning the search flow" section
+  const searchImages = [
+    {
+      src: "/images/uj2_screen1.png",
+      description: "User taps on the search bar",
+    },
+    {
+      src: "/images/uj2_screen2.png",
+      description: "Starts typing 'Apple'",
+    },
+    {
+      src: "/images/uj2_screen3.png",
+      description: "Coninues typing 'Apple'",
+    },
+    {
+      src: "/images/uj2_screen4.png",
+      description: "Finished typing 'Apple'",
+    },
+    {
+      src: "/images/uj2_screen5.png",
+      description: "Collapsible summary",
+    },
+  ];
+
   // Auto-slide carousel every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -800,43 +824,130 @@ export default function WhatsAppCaseStudy() {
         <section className="py-20 md:py-28">
           <div className="mx-auto max-w-5xl">
             <div className="mb-12">
-              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 2 :</h2>
-              <p className="text-lg leading-relaxed text-gray-600 italic md:text-xl">
+              <h2
+                className="mb-6 text-[2rem] font-bold md:text-[2.5rem]"
+                style={{ marginBottom: "48px" }}
+              >
+                User job 2 :
+              </h2>
+              <p
+                className="text-lg leading-relaxed text-gray-600 italic md:text-xl"
+                style={{ marginBottom: "48px" }}
+              >
                 &ldquo;I want to search for keywords within voice notes to quickly find what I need
                 in a chat history&rdquo;
               </p>
             </div>
 
-            <p className="mb-20 text-lg leading-relaxed text-gray-600">
+            <p
+              className="mb-20 text-lg leading-relaxed text-gray-600"
+              style={{ marginBottom: "48px" }}
+            >
               Taking all these issues into account, I developed the third iteration, which
               ultimately became the final solution showcased in the first prototype.
             </p>
 
             {/* Redesigning Search Flow */}
             <div className="mb-20">
-              <h3 className="mb-12 text-center text-[2rem] font-bold">
-                Redesigning the search flow
-              </h3>
+              <div
+                className="rounded-[2.5rem]"
+                style={{ backgroundColor: "#fef5ea", padding: "48px", marginBottom: "48px" }}
+              >
+                <div className="text-center">
+                  <h3 className="body-large" style={{ fontSize: "36px" }}>
+                    <span
+                      className="block text-[1.75rem] md:text-[2.25rem]"
+                      style={{ color: "#00db4b" }}
+                    >
+                      Redesigning the search flow
+                    </span>
+                  </h3>
+                </div>
+                <div className="overflow-hidden p-6">
+                  <div
+                    className="relative flex w-full items-center justify-center overflow-hidden"
+                    style={{ minHeight: "400px" }}
+                  >
+                    <div
+                      className="flex"
+                      style={{
+                        animation: `scroll-ticker ${searchImages.length * 5}s linear infinite`,
+                        width: `${searchImages.length * 200}%`,
+                      }}
+                    >
+                      {/* Duplicate images for seamless loop */}
+                      {[...searchImages, ...searchImages].map((imageData, index) => {
+                        const imageIndex = index % searchImages.length;
+                        const isSecondDescription = imageData.description.includes("Starts typing");
+                        const isThirdDescription =
+                          imageData.description.includes("Coninues typing");
 
-              {/* Video Placeholder */}
-              <div className="mb-12 overflow-hidden rounded-[2.5rem] border-2 border-gray-200 bg-white">
-                <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                  <div className="space-y-6 text-center">
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl">
-                      <svg
-                        className="h-12 w-12 text-gray-400"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                        return (
+                          <div
+                            key={index}
+                            className="flex flex-col items-center justify-center gap-4"
+                            style={{
+                              width: "500px",
+                              flexShrink: 0,
+                              padding: "0 12px",
+                            }}
+                          >
+                            <span
+                              className="text-center text-sm font-medium text-gray-700"
+                              style={{ fontSize: "16px" }}
+                            >
+                              {isSecondDescription ? (
+                                <>
+                                  Starts typing &apos;
+                                  <span>A</span>
+                                  <span style={{ opacity: 0.3 }}>pple</span>&apos;
+                                </>
+                              ) : isThirdDescription ? (
+                                <>
+                                  Coninues typing &apos;
+                                  <span>App</span>
+                                  <span style={{ opacity: 0.3 }}>le</span>&apos;
+                                </>
+                              ) : (
+                                imageData.description
+                              )}
+                            </span>
+                            <img
+                              src={imageData.src}
+                              alt={`WhatsApp AI summary - Screen ${imageIndex + 1}`}
+                              width={300}
+                              height={650}
+                              style={{
+                                width: "100%",
+                                height: "auto",
+                                maxWidth: "100%",
+                                objectFit: "contain",
+                                transform: "scale(0.85)",
+                              }}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
-                    <p className="font-medium text-gray-500">Video: Search in voice notes</p>
                   </div>
                 </div>
               </div>
-
-              <p className="text-center text-lg leading-relaxed text-gray-600">
+              <div className="flex justify-center">
+                <div
+                  className="w-full max-w-4xl"
+                  style={{ aspectRatio: "16/9", marginBottom: "48px" }}
+                >
+                  <iframe
+                    src="https://www.youtube.com/embed/a_jS0rgBODA?autoplay=1&mute=1&playsinline=1&vq=hd1080"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="h-full w-full rounded-[1.5rem]"
+                    style={{ border: "none" }}
+                  />
+                </div>
+              </div>
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
                 This iteration automatically shows you the summary and highlights the part that
                 matches your search. So, no more scrolling through everything!
               </p>
