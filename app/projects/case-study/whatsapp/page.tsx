@@ -91,6 +91,25 @@ export default function WhatsAppCaseStudy() {
     },
   ];
 
+  const initialIterationImages = [
+    {
+      src: "/images/uj2_itr1_screen1.png",
+      description: "User taps on the search bar",
+    },
+    {
+      src: "/images/uj2_itr1_screen2.png",
+      description: "Starts typing 'Apples'",
+    },
+    {
+      src: "/images/uj2_itr1_screen3.png",
+      description: "Coninues typing 'Apples'",
+    },
+    {
+      src: "/images/uj2_itr1_screen4.png",
+      description: "Finished typing 'Apples'",
+    },
+  ];
+
   // Auto-slide carousel every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -951,13 +970,101 @@ export default function WhatsAppCaseStudy() {
                 This iteration automatically shows you the summary and highlights the part that
                 matches your search. So, no more scrolling through everything!
               </p>
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
+                Let me walk you through my thought process and how it all came together to lead to
+                the final solution.
+              </p>
+              <div
+                className="rounded-[2.5rem]"
+                style={{ backgroundColor: "#fef5ea", padding: "48px", marginBottom: "48px" }}
+              >
+                <div className="text-center">
+                  <h3 className="body-large" style={{ fontSize: "36px" }}>
+                    <span
+                      className="block text-[1.75rem] md:text-[2.25rem]"
+                      style={{ color: "#00db4b" }}
+                    >
+                      Initial iteration of the search flow
+                    </span>
+                  </h3>
+                </div>
+                <div className="overflow-hidden p-6">
+                  <div
+                    className="relative flex w-full items-center justify-center overflow-hidden"
+                    style={{ minHeight: "400px" }}
+                  >
+                    <div
+                      className="flex"
+                      style={{
+                        animation: `scroll-ticker ${initialIterationImages.length * 5}s linear infinite`,
+                        width: `${initialIterationImages.length * 200}%`,
+                      }}
+                    >
+                      {/* Duplicate images for seamless loop */}
+                      {[...initialIterationImages, ...initialIterationImages].map(
+                        (imageData, index) => {
+                          const imageIndex = index % initialIterationImages.length;
+                          const isSecondDescription =
+                            imageData.description.includes("Starts typing");
+                          const isThirdDescription =
+                            imageData.description.includes("Coninues typing");
+
+                          return (
+                            <div
+                              key={index}
+                              className="flex flex-col items-center justify-center gap-4"
+                              style={{
+                                width: "500px",
+                                flexShrink: 0,
+                                padding: "0 12px",
+                              }}
+                            >
+                              <span
+                                className="text-center text-sm font-medium text-gray-700"
+                                style={{ fontSize: "16px" }}
+                              >
+                                {isSecondDescription ? (
+                                  <>
+                                    Starts typing &apos;
+                                    <span>A</span>
+                                    <span style={{ opacity: 0.3 }}>pple</span>&apos;
+                                  </>
+                                ) : isThirdDescription ? (
+                                  <>
+                                    Coninues typing &apos;
+                                    <span>App</span>
+                                    <span style={{ opacity: 0.3 }}>le</span>&apos;
+                                  </>
+                                ) : (
+                                  imageData.description
+                                )}
+                              </span>
+                              <img
+                                src={imageData.src}
+                                alt={`WhatsApp AI summary - Screen ${imageIndex + 1}`}
+                                width={300}
+                                height={650}
+                                style={{
+                                  width: "100%",
+                                  height: "auto",
+                                  maxWidth: "100%",
+                                  objectFit: "contain",
+                                  transform: "scale(0.85)",
+                                }}
+                              />
+                            </div>
+                          );
+                        }
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Initial Iteration Issues */}
             <div>
-              <h3 className="mb-10 text-2xl font-bold">Initial iteration of the search flow</h3>
-
-              <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
+              <div>
                 <p className="mb-8 font-medium text-gray-700">
                   Now, let&apos;s break down the issues with this user flow.
                 </p>
@@ -983,29 +1090,28 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Tech Constraints Section */}
-        <section className="bg-gray-50 py-20 md:py-28">
+        <section className="py-20 md:py-28">
+          <img src="/images/tech_constraints_poster.png" alt="Tech constraints" />
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 md:mb-20">
-              <h2 className="mb-8 text-[2.25rem] leading-[1.2] font-bold text-balance md:text-[3rem]">
-                Tech constraints that may affect the UX
-              </h2>
               <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
                 The summaries can be generated either locally on your device or in the cloud,
                 depending on how it&apos;s set up.
               </p>
             </div>
 
-            <div className="mb-12 grid gap-8 lg:grid-cols-2">
+            <div className="mb-12">
               {/* Local Processing */}
-              <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
-                <h3 className="mb-8 text-center text-xl font-bold md:text-2xl">
+              <div className="mb-12">
+                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl">
                   Processing locally on device
                 </h3>
 
                 <div className="space-y-8">
+                  {/* Advantages Section */}
                   <div>
-                    <h4 className="mb-5 flex items-center gap-2 text-lg font-bold text-green-600">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600">
+                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1013,32 +1119,110 @@ export default function WhatsAppCaseStudy() {
                       </svg>
                       Advantages
                     </h4>
-                    <div className="space-y-4">
-                      {[
-                        {
-                          title: "Privacy",
-                          desc: "Users might feel more secure knowing their data isn&apos;t being sent to external servers.",
-                        },
-                        {
-                          title: "Immediate Feedback",
-                          desc: "Faster response times since there&apos;s no need to wait for server processing.",
-                        },
-                        {
-                          title: "Offline Capability",
-                          desc: "Users can access the feature even without an active internet connection.",
-                        },
-                      ].map((item, i) => (
-                        <div key={i}>
-                          <p className="mb-1 font-semibold text-gray-900">{item.title}</p>
-                          <p className="text-sm leading-relaxed text-gray-600">{item.desc}</p>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                      {/* Privacy Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Privacy
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Users might feel more secure knowing their data isn&apos;t being sent to
+                            external servers.
+                          </p>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Immediate Feedback Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 2L14 8M12 2L10 8"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Immediate Feedback
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Faster response times since there&apos;s no need to wait for server
+                            processing.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Offline Capability Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Offline Capability
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Users can access the feature even without an active Internet connection.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
+                  {/* Disadvantages Section */}
                   <div>
-                    <h4 className="mb-5 flex items-center gap-2 text-lg font-bold text-red-600">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600">
+                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -1046,37 +1230,89 @@ export default function WhatsAppCaseStudy() {
                       </svg>
                       Disadvantages
                     </h4>
-                    <div className="space-y-4">
-                      {[
-                        {
-                          title: "Resource Intensive",
-                          desc: "Requires significant computational power and storage, which might not be available on all devices.",
-                        },
-                        {
-                          title: "Updates and Maintenance",
-                          desc: "Updating algorithms or adding new languages might be more challenging, requiring app updates.",
-                        },
-                      ].map((item, i) => (
-                        <div key={i}>
-                          <p className="mb-1 font-semibold text-gray-900">{item.title}</p>
-                          <p className="text-sm leading-relaxed text-gray-600">{item.desc}</p>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                      {/* Resource Intensive Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect x="4" y="7" width="14" height="10" rx="1" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 10l2-4m0 4l-2-4"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Resource Intensive
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Requires significant computational power and storage, which might not be
+                            available on all devices.
+                          </p>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Updates and Maintenance Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Updates and Maintenance
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Updating algorithms or adding new languages might be more challenging,
+                            requiring app updates.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Cloud Processing */}
-              <div className="rounded-[2rem] border-2 border-gray-200 bg-white p-8 shadow-lg md:p-10">
-                <h3 className="mb-8 text-center text-xl font-bold md:text-2xl">
+              <div className="mb-12">
+                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl">
                   Processing on the server side
                 </h3>
 
                 <div className="space-y-8">
+                  {/* Advantages Section */}
                   <div>
-                    <h4 className="mb-5 flex items-center gap-2 text-lg font-bold text-green-600">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600">
+                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -1084,36 +1320,142 @@ export default function WhatsAppCaseStudy() {
                       </svg>
                       Advantages
                     </h4>
-                    <div className="space-y-4">
-                      {[
-                        {
-                          title: "Performance",
-                          desc: "Offloading processing to powerful servers can handle complex tasks more efficiently.",
-                        },
-                        {
-                          title: "Scalability",
-                          desc: "Easier to scale and update translation and summarization models without app updates.",
-                        },
-                        {
-                          title: "Reusability",
-                          desc: "The system can be built as a plugin that can be used across many products within the organization.",
-                        },
-                        {
-                          title: "Consistency",
-                          desc: "Ensures a consistent experience across devices by removing hardware processing limitations.",
-                        },
-                      ].map((item, i) => (
-                        <div key={i}>
-                          <p className="mb-1 font-semibold text-gray-900">{item.title}</p>
-                          <p className="text-sm leading-relaxed text-gray-600">{item.desc}</p>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                      {/* Performance Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Performance
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Offloading processing to powerful servers can handle complex tasks more
+                            efficiently.
+                          </p>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Scalability Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Scalability
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Easier to scale and update translation and summarization models without
+                            app updates.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Reusability Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Reusability
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            The system can be built as a plugin that can be used across many
+                            products within the organization.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Consistency Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 2v4m0 12v4M2 12h4m12 0h4m-7.07-7.07l2.83 2.83m-11.32 0l2.83-2.83m0 11.32l2.83 2.83m11.32-11.32l2.83-2.83"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Consistency
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Ensures a consistent experience across devices by removing hardware
+                            processing limitations.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
+                  {/* Disadvantages Section */}
                   <div>
-                    <h4 className="mb-5 flex items-center gap-2 text-lg font-bold text-red-600">
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600">
+                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -1121,26 +1463,102 @@ export default function WhatsAppCaseStudy() {
                       </svg>
                       Disadvantages
                     </h4>
-                    <div className="space-y-4">
-                      {[
-                        {
-                          title: "Privacy Concerns",
-                          desc: "Users might be concerned about their voice notes being sent to and processed on external servers.",
-                        },
-                        {
-                          title: "Latency",
-                          desc: "Cloud processing may cause delays, especially with slow or unstable network connections.",
-                        },
-                        {
-                          title: "Data Usage",
-                          desc: "Users need a stable internet connection, and it could use up data bandwidth.",
-                        },
-                      ].map((item, i) => (
-                        <div key={i}>
-                          <p className="mb-1 font-semibold text-gray-900">{item.title}</p>
-                          <p className="text-sm leading-relaxed text-gray-600">{item.desc}</p>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                      {/* Privacy Concerns Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Privacy Concerns
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Users might be concerned about their voice notes being sent to and
+                            processed on external servers.
+                          </p>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Latency Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Latency
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Cloud processing may cause delays, especially with slow or unstable
+                            network connections.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Data Usage Card */}
+                      <div
+                        className="relative rounded-[1.5rem] bg-gray-50"
+                        style={{ padding: "32px" }}
+                      >
+                        <svg
+                          className="absolute top-4 right-4 h-16 w-16 text-gray-300"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                          />
+                        </svg>
+                        <div style={{ paddingRight: "80px" }}>
+                          <h5
+                            className="mb-2 text-xl font-semibold text-gray-900 italic"
+                            style={{ fontStyle: "italic" }}
+                          >
+                            Data Usage
+                          </h5>
+                          <p className="text-base leading-relaxed text-gray-600">
+                            Users need a stable internet connection, and it could use up data
+                            bandwidth.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1148,7 +1566,7 @@ export default function WhatsAppCaseStudy() {
             </div>
 
             {/* Hybrid Approach */}
-            <div className="rounded-[2.5rem] bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] p-10 shadow-xl md:p-12">
+            <div className="p-10 md:p-12">
               <p className="mb-6 text-lg leading-relaxed text-gray-900 md:text-xl">
                 After analyzing these two approaches, I decided to combine them into a{" "}
                 <strong>hybrid approach:</strong>
@@ -1209,8 +1627,8 @@ export default function WhatsAppCaseStudy() {
         </section>
 
         {/* Thanks Section */}
-        <section className="bg-gradient-to-br from-[#dcf8c6] to-[#c5e8b0] py-24 md:py-32">
-          <div className="mx-auto max-w-3xl text-center">
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-left">
             <h2 className="mb-10 text-[2.75rem] font-bold md:text-[4rem]">
               Thanks for sticking around!
             </h2>
@@ -1222,7 +1640,7 @@ export default function WhatsAppCaseStudy() {
               href="https://medium.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover: inline-block transform rounded-full bg-[#25d366] px-10 py-5 text-lg font-bold text-white shadow-xl transition-colors transition-transform hover:scale-105 hover:bg-[#128c7e]"
+              className="hover: text-grey inline-block transform px-10 py-5 text-lg font-bold transition-colors transition-transform hover:scale-105 hover:bg-[#128c7e]"
             >
               Read the full case study on Medium
             </a>
