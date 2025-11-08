@@ -126,7 +126,7 @@ export default function WhatsAppCaseStudy() {
         {/* Hero Section */}
         <section style={{ paddingTop: "240px" }}>
           <div className="mx-auto flex max-w-5xl flex-col gap-[56px] text-center">
-            <h1 className="mx-auto max-w-4xl text-[2rem] leading-[1.1] font-bold tracking-tight md:text-[3rem] xl:text-[3.5rem]">
+            <h1 className="mx-auto max-w-4xl text-[2rem] leading-[1.1] font-bold tracking-tight md:text-[3rem] xl:text-[3.5rem]" style={{ fontSize: '56px'}}>
               Smart voice notes: Keep the chat flowing
             </h1>
 
@@ -244,7 +244,7 @@ export default function WhatsAppCaseStudy() {
           <div className="mx-auto max-w-6xl">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div className="flex flex-col gap-6">
-                <h2 className="text-[2rem] leading-[1.2] font-bold text-balance md:text-[2.5rem]">
+                <h2 className="text-[2rem] leading-[1.2] font-bold text-balance md:text-[2.5rem]" style={{ fontSize: '42px' }}>
                   Scrolling through a long list of voice notes..
                 </h2>
                 <p
@@ -275,7 +275,7 @@ export default function WhatsAppCaseStudy() {
         <section>
           <div className="mx-auto flex max-w-5xl flex-col gap-20">
             <div className="flex flex-col gap-8">
-              <h2 className="text-[2.25rem] leading-[1.2] font-bold text-balance md:text-[3rem]">
+              <h2 className="text-[2.25rem] leading-[1.2] font-bold text-balance md:text-[3rem]" style={{ fontSize: '42px'}}>
                 Validating my hypothesis
               </h2>
               <p className="max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
@@ -373,7 +373,7 @@ export default function WhatsAppCaseStudy() {
           <div className="mx-auto max-w-6xl">
             <h2
               className="text-[2.25rem] leading-[1.2] font-bold md:mb-20 md:text-[3rem]"
-              style={{ marginBottom: "24px" }}
+              style={{ marginBottom: "24px", fontSize: '42px' }}
             >
               Insights from user interviews
             </h2>
@@ -395,11 +395,11 @@ export default function WhatsAppCaseStudy() {
                       style={{ width: "216px", height: "216px", border: "2px solid white" }}
                     />
                   </div>
-                  <div className="flex flex-col justify-start gap-4" style={{ paddingTop: "32px" }}>
-                    <h3 className="mb-4 text-xl font-bold" style={{ fontSize: "24px" }}>
+                  <div className="flex flex-col justify-start gap-4">
+                    <p className="mb-4 font-bold" style={{ fontSize: "32px" }}>
                       {insight.title}
-                    </h3>
-                    <p className="leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+                    </p>
+                    <p className="leading-relaxed text-gray-600" style={{ fontSize: "24px" }}>
                       {insight.description}
                     </p>
                   </div>
@@ -414,7 +414,7 @@ export default function WhatsAppCaseStudy() {
           <div className="mx-auto max-w-5xl">
             <h2
               className="mb-8 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]"
-              style={{ marginBottom: "24px" }}
+              style={{ marginBottom: "24px", fontSize: '42px' }}
             >
               Defining the problem
             </h2>
@@ -445,7 +445,7 @@ export default function WhatsAppCaseStudy() {
                   className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
                 />
                 <div className="p-8 md:p-10">
-                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
+                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl" style={{ fontSize: '24px'}}>
                     When I receive a long audio message, I want to read a gist of it so that I can
                     quickly understand the context.
                   </p>
@@ -469,7 +469,7 @@ export default function WhatsAppCaseStudy() {
                   className="h-auto max-h-full w-auto max-w-full rounded-[0.75rem]"
                 />
                 <div className="p-8 md:p-10">
-                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
+                  <p className="text-lg leading-relaxed text-gray-700 md:text-xl" style={{ fontSize: '24px'}}>
                     I want to search for keywords within voice notes to quickly find what I need in
                     a chat history.
                   </p>
@@ -483,14 +483,14 @@ export default function WhatsAppCaseStudy() {
         <section className="py-20 md:py-28">
           <div className="mx-auto flex max-w-5xl flex-col gap-8">
             <div className="mb-12 flex flex-col gap-4">
-              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]">User job 1</h2>
-              <p
-                className="text-lg leading-relaxed text-gray-600 italic md:text-xl"
-                style={{ fontSize: "20px" }}
+              <h2 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]" style={{ fontSize: '42px' }}>User job 1</h2>
+              <h4
+                className="text-lg leading-relaxed editorial-headline italic md:text-xl"
+                style={{ fontSize: "22px" }}
               >
                 &ldquo;When I receive a long audio message, I want to read a gist of it so that I
                 can quickly understand the context&rdquo;
-              </p>
+              </h4>
               <p
                 className="mb-8 text-lg leading-relaxed text-gray-600"
                 style={{ fontSize: "20px" }}
@@ -515,11 +515,11 @@ export default function WhatsAppCaseStudy() {
               style={{ backgroundColor: "#073318", padding: "48px" }}
             >
               <div className="text-center" style={{ marginBottom: "48px" }}>
-                <h3 className="body-large" style={{ fontSize: "36px" }}>
+                <h3 className="body-large" style={{ fontSize: "32px" }}>
                   <span style={{ color: "#ffffff" }}>Read quick summaries</span>
                   <span
                     className="block text-[1.75rem] md:text-[2.25rem]"
-                    style={{ color: "#00db4b" }}
+                    style={{ color: "#00db4b", fontSize: '32px' }}
                   >
                     of your voice notes
                   </span>
@@ -601,14 +601,14 @@ export default function WhatsAppCaseStudy() {
 
             {/* Iterations */}
             <div className="space-y-20">
-              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px", fontSize: "20px" }}>
                 Now, let me take you through the different iterations I went through before landing
                 on this final version.
               </p>
 
               {/* Iteration 1 */}
               <div>
-                <h4 className="mb-10 text-2xl font-bold" style={{ marginBottom: "48px" }}>
+                <h4 className="mb-10 text-2xl font-bold" style={{ marginBottom: "48px", fontSize: '36px' }}>
                   Iteration 1 - Using a bottom sheet
                 </h4>
                 <div className="flex flex-col items-start gap-10">
@@ -619,7 +619,7 @@ export default function WhatsAppCaseStudy() {
                         style={{ backgroundColor: "#e2fed7", padding: "48px" }}
                       >
                         <div className="text-center">
-                          <h3 className="body-large" style={{ fontSize: "36px" }}>
+                          <h3 className="body-large" style={{ fontSize: "32px" }}>
                             <span style={{ color: "#1c1c1c", letterSpacing: "0" }}>
                               Bottom sheet
                             </span>
@@ -677,7 +677,7 @@ export default function WhatsAppCaseStudy() {
                     </div>
                   </div>
                   <div>
-                    <p className="leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
+                    <p className="leading-relaxed text-gray-600" style={{ marginBottom: "48px", fontSize: "20px" }}>
                       This iteration disrupted the chat flow. Displaying the AI summary in a bottom
                       sheet would interrupt the ongoing conversation, leading to a poor user
                       experience.
@@ -688,10 +688,9 @@ export default function WhatsAppCaseStudy() {
 
               {/* Iteration 1.5 */}
               <div style={{ marginBottom: "48px" }}>
-                <p className="mb-4 leading-relaxed text-gray-900">
-                  <strong className="text-lg">Iteration 1.5 - transcript or summary?</strong>
-                </p>
-                <p className="leading-relaxed text-gray-700">
+                <h4 className="mb-4 leading-relaxed text-gray-900" style={{ fontSize: '36px'}}>Iteration 1.5 - transcript or summary?
+                </h4>
+                <p className="leading-relaxed text-gray-700" style={{ fontSize: "20px" }}>
                   This iteration refines the copy. To save time, I opted for summarizing audio
                   instead of transcribing it, as full transcriptions are not practical for long
                   messages.
@@ -700,7 +699,7 @@ export default function WhatsAppCaseStudy() {
 
               {/* Iteration 2 */}
               <div>
-                <h4 className="text-2xl font-bold" style={{ marginBottom: "48px" }}>
+                <h4 className="text-2xl font-bold" style={{ marginBottom: "48px", fontSize: '36px' }}>
                   Iteration 2 - Expanding the voice notes UI element
                 </h4>
                 <div className="flex flex-col gap-10">
@@ -774,15 +773,15 @@ export default function WhatsAppCaseStudy() {
               <div className="flex flex-col gap-10">
                 <p
                   className="mb-6 text-lg font-semibold text-gray-900"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "24px" }}
                 >
                   Some common issues with the previous iterations (1 and 2):
                 </p>
                 <div className="flex flex-col gap-10 space-y-6 text-gray-700">
                   <div className="flex flex-col gap-10">
-                    <p className="mb-3 font-semibold text-gray-900" style={{ fontSize: "20px" }}>
+                    <strong className="mb-3 text-gray-900" style={{ fontSize: "20px" }}>
                       1. The AI summary button which the user taps on to see the summary:
-                    </p>
+                    </strong>
                     <ul className="ml-6 flex flex-col gap-4" style={{ fontSize: "20px" }}>
                       <li>
                         • <strong>Contextual placement:</strong> The AI summary button was misplaced
@@ -845,13 +844,13 @@ export default function WhatsAppCaseStudy() {
             <div className="mb-12">
               <h2
                 className="mb-6 text-[2rem] font-bold md:text-[2.5rem]"
-                style={{ marginBottom: "48px" }}
+                style={{ marginBottom: "48px", fontSize: '42px' }}
               >
                 User job 2 :
               </h2>
               <p
-                className="text-lg leading-relaxed text-gray-600 italic md:text-xl"
-                style={{ marginBottom: "48px" }}
+                className="text-lg leading-relaxed italic md:text-xl editorial-headline"
+                style={{ marginBottom: "48px", fontSize: "22px" }}
               >
                 &ldquo;I want to search for keywords within voice notes to quickly find what I need
                 in a chat history&rdquo;
@@ -860,7 +859,7 @@ export default function WhatsAppCaseStudy() {
 
             <p
               className="mb-20 text-lg leading-relaxed text-gray-600"
-              style={{ marginBottom: "48px" }}
+              style={{ marginBottom: "48px", fontSize: "20px" }}
             >
               Taking all these issues into account, I developed the third iteration, which
               ultimately became the final solution showcased in the first prototype.
@@ -873,10 +872,10 @@ export default function WhatsAppCaseStudy() {
                 style={{ backgroundColor: "#fef5ea", padding: "48px", marginBottom: "48px" }}
               >
                 <div className="text-center">
-                  <h3 className="body-large" style={{ fontSize: "36px" }}>
+                  <h3 className="body-large" style={{ fontSize: "32px" }}>
                     <span
                       className="block text-[1.75rem] md:text-[2.25rem]"
-                      style={{ color: "#00db4b" }}
+                      style={{ color: "#00db4b", fontSize: '32px' }}
                     >
                       Redesigning the search flow
                     </span>
@@ -913,7 +912,7 @@ export default function WhatsAppCaseStudy() {
                           >
                             <span
                               className="text-center text-sm font-medium text-gray-700"
-                              style={{ fontSize: "16px" }}
+                              style={{ fontSize: "24px" }}
                             >
                               {isSecondDescription ? (
                                 <>
@@ -966,11 +965,11 @@ export default function WhatsAppCaseStudy() {
                   />
                 </div>
               </div>
-              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px", fontSize: "20px" }}>
                 This iteration automatically shows you the summary and highlights the part that
                 matches your search. So, no more scrolling through everything!
               </p>
-              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px" }}>
+              <p className="text-lg leading-relaxed text-gray-600" style={{ marginBottom: "48px", fontSize: "20px" }}>
                 Let me walk you through my thought process and how it all came together to lead to
                 the final solution.
               </p>
@@ -979,10 +978,10 @@ export default function WhatsAppCaseStudy() {
                 style={{ backgroundColor: "#fef5ea", padding: "48px", marginBottom: "48px" }}
               >
                 <div className="text-center">
-                  <h3 className="body-large" style={{ fontSize: "36px" }}>
+                  <h3 className="body-large" style={{ fontSize: "32px" }}>
                     <span
                       className="block text-[1.75rem] md:text-[2.25rem]"
-                      style={{ color: "#00db4b" }}
+                      style={{ color: "#00db4b" , fontSize: '32px' }}
                     >
                       Initial iteration of the search flow
                     </span>
@@ -1021,7 +1020,7 @@ export default function WhatsAppCaseStudy() {
                             >
                               <span
                                 className="text-center text-sm font-medium text-gray-700"
-                                style={{ fontSize: "16px" }}
+                                style={{ fontSize: "24px" }}
                               >
                                 {isSecondDescription ? (
                                   <>
@@ -1065,23 +1064,23 @@ export default function WhatsAppCaseStudy() {
             {/* Initial Iteration Issues */}
             <div>
               <div>
-                <p className="mb-8 font-medium text-gray-700">
+                <p className="mb-8 font-medium text-gray-700" style={{ fontSize: "20px" }}>
                   Now, let&apos;s break down the issues with this user flow.
                 </p>
-                <ul className="space-y-6 text-gray-700">
+                <ul className="space-y-6 text-gray-700" style={{ fontSize: "20px" }}>
                   <li>
-                    • <strong className="text-gray-900">Search results prioritization:</strong> On
+                    • <strong className="text-gray-900" style={{ fontSize: '20px' }}>Search results prioritization:</strong> On
                     the search results screen, the audio summary takes priority over the actual
                     audio files, which means the voice notes themselves aren&apos;t showing up in
                     the results.
                   </li>
                   <li>
-                    • <strong className="text-gray-900">Visual clarity:</strong> It&apos;s visually
+                    • <strong className="text-gray-900" style={{ fontSize: '20px' }}>Visual clarity:</strong> It&apos;s visually
                     difficult for users to tell that these are audio summaries linked to voice notes
                     from different chats.
                   </li>
                 </ul>
-                <p className="mt-8 font-medium text-gray-700">
+                <p className="mt-8 font-medium text-gray-700" style={{ fontSize: "20px" }}>
                   The final solution was created by considering all these loopholes.
                 </p>
               </div>
@@ -1094,7 +1093,7 @@ export default function WhatsAppCaseStudy() {
           <img src="/images/tech_constraints_poster.png" alt="Tech constraints" />
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 md:mb-20">
-              <p className="text-lg leading-relaxed text-gray-600 md:text-xl">
+              <p className="text-lg leading-relaxed text-gray-600 md:text-xl" style={{ fontSize: '20px' }}>
                 The summaries can be generated either locally on your device or in the cloud,
                 depending on how it&apos;s set up.
               </p>
@@ -1103,14 +1102,14 @@ export default function WhatsAppCaseStudy() {
             <div className="mb-12">
               {/* Local Processing */}
               <div className="mb-12">
-                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl">
+                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl" style={{ fontSize: '36px' }}>
                   Processing locally on device
                 </h3>
 
                 <div className="space-y-8">
                   {/* Advantages Section */}
                   <div>
-                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600" style={{ fontSize: '24px' }}>
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
@@ -1141,11 +1140,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '20px' }}
                           >
                             Privacy
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Users might feel more secure knowing their data isn&apos;t being sent to
                             external servers.
                           </p>
@@ -1175,11 +1174,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Immediate Feedback
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Faster response times since there&apos;s no need to wait for server
                             processing.
                           </p>
@@ -1207,11 +1206,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Offline Capability
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Users can access the feature even without an active Internet connection.
                           </p>
                         </div>
@@ -1221,7 +1220,7 @@ export default function WhatsAppCaseStudy() {
 
                   {/* Disadvantages Section */}
                   <div>
-                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600"style={{ fontSize: '24px' }}>
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
@@ -1255,11 +1254,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Resource Intensive
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Requires significant computational power and storage, which might not be
                             available on all devices.
                           </p>
@@ -1287,11 +1286,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Updates and Maintenance
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Updating algorithms or adding new languages might be more challenging,
                             requiring app updates.
                           </p>
@@ -1304,14 +1303,14 @@ export default function WhatsAppCaseStudy() {
 
               {/* Cloud Processing */}
               <div className="mb-12">
-                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl">
+                <h3 className="mb-8 text-left text-xl font-bold md:text-2xl" style={{ fontSize: '36px' }}>
                   Processing on the server side
                 </h3>
 
                 <div className="space-y-8">
                   {/* Advantages Section */}
                   <div>
-                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-green-600" style={{ fontSize: '24px' }}>
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
@@ -1342,11 +1341,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Performance
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Offloading processing to powerful servers can handle complex tasks more
                             efficiently.
                           </p>
@@ -1374,11 +1373,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Scalability
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Easier to scale and update translation and summarization models without
                             app updates.
                           </p>
@@ -1406,11 +1405,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Reusability
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             The system can be built as a plugin that can be used across many
                             products within the organization.
                           </p>
@@ -1439,11 +1438,11 @@ export default function WhatsAppCaseStudy() {
                         <div style={{ paddingRight: "80px" }}>
                           <h5
                             className="mb-2 text-xl font-semibold text-gray-900 italic"
-                            style={{ fontStyle: "italic" }}
+                            style={{ fontStyle: "italic", fontSize: '24px' }}
                           >
                             Consistency
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Ensures a consistent experience across devices by removing hardware
                             processing limitations.
                           </p>
@@ -1454,7 +1453,7 @@ export default function WhatsAppCaseStudy() {
 
                   {/* Disadvantages Section */}
                   <div>
-                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600">
+                    <h4 className="mb-12 flex items-center gap-2 text-lg font-bold text-red-600" style={{ fontSize: '24px' }}>
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
@@ -1489,7 +1488,7 @@ export default function WhatsAppCaseStudy() {
                           >
                             Privacy Concerns
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Users might be concerned about their voice notes being sent to and
                             processed on external servers.
                           </p>
@@ -1521,7 +1520,7 @@ export default function WhatsAppCaseStudy() {
                           >
                             Latency
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Cloud processing may cause delays, especially with slow or unstable
                             network connections.
                           </p>
@@ -1553,7 +1552,7 @@ export default function WhatsAppCaseStudy() {
                           >
                             Data Usage
                           </h5>
-                          <p className="text-base leading-relaxed text-gray-600">
+                          <p className="text-base leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                             Users need a stable internet connection, and it could use up data
                             bandwidth.
                           </p>
@@ -1567,31 +1566,31 @@ export default function WhatsAppCaseStudy() {
 
             {/* Hybrid Approach */}
             <div className="p-10 md:p-12">
-              <p className="mb-6 text-lg leading-relaxed text-gray-900 md:text-xl">
+              <p className="mb-6 text-lg leading-relaxed text-gray-900 md:text-xl" style={{ fontSize: '20px' }}>
                 After analyzing these two approaches, I decided to combine them into a{" "}
                 <strong>hybrid approach:</strong>
               </p>
-              <p className="mb-6 leading-relaxed text-gray-700">
+              <p className="mb-6 leading-relaxed text-gray-700" style={{ fontSize: '20px' }}>
                 Performing the initial processing locally to minimize data transfer, and more
                 complex tasks or updates are handled on the server. For instance:
               </p>
               <ol className="space-y-4 text-gray-900">
                 <li className="flex gap-4">
-                  <span className="text-xl font-bold">1.</span>
-                  <div>
-                    <strong>Initial transcription locally:</strong> Convert voice to text on the
+                  <span className="text-xl font-bold" style={{ fontSize: '20px' }}>1.</span>
+                  <div style={{ fontSize: '20px' }}>
+                    <strong style={{ fontSize: '20px' }}>Initial transcription locally:</strong> Convert voice to text on the
                     device.
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <span className="text-xl font-bold">2.</span>
-                  <div>
-                    <strong>Translation and summarization on server:</strong> Send the transcribed
+                  <span className="text-xl font-bold" style={{ fontSize: '20px' }}>2.</span>
+                  <div style={{ fontSize: '20px' }}>
+                    <strong style={{ fontSize: '20px' }}>Translation and summarization on server:</strong> Send the transcribed
                     text to the server for translation and summarization.
                   </div>
                 </li>
               </ol>
-              <p className="mt-6 leading-relaxed text-gray-700">
+              <p className="mt-6 leading-relaxed text-gray-700" style={{ fontSize: '20px' }}>
                 This approach balances privacy with performance and allows for flexibility in
                 managing updates.
               </p>
@@ -1602,11 +1601,11 @@ export default function WhatsAppCaseStudy() {
         {/* Challenges Section */}
         <section className="py-20 md:py-28">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-16 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]">
+            <h2 className="mb-16 text-[2.25rem] leading-[1.2] font-bold md:text-[3rem]" style={{ fontSize: '42px' }}>
               Challenges
             </h2>
             <ol className="space-y-8">
-              <li className="flex gap-4 text-lg leading-relaxed text-gray-600">
+              <li className="flex gap-4 text-lg leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                 <strong className="text-xl text-gray-900">1.</strong>
                 <span>
                   Making sure the feature works well for users who speak multiple languages or
@@ -1614,7 +1613,7 @@ export default function WhatsAppCaseStudy() {
                   recordings.
                 </span>
               </li>
-              <li className="flex gap-4 text-lg leading-relaxed text-gray-600">
+              <li className="flex gap-4 text-lg leading-relaxed text-gray-600" style={{ fontSize: '20px' }}>
                 <strong className="text-xl text-gray-900">2.</strong>
                 <span>
                   Preserving the emotional tone and urgency in voice messages during transcription,
@@ -1629,10 +1628,10 @@ export default function WhatsAppCaseStudy() {
         {/* Thanks Section */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-3xl text-left">
-            <h2 className="mb-10 text-[2.75rem] font-bold md:text-[4rem]">
+            <h2 className="mb-10 text-[2.75rem] font-bold md:text-[4rem]" style={{ fontSize: '48px' }}>
               Thanks for sticking around!
             </h2>
-            <p className="mb-12 text-lg leading-relaxed text-gray-700 md:text-xl">
+            <p className="mb-12 text-lg leading-relaxed text-gray-700 md:text-xl" style={{ fontSize: '20px' }}>
               Thank you for taking the time to check out my case study! If you found it interesting,
               feel free to check out my article where I dive deeper into everything.
             </p>
@@ -1641,6 +1640,9 @@ export default function WhatsAppCaseStudy() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover: text-grey inline-block transform px-10 py-5 text-lg font-bold transition-colors transition-transform hover:scale-105 hover:bg-[#128c7e]"
+              style={{
+                fontSize: '20px',
+              }}
             >
               Read the full case study on Medium
             </a>
