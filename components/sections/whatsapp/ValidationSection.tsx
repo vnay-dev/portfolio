@@ -45,7 +45,7 @@ const ValidationSection = () => {
               className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {interviewCarouselData.map((item, index) => (
+              {interviewCarouselData.map((item) => (
                 <div
                   key={item.question}
                   className="flex min-w-full justify-center"
