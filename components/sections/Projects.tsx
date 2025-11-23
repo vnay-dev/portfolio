@@ -12,10 +12,15 @@ export function Projects() {
 
   return (
     <section
-      className="relative flex w-full justify-center"
-      style={{ backgroundColor: "#ffffff", padding: "64px 0" }}
+      className="relative flex w-full justify-center overflow-x-hidden bg-white"
+      style={{
+        paddingTop: "clamp(3rem, 8vw, 6rem)",
+        paddingBottom: "clamp(3rem, 8vw, 6rem)",
+        paddingLeft: "clamp(1rem, 4vw, 3rem)",
+        paddingRight: "clamp(1rem, 4vw, 3rem)",
+      }}
     >
-      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+      <div className="mx-auto w-full" style={{ maxWidth: "1080px" }}>
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -33,7 +38,7 @@ export function Projects() {
         </motion.h2>
 
         {/* Project Cards - Full Width */}
-        <div style={{ width: "100%", margin: "0 auto" }}>
+        <div className="w-full" style={{ margin: "0 auto" }}>
           {/* WhatsApp Case Study - First Project */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -52,6 +57,7 @@ export function Projects() {
                 borderRadius: "24px",
                 aspectRatio: "2048/1234",
                 maxWidth: "100%",
+                width: "100%",
                 alignItems: "center",
               }}
               onMouseEnter={() => setIsHovered(true)}
@@ -80,8 +86,12 @@ export function Projects() {
             </div>
             <div className="w-full flex-1 text-left md:w-auto">
               <p
-                className="text-base leading-relaxed sm:text-lg md:text-xl"
-                style={{ color: "#1c1c1c", marginBottom: "24px", fontSize: "24px" }}
+                className="leading-relaxed"
+                style={{
+                  color: "#1c1c1c",
+                  marginBottom: "24px",
+                  fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
+                }}
               >
                 Enhanced the WhatsApp voice notes experience through AI summaries and easy lookup.
               </p>

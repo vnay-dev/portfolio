@@ -2,37 +2,37 @@ import { insightsData } from "@/constants/whatsappCaseStudy";
 
 const InsightsSection = () => {
   return (
-    <section className="py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-6xl">
         <h2
-          className="text-[2.25rem] leading-[1.2] font-bold md:mb-20 md:text-[3rem]"
-          style={{ fontSize: "42px" }}
+          className="mb-4 leading-[1.2] font-bold sm:mb-6 md:mb-8"
+          style={{ fontSize: "clamp(1.75rem, 4vw, 2.625rem)" }}
         >
           Insights from user interviews
         </h2>
         <br />
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-6 sm:gap-8 md:gap-12">
           {insightsData.map((insight) => (
             <div
               key={insight.title}
-              className="flex gap-6 rounded-[1.5rem] border-2 border-gray-200 bg-white"
-              style={{ padding: "24px" }}
+              className="flex flex-col gap-4 rounded-[1.5rem] border-2 border-gray-200 bg-white sm:flex-row sm:gap-6"
+              style={{ padding: "clamp(1rem, 3vw, 1.5rem)" }}
             >
-              <div className="flex-shrink-0" style={{ width: "216px", height: "216px" }}>
+              <div className="flex-shrink-0 mx-auto sm:mx-0" style={{ width: "clamp(120px, 20vw, 216px)", height: "clamp(120px, 20vw, 216px)" }}>
                 <img
                   src={insight.icon}
                   alt={insight.title}
                   width={216}
                   height={216}
                   className="h-full w-full rounded-[0.75rem] object-cover"
-                  style={{ width: "216px", height: "216px", border: "2px solid white" }}
+                  style={{ border: "2px solid white" }}
                 />
               </div>
-              <div className="flex flex-col justify-start gap-4">
-                <p className="mb-4 font-bold" style={{ fontSize: "32px" }}>
+              <div className="flex flex-col justify-start gap-3 sm:gap-4">
+                <p className="mb-2 font-bold sm:mb-4" style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}>
                   {insight.title}
                 </p>
-                <p className="leading-relaxed text-gray-600" style={{ fontSize: "24px" }}>
+                <p className="leading-relaxed text-gray-600" style={{ fontSize: "clamp(0.875rem, 2vw, 1.5rem)" }}>
                   {insight.description}
                 </p>
               </div>
