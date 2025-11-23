@@ -1,32 +1,32 @@
 const UserJobOneSection = () => {
   return (
-    <section className="py-20 md:py-28">
-      <div className="mx-auto flex max-w-5xl flex-col gap-12">
-        <div className="mb-12 flex flex-col gap-12">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-28">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:gap-10 md:gap-12">
+        <div className="mb-8 flex flex-col gap-8 sm:mb-10 sm:gap-10 md:mb-12 md:gap-12">
           <div>
             <h2
-              className="mb-6 text-[2rem] font-bold md:text-[2.5rem]"
-              style={{ fontSize: "42px" }}
+              className="mb-4 font-bold sm:mb-6"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.625rem)" }}
             >
               User job 1
             </h2>
             <br />
             <h4
-              className="editorial-headline text-lg leading-relaxed italic md:text-xl"
-              style={{ fontSize: "22px" }}
+              className="editorial-headline leading-relaxed italic"
+              style={{ fontSize: "clamp(1rem, 2.5vw, 1.375rem)" }}
             >
               &ldquo;When I receive a long audio message, I want to read a gist of it so that I can
               quickly understand the context&rdquo;
             </h4>
           </div>
           <div>
-            <p className="mb-8 text-lg leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+            <p className="mb-6 leading-relaxed text-gray-600 sm:mb-8" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
               I figured that WhatsApp could use an AI model, which I&apos;m calling Meta AI, to
               summarize voice notes. I knew the first version wouldn&apos;t be perfect, given how AI
               is still evolving.
             </p>
             <br />
-            <p className="mb-20 text-lg leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+            <p className="mb-12 leading-relaxed text-gray-600 sm:mb-16 md:mb-20" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
               So, here&apos;s my final solution, designed to tackle the challenges of understanding
               voice notes in context.
             </p>
@@ -34,15 +34,15 @@ const UserJobOneSection = () => {
         </div>
 
         <div
-          className="mb-24 flex flex-col gap-4 rounded-[1.5rem]"
-          style={{ backgroundColor: "#073318", padding: "48px" }}
+          className="mb-12 flex flex-col gap-4 rounded-[1.5rem] sm:mb-16 md:mb-20 lg:mb-24"
+          style={{ backgroundColor: "#073318", padding: "clamp(1.5rem, 5vw, 3rem)" }}
         >
-          <div className="text-center" style={{ marginBottom: "48px" }}>
-            <h3 className="body-large" style={{ fontSize: "32px" }}>
+          <div className="text-center" style={{ marginBottom: "clamp(1.5rem, 5vw, 3rem)" }}>
+            <h3 className="body-large" style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}>
               <span style={{ color: "#ffffff" }}>Read quick summaries</span>
               <span
-                className="mt-2 block text-[1.75rem] md:text-[2.25rem]"
-                style={{ color: "#00db4b", fontSize: "32px" }}
+                className="mt-2 block"
+                style={{ color: "#00db4b", fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
               >
                 of your voice notes
               </span>
@@ -100,14 +100,14 @@ const UserJobOneSection = () => {
             />
           </div>
         </div>
-        <p className="text-lg leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+        <p className="leading-relaxed text-gray-600" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
           Now, let me take you through the different iterations I went through before landing on
           this final version.
         </p>
 
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
           <div>
-            <h4 className="mb-10 text-2xl font-bold" style={{ fontSize: "36px" }}>
+            <h4 className="mb-6 font-bold sm:mb-8 md:mb-10" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)" }}>
               Iteration 1 - Using a bottom sheet
             </h4>
             <br />
@@ -115,15 +115,15 @@ const UserJobOneSection = () => {
               <div className="p-8">
                 <div className="overflow-hidden p-6">
                   <div
-                    className="mb-24 flex flex-col gap-4 rounded-[1.5rem]"
-                    style={{ backgroundColor: "#e2fed7", padding: "48px" }}
+                    className="mb-12 flex flex-col gap-4 rounded-[1.5rem] sm:mb-16 md:mb-20 lg:mb-24"
+                    style={{ backgroundColor: "#e2fed7", padding: "clamp(1.5rem, 5vw, 3rem)" }}
                   >
                     <div className="text-center">
-                      <h3 className="body-large" style={{ fontSize: "32px" }}>
+                      <h3 className="body-large" style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}>
                         <span style={{ color: "#1c1c1c", letterSpacing: "0" }}>Bottom sheet</span>
                         <span
-                          className="mt-2 block text-[1.75rem] md:text-[2.25rem]"
-                          style={{ color: "#00db4b" }}
+                          className="mt-2 block"
+                          style={{ color: "#00db4b", fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
                         >
                           to show summary of voice notes
                         </span>
@@ -168,7 +168,7 @@ const UserJobOneSection = () => {
                 </div>
               </div>
               <div>
-                <p className="leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+                <p className="leading-relaxed text-gray-600" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                   This iteration disrupted the chat flow. Displaying the AI summary in a bottom
                   sheet would interrupt the ongoing conversation, leading to a poor user experience.
                 </p>
@@ -177,31 +177,31 @@ const UserJobOneSection = () => {
           </div>
 
           <div>
-            <h4 className="mb-4 leading-relaxed text-gray-900" style={{ fontSize: "36px" }}>
+            <h4 className="mb-4 leading-relaxed text-gray-900" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)" }}>
               Iteration 1.5 - transcript or summary?
             </h4>
             <br />
-            <p className="leading-relaxed text-gray-700" style={{ fontSize: "20px" }}>
+            <p className="leading-relaxed text-gray-700" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
               This iteration refines the copy. To save time, I opted for summarizing audio instead
               of transcribing it, as full transcriptions are not practical for long messages.
             </p>
           </div>
 
-          <div className="flex flex-col gap-12">
-            <h4 className="text-2xl font-bold" style={{ fontSize: "36px" }}>
+          <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
+            <h4 className="font-bold" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)" }}>
               Iteration 2 - Expanding the voice notes UI element
             </h4>
             <div className="flex flex-col gap-12">
               <div
                 className="rounded-[2.5rem]"
-                style={{ backgroundColor: "#e2fed7", padding: "48px" }}
+                style={{ backgroundColor: "#e2fed7", padding: "clamp(1.5rem, 5vw, 3rem)" }}
               >
                 <div className="text-center">
-                  <h3 className="body-large" style={{ fontSize: "32px" }}>
+                  <h3 className="body-large" style={{ fontSize: "clamp(1.25rem, 3vw, 2rem)" }}>
                     <span style={{ color: "#1c1c1c", letterSpacing: "0" }}>Bottom sheet</span>
                     <span
-                      className="mt-2 block text-[1.75rem] md:text-[2.25rem]"
-                      style={{ color: "#00db4b" }}
+                      className="mt-2 block"
+                      style={{ color: "#00db4b", fontSize: "clamp(1.25rem, 3vw, 2rem)" }}
                     >
                       to show summary of voice notes
                     </span>
@@ -243,7 +243,7 @@ const UserJobOneSection = () => {
                 </div>
               </div>
               <div>
-                <p className="leading-relaxed text-gray-600" style={{ fontSize: "20px" }}>
+                <p className="leading-relaxed text-gray-600" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                   The problem with this iteration was that users wouldn&apos;t know what the AI
                   summary button (the sparkle button) does. There&apos;s no clear indication of what
                   to expect when they tap it.
@@ -253,17 +253,17 @@ const UserJobOneSection = () => {
           </div>
 
           <div className="flex flex-col">
-            <p className="mb-6 text-lg font-semibold text-gray-900" style={{ fontSize: "24px" }}>
+            <p className="mb-4 font-semibold text-gray-900 sm:mb-6" style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)" }}>
               Some common issues with the previous iterations (1 and 2):
             </p>
             <br />
-            <div className="flex flex-col space-y-6 text-gray-700">
+            <div className="flex flex-col space-y-4 text-gray-700 sm:space-y-6">
               <div className="flex flex-col">
-                <strong className="mb-3 text-gray-900" style={{ fontSize: "20px" }}>
+                <strong className="mb-2 text-gray-900 sm:mb-3" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                   1. The AI summary button which the user taps on to see the summary:
                 </strong>
                 <br />
-                <ul className="ml-6 flex flex-col gap-4" style={{ fontSize: "20px" }}>
+                <ul className="ml-4 flex flex-col gap-3 sm:ml-6 sm:gap-4" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                   <li>
                     • <strong>Contextual placement:</strong> The AI summary button was misplaced
                     outside the voice note UI, which felt counterintuitive since the summary remains
@@ -282,16 +282,16 @@ const UserJobOneSection = () => {
                 className="rounded-[1.5rem]"
               />
               <br />
-              <p style={{ fontSize: "20px" }}>
-                <strong className="text-gray-900" style={{ fontSize: "20px" }}>
+              <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
+                <strong className="text-gray-900" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                   2. Lack of loading feedback:
                 </strong>{" "}
                 Users aren&apos;t told how long it takes to generate the summary, which could lead
                 to uncertainty and frustration.
               </p>
               <br />
-              <p style={{ fontSize: "20px" }}>
-                <strong className="text-gray-900">3. Uncertainty about accuracy:</strong> The
+              <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
+                <strong className="text-gray-900" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>3. Uncertainty about accuracy:</strong> The
                 evolving AI technology might produce imperfect results. Users may assume complete
                 accuracy due to the lack of information on its reliability and limitations.
               </p>
@@ -299,11 +299,11 @@ const UserJobOneSection = () => {
               <img
                 src="/images/iteration2_poster2.jpg"
                 alt="Iterations 2 poster"
-                className="rounded-[1.5rem]"
+                className="w-full rounded-[1.5rem]"
               />
               <br />
-              <p style={{ fontSize: "20px" }}>
-                <strong className="text-gray-900">4. Unclear purpose:</strong> The lack of
+              <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
+                <strong className="text-gray-900" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>4. Unclear purpose:</strong> The lack of
                 information about the generated text&apos;s nature can confuse users, as they may be
                 unsure if it&apos;s a translation, transcript, or summary.
               </p>
@@ -311,10 +311,10 @@ const UserJobOneSection = () => {
               <img
                 src="/images/iteration2_poster3.jpg"
                 alt="Iterations 2 poster"
-                className="rounded-[1.5rem]"
+                className="w-full rounded-[1.5rem]"
               />
               <br />
-              <p style={{ fontSize: "20px" }}>
+              <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
                 After taking all these issues into account, the third iteration was developed, which
                 eventually became the final solution presented in the first prototype.
               </p>

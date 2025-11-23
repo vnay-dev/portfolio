@@ -12,7 +12,7 @@ import WhatsAppHeroSection from "@/components/sections/whatsapp/WhatsAppHeroSect
 
 const WhatsAppCaseStudy = () => {
   return (
-    <main className="flex min-h-screen justify-center bg-white text-gray-900">
+    <main className="flex min-h-screen justify-center bg-white text-gray-900" style={{ paddingLeft: "clamp(1.25rem, 5vw, 4rem)", paddingRight: "clamp(1.25rem, 5vw, 4rem)" }}>
       <WhatsAppHeroSection>
         <ValidationSection />
         <InsightsSection />
