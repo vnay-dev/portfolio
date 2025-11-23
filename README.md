@@ -1,39 +1,36 @@
 # Portfolio
 
-A beautiful, performance-optimized portfolio website built with modern web technologies. Features smooth animations, responsive design, and stunning visual effects.
+A clean, minimal portfolio website built with Next.js and Tailwind CSS. This is a fresh foundation ready for building your next portfolio version.
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 15.5.4](https://nextjs.org/) (App Router with Turbopack)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/)
-- **3D Effects**: [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/)
-- **Icons**: [Material Icons](https://mui.com/material-ui/material-icons/)
-- **Fonts**: [Gabarito](https://fonts.google.com/specimen/Gabarito) (headings), [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) (body)
+- **React**: 19.1.0
+- **Fonts**: 
+  - [Gabarito](https://fonts.google.com/specimen/Gabarito) - Headings (h1-h6)
+  - [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) - Body text
+  - PP Editorial New - Custom font for special typography
 
-## ✨ Features
+## ✨ Current State
 
-- 🎨 Stunning, modern UI design
-- ⚡ Blazing fast performance
-- 📱 Fully responsive (mobile-first approach)
-- 🎭 Smooth animations and interactions
-- 🌈 Beautiful transitions and effects
-- ♿ Accessible (WCAG compliant)
-- 🎯 SEO optimized
-- 🌗 Dark mode support
-- 🔄 Smooth scrolling with Lenis
-- 🎪 Reduced motion support for accessibility
+- 🎨 **Clean Foundation** - Minimal setup with placeholder page
+- ⚡ **Optimized** - Next.js 15 with Turbopack for fast development
+- 📱 **Responsive Ready** - Typography and styles configured for all devices
+- 🎯 **SEO Ready** - Metadata structure in place
+- 🔤 **Typography System** - Comprehensive, modular type scale ready to use
+- 📦 **Organized Structure** - Clean code organization with constants and modular CSS
+- 🧹 **Minimal Dependencies** - Only essential packages (Next.js, React, Tailwind)
 
 ## 📋 Prerequisites
 
-- Node.js 18+ and npm/yarn/pnpm
+- Node.js 18+ and npm
 - Git
 
 ## 🛠️ Installation
 
-1. **Clone the repository** (or you already have it)
+1. **Clone the repository**
 
 ```bash
 git clone <your-repo-url>
@@ -44,120 +41,114 @@ cd portfolio
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-3. **Set up environment variables** (optional)
-
-Create a `.env` file in the root directory:
-
-```env
-# See .env.example for available options
-```
-
-4. **Run the development server**
+3. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 📚 Documentation
 
-- **[Getting Started Guide](GETTING_STARTED.md)** - Detailed walkthrough of everything that's been set up
-- **[Typography System](docs/TYPOGRAPHY.md)** - Complete guide to using the type scale
-- **[Custom Instructions](.cursorrules)** - Development guidelines and best practices
-- **[Public Assets](public/README.md)** - Guide for adding images, icons, and other assets
+- **[Custom Instructions](.cursorrules)** - Development guidelines, testing requirements, and best practices
+- **Typography System** - Modular CSS files in `app/typography/` with Material Design type scale
+- **Public Assets** - All images and fonts preserved in `public/` directory
 
 ## 📁 Project Structure
 
 ```
 portfolio/
-├── app/                    # Next.js app directory
-│   ├── globals.css        # Global styles and Tailwind imports
-│   ├── layout.tsx         # Root layout with metadata
-│   └── page.tsx           # Home page
-├── components/            # React components
-│   ├── common/           # Reusable UI components
-│   ├── sections/         # Page sections
-│   └── layout/           # Layout components
-├── hooks/                # Custom React hooks
-│   ├── useReducedMotion.ts
-│   └── useScrollProgress.ts
-├── lib/                  # Third-party integrations
-│   └── lenis.tsx        # Smooth scroll provider
-├── utils/               # Utility functions
-│   ├── cn.ts           # Class name merger
-│   └── index.ts        # Common utilities
-├── types/              # TypeScript type definitions
-│   └── index.ts
-├── constants/          # App constants
-│   ├── animations.ts  # Animation variants
-│   └── index.ts       # Site config
-├── public/            # Static assets
-│   └── fonts/        # Custom fonts
-└── .cursorrules      # Development guidelines
-
+├── app/                          # Next.js app directory
+│   ├── constants/               # App constants
+│   │   ├── fonts.ts            # Font configuration reference (documentation)
+│   │   ├── metadata.ts         # Site metadata
+│   │   └── index.ts            # Constants exports
+│   ├── typography/              # Typography system (modular CSS)
+│   │   ├── display.css         # Display styles
+│   │   ├── headline.css        # Headline styles
+│   │   ├── title.css           # Title styles
+│   │   ├── body.css            # Body text styles
+│   │   ├── label.css           # Label styles
+│   │   ├── utility.css         # Utility classes
+│   │   ├── editorial.css       # Editorial font classes
+│   │   ├── responsive.css      # Mobile responsive overrides
+│   │   └── index.css           # Main typography import
+│   ├── globals.css              # Global styles and Tailwind imports
+│   ├── layout.tsx              # Root layout with fonts and metadata
+│   └── page.tsx                # Home page (placeholder)
+├── public/                      # Static assets
+│   ├── fonts/                  # Custom fonts (Editorial)
+│   │   └── editorial/         # PP Editorial New font files
+│   └── images/                 # Image assets (preserved)
+├── .cursorrules                # Development guidelines and testing rules
+├── next.config.ts              # Next.js configuration
+├── tsconfig.json              # TypeScript configuration
+└── package.json               # Dependencies and scripts
 ```
 
-## 🎨 Customization
+## 🎨 Typography System
 
-### Update Site Metadata
+The project includes a comprehensive, modular typography system based on Material Design Type Scale:
 
-Edit `app/layout.tsx` to update site title, description, and SEO metadata.
+- **Display**: `.display-large`, `.display-medium`, `.display-small`
+- **Headline**: `.headline-large`, `.headline-medium`, `.headline-small`
+- **Title**: `.title-large`, `.title-medium`, `.title-small`
+- **Body**: `.body-large`, `.body-medium`, `.body-small`
+- **Label**: `.label-large`, `.label-medium`, `.label-small`
+- **Utility**: `.text-overline`, `.text-caption`
+- **Editorial**: `.editorial-display`, `.editorial-headline`, `.editorial-body`, `.editorial-italic`
 
-### Configure Navigation
-
-Edit `constants/index.ts` to customize navigation items and social links.
-
-### Modify Animations
-
-Edit `constants/animations.ts` to adjust animation durations, easings, and variants.
-
-### Change Theme Colors
-
-Edit `app/globals.css` to modify the color scheme in the `:root` variables.
+All typography styles are organized in separate CSS files under `app/typography/` for easy maintenance.
 
 ## 🎯 Development Guidelines
 
-This project follows strict guidelines for:
+This project follows strict guidelines documented in `.cursorrules`:
 
-- **Responsiveness**: Mobile-first approach
-- **Code Quality**: TypeScript strict mode, proper component architecture
-- **Performance**: Image optimization, code splitting, lazy loading
-- **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation
+### Testing Requirements
 
-See `.cursorrules` for comprehensive development guidelines.
+1. **Responsiveness Testing (REQUIRED)**
+   - Website MUST be responsive on ALL pages
+   - Test by resizing browser window
+   - Verify consistent experience across devices and browsers
+   - Use Chrome MCP for testing
+
+2. **Performance Testing (REQUIRED)**
+   - Test load times and rendering performance
+   - Check asset loading during scroll
+   - Verify scrolling smoothness (60fps)
+   - Monitor network requests
+
+3. **Lighthouse Score Verification (REQUIRED BEFORE PUSH)**
+   - Run Lighthouse audit before any git push
+   - Verify all scores (Performance, Accessibility, Best Practices, SEO)
+   - Ensure scores meet thresholds (90+ recommended)
+
+### Code Quality
+
+- TypeScript strict mode
+- Organized constants and typography
+- Modular CSS architecture
+- Clean component structure
 
 ## 🏗️ Building for Production
 
 ```bash
+# Build the application
 npm run build
+
+# Start production server
 npm start
 ```
 
 The production build will:
-
-- Optimize images automatically
-- Remove console logs
-- Minify CSS and JavaScript
+- Optimize all assets automatically
 - Generate static pages where possible
-
-## 📊 Performance Optimization
-
-- **Images**: Always use Next.js `Image` component
-- **Code Splitting**: Automatic route-based splitting
-- **Lazy Loading**: Use dynamic imports for heavy components
-- **Font Optimization**: Self-hosted fonts with `font-display: swap`
-- **Animations**: GPU-accelerated transforms, respects `prefers-reduced-motion`
+- Minify CSS and JavaScript
+- Remove development code
+- Optimize fonts and images
 
 ## 🧪 Code Quality
 
@@ -166,27 +157,32 @@ The production build will:
 npm run lint
 
 # Format code
-npx prettier --write .
+npm run format
+
+# Check formatting
+npm run format:check
 ```
+
+## 📝 Important Notes
+
+- **Font Configuration**: Font values must be inline literals in `app/layout.tsx` (Next.js font loader requirement). Constants cannot be used for font weights or variables.
+- **Typography System**: Modular CSS architecture - edit individual files in `app/typography/` as needed
+- **Constants**: Metadata and other constants are organized in `app/constants/` for easy maintenance
+- **Assets**: All images and fonts are preserved in `public/` directory
+- **Current State**: This is a clean foundation - the home page is a placeholder ready for your new portfolio design
 
 ## 🤝 Contributing
 
 1. Follow the guidelines in `.cursorrules`
 2. Write clean, typed TypeScript code
-3. Test on multiple devices/screen sizes
-4. Ensure accessibility standards are met
+3. Test responsiveness and performance
+4. Run Lighthouse audit before pushing
+5. Ensure accessibility standards are met
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- Framer Motion for smooth animations
-- Lenis for buttery smooth scrolling
-- Tailwind CSS for utility-first styling
-
 ---
 
-Built with ❤️ and modern web technologies
+Built with ❤️ using Next.js and Tailwind CSS

@@ -1,168 +1,64 @@
-# Portfolio Project - Custom Instructions
+# Cursor Instructions - Testing Requirements
 
-## Core Principles
+## Mandatory Testing Rules
 
-### 1. Responsiveness
-- **Mobile-First Approach**: Always design for mobile first, then scale up
-- **Breakpoints**: Use Tailwind's responsive utilities (sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px)
-- **Touch Targets**: Ensure all interactive elements are at least 44x44px on mobile
-- **Viewport Units**: Use appropriate viewport units (vh, vw, dvh) carefully with fallbacks
-- **Test Across Devices**: Consider mobile, tablet, laptop, and desktop experiences
-- **Fluid Typography**: Use clamp() for responsive font sizes where appropriate
-- **Container Queries**: Utilize container queries for component-level responsiveness when needed
+### 1. Responsiveness Testing (REQUIRED)
 
-### 2. Code Quality
-- **TypeScript Strict Mode**: Always use proper typing, avoid `any` unless absolutely necessary
-- **Component Architecture**: 
-  - Keep components small and focused (single responsibility)
-  - Use composition over inheritance
-  - Extract reusable logic into custom hooks
-  - Separate business logic from presentation
-- **Naming Conventions**:
-  - Components: PascalCase (e.g., `HeroSection.tsx`)
-  - Utilities/Hooks: camelCase (e.g., `useScrollAnimation.ts`)
-  - Constants: UPPER_SNAKE_CASE (e.g., `MAX_WIDTH`)
-- **File Structure**:
-  ```
-  components/
-    ├── common/       # Reusable UI components
-    ├── sections/     # Page sections
-    └── layout/       # Layout components
-  hooks/              # Custom React hooks
-  utils/              # Utility functions
-  lib/                # Third-party integrations
-  types/              # TypeScript type definitions
-  constants/          # App constants
-  ```
-- **Comments**: Write self-documenting code; use comments only for complex logic or "why" not "what"
-- **Error Handling**: Always handle errors gracefully with proper error boundaries
-- **Accessibility**: 
-  - Use semantic HTML
-  - Include proper ARIA labels
-  - Ensure keyboard navigation works
-  - Maintain proper heading hierarchy
-  - Provide alt text for images
+- The website MUST be responsive on ALL pages
+- It should work smoothly when the browser window is resized
+- It should experience exactly the same across all devices and browsers
+- **YOU MUST TEST AND VERIFY THIS USING CHROME MCP** after every task or fix
 
-### 3. Performance Optimization
-- **Images**:
-  - Always use Next.js Image component
-  - Provide proper width, height, and quality props
-  - Use WebP/AVIF formats when possible
-  - Implement lazy loading for below-the-fold images
-  - Use `priority` prop for LCP images
-- **Code Splitting**:
-  - Use dynamic imports for heavy components
-  - Lazy load components that aren't immediately visible
-  - Split routes automatically via Next.js App Router
-- **Bundle Size**:
-  - Import only what you need (tree-shaking)
-  - Use barrel exports carefully (can prevent tree-shaking)
-  - Monitor bundle size with `@next/bundle-analyzer` when needed
-- **Animations**:
-  - Use `will-change` sparingly
-  - Prefer transforms and opacity (GPU-accelerated)
-  - Use `layout` animations carefully in Framer Motion (can be expensive)
-  - Implement reduced motion preferences
-  - Use `useReducedMotion` hook for accessibility
-- **Rendering**:
-  - Use Server Components by default (Next.js 14 App Router)
-  - Mark components as "use client" only when necessary (state, effects, browser APIs)
-  - Implement proper loading states and suspense boundaries
-  - Use React.memo() judiciously for expensive components
-- **Fonts**:
-  - Use Next.js font optimization
-  - Subset fonts to only needed characters/weights
-  - Use font-display: swap
-- **Third-Party Scripts**:
-  - Use Next.js Script component with appropriate strategy
-  - Defer non-critical scripts
+### 2. Performance Testing (REQUIRED)
 
-### 4. Animation Best Practices
-- **Framer Motion**:
-  - Use `initial`, `animate`, `exit` props consistently
-  - Leverage `variants` for complex animations
-  - Use `useInView` for scroll-triggered animations
-  - Implement `AnimatePresence` for exit animations
-  - Use `layout` animations for smooth transitions
-- **Smooth Scrolling**:
-  - Initialize Lenis properly in a client component
-  - Sync Lenis with Framer Motion's `useScroll`
-  - Disable during navigation
-- **Performance**:
-  - Respect `prefers-reduced-motion`
-  - Use hardware-accelerated properties (transform, opacity)
-  - Avoid animating expensive properties (width, height, etc.)
-  - Stagger animations to avoid overwhelming users
+- Test and verify the performance of the website after every task or fix
+- Check load times, rendering performance, and overall site speed
+- Use browser dev tools and network monitoring
+- **Check asset loading time while scrolling** - Ensure images and assets load smoothly during scroll
+- **Verify scrolling smoothness** - Test scroll performance, check for jank, stuttering, or lag
+- Monitor frame rate during scrolling (should maintain 60fps)
+- Test lazy loading implementation if applicable
 
-### 5. Styling Guidelines
-- **Tailwind CSS**:
-  - Use utility classes for most styling
-  - Extract repeated patterns into components
-  - Use Tailwind's design tokens (spacing, colors, etc.)
-  - Avoid arbitrary values unless absolutely necessary
-  - Use Tailwind's dark mode utilities
-- **Custom CSS**:
-  - Use CSS modules or globals.css for custom animations
-  - Keep custom CSS minimal
-  - Use CSS variables for theme values
-- **Typography**:
-  - Use Gabarito font for headings (h1-h6)
-  - Use Hanken Grotesk font for body text and paragraphs
-  - Maintain consistent scale and hierarchy
-  - Ensure readability (line-height, letter-spacing, contrast)
+### 3. Lighthouse Score Verification (REQUIRED BEFORE PUSH)
 
-### 6. Environment & Configuration
-- **Environment Variables**:
-  - Use .env file for sensitive data (user preference)
-  - Prefix public vars with `NEXT_PUBLIC_`
-  - Never commit .env to version control
-  - Provide .env.example as template
-- **Configuration**:
-  - Keep next.config.ts clean and documented
-  - Use appropriate caching strategies
-  - Enable React strict mode
+- **MUST run Lighthouse audit before any git push**
+- Verify all Lighthouse scores (Performance, Accessibility, Best Practices, SEO)
+- Ensure scores meet acceptable thresholds (typically 90+ for all categories)
+- Fix any issues identified by Lighthouse before committing/pushing
+- Use Chrome DevTools Lighthouse or browser MCP tools to run audits
+- Document any acceptable exceptions if scores are below threshold
 
-### 7. Git & Version Control
-- **Commits**: Write clear, descriptive commit messages
-- **Branches**: Use feature branches for new work
-- **Code Review**: Ensure code is review-ready (formatted, linted, tested)
+### 4. README Update (REQUIRED BEFORE PUSH)
 
-### 8. Testing (When Applicable)
-- Write tests for critical business logic
-- Test edge cases and error states
-- Ensure accessibility with testing-library
+- **MUST update README.md before pushing any branch after commits**
+- Ensure README accurately reflects the current state of the project
+- Update project structure if files/folders have changed
+- Update features/functionality if new capabilities were added
+- Update tech stack if dependencies changed
+- Update installation/usage instructions if needed
+- Verify all documentation links and references are accurate
+- Keep the README current and comprehensive
 
-### 9. Security
-- Sanitize user inputs
-- Validate data on both client and server
-- Use proper CSP headers
-- Keep dependencies updated
+## Testing Workflow
 
-## Tech Stack Reference
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion, Lenis (smooth scroll)
-- **3D Effects**: Three.js, React Three Fiber (when needed)
-- **Icons**: Material Icons (@mui/icons-material)
-- **Fonts**: Gabarito (headings), Hanken Grotesk (body)
+1. After completing any task or fix:
+   - Start the dev server (if not running)
+   - Navigate to the page using Chrome MCP
+   - Test responsiveness by resizing the browser window
+   - Test on different viewport sizes (mobile, tablet, desktop)
+   - Check performance metrics (load time, network requests, console errors)
+   - **Test scrolling performance:**
+     - Scroll through the entire page multiple times
+     - Check for smooth scrolling (60fps)
+     - Verify assets load properly during scroll
+     - Check for any jank, stuttering, or lag
+     - Monitor network requests during scroll
+     - Test on different scroll speeds (slow, medium, fast)
+   - Verify cross-browser compatibility if possible
 
-## Development Workflow
-1. Understand the requirement fully
-2. Break it down into smaller tasks
-3. Create necessary types/interfaces first
-4. Build the component structure
-5. Implement styling (mobile-first)
-6. Add animations and interactions
-7. Optimize for performance
-8. Test responsiveness
-9. Ensure accessibility
-10. Review and refactor
-
-## Remember
-- **Beautiful doesn't mean slow**: Optimize aggressively
-- **Fancy doesn't mean cluttered**: Keep it clean and intuitive
-- **Stunning means attention to detail**: Sweat the small stuff
-- **Responsive means tested**: Check on real devices/sizes
-- **Quality means maintainable**: Future you (or others) will thank you
-
+2. Before pushing committed work:
+   - **Update README.md** to reflect current project state
+   - Run Lighthouse audit on all pages
+   - Verify all scores meet thresholds (90+ recommended)
+   - Fix any critical issues identified
+   - Document and justify any exceptions

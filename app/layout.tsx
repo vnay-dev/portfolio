@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Gabarito, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
+import { METADATA } from "./constants";
 import "./globals.css";
-import "./typography.css";
-import { SmoothScrollProvider } from "@/lib/lenis";
-import { Navbar } from "@/components/layout";
+import "./typography/index.css";
 
 const gabarito = Gabarito({
   subsets: ["latin"],
@@ -57,40 +56,15 @@ const editorial = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Vinay Krishnan",
-  description: "A stunning portfolio showcasing my work, skills, and experience",
-  keywords: ["portfolio", "web developer", "designer", "creative"],
-  authors: [{ name: "Vinay Krishnan" }],
-  openGraph: {
-    title: "Vinay Krishnan",
-    description: "A stunning portfolio showcasing my work, skills, and experience",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vinay Krishnan",
-    description: "A stunning portfolio showcasing my work, skills, and experience",
-  },
-  other: {
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0'
-  }
-};
+export const metadata: Metadata = METADATA;
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${gabarito.variable} ${hankenGrotesk.variable} ${editorial.variable} antialiased`}>
-        <SmoothScrollProvider>
-          <Navbar />
-          {children}
-        </SmoothScrollProvider>
+    <html lang="en">
+      <body
+        className={`${gabarito.variable} ${hankenGrotesk.variable} ${editorial.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
   );

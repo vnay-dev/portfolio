@@ -1,0 +1,11 @@
+/* Typography System - Based on Material Design Type Scale */
+/* https://m2.material.io/design/typography/the-type-system.html#type-scale */
+
+@import "./display.css";
+@import "./headline.css";
+@import "./title.css";
+@import "./body.css";
+@import "./label.css";
+@import "./utility.css";
+@import "./editorial.css";
+@import "./responsive.css";
