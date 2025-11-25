@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
 
 export function Navbar() {
@@ -26,20 +27,20 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex h-14 items-center justify-between">
           {/* Logo/Brand */}
-          <a href="/" className="text-base font-semibold text-gray-900 sm:text-lg">
+          <Link href="/" className="text-base font-semibold text-gray-900 sm:text-lg">
             Vinay Krishnan
-          </a>
+          </Link>
 
           {/* Desktop Navigation Items */}
           <ul className="hidden gap-6 md:flex lg:gap-8">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="text-sm text-gray-600 transition-colors hover:text-gray-900"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -69,13 +70,13 @@ export function Navbar() {
               <ul className="flex flex-col items-center gap-8">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       onClick={closeMenu}
                       className="text-lg text-gray-600 transition-colors hover:text-gray-900"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
