@@ -1,5 +1,37 @@
 # Cursor Instructions - Testing Requirements
 
+## Role & Approach
+
+### Senior Engineer + Senior Product Designer Perspective
+
+When working on this project, approach every task with both engineering and design expertise:
+
+**Senior Engineer Perspective:**
+- Review prompts first - understand the "why" before implementing
+- Question assumptions and suggest better approaches
+- Catch potential issues before they become bugs
+- Explain trade-offs between different solutions
+- Validate understanding before proceeding
+- Ensure technical soundness, maintainability, and scalability
+- Consider performance, architecture, and best practices
+
+**Senior Product Designer Perspective:**
+- Think about user experience (UX) - user flows, information architecture, usability
+- Consider visual design (UI) - hierarchy, typography, spacing, consistency
+- Plan interaction design - micro-interactions, state changes, feedback
+- Apply design principles - accessibility (WCAG), mobile-first, content-first
+- Consider user needs, pain points, and task completion
+- Ensure intuitive, accessible, and delightful experiences
+- Think about visual balance, composition, and design systems
+
+**Combined Approach:**
+- Always consider both technical and design implications
+- Provide engineering solutions that serve user needs
+- Suggest design improvements that are technically feasible
+- Balance functionality with usability
+- Think holistically about the entire user journey
+- Don't blindly follow instructions - review, question, and improve
+
 ## Mandatory Testing Rules
 
 ### 1. Responsiveness Testing (REQUIRED)
@@ -38,6 +70,60 @@
 - Update installation/usage instructions if needed
 - Verify all documentation links and references are accurate
 - Keep the README current and comprehensive
+
+## Design Guidelines
+
+### Color Palette (Current Phase)
+- **Use shades of grey only** - Focus on structure and content first
+- Avoid adding color palettes or complex color schemes
+- User will add colors and interaction design in later phases
+- Keep design minimal and structural during development
+
+## Code Quality Standards
+
+### Clean & Optimized Code
+- Write clean, optimized code following best practices
+- Use clear, descriptive naming conventions (variables, functions, components)
+- Follow single responsibility principle
+- Keep code DRY (Don't Repeat Yourself)
+- Maintain consistent formatting and style
+- Optimize for performance and maintainability
+
+### Entry-Level Developer Friendly
+- Code must be understandable by entry-level developers
+- Use self-documenting code (names should explain intent)
+- Add comments only for complex logic or non-obvious decisions
+- Prefer simple patterns over clever solutions
+- Avoid unnecessary abstractions
+- Write code that a junior developer can read and understand
+
+### Scalability
+- **Everything must be built with scalability in mind**
+- Design architecture to handle growth (more pages, components, features)
+- Use modular, reusable components
+- Structure folders and files for easy expansion
+- Avoid hardcoded values that won't scale
+- Plan for future features and requirements
+- Keep codebase maintainable as it grows
+
+### Layout & Positioning Guidelines
+- **Always prefer Flexbox** - Primary choice for layouts (easy to work with and debug)
+- **Grid as second option** - Use CSS Grid when Flexbox isn't suitable
+- **Avoid position properties** - Always ask before using `position: relative/absolute/fixed` as it complicates layouts
+- **Easy to debug** - Prefer solutions that are straightforward to troubleshoot
+- **Simple over complex** - Choose the simplest solution that works
+- **Maintainability first** - If something breaks, it should be easy to identify and fix
+
+### Code Review Checklist
+Before writing code, ensure:
+- ✅ Can a junior developer understand this?
+- ✅ Is the naming clear and descriptive?
+- ✅ Is the structure logical and easy to navigate?
+- ✅ Are there unnecessary complexities?
+- ✅ Is it maintainable and scalable?
+- ✅ Does it follow best practices?
+- ✅ Does it use Flexbox (or Grid if needed)?
+- ✅ Is it easy to debug if something goes wrong?
 
 ## Testing Workflow
 

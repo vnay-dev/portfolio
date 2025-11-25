@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Gabarito, Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import { METADATA } from "./constants";
+import { Navbar, Footer } from "@/components/shared/composite";
 import "./globals.css";
 import "./typography/index.css";
 
@@ -64,7 +65,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${gabarito.variable} ${hankenGrotesk.variable} ${editorial.variable} antialiased`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
