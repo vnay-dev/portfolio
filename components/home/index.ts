@@ -2,3 +2,4 @@
 // Examples: Hero, About, Projects, etc.
 
 export { Hero } from "./Hero";
+export { Projects } from "./Projects";

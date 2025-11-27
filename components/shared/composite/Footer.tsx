@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer className="w-full border-t border-gray-200 bg-white">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-6 md:px-24">
         <div className="flex flex-col items-center gap-4">
           {/* Social Media Links */}
           <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-6">

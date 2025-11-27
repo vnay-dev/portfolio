@@ -24,7 +24,7 @@ export function Navbar() {
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-24">
         <div className="flex h-14 items-center justify-between">
           {/* Logo/Brand */}
           <Link href="/" className="text-base font-semibold text-gray-900 sm:text-lg">
