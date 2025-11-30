@@ -79,3 +79,8 @@ h6 {
 p.headline-small {
   font-family: var(--font-hanken), sans-serif !important;
 }
+
+/* Override font for paragraphs using headline-medium to use body font */
+p.headline-medium {
+  font-family: var(--font-hanken), sans-serif !important;
+}
