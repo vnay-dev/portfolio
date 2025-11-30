@@ -5,6 +5,7 @@ export function Footer() {
     { label: "Medium", href: "https://medium.com" },
     { label: "Substack", href: "https://substack.com" },
     { label: "Behance", href: "https://behance.net" },
+    { label: "Github", href: "https://github.com/yourusername" },
   ];
 
   const version = "6.0.0";
