@@ -17,7 +17,7 @@ export function Projects() {
                 href="/projects/whatsapp-audio-summary"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative cursor-pointer"
+                className="group relative block cursor-pointer"
               >
                 <Image
                   src="/images/whatsapp_project_thumbnail.png"
@@ -26,8 +26,8 @@ export function Projects() {
                   height={800}
                   className="h-auto w-full max-w-4xl rounded-lg object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                  <p className="headline-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75 pointer-events-none">
+                  <p className="headline-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-auto">
                     View case study
                   </p>
                 </div>
