@@ -13,7 +13,6 @@
   font-size: 1rem; /* 16px - Material Design 2 Title Medium */
   font-weight: 500;
   line-height: 1.5rem; /* 24px */
-  letter-spacing: 0.009375em; /* 0.15px */
 }
 
 .title-small {
@@ -21,6 +20,5 @@
   font-size: 0.875rem; /* 14px - Material Design 2 Title Small */
   font-weight: 500;
   line-height: 1.25rem; /* 20px */
-  letter-spacing: 0.00625em; /* 0.1px */
 }
 

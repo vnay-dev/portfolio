@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-24">
         <div className="flex h-14 items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="text-base font-semibold text-gray-900 sm:text-lg">
+          <Link href="/" className="title-medium font-semibold text-gray-900 sm:headline-small">
             Vinay Krishnan
           </Link>
 
@@ -37,7 +37,7 @@ export function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-gray-600 transition-colors hover:text-gray-900"
+                  className="body-medium text-gray-600 transition-colors hover:text-gray-900"
                 >
                   {item.label}
                 </Link>
@@ -73,7 +73,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={closeMenu}
-                      className="text-lg text-gray-600 transition-colors hover:text-gray-900"
+                      className="headline-small text-gray-600 transition-colors hover:text-gray-900"
                     >
                       {item.label}
                     </Link>

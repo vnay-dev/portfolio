@@ -5,7 +5,6 @@
   font-size: 0.625rem; /* 10px - Material Design 2 Overline */
   font-weight: 500;
   line-height: 1rem; /* 16px */
-  letter-spacing: 0.09375em; /* 1.5px */
   text-transform: uppercase;
 }
 
@@ -14,5 +13,4 @@
   font-size: 0.75rem; /* 12px - Material Design 2 Caption */
   font-weight: 400;
   line-height: 1rem; /* 16px */
-  letter-spacing: 0.025em; /* 0.4px */
 }

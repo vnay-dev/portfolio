@@ -5,7 +5,6 @@
   font-size: 0.875rem; /* 14px - Material Design 2 Label Large */
   font-weight: 500;
   line-height: 1.25rem; /* 20px */
-  letter-spacing: 0.00625em; /* 0.1px */
 }
 
 .label-medium {
@@ -13,7 +12,6 @@
   font-size: 0.75rem; /* 12px - Material Design 2 Label Medium */
   font-weight: 500;
   line-height: 1rem; /* 16px */
-  letter-spacing: 0.03125em; /* 0.5px */
 }
 
 .label-small {
@@ -21,6 +19,5 @@
   font-size: 0.6875rem; /* 11px - Material Design 2 Label Small */
   font-weight: 500;
   line-height: 1rem; /* 16px */
-  letter-spacing: 0.03125em; /* 0.5px */
 }
 

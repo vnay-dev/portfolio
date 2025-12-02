@@ -22,7 +22,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-gray-600 transition-colors hover:text-gray-900 sm:text-sm"
+                  className="body-medium text-gray-600 transition-colors hover:text-gray-900"
                 >
                   {social.label}
                 </a>
@@ -31,10 +31,10 @@ export function Footer() {
           </ul>
 
           {/* Copyright and Version */}
-          <div className="flex flex-col items-center gap-2 text-xs text-gray-500 sm:flex-row sm:gap-4">
-            <p>© 2025. All rights & wrongs reserved.</p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
+            <p className="body-medium text-gray-500">© 2025. All rights & wrongs reserved.</p>
             <span className="hidden sm:inline">•</span>
-            <p>Version {version}</p>
+            <p className="body-medium text-gray-500">Version {version}</p>
           </div>
         </div>
       </div>

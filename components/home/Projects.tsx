@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/shared/composite";
 
 export function Projects() {
@@ -12,7 +13,12 @@ export function Projects() {
 
           <div className="flex flex-col gap-8">
             <div className="flex justify-center">
-              <div className="group relative cursor-pointer">
+              <Link
+                href="/projects/whatsapp-audio-summary"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative cursor-pointer"
+              >
                 <Image
                   src="/images/whatsapp_project_thumbnail.png"
                   alt="WhatsApp Project"
@@ -25,7 +31,7 @@ export function Projects() {
                     View case study
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

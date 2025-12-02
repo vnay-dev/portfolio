@@ -72,7 +72,6 @@ h6 {
   font-size: 1rem; /* 16px - Title Medium */
   font-weight: 500;
   line-height: 1.5rem; /* 24px */
-  letter-spacing: 0.009375em; /* 0.15px */
 }
 
 /* Override font for paragraphs using headline-small to use body font */
