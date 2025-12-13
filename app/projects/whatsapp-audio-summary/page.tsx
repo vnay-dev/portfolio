@@ -19,30 +19,40 @@ export default function WhatsAppAudioSummary() {
           />
 
           <div
-            className="relative w-full overflow-hidden rounded-lg px-6 py-4 sm:px-8 sm:py-6"
+            className="flex w-full flex-col gap-4 overflow-hidden rounded-lg px-5 py-4 sm:px-6 sm:py-5 md:px-7 md:py-5 lg:flex-row lg:items-center lg:gap-8 lg:px-8 lg:py-5"
             style={{ backgroundColor: "var(--color-light-green)" }}
           >
-            <Image
-              src="/images/rocket.png"
-              alt="Rocket"
-              width={96}
-              height={96}
-              className="absolute top-1/2 left-3 h-auto w-16 -translate-y-2/5 sm:left-4 sm:w-20 md:left-6 md:w-24 lg:left-2 lg:w-32"
-            />
-            <p className="body-large pl-20 text-left sm:pl-24 md:pl-28 lg:pl-32">
-              Looks like WhatsApp and I were on the same page! They just released{" "}
-              <span className="font-semibold">&quot;Transcripts&quot;</span>, which is pretty
-              similar to what I visualized in this case study. Check out their blog post{" "}
-              <Link
-                href="https://blog.whatsapp.com/introducing-voice-message-transcripts"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 underline transition-colors hover:text-blue-800"
-              >
-                here
-              </Link>
-              .
-            </p>
+            <div className="flex flex-row items-center gap-4 lg:flex-shrink-0">
+              <Image
+                src="/images/rocket.png"
+                alt="Rocket"
+                width={96}
+                height={96}
+                className="h-auto w-10 flex-shrink-0 sm:w-12 md:w-16 lg:w-16"
+              />
+              <p className="title-large text-lg sm:text-xl md:text-xl lg:hidden">
+                Looks like WhatsApp and I were on the same page!
+              </p>
+            </div>
+            <div className="flex w-full flex-col gap-2 text-left">
+              <p className="title-large hidden lg:block">
+                Looks like WhatsApp and I were on the same page!
+              </p>
+              <p className="body-large text-sm sm:text-base md:text-base">
+                They just released <span className="font-semibold">&quot;Transcripts&quot;</span>,
+                which is pretty similar to what I visualized in this case study. Check out their
+                blog post{" "}
+                <Link
+                  href="https://blog.whatsapp.com/introducing-voice-message-transcripts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline transition-colors hover:text-blue-800"
+                >
+                  here
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </Container>
