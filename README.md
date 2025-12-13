@@ -4,7 +4,7 @@ A clean, minimal portfolio website built with Next.js and Tailwind CSS. This is 
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js 15.5.4](https://nextjs.org/) (App Router with Turbopack)
+- **Framework**: [Next.js 15.5.9](https://nextjs.org/) (App Router with Turbopack)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **React**: 19.1.0
