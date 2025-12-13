@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section className="w-full">
       <Container>
-        <div className="flex flex-col gap-8 pt-16 sm:gap-12 sm:pt-24 md:pt-48">
+        <div className="flex flex-col gap-8 pt-16 sm:gap-12 sm:pt-24">
           <Image
             src="/images/profile_pic.jpg"
             alt="Hero"

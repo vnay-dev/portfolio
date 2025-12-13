@@ -5,6 +5,7 @@ import { METADATA } from "./constants";
 import { Navbar, Footer } from "@/components/shared/composite";
 import "./globals.css";
 import "./typography/index.css";
+import "./colors.css";
 
 const gabarito = Gabarito({
   subsets: ["latin"],

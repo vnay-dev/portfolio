@@ -26,8 +26,8 @@ export function Projects() {
                   height={800}
                   className="h-auto w-full max-w-4xl rounded-lg object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75 pointer-events-none">
-                  <p className="headline-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-auto">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
+                  <p className="headline-medium pointer-events-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     View case study
                   </p>
                 </div>
