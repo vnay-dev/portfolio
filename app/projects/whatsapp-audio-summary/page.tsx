@@ -19,7 +19,7 @@ export default function WhatsAppAudioSummary() {
           />
 
           <div
-            className="flex w-full flex-col gap-4 overflow-hidden rounded-lg px-5 py-4 sm:px-6 sm:py-5 md:px-7 md:py-5 lg:flex-row lg:items-center lg:gap-8 lg:px-8 lg:py-5"
+            className="flex w-full flex-col gap-6 overflow-hidden rounded-lg px-6 py-5 sm:gap-8 sm:px-8 sm:py-6 md:gap-8 md:px-8 md:py-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8 lg:py-5"
             style={{ backgroundColor: "var(--color-light-green)" }}
           >
             <div className="flex flex-row items-center gap-4 lg:flex-shrink-0">
