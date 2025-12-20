@@ -105,7 +105,7 @@ export default function WhatsAppAudioSummary() {
                 width={1200}
                 height={800}
                 quality={100}
-                className="h-auto w-4/5 rounded-lg object-contain sm:w-3/4 md:w-7/10"
+                className="h-auto w-full rounded-lg object-contain sm:w-3/4 md:w-18/25"
               />
             </div>
           </div>
