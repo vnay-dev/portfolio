@@ -1,6 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/shared/composite";
+import { Carousel } from "@/components/projects/whatsapp-audio-summary";
+
+interface InterviewCarouselItem {
+  question: string;
+  objective: string;
+}
+
+const interviewCarouselData: InterviewCarouselItem[] = [
+  {
+    question: "Who do you typically send audio messages to?",
+    objective: "To understand the personal comfort and context involved in using this feature",
+  },
+  {
+    question: "What is your experience with the fast forward feature for voice notes?",
+    objective: "To determine how often users make use of this feature",
+  },
+  {
+    question:
+      "How do you feel when someone continues to send you only audio messages in a conversation?",
+    objective: "To understand user tolerance levels and when the feature becomes frustrating",
+  },
+  {
+    question: "How do you find important conversations in chats with many voice notes?",
+    objective: "To assess the difficulty of locating specific voice notes in a busy chat history",
+  },
+  {
+    question: "When was the last time you sent or received an audio message?",
+    objective: "To understand how frequently users utilize this feature",
+  },
+  {
+    question: "How do you decide when to listen to audio messages?",
+    objective: "To explore how users manage their time to listening to audio messages",
+  },
+];
 
 export default function WhatsAppAudioSummary() {
   return (
@@ -107,6 +141,24 @@ export default function WhatsAppAudioSummary() {
                 quality={100}
                 className="h-auto w-full rounded-lg object-contain sm:w-3/4 md:w-18/25"
               />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Validating my hypothesis</h2>
+            <p className="body-xlarge">
+              To get a clearer picture of the problem, I talked to my colleagues and friends; some
+              who loved using the feature, some who barely touched it and others who only used it
+              when they had to.
+            </p>
+            <div
+              className="flex w-full flex-col gap-8 rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12"
+              style={{ backgroundColor: "#111b21" }}
+            >
+              <h3 className="text-center text-xl font-medium text-white sm:text-2xl md:text-3xl">
+                User interview questions and objectives
+              </h3>
+              <Carousel items={interviewCarouselData} />
             </div>
           </div>
         </div>

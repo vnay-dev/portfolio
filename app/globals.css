@@ -83,3 +83,18 @@ p.headline-small {
 p.headline-medium {
   font-family: var(--font-hanken), sans-serif !important;
 }
+
+/* Carousel animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 45s linear infinite;
+  will-change: transform;
+}
