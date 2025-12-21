@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/shared/composite";
-import { Carousel } from "@/components/projects/whatsapp-audio-summary";
+import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
 
 interface InterviewCarouselItem {
   question: string;
   objective: string;
+}
+
+interface InsightItem {
+  icon: string;
+  title: string;
+  description: string;
 }
 
 const interviewCarouselData: InterviewCarouselItem[] = [
@@ -33,6 +39,39 @@ const interviewCarouselData: InterviewCarouselItem[] = [
   {
     question: "How do you decide when to listen to audio messages?",
     objective: "To explore how users manage their time to listening to audio messages",
+  },
+];
+
+const insightsData: InsightItem[] = [
+  {
+    icon: "/images/whtsp_insights_personal.gif",
+    title: "Personal comfort",
+    description:
+      "People feel most comfortable sending voice notes to friends and family they're close to.",
+  },
+  {
+    icon: "/images/whtsp_insights_ffwd.gif",
+    title: "Fast-forward usage",
+    description:
+      "Users who are in a hurry often speed up audio, usually to 1.5x speed, to save time.",
+  },
+  {
+    icon: "/images/whtsp_insights_searchlist.gif",
+    title: "Difficulty locating messages",
+    description:
+      "Users often struggle to find specific voice notes in a busy chat history. Many mentioned how tough it is to grasp the context and how time-consuming the whole process can be.",
+  },
+  {
+    icon: "/images/whtsp_insights_lock.gif",
+    title: "Privacy concerns",
+    description:
+      "Users are often hesitant to listen to audio messages in public places due to privacy concerns, preferring headphones or private settings.",
+  },
+  {
+    icon: "/images/whtsp_insights_mic.gif",
+    title: "Expressive communication",
+    description:
+      "People use voice notes to express emotions beyond emojis, avoid typing, mix languages or communicate on the go.",
   },
 ];
 
@@ -159,6 +198,21 @@ export default function WhatsAppAudioSummary() {
                 User interview questions and objectives
               </h3>
               <Carousel items={interviewCarouselData} />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Insights from user interviews</h2>
+            <div className="flex flex-col gap-6">
+              {insightsData.map((insight, index) => (
+                <InsightCard
+                  key={index}
+                  icon={insight.icon}
+                  title={insight.title}
+                  description={insight.description}
+                  isLast={index === insightsData.length - 1}
+                />
+              ))}
             </div>
           </div>
         </div>
