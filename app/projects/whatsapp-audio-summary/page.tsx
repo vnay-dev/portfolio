@@ -283,6 +283,316 @@ export default function WhatsAppAudioSummary() {
               </div>
             </div>
           </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">User job 1</h2>
+            <blockquote
+              className="text-xl italic md:text-2xl"
+              style={{ color: "#1c1e21", fontFamily: "var(--font-editorial), sans-serif" }}
+            >
+              &quot;When I receive a long audio message, I want to read a gist of it so that I can
+              quickly understand the context&quot;
+            </blockquote>
+            <div className="h-[0.5px] w-3/4" style={{ backgroundColor: "#d3d3d3" }}></div>
+            <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+              I figured that WhatsApp could use an AI model, which I&apos;m calling Meta AI, to
+              summarize voice notes. I knew the first version wouldn&apos;t be perfect, given how AI
+              is still evolving.
+            </p>
+            <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+              So, here&apos;s my final solution, designed to tackle the challenges of understanding
+              voice notes in context.
+            </p>
+          </div>
+
+          <div
+            className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+            style={{ backgroundColor: "#d0ffcf" }}
+          >
+            <h3
+              className="text-center !text-xl sm:!text-2xl md:!text-[1.75rem]"
+              style={{ color: "#073318" }}
+            >
+              Read quick summaries of your voice notes
+            </h3>
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
+              <div
+                className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
+              >
+                <Image
+                  src="/images/uj1_final_scrn1.png"
+                  alt="Final Screen 1"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
+              >
+                <Image
+                  src="/images/uj1_final_scrn2.png"
+                  alt="Final Screen 2"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
+              >
+                <Image
+                  src="/images/uj1_final_scrn3.png"
+                  alt="Final Screen 3"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full flex-col gap-6">
+            <div
+              className="relative aspect-video w-full overflow-hidden rounded-lg border"
+              style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/WrmuKrA2ha4?autoplay=1&mute=1&vq=hd1080&rel=0&loop=1&playlist=WrmuKrA2ha4&modestbranding=1"
+                title="Prototype Video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                frameBorder="0"
+                className="absolute top-0 left-0 h-full w-full border-0"
+                style={{
+                  outline: "none",
+                  border: "none",
+                  margin: 0,
+                  padding: 0,
+                  left: "-2px",
+                  top: "-1px",
+                  width: "calc(100% + 4px)",
+                  height: "calc(100% + 2px)",
+                  transform: "translateZ(0)",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            Now, let me take you through the different iterations I went through before landing on
+            this final version.
+          </p>
+
+          <div
+            className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+            style={{ backgroundColor: "#d0ffcf" }}
+          >
+            <h3
+              className="text-center !text-xl sm:!text-2xl md:!text-[1.75rem]"
+              style={{ color: "#00be4c" }}
+            >
+              <span
+                className="!text-lg sm:!text-xl"
+                style={{
+                  color: "#073318",
+                }}
+              >
+                Iteration 1
+              </span>
+              <br />
+              <span style={{ display: "block", marginTop: "0.5rem" }}>
+                Using a bottom sheet to show summary of voice notes
+              </span>
+            </h3>
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
+              <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <Image
+                  src="/images/uj1_itr1_scr1.png"
+                  alt="Iteration 1 Screen 1"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <Image
+                  src="/images/uj1_itr1_scr2.png"
+                  alt="Iteration 1 Screen 2"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+            </div>
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            This iteration disrupted the chat flow. Displaying the AI summary in a bottom sheet
+            would interrupt the ongoing conversation, leading to a poor user experience.
+          </p>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="!text-xl sm:!text-2xl md:!text-[1.75rem]" style={{ color: "#1c1e21" }}>
+              Iteration 1.5 - transcript or summary?
+            </h3>
+            <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+              This iteration refines the copy. To save time, I opted for summarizing audio instead
+              of transcribing it, as full transcriptions are not practical for long messages.
+            </p>
+          </div>
+
+          <div
+            className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+            style={{ backgroundColor: "#d0ffcf" }}
+          >
+            <h3
+              className="text-center !text-xl sm:!text-2xl md:!text-[1.75rem]"
+              style={{ color: "#00be4c" }}
+            >
+              <span
+                className="!text-lg sm:!text-xl"
+                style={{
+                  color: "#073318",
+                }}
+              >
+                Iteration 2
+              </span>
+              <br />
+              <span style={{ display: "block", marginTop: "0.5rem" }}>
+                Vertical expansion of the voice note
+              </span>
+            </h3>
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
+              <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <Image
+                  src="/images/uj1_itr2_scr1.png"
+                  alt="Iteration 2 Screen 1"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+              <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <Image
+                  src="/images/uj1_itr2_scr2.png"
+                  alt="Iteration 2 Screen 2"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full"
+                  quality={100}
+                />
+              </div>
+            </div>
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            The problem with this iteration was that users wouldn&apos;t know what the AI summary
+            button (the sparkle button) does. There&apos;s no clear indication of what to expect
+            when they tap it.
+          </p>
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            Some common issues with the previous iterations (1 and 2) can be broken down as follows:
+          </p>
+
+          <ol
+            className="flex flex-col gap-6"
+            style={{ listStyle: "decimal", paddingLeft: "1.5rem" }}
+          >
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              The AI summary button which the user taps on to see the summary.
+              <ul
+                className="mt-3 flex flex-col gap-3"
+                style={{ listStyle: "disc", paddingLeft: "1.5rem" }}
+              >
+                <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+                  <strong>Contextual placement:</strong> The AI summary button was misplaced outside
+                  the voice note UI, which felt counterintuitive since the summary remains within
+                  the chat context.
+                </li>
+                <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+                  <strong>Confusion with forward button:</strong> The AI summary button&apos;s
+                  position, typically used for forwarding in text messages, could confuse users.
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <div className="relative w-full overflow-hidden rounded-lg">
+            <Image
+              src="/images/uj1_iteration2_poster1.jpg"
+              alt="Iteration 2 Poster 1"
+              width={1200}
+              height={800}
+              className="h-auto w-full"
+              quality={100}
+            />
+          </div>
+
+          <ol
+            className="flex flex-col gap-6"
+            style={{ listStyle: "decimal", paddingLeft: "1.5rem" }}
+            start={2}
+          >
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              <strong>Lack of loading feedback:</strong> Users aren&apos;t told how long it takes to
+              generate the summary, which could lead to uncertainty and frustration.
+            </li>
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              <strong>Uncertainty about accuracy:</strong> The evolving AI technology might produce
+              imperfect results. Users may assume complete accuracy due to the lack of information
+              on its reliability and limitations.
+            </li>
+          </ol>
+
+          <div className="relative w-full overflow-hidden rounded-lg">
+            <Image
+              src="/images/uj1_iteration2_poster2.jpg"
+              alt="Iteration 2 Poster 2"
+              width={1200}
+              height={800}
+              className="h-auto w-full"
+              quality={100}
+            />
+          </div>
+
+          <ol
+            className="flex flex-col gap-6"
+            style={{ listStyle: "decimal", paddingLeft: "1.5rem" }}
+            start={4}
+          >
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              <strong>Unclear purpose:</strong> The lack of information about the generated
+              text&apos;s nature can confuse users, as they may be unsure if it&apos;s a
+              translation, transcript, or summary.
+            </li>
+          </ol>
+
+          <div className="relative w-full overflow-hidden rounded-lg">
+            <Image
+              src="/images/uj1_iteration2_poster3.jpg"
+              alt="Iteration 2 Poster 3"
+              width={1200}
+              height={800}
+              className="h-auto w-full"
+              quality={100}
+            />
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            After taking all these issues into account, the third iteration was developed, which
+            eventually became the final solution presented in the first prototype.
+          </p>
         </div>
       </Container>
     </main>
