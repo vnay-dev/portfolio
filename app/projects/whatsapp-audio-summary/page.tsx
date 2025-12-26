@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/shared/composite";
 import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
+import { Ticker } from "@/components/projects/whatsapp-audio-summary/Ticker";
 
 interface InterviewCarouselItem {
   question: string;
@@ -293,7 +294,7 @@ export default function WhatsAppAudioSummary() {
               &quot;When I receive a long audio message, I want to read a gist of it so that I can
               quickly understand the context&quot;
             </blockquote>
-            <div className="h-[0.5px] w-3/4" style={{ backgroundColor: "#d3d3d3" }}></div>
+            <div className="h-[0.5px] w-3/5" style={{ backgroundColor: "#d3d3d3" }}></div>
             <p className="body-xlarge" style={{ color: "#1c1e21" }}>
               I figured that WhatsApp could use an AI model, which I&apos;m calling Meta AI, to
               summarize voice notes. I knew the first version wouldn&apos;t be perfect, given how AI
@@ -592,6 +593,161 @@ export default function WhatsAppAudioSummary() {
           <p className="body-xlarge" style={{ color: "#1c1e21" }}>
             After taking all these issues into account, the third iteration was developed, which
             eventually became the final solution presented in the first prototype.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <h2 className="headline-small md:!text-[1.75rem]">User job 2</h2>
+          <blockquote
+            className="text-xl italic md:text-2xl"
+            style={{ color: "#1c1e21", fontFamily: "var(--font-editorial), sans-serif" }}
+          >
+            &quot;I want to search for keywords within voice notes to quickly find what I need in a
+            chat history&quot;
+          </blockquote>
+          <div className="h-[0.5px] w-3/5" style={{ backgroundColor: "#d3d3d3" }}></div>
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            Taking all these issues into account, I developed the third iteration, which ultimately
+            became the final solution showcased in the first prototype.
+          </p>
+
+          <div
+            className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+            style={{ backgroundColor: "#fef5ea" }}
+          >
+            <h3
+              className="text-center !text-xl sm:!text-2xl md:!text-[1.75rem]"
+              style={{ color: "#00bc4c" }}
+            >
+              Redesigning the search flow
+            </h3>
+            <Ticker
+              images={[
+                "/images/uj2_screen1.png",
+                "/images/uj2_screen2.png",
+                "/images/uj2_screen3.png",
+                "/images/uj2_screen4.png",
+                "/images/uj2_screen5.png",
+              ]}
+              altPrefix="Search Screen"
+              descriptions={[
+                {
+                  text: "User taps on the search bar",
+                },
+                {
+                  text: "Starts typing 'Apple'",
+                  highlightText: "Apple",
+                  highlightLength: 1,
+                },
+                {
+                  text: "Starts typing 'Apple'",
+                  highlightText: "Apple",
+                  highlightLength: 3,
+                },
+                {
+                  text: "Finished typing 'Apple'",
+                },
+                {
+                  text: "Collapsible summary",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="flex w-full flex-col gap-6">
+            <div
+              className="relative aspect-video w-full overflow-hidden rounded-lg border"
+              style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/a_jS0rgBODA?autoplay=1&mute=1&vq=hd1080&rel=0&loop=1&playlist=a_jS0rgBODA&modestbranding=1"
+                title="Prototype Video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                frameBorder="0"
+                className="absolute top-0 left-0 h-full w-full border-0"
+                style={{
+                  outline: "none",
+                  border: "none",
+                  margin: 0,
+                  padding: 0,
+                  left: "-2px",
+                  top: "-1px",
+                  width: "calc(100% + 4px)",
+                  height: "calc(100% + 2px)",
+                  transform: "translateZ(0)",
+                  borderRadius: "8px",
+                }}
+              />
+            </div>
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            This iteration automatically shows you the summary and highlights the part that matches
+            your search. So, no more scrolling through everything!
+          </p>
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            Let me walk you through my thought process and how it all came together to lead to the
+            final solution.
+          </p>
+
+          <div
+            className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+            style={{ backgroundColor: "#fef5ea" }}
+          >
+            <h3
+              className="text-center !text-xl sm:!text-2xl md:!text-[1.75rem]"
+              style={{ color: "#00bc4c" }}
+            >
+              Initial iteration of the search flow
+            </h3>
+            <Ticker
+              images={[
+                "/images/uj2_itr1_screen1.png",
+                "/images/uj2_itr1_screen2.png",
+                "/images/uj2_itr1_screen3.png",
+                "/images/uj2_itr1_screen4.png",
+              ]}
+              altPrefix="Search Screen"
+              descriptions={[
+                {
+                  text: "User taps on the search bar",
+                },
+                {
+                  text: "Starts typing 'Apple'",
+                  highlightText: "Apple",
+                  highlightLength: 1,
+                },
+                {
+                  text: "Starts typing 'Apple'",
+                  highlightText: "Apple",
+                  highlightLength: 3,
+                },
+                {
+                  text: "Finished typing 'Apple'",
+                },
+              ]}
+            />
+          </div>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            Now, let&apos;s break down the issues with this user flow.
+          </p>
+
+          <ul className="flex flex-col gap-6" style={{ listStyle: "disc", paddingLeft: "1.5rem" }}>
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              <strong>Search results prioritization:</strong> On the search results screen, the
+              audio summary takes priority over the actual audio files, which means the voice notes
+              themselves aren&apos;t showing up in the results.
+            </li>
+            <li className="body-xlarge" style={{ color: "#1c1e21" }}>
+              <strong>Visual clarity:</strong> It&apos;s visually difficult for users to tell that
+              these are audio summaries linked to voice notes from different chats.
+            </li>
+          </ul>
+
+          <p className="body-xlarge" style={{ color: "#1c1e21" }}>
+            The final solution was created by considering all these loopholes.
           </p>
         </div>
       </Container>
