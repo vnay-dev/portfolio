@@ -215,6 +215,74 @@ export default function WhatsAppAudioSummary() {
               ))}
             </div>
           </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Defining the problem</h2>
+            <p className="body-xlarge">
+              After analyzing the research and understanding the key insights, I was able to
+              validate my initial hypothesis and define the problem statement(s) as user jobs:
+            </p>
+            <div className="flex flex-col gap-16 sm:flex-row sm:gap-8">
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
+                <div className="relative w-full overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/user_job_1.png"
+                    alt="User Job 1"
+                    width={1200}
+                    height={800}
+                    className="h-auto w-full"
+                    quality={100}
+                  />
+                </div>
+                <div className="flex flex-row gap-4">
+                  <span
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center border !text-xl font-light sm:h-12 sm:w-12 sm:!text-3xl"
+                    style={{
+                      color: "#1c1e21",
+                      borderColor: "#1c1e21",
+                      borderWidth: "1.35px",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    1
+                  </span>
+                  <p className="body-large" style={{ color: "#1c1e21" }}>
+                    When I receive a long audio message, I want to read a gist of it so that I can
+                    quickly understand the context.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
+                <div className="relative w-full overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/user_job_2.png"
+                    alt="User Job 2"
+                    width={1200}
+                    height={800}
+                    className="h-auto w-full"
+                    quality={100}
+                  />
+                </div>
+                <div className="flex flex-row gap-4">
+                  <span
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center border !text-xl font-light sm:h-12 sm:w-12 sm:!text-3xl"
+                    style={{
+                      color: "#1c1e21",
+                      borderColor: "#1c1e21",
+                      borderWidth: "1.35px",
+                      borderRadius: "8px",
+                    }}
+                  >
+                    2
+                  </span>
+                  <p className="body-large" style={{ color: "#1c1e21" }}>
+                    I want to search for keywords within voice notes to quickly find what I need in
+                    a chat history.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </main>
