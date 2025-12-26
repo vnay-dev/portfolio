@@ -85,7 +85,7 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
     window.addEventListener("resize", handleResize);
 
     let lastTime = performance.now();
-    const speed = itemSetWidth / 15; // pixels per second (15s to scroll one set)
+    const speed = itemSetWidth / 30; // pixels per second (30s to scroll one set)
 
     const animate = (currentTime: number) => {
       if (!ticker) return;
