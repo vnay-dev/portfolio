@@ -39,31 +39,31 @@ export interface InsightItem {
 
 export const insightsData: InsightItem[] = [
   {
-    icon: "/images/whtsp_insights_personal.gif",
+    icon: "/images/whatsapp/whtsp_insights_personal.gif",
     title: "Personal comfort",
     description:
       "People feel most comfortable sending voice notes to friends and family they're close to.",
   },
   {
-    icon: "/images/whtsp_insights_ffwd.gif",
+    icon: "/images/whatsapp/whtsp_insights_ffwd.gif",
     title: "Fast-forward usage",
     description:
       "Users who are in a hurry often speed up audio, usually to 1.5x speed, to save time.",
   },
   {
-    icon: "/images/whtsp_insights_searchlist.gif",
+    icon: "/images/whatsapp/whtsp_insights_searchlist.gif",
     title: "Difficulty locating messages",
     description:
       "Users often struggle to find specific voice notes in a busy chat history. Many mentioned how tough it is to grasp the context and how time-consuming the whole process can be.",
   },
   {
-    icon: "/images/whtsp_insights_lock.gif",
+    icon: "/images/whatsapp/whtsp_insights_lock.gif",
     title: "Privacy concerns",
     description:
       "Users are often hesitant to listen to audio messages in public places due to privacy concerns, preferring headphones or private settings.",
   },
   {
-    icon: "/images/whtsp_insights_mic.gif",
+    icon: "/images/whatsapp/whtsp_insights_mic.gif",
     title: "Expressive communication",
     description:
       "People use voice notes to express emotions beyond emojis, avoid typing, mix languages or communicate on the go.",
@@ -71,10 +71,10 @@ export const insightsData: InsightItem[] = [
 ];
 
 export const uj2Iteration1Images = [
-  "/images/uj2_itr1_screen1.png",
-  "/images/uj2_itr1_screen2.png",
-  "/images/uj2_itr1_screen3.png",
-  "/images/uj2_itr1_screen4.png",
+  "/images/whatsapp/uj2_itr1_screen1.png",
+  "/images/whatsapp/uj2_itr1_screen2.png",
+  "/images/whatsapp/uj2_itr1_screen3.png",
+  "/images/whatsapp/uj2_itr1_screen4.png",
 ];
 
 export interface TickerDescription {
@@ -103,11 +103,11 @@ export const uj2Iteration1Descriptions: TickerDescription[] = [
 ];
 
 export const uj2SearchFlowImages = [
-  "/images/uj2_screen1.png",
-  "/images/uj2_screen2.png",
-  "/images/uj2_screen3.png",
-  "/images/uj2_screen4.png",
-  "/images/uj2_screen5.png",
+  "/images/whatsapp/uj2_screen1.png",
+  "/images/whatsapp/uj2_screen2.png",
+  "/images/whatsapp/uj2_screen3.png",
+  "/images/whatsapp/uj2_screen4.png",
+  "/images/whatsapp/uj2_screen5.png",
 ];
 
 export const uj2SearchFlowDescriptions: TickerDescription[] = [
