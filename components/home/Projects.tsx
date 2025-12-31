@@ -27,7 +27,7 @@ export function Projects() {
                   className="h-auto w-full max-w-4xl rounded-lg object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                  <p className="pointer-events-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-normal leading-tight" style={{ fontFamily: 'var(--font-gabarito), var(--font-hanken), sans-serif' }}>
+                  <p className="pointer-events-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-sm sm:text-base md:text-lg lg:text-[1.75rem] font-normal leading-tight" style={{ fontFamily: 'var(--font-gabarito), var(--font-hanken), sans-serif' }}>
                     View case study
                   </p>
                 </div>
@@ -48,7 +48,7 @@ export function Projects() {
                   className="h-auto w-full max-w-4xl rounded-lg object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                  <p className="pointer-events-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-normal leading-tight" style={{ fontFamily: 'var(--font-gabarito), var(--font-hanken), sans-serif' }}>
+                  <p className="pointer-events-auto text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-sm sm:text-base md:text-lg lg:text-[1.75rem] font-normal leading-tight" style={{ fontFamily: 'var(--font-gabarito), var(--font-hanken), sans-serif' }}>
                     View case study
                   </p>
                 </div>
