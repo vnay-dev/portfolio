@@ -98,3 +98,5 @@ p.headline-medium {
   animation: scroll 45s linear infinite;
   will-change: transform;
 }
+
+@import "../components/animations/StarBorder/StarBorder.css";

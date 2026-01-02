@@ -1,11 +1,11 @@
 export function Footer() {
   const socialLinks = [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Medium", href: "https://medium.com" },
-    { label: "Substack", href: "https://substack.com" },
-    { label: "Behance", href: "https://behance.net" },
-    { label: "Github", href: "https://github.com/yourusername" },
+    // { label: "Instagram", href: "https://instagram.com" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/vinay-krishnan-9a179a183/" },
+    // { label: "Medium", href: "https://medium.com" },
+    { label: "Substack", href: "https://substack.com/@vnaykrshn116" },
+    // { label: "Behance", href: "https://behance.net" },
+    { label: "Github", href: "https://github.com/vnay-dev/" },
   ];
 
   const version = "6.0.0";
@@ -32,7 +32,7 @@ export function Footer() {
 
           {/* Copyright and Version */}
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
-            <p className="body-medium text-gray-500">© 2025. All rights & wrongs reserved.</p>
+            <p className="body-medium text-gray-500">Built with Cursor</p>
             <span className="hidden sm:inline">•</span>
             <p className="body-medium text-gray-500">Version {version}</p>
           </div>
