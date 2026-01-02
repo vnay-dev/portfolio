@@ -1,15 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Work", href: "/work" },
+    { label: "Work", href: "#work" },
     { label: "About Me", href: "/about" },
     { label: "Resume", href: "/resume" },
   ];
@@ -18,16 +32,27 @@ export function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    if (href === "#work") {
+      e.preventDefault();
+      const workSection = document.getElementById("work");
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setIsMenuOpen(false); // Close mobile menu if open
+    }
+  };
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="w-full border-b border-gray-200 bg-white">
+    <nav className="w-full border-b border-white/20 bg-transparent backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-24">
         <div className="flex h-14 items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="title-medium font-semibold text-gray-900 sm:headline-small">
+          <Link href="/" className="title-medium sm:headline-small font-semibold text-white">
             Vinay Krishnan
           </Link>
 
@@ -37,7 +62,8 @@ export function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="body-medium text-gray-600 transition-colors hover:text-gray-900"
+                  onClick={(e) => handleNavClick(item.href, e)}
+                  className="body-medium relative text-white transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[1.2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
@@ -48,7 +74,7 @@ export function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={toggleMenu}
-            className="text-gray-900 md:hidden"
+            className="text-white md:hidden"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -72,7 +98,10 @@ export function Navbar() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={closeMenu}
+                      onClick={(e) => {
+                        handleNavClick(item.href, e);
+                        closeMenu();
+                      }}
                       className="headline-small text-gray-600 transition-colors hover:text-gray-900"
                     >
                       {item.label}
