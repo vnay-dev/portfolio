@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/shared/composite";
+import { Container, Navbar } from "@/components/shared/composite";
 import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
 import { Ticker } from "@/components/projects/whatsapp-audio-summary/Ticker";
 import {
@@ -28,6 +28,7 @@ import {
 export default function WhatsAppAudioSummary() {
   return (
     <main className="min-h-screen w-full">
+      <Navbar variant="light" />
       <Container>
         <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
           <h1 className="display-medium text-center">Smart voice notes to keep the chat flowing</h1>

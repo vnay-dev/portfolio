@@ -1,13 +1,14 @@
 import Image from "next/image";
-import { Container } from "@/components/shared/composite";
+import { Container, Navbar } from "@/components/shared/composite";
 
 export default function TDBridge() {
   return (
     <main className="min-h-screen w-full">
+      <Navbar variant="light" />
       <Container>
         <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
           <h1 className="display-medium text-center">
-            Exploring why our design system never got adopted across teams
+            Exploring why our web design system never got adopted across teams
           </h1>
 
           <div className="w-full overflow-hidden rounded-lg">
@@ -33,148 +34,19 @@ export default function TDBridge() {
               and again:
             </p>
 
-            <div
-              className="relative w-full overflow-hidden rounded-lg p-6 sm:p-8 md:p-10"
-              style={{ backgroundColor: "#f5f5f5", height: "468px" }}
-            >
-              {/* Chat Bubbles - Better Spaced to Prevent Overlaps */}
-              <div
-                className="absolute top-[8%] left-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-2.7deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Which spacing scale are we supposed to use here?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[8%] left-[34%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:left-[35%] md:max-w-[26%]"
-                style={{ transform: "rotate(3.2deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Is there already a pattern for this layout?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[8%] right-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-1.4deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Do we have a guideline for empty states?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[25%] left-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(2.8deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;What typography style should this heading use?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[25%] left-[34%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:left-[35%] md:max-w-[26%]"
-                style={{ transform: "rotate(-3.1deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Do we support dark mode for this yet?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[25%] right-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(1.9deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Is there a design token for this color?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[42%] left-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-2.3deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;What border radius should this component have?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[42%] left-[34%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:left-[35%] md:max-w-[26%]"
-                style={{ transform: "rotate(2.6deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Do we have a standard for icons?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[42%] right-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-1.7deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;How should this error message be displayed?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[59%] left-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(2.4deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Is this interaction already defined anywhere?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[59%] left-[34%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:left-[35%] md:max-w-[26%]"
-                style={{ transform: "rotate(-2.9deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Do we have a table component or should I build one?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[59%] right-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(1.1deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;What padding do we normally use inside cards?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[76%] left-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-3.3deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Is there a mobile version of this component?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[76%] left-[34%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:left-[35%] md:max-w-[26%]"
-                style={{ transform: "rotate(2.1deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Where do I find the latest version of the styles?&quot;
-                </p>
-              </div>
-
-              <div
-                className="absolute top-[76%] right-[2%] max-w-[30%] rounded-2xl bg-white px-2.5 py-2 shadow-lg sm:max-w-[28%] md:max-w-[26%]"
-                style={{ transform: "rotate(-0.8deg)" }}
-              >
-                <p className="body-medium text-[10px] leading-tight sm:text-xs">
-                  &quot;Is there a naming convention for components?&quot;
-                </p>
-              </div>
+            <div className="w-full overflow-hidden rounded-lg">
+              <Image
+                src="/images/tdbridge/tdb_dev_questions.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
             </div>
 
-            <p className="body-xlarge">And almost every time, the reply was the same:</p>
+            <p className="body-xlarge">
+              And almost every time, the designer&apos;s reply was the same:
+            </p>
 
             <p className="body-xlarge">&quot;It&apos;s in the design system.&quot;</p>
 
@@ -185,39 +57,75 @@ export default function TDBridge() {
               feel like a pattern.
             </p>
 
+            <div className="w-full overflow-hidden rounded-lg">
+              <Image
+                src="/images/tdbridge/tdb_jack_sparrow_meme.png"
+                alt="So the repeating questions became the signal"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
+
             <p className="body-xlarge">
               Because if the design system was truly part of everyone&apos;s workflow, people
-              wouldn&apos;t need to keep asking where things lived or how they were meant to work —
-              they&apos;d already know where to look.
+              wouldn&apos;t need to keep asking where things lived or how they were meant to work
+              instead they&apos;d already know where to look.
             </p>
-
-            <p className="body-xlarge">So the repeating questions became the signal.</p>
 
             {/* Presentation Container */}
             <div
               className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-              style={{ backgroundColor: "#f5f5f5" }}
+              style={{ backgroundColor: "#faf6ee" }}
             >
               <div className="flex flex-col gap-6 sm:gap-8">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-gray-800 sm:h-7 sm:w-7">
+                  <div
+                    className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white sm:h-7 sm:w-7"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#da1f2b",
+                      border: "1.5px solid #da1f2b",
+                    }}
+                  >
                     1
                   </div>
-                  <p className="body-xlarge pt-0.5">didn&apos;t know the design system existed</p>
+                  <p className="body-xlarge pt-0.5">
+                    Most teams didn&apos;t even know that we had a design system in Figma.
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-gray-800 sm:h-7 sm:w-7">
+                  <div
+                    className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white sm:h-7 sm:w-7"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#da1f2b",
+                      border: "1.5px solid #da1f2b",
+                    }}
+                  >
                     2
                   </div>
-                  <p className="body-xlarge pt-0.5">didn&apos;t know how to navigate it</p>
+                  <p className="body-xlarge pt-0.5">
+                    The teams who did know about it didn&apos;t know how to navigate or use it
+                    properly.
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-gray-800 sm:h-7 sm:w-7">
+                  <div
+                    className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold sm:h-7 sm:w-7"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#da1f2b",
+                      border: "1.5px solid #da1f2b",
+                    }}
+                  >
                     3
                   </div>
-                  <p className="body-xlarge pt-0.5">didn&apos;t feel confident relying on it</p>
+                  <p className="body-xlarge pt-0.5">
+                    And the few who could explore it still didn&apos;t feel confident relying on it.
+                  </p>
                 </div>
               </div>
             </div>
@@ -234,10 +142,10 @@ export default function TDBridge() {
             <h2 className="headline-small md:!text-[1.75rem]">The system&apos;s purpose</h2>
             <p className="body-xlarge">
               At Air India, around six different teams were working on different web projects at the
-              same time. To keep the user experience consistent and make workflows smoother for both
-              designers and developers, the design team created a design system in Figma for the
-              web. This was the second version of the system, named Web DLS 2.0. It included
-              reusable components, patterns, and guidelines.
+              same time. To keep the UX consistent and make workflows smoother for both designers
+              and developers, the design team created a web design system in Figma. This was the
+              second version of the system, named Web DLS 2.0 which included reusable components,
+              patterns and guidelines.
             </p>
           </div>
           {/* Section 2 ends */}
@@ -246,11 +154,12 @@ export default function TDBridge() {
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">My role</h2>
             <p className="body-xlarge">
-              Although my job title was Frontend Developer, I initiated and led this work as a UX
-              researcher. When I worked with the design team, I naturally shifted into a product
-              designer mindset. And when I collaborated with engineering, I approached the problem
-              like a frontend developer. So instead of looking at the design system from a single
-              lens, I was constantly switching hats and seeing it from all three perspectives.
+              Although my job title was Frontend Developer, I initiated and led this work as a
+              design researcher. When I worked with the design team, I naturally shifted into a
+              product designer mindset. And when I collaborated with engineering, I approached the
+              problem like a frontend developer. So instead of looking at the design system from a
+              single lens, I was constantly switching hats and seeing it from all three
+              perspectives.
             </p>
           </div>
           {/* Section 3 ends */}
@@ -259,73 +168,101 @@ export default function TDBridge() {
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Asking the right questions</h2>
             <p className="body-xlarge">
-              Before starting, I wanted to ensure that I was asking the right questions which would
-              guide me to understand why adoption wasn&apos;t happening as expected.
+              Before starting, I wanted to ensure that I was thinking about the right questions
+              which would guide me to understand why adoption wasn&apos;t happening as expected.
             </p>
 
             {/* Questions Presentation Container */}
-            <div
-              className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12"
-              style={{ backgroundColor: "#f5f5f5" }}
-            >
-              <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
-                {/* Engineering Side */}
-                <div className="flex flex-1 flex-col gap-4">
-                  <h3 className="headline-small text-lg font-semibold">
-                    From the engineering side
-                  </h3>
-                  <ul className="flex flex-col gap-3">
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      What was stopping design and engineering teams from collaborating effectively?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      Why were developers not using the Web DLS in Figma, even though it already
-                      existed?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      How familiar and comfortable were developers with tools like Figma, Dev mode
-                      and Figma MCP in their daily workflows?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      And overall, what was stopping the design system from being used in real
-                      development across projects?
-                    </li>
-                  </ul>
-                </div>
+            <div className="flex flex-col gap-6 lg:flex-row lg:gap-6">
+              {/* Engineering Side Block */}
+              <div
+                className="flex flex-1 flex-col rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10"
+                style={{ backgroundColor: "#FFF6E2" }}
+              >
+                <h3 className="headline-small mb-6 text-lg font-semibold">
+                  From the engineering side
+                </h3>
+                <ul className="flex flex-col gap-5">
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    What was stopping design and engineering teams from collaborating effectively?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    Why were developers not using the Web DLS in Figma, even though it already
+                    existed?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    How familiar and comfortable were developers with tools like Figma, Dev mode and
+                    Figma MCP in their daily workflows?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    And overall, what was stopping the design system from being used in real
+                    development across projects?
+                  </li>
+                </ul>
+              </div>
 
-                {/* Design Side */}
-                <div className="flex flex-1 flex-col gap-4">
-                  <h3 className="headline-small text-lg font-semibold">From the design side</h3>
-                  <ul className="flex flex-col gap-3">
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      How were designers expecting developers to use the design system in the
-                      projects?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      How confident were designers that the documentation provided in Figma was
-                      clear for developers?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      How closely could designers see what actually happened after handoff?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      Did designers feel the design system considered the engineering constraints?
-                    </li>
-                    <li className="body-large flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                      What challenges did designers face when components were rebuilt differently in
-                      code?
-                    </li>
-                  </ul>
-                </div>
+              {/* Design Side Block */}
+              <div
+                className="flex flex-1 flex-col rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10"
+                style={{ backgroundColor: "#FFFAEF" }}
+              >
+                <h3 className="headline-small mb-6 text-lg font-semibold">From the design side</h3>
+                <ul className="flex flex-col gap-3">
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    How were designers expecting developers to use the design system in the
+                    projects?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    How confident were designers that the documentation provided in Figma was clear
+                    for developers?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    How closely could designers see what actually happened after handoff?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    Did designers feel the design system considered the engineering constraints?
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: "#DBC9A2" }}
+                    />
+                    What challenges did designers face when components were rebuilt differently in
+                    code?
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -341,6 +278,16 @@ export default function TDBridge() {
             <p className="body-xlarge">
               So I came up with a three-phase research plan: Discover, Analyse and Define.
             </p>
+
+            <div className="w-full overflow-hidden rounded-lg">
+              <Image
+                src="/images/tdbridge/tdb_steps.png"
+                alt="Three-phase research plan: Discover, Analyse and Define"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
           </div>
           {/* Section 5 ends */}
 
@@ -366,46 +313,80 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <ul className="flex flex-col gap-4">
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how complete the components were
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how they were named and organised
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    whether usage guidance was available
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how accessibility was considered
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how tokens, variants, states, and responsiveness were handled
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how components were structured technically
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    whether versioning and updates were documented
-                  </li>
-                </ul>
-
-                <div className="mt-6 flex items-start gap-3 border-t border-gray-300 pt-6">
-                  <span className="text-xl">💡</span>
-                  <p className="body-large text-gray-700">
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
                     This helped me understand how usable and reliable the system felt, especially
                     from a developer&apos;s point of view.
                   </p>
+                </div>
+
+                {/* Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      The completeness of components
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Naming clarity and organisation
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Availability of usage guidance
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Consideration for accessibility
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Handling of tokens, variants, states, and responsiveness
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Technical structure of components
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Documentation of versioning and updates
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -453,36 +434,61 @@ export default function TDBridge() {
               </div>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <p className="body-large mb-4 font-medium">
-                  For every difference I noticed, I asked four questions:
-                </p>
-                <ul className="flex flex-col gap-4">
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    What do they have that we do not?
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    Why might this gap exist?
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    What impact could this create for our teams?
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    Is there an opportunity to adapt or improve?
-                  </li>
-                </ul>
-
-                <div className="mt-6 flex items-start gap-3 border-t border-gray-300 pt-6">
-                  <span className="text-xl">💡</span>
-                  <p className="body-large text-gray-700">
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
                     This gave me a clearer picture of where we stood in the bigger ecosystem.
                   </p>
+                </div>
+
+                {/* Questions List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <p className="headline-small mb-6 text-lg font-semibold">
+                    For every difference I noticed, I asked these questions:
+                  </p>
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      What do they have that we do not?
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Why might this gap exist?
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      What impact could this create for our teams?
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      Is there an opportunity to adapt or improve?
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -498,34 +504,59 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <ul className="flex flex-col gap-4">
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how teams were maintaining design system code
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how closely code matched the design system
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how often components were rebuilt or modified
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how changes were communicated or tracked
-                  </li>
-                </ul>
-
-                <div className="mt-6 flex items-start gap-3 border-t border-gray-300 pt-6">
-                  <span className="text-xl">💡</span>
-                  <p className="body-large text-gray-700">
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
                     This was done to understand how much of the design system actually made it into
                     production.
                   </p>
+                </div>
+
+                {/* Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how teams were maintaining design system code
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how closely code matched the design system
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how often components were rebuilt or modified
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how changes were communicated or tracked
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -541,46 +572,80 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <ul className="flex flex-col gap-4">
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how they currently worked
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how they referred to the Web DLS
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    where friction appeared
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how handoff worked in practice
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how tools like Figma, Dev Mode, and MCP fit into workflows
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    how often QA issues led to rework
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    what felt slow, confusing, or unreliable
-                  </li>
-                </ul>
-
-                <div className="mt-6 flex items-start gap-3 border-t border-gray-300 pt-6">
-                  <span className="text-xl">💡</span>
-                  <p className="body-large text-gray-700">
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
                     These conversations helped me understand not just the system, but the people and
                     behaviours around it.
                   </p>
+                </div>
+
+                {/* Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how they currently worked
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how they referred to the Web DLS
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      where friction appeared
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how handoff worked in practice
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how tools like Figma, Dev Mode, and MCP fit into workflows
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      how often QA issues led to rework
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      what felt slow, confusing, or unreliable
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -628,36 +693,64 @@ export default function TDBridge() {
                 For each problem area, I would also define the underlying user jobs from different
                 perspectives, such as developers, designers, and QA.
               </p>
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">
-                  This makes the problems concrete and easy to relate to.
-                </p>
-              </div>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <p className="body-large mb-4">I would then prioritise these jobs based on:</p>
-                <ul className="flex flex-col gap-3">
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    business impact
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    effort and resources required
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    risk involved
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    time sensitivity
-                  </li>
-                </ul>
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
+                    This makes the problems concrete and easy to relate to.
+                  </p>
+                </div>
+
+                {/* Title and Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <p className="headline-small mb-6 text-lg font-semibold">
+                    I would then prioritise these jobs based on:
+                  </p>
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      business impact
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      effort and resources required
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      risk involved
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      time sensitivity
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -669,38 +762,66 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <ul className="flex flex-col gap-3">
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    delivery time and cost
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    rework and inefficiency
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    quality and consistency
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    collaboration friction
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    operational risk
-                  </li>
-                </ul>
-              </div>
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
+                    This ensures the insights are actionable rather than abstract.
+                  </p>
+                </div>
 
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">
-                  This ensures the insights are actionable rather than abstract.
-                </p>
+                {/* Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      delivery time and cost
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      rework and inefficiency
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      quality and consistency
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      collaboration friction
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      operational risk
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -729,32 +850,59 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <ul className="flex flex-col gap-3">
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    business and delivery impact
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    time and resources required
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    risk and cost
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    whether it creates quick wins or long-term value
-                  </li>
-                </ul>
-              </div>
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
+                    This would help scope where to start and why.
+                  </p>
+                </div>
 
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">This would help scope where to start and why.</p>
+                {/* Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      business and delivery impact
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      time and resources required
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      risk and cost
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      whether it creates quick wins or long-term value
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -769,36 +917,61 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <p className="body-large mb-4">This included:</p>
-                <ul className="flex flex-col gap-3">
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    ideating solution approaches
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    deciding ownership across teams
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    working in phases where needed
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    defining how success would be measured
-                  </li>
-                </ul>
-              </div>
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
+                    The goal here was to ensure solutions were realistic, measurable, and
+                    collaborative — not theoretical.
+                  </p>
+                </div>
 
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">
-                  The goal here was to ensure solutions were realistic, measurable, and
-                  collaborative — not theoretical.
-                </p>
+                {/* Title and Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <p className="headline-small mb-6 text-lg font-semibold">This included:</p>
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      ideating solution approaches
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      deciding ownership across teams
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      working in phases where needed
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      defining how success would be measured
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -811,35 +984,61 @@ export default function TDBridge() {
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
+                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                style={{ backgroundColor: "#FFF9ED" }}
               >
-                <p className="body-large mb-4">This meant:</p>
-                <ul className="flex flex-col gap-3">
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    documentation and best-practice guidance
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    process recommendations
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    alignment across design and engineering
-                  </li>
-                  <li className="body-large flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    clear ways to measure ongoing success
-                  </li>
-                </ul>
-              </div>
+                {/* Lightbulb Sentence - Left Side */}
+                <div
+                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                  style={{ backgroundColor: "#fff" }}
+                >
+                  <Image
+                    src="/images/tdbridge/tdb_bulb.svg"
+                    alt="Lightbulb icon"
+                    width={96}
+                    height={96}
+                    className="shrink-0"
+                  />
+                  <p className="body-xlarge text-gray-700">
+                    This ensured the design system could operate smoothly across teams moving
+                    forward.
+                  </p>
+                </div>
 
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">
-                  This ensured the design system could operate smoothly across teams moving forward.
-                </p>
+                {/* Title and Bullet List - Right Side */}
+                <div className="flex flex-1 flex-col justify-center">
+                  <p className="headline-small mb-6 text-lg font-semibold">This meant:</p>
+                  <ul className="flex flex-col gap-6">
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      documentation and best-practice guidance
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      process recommendations
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      alignment across design and engineering
+                    </li>
+                    <li className="body-large flex items-start gap-3">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: "#dbc9a2" }}
+                      />
+                      clear ways to measure ongoing success
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
