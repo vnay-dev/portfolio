@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/shared/composite";
 
@@ -12,19 +11,16 @@ export function Projects() {
           </h2>
 
           <div className="flex flex-col gap-16">
-            <div className="flex justify-center">
               <Link
                 href="/projects/tdbridge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block cursor-pointer"
+              className="group relative block w-full cursor-pointer"
               >
-                <Image
+              <img
                   src="/images/tdbridge/tech_design_research_thumbnail.png"
                   alt="Tech Design Research Project"
-                  width={1072}
-                  height={715}
-                  className="h-auto w-full rounded-lg object-cover"
+                className="h-auto w-full rounded-lg object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
                   <p
@@ -35,20 +31,16 @@ export function Projects() {
                   </p>
                 </div>
               </Link>
-            </div>
-            <div className="flex justify-center">
               <Link
                 href="/projects/whatsapp-audio-summary"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block cursor-pointer"
+              className="group relative block w-full cursor-pointer"
               >
-                <Image
+              <img
                   src="/images/whatsapp/whatsapp_project_thumbnail.png"
                   alt="WhatsApp Project"
-                  width={1072}
-                  height={715}
-                  className="h-auto w-full rounded-lg object-cover"
+                className="h-auto w-full rounded-lg object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
                   <p
@@ -59,7 +51,6 @@ export function Projects() {
                   </p>
                 </div>
               </Link>
-            </div>
           </div>
         </div>
       </Container>
