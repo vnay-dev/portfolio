@@ -8,7 +8,7 @@ export default function TDBridge() {
       <Container>
         <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
           <h1 className="display-medium text-center">
-            Exploring why our web design system never got adopted across teams
+            Exploring why our design system never got adopted
           </h1>
 
           <div className="w-full overflow-hidden rounded-lg">
@@ -24,7 +24,7 @@ export default function TDBridge() {
 
           {/* Section 1 begins */}
           <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Repeating questions</h2>
+            <h2 className="headline-small md:!text-[1.75rem]">The repeating questions</h2>
             <p className="body-xlarge">
               It didn&apos;t show up in dashboards or reports. Instead, it showed up in everyday
               conversations.
@@ -48,13 +48,11 @@ export default function TDBridge() {
               And almost every time, the designer&apos;s reply was the same:
             </p>
 
-            <p className="body-xlarge">&quot;It&apos;s in the design system.&quot;</p>
+            <p className="body-xlarge">&quot;It&apos;s there in the design system.&quot;</p>
 
             <p className="body-xlarge">
-              At first, this felt completely normal. Teams collaborate. People ask questions. But
-              when the exact same questions kept coming back from different engineers across
-              different projects, it stopped feeling like day-to-day collaboration and started to
-              feel like a pattern.
+              At first, this felt completely normal. But when the exact same questions kept coming back from engineers across
+              different projects, it began to feel like a pattern.
             </p>
 
             <div className="w-full overflow-hidden rounded-lg">
@@ -68,9 +66,7 @@ export default function TDBridge() {
             </div>
 
             <p className="body-xlarge">
-              Because if the design system was truly part of everyone&apos;s workflow, people
-              wouldn&apos;t need to keep asking where things lived or how they were meant to work
-              instead they&apos;d already know where to look.
+              To understand this better I spoke with developers, tech leads and managers across six web teams, and the following three patterns kept coming up:
             </p>
 
             {/* Presentation Container */}
@@ -131,8 +127,7 @@ export default function TDBridge() {
             </div>
 
             <p className="body-xlarge">
-              This helped us to narrow down to the root cause: The problem wasn&apos;t design. The
-              problem was adoption.
+              This helped us to narrow down to the root cause: The problem wasn&apos;t design. It was adoption.
             </p>
           </div>
           {/* Section 1 ends */}
@@ -142,8 +137,7 @@ export default function TDBridge() {
             <h2 className="headline-small md:!text-[1.75rem]">The system&apos;s purpose</h2>
             <p className="body-xlarge">
               At Air India, around six different teams were working on different web projects at the
-              same time. To keep the UX consistent and make workflows smoother for both designers
-              and developers, the design team created a web design system in Figma. This was the
+              same time. To keep the UX consistent and to speed up delivery, the design team created a web design system in Figma. This was the
               second version of the system, named Web DLS 2.0 which included reusable components,
               patterns and guidelines.
             </p>
@@ -303,7 +297,7 @@ export default function TDBridge() {
             </p>
 
             {/* Subsection 6.1 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Auditing the web design system in Figma
               </h3>
@@ -392,70 +386,21 @@ export default function TDBridge() {
             </div>
 
             {/* Subsection 6.2 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Benchmarking Against Industry Design Systems
               </h3>
               <p className="body-xlarge">
                 This involved comparing our design system with mature industry design systems to
-                understand what &quot;good&quot; looks like.
+                understand where we stood in the bigger industry ecosystem.
               </p>
 
               <div
-                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-                style={{ backgroundColor: "#f5f5f5" }}
-              >
-                <ul className="flex flex-col gap-4">
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    documentation clarity
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    developer friendliness
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    discoverability and navigation
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    accessibility coverage
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    code guidance and playgrounds
-                  </li>
-                  <li className="body-large flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                    update and migration patterns
-                  </li>
-                </ul>
-              </div>
-
-              <div
-                className="flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
+                className="relative flex flex-col gap-6 rounded-lg px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12 lg:flex-row lg:gap-16"
                 style={{ backgroundColor: "#FFF9ED" }}
               >
-                {/* Lightbulb Sentence - Left Side */}
-                <div
-                  className="flex max-w-md flex-col items-start gap-8 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
-                  style={{ backgroundColor: "#fff" }}
-                >
-                  <Image
-                    src="/images/tdbridge/tdb_bulb.svg"
-                    alt="Lightbulb icon"
-                    width={96}
-                    height={96}
-                    className="shrink-0"
-                  />
-                  <p className="body-xlarge text-gray-700">
-                    This gave me a clearer picture of where we stood in the bigger ecosystem.
-                  </p>
-                </div>
-
                 {/* Questions List - Right Side */}
-                <div className="flex flex-1 flex-col justify-center">
+                <div className="relative flex flex-1 flex-col justify-center">
                   <p className="headline-small mb-6 text-lg font-semibold">
                     For every difference I noticed, I asked these questions:
                   </p>
@@ -489,12 +434,55 @@ export default function TDBridge() {
                       Is there an opportunity to adapt or improve?
                     </li>
                   </ul>
+
+                  {/* Podium SVG - Aligned with last bullet point */}
+                  <div className="absolute right-0 bottom-0">
+                    <Image
+                      src="/images/tdbridge/tdb_podium.svg"
+                      alt="Podium icon"
+                      width={280}
+                      height={280}
+                      className="shrink-0"
+                    />
+                  </div>
                 </div>
+              </div>
+
+              <div
+                className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
+                style={{ backgroundColor: "#f5f5f5" }}
+              >
+                <ul className="flex flex-col gap-4">
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Documentation clarity
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Developer friendliness
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Discoverability and navigation
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Accessibility coverage
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Code guidance and playgrounds
+                  </li>
+                  <li className="body-large flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
+                    Update and migration patterns
+                  </li>
+                </ul>
               </div>
             </div>
 
             {/* Subsection 6.3 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Comparing Design vs Reality in Code
               </h3>
@@ -562,7 +550,7 @@ export default function TDBridge() {
             </div>
 
             {/* Subsection 6.4 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Listening to Designers and Developers
               </h3>
@@ -664,23 +652,17 @@ export default function TDBridge() {
             <p className="body-xlarge">I approached this phase in three steps.</p>
 
             {/* Subsection 7.1 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">Finding the Patterns</h3>
               <p className="body-xlarge">
-                First, I would group similar findings together to see which issues were repeating
-                across teams and projects.
+                In order to distinguish isolated situations from genuine systemic problems, I
+                grouped similar findings together to see which issues were repeating across teams
+                and projects (like a pseudo affinity mapping).
               </p>
-
-              <div className="flex items-start gap-4">
-                <span className="text-xl">💡</span>
-                <p className="body-large pt-0.5">
-                  This would help distinguish one-off situations from genuine systemic problems.
-                </p>
-              </div>
             </div>
 
             {/* Subsection 7.2 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Defining the Problems Clearly
               </h3>
@@ -755,7 +737,7 @@ export default function TDBridge() {
             </div>
 
             {/* Subsection 7.3 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">Map the Problems to Impact</h3>
               <p className="body-xlarge">
                 Finally, I would connect each problem to measurable organisational impact, such as:
@@ -840,9 +822,9 @@ export default function TDBridge() {
             <p className="body-xlarge">I planned this phase around three core steps.</p>
 
             {/* Subsection 8.1 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
-                1. Prioritising What to Solve First
+                Prioritising What to Solve First
               </h3>
               <p className="body-xlarge">
                 Since not every problem can (or should) be solved at once, the first step was to
@@ -907,7 +889,7 @@ export default function TDBridge() {
             </div>
 
             {/* Subsection 8.2 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">
                 Shaping Solutions and Action Plans
               </h3>
@@ -976,7 +958,7 @@ export default function TDBridge() {
             </div>
 
             {/* Subsection 8.3 */}
-            <div className="flex flex-col gap-4">
+            <div className="mt-8 flex flex-col gap-4">
               <h3 className="headline-small text-lg font-semibold">Enabling Long-Term Adoption</h3>
               <p className="body-xlarge">
                 Finally, I planned to focus on education, awareness, and process guidance so the
@@ -1086,7 +1068,7 @@ export default function TDBridge() {
               discoverability, awareness, and system-level workflows.
             </p>
 
-            <h3 className="headline-small mb-4 text-lg font-semibold">Critical findings</h3>
+            <h3 className="headline-small mt-8 mb-2 text-lg font-semibold">Critical findings</h3>
 
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
@@ -1169,7 +1151,7 @@ export default function TDBridge() {
               </div>
             </div>
 
-            <h3 className="headline-small mb-4 text-lg font-semibold">Business Impact</h3>
+            <h3 className="headline-small mt-8 mb-2 text-lg font-semibold">Business Impact</h3>
 
             <p className="body-xlarge">
               These problems did not stay inside design files. They directly affected product
@@ -1260,7 +1242,7 @@ export default function TDBridge() {
               </div>
             </div>
 
-            <h3 className="headline-small mb-4 text-lg font-semibold">
+            <h3 className="headline-small mt-8 mb-2 text-lg font-semibold">
               Benchmark Comparison Findings
             </h3>
 
@@ -1420,7 +1402,7 @@ export default function TDBridge() {
               </div>
             </div>
 
-            <h3 className="headline-small mb-4 text-lg font-semibold">
+            <h3 className="headline-small mt-8 mb-2 text-lg font-semibold">
               Problem Prioritisation and Scoping
             </h3>
 
@@ -1493,9 +1475,6 @@ export default function TDBridge() {
                       </div>
                     </li>
                   </ul>
-                  <p className="body-large mt-4 text-gray-700">
-                    These issues formed the core adoption barrier.
-                  </p>
                 </div>
               </div>
 
@@ -1546,9 +1525,6 @@ export default function TDBridge() {
                       </div>
                     </li>
                   </ul>
-                  <p className="body-large mt-4 text-gray-700">
-                    These issues acted as efficiency and scale blockers.
-                  </p>
                 </div>
               </div>
 
@@ -1585,9 +1561,6 @@ export default function TDBridge() {
                       </div>
                     </li>
                   </ul>
-                  <p className="body-large mt-4 text-gray-700">
-                    These issues contributed to UX inconsistency and accessibility gaps.
-                  </p>
                 </div>
               </div>
 
@@ -1621,9 +1594,6 @@ export default function TDBridge() {
                       </div>
                     </li>
                   </ul>
-                  <p className="body-large mt-4 text-gray-700">
-                    These were planned for later phases once stability improved.
-                  </p>
                 </div>
               </div>
             </div>
