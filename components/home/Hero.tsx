@@ -64,7 +64,7 @@ export function Hero() {
               <div className="flex flex-col gap-3">
                 <h1 className="display-medium text-white">Designer and engineer</h1>
                 <p className="headline-small text-white">
-                  Self taught product designer who can visualize & build software
+                  I design and build software that reduces friction in workflows and helps teams ship faster
                 </p>
               </div>
               <StarBorder as="div" className="w-fit" color="#d4d4d4" speed="7.5s" thickness={1}>
