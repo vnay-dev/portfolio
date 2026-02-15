@@ -51,7 +51,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 mt-8 flex h-full flex-col items-start justify-center">
         <Container>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             <Image
               src="/images/profile_pic.jpg"
               alt="Hero"
@@ -60,15 +60,14 @@ export function Hero() {
               quality={100}
               className="h-[120px] w-[120px] rounded-lg object-cover sm:h-[150px] sm:w-[150px] md:h-[180px] md:w-[180px]"
             />
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <h1 className="display-medium text-white">Designer and engineer</h1>
-                <p className="headline-small text-white">
+                <h1 className="w-full max-w-[90%] text-white text-2xl leading-snug sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight lg:w-9/10 lg:text-[2.75rem] lg:leading-[3.25rem]">
                   I design and build software that reduces friction in workflows and helps teams ship faster
-                </p>
+                </h1>
               </div>
               <StarBorder as="div" className="w-fit" color="#d4d4d4" speed="7.5s" thickness={1}>
-                <p className="body-medium px-3 py-2 text-white sm:px-4 sm:py-2.5 md:px-4 md:py-2.5">
+                <p className="body-large px-3 py-2 text-white sm:px-4 sm:py-2.5 md:px-4 md:py-2.5">
                   Design Systems @ Air India, Digital & Tech
                 </p>
               </StarBorder>

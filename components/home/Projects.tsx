@@ -5,52 +5,52 @@ export function Projects() {
   return (
     <section id="work" className="w-full">
       <Container>
-        <div className="flex flex-col gap-8 py-16 sm:py-24 md:gap-16 md:py-32">
+        <div className="flex flex-col gap-8 pt-0 pb-16 sm:pb-24 md:gap-16 md:pb-32">
           <h2 className="editorial-headline-small editorial-italic text-center">
             Few of my best works
           </h2>
 
           <div className="flex flex-col gap-16">
-              <Link
-                href="/projects/tdbridge"
-                target="_blank"
-                rel="noopener noreferrer"
+            <Link
+              href="/projects/tdbridge"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative block w-full cursor-pointer"
-              >
+            >
               <img
-                  src="/images/tdbridge/tech_design_research_thumbnail.png"
-                  alt="Tech Design Research Project"
+                src="/images/tdbridge/tech_design_research_thumbnail.png"
+                alt="Tech Design Research Project"
                 className="h-auto w-full rounded-lg object-cover"
-                />
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                  <p
-                    className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
-                    style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
-                  >
-                    View case study
-                  </p>
-                </div>
-              </Link>
-              <Link
-                href="/projects/whatsapp-audio-summary"
-                target="_blank"
-                rel="noopener noreferrer"
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
+                <p
+                  className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
+                  style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
+                >
+                  View case study
+                </p>
+              </div>
+            </Link>
+            <Link
+              href="/projects/whatsapp-audio-summary"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative block w-full cursor-pointer"
-              >
+            >
               <img
-                  src="/images/whatsapp/whatsapp_project_thumbnail.png"
-                  alt="WhatsApp Project"
+                src="/images/whatsapp/whatsapp_project_thumbnail.png"
+                alt="WhatsApp Project"
                 className="h-auto w-full rounded-lg object-cover"
-                />
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                  <p
-                    className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
-                    style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
-                  >
-                    View case study
-                  </p>
-                </div>
-              </Link>
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
+                <p
+                  className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
+                  style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
+                >
+                  View case study
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </Container>
