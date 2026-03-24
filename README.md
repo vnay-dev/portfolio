@@ -55,6 +55,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📚 Documentation
 
 - **[Custom Instructions](.cursorrules)** - Development guidelines, testing requirements, and best practices
+- **[Feature Flags Tracker](FEATURE_FLAGS.md)** - Implemented flags, env keys, and rollout status
 - **Typography System** - Modular CSS files in `app/typography/` with Material Design type scale
 - **Public Assets** - All images and fonts preserved in `public/` directory
 

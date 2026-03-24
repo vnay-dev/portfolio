@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MdMenu, MdClose } from "react-icons/md";
+import { isFeatureEnabled, type FeatureFlagKey } from "@/app/constants";
 
 interface NavbarProps {
   variant?: "light" | "dark";
@@ -10,6 +12,7 @@ interface NavbarProps {
 
 export function Navbar({ variant = "dark" }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   // Prevent body scrolling when mobile menu is open
   useEffect(() => {
@@ -25,19 +28,35 @@ export function Navbar({ variant = "dark" }: NavbarProps) {
     };
   }, [isMenuOpen]);
 
-  const navItems = [
+  type NavItem = {
+    label: string;
+    href: string;
+    hideWhenFlagEnabled?: FeatureFlagKey;
+  };
+
+  const navItems: NavItem[] = [
     { label: "Home", href: "/" },
-    { label: "Work", href: "#work" },
-    { label: "About Me", href: "/about" },
-    { label: "Resume", href: "/resume" },
+    { label: "Work", href: pathname === "/" ? "#work" : "/#work" },
+    {
+      label: "About Me",
+      href: "/about",
+      hideWhenFlagEnabled: "navHideAboutMe",
+    },
+    { label: "Resume", href: "/resume", hideWhenFlagEnabled: "navHideResume" },
   ];
+
+  const visibleNavItems = navItems.filter((item) =>
+    item.hideWhenFlagEnabled ? !isFeatureEnabled(item.hideWhenFlagEnabled) : true,
+  );
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleNavClick = (href: string, e: React.MouseEvent) => {
-    if (href === "#work") {
+    const isWorkAnchor = href === "#work" || href.endsWith("/#work");
+
+    if (isWorkAnchor && pathname === "/") {
       e.preventDefault();
       const workSection = document.getElementById("work");
       if (workSection) {
@@ -67,7 +86,7 @@ export function Navbar({ variant = "dark" }: NavbarProps) {
 
           {/* Desktop Navigation Items */}
           <ul className="hidden gap-6 md:flex lg:gap-8">
-            {navItems.map((item) => (
+            {visibleNavItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -109,7 +128,7 @@ export function Navbar({ variant = "dark" }: NavbarProps) {
             {/* Centered Menu Items */}
             <div className="flex h-[calc(100vh-3.5rem)] flex-col items-center justify-center">
               <ul className="flex flex-col items-center gap-8">
-                {navItems.map((item) => (
+                {visibleNavItems.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
