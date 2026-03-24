@@ -1,7 +1,11 @@
-import Image from "next/image";
 import { Container, Navbar } from "@/components/shared/composite";
+import { isFeatureEnabled } from "@/app/constants";
 
 export default function TDBridge() {
+  const showImplementationFramework = isFeatureEnabled("tdbridgeImplementationFramework");
+  const showOutcomePlaceholder = isFeatureEnabled("tdbridgeOutcomePlaceholder");
+  const showWhatsNext = isFeatureEnabled("tdbridgeWhatsNext");
+
   return (
     <main className="min-h-screen w-full">
       <Navbar variant="light" />
@@ -13,12 +17,11 @@ export default function TDBridge() {
           </h1>
 
           <div className="w-full overflow-hidden rounded-lg">
-            <Image
+            <img
               src="/images/tdbridge/hero_banner.png"
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
-              quality={100}
               className="h-full w-full rounded-lg object-contain"
             />
           </div>
@@ -91,9 +94,9 @@ export default function TDBridge() {
               For the design team, the system was a side project with no dedicated team and little bandwidth to maintain it. So, even though the design system existed, every project kept solving the same problems from scratch.
             </p>
 
-            <div className="w-full overflow-hidden rounded-lg">
-              <Image
-                src="/images/tdbridge/tdb_dev_questions.png"
+            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+              <img
+                src="/images/tdbridge/tdb_dev_questions_v2.png"
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -107,13 +110,32 @@ export default function TDBridge() {
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">The problems that were already in plain sight</h2>
             <p className="body-xlarge">
-              The poor adoption of the design system led to inconsistent UX across applications. Since the website is where all projects come together, these differences were clearly visible. For example, the same secondary button variant behaved differently in a chatbot feedback form compared to the header used for sign-in.
+              The poor adoption of the design system led to inconsistent UX across applications. Since the website is where all projects come together, these differences were clearly visible.
             </p>
-            <code style={{ color: "red" }}>Add screenshot of header and chatbot feedback form</code>
+            <p className="body-xlarge">
+              How many varieties of secondary buttons can you spot in the image below?
+            </p>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_sec_btn_varieties.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <p className="body-xlarge">
               This also meant that every new project had to spend time figuring out its own set of components before starting UI work. The same effort was repeated across projects, directly affecting delivery timelines.
             </p>
-            <code style={{ color: "red" }}>Add image of general problems like lack of collaboration, operational inefficiency, slow delivery time, inconsistent UX, lack of governance team</code>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_gen_problems.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
           </div>
           {/* Section 1.5 ends */}
 
@@ -121,7 +143,7 @@ export default function TDBridge() {
           <div className="flex flex-col gap-6">
             <h3 className="headline-small md:!text-[1.75rem]">The gradual shift from writing code to generating it</h3>
             <p className="body-xlarge">
-              AI could generate code for UI, but without a shared system it would only reproduce the same inconsistencies faster. What used to be a design issue was now becoming a scaling problem.
+              AI could generate code for UI, but without a shared system it would only reproduce the same inconsistencies faster.
             </p>
             <code style={{ color: "red" }}>Add an image</code>
             <p className="body-xlarge">
@@ -371,18 +393,26 @@ export default function TDBridge() {
           </div>
           {/* Section 10 ends */}
 
-          {/* Section 11 begins — Implementation Framework */}
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-large text-2xl font-bold">Implementation Framework</h2>
-            {/* Content will be added later */}
-          </div>
-          {/* Section 11 ends */}
+          {showImplementationFramework ? (
+            <>
+              {/* Section 11 begins — Implementation Framework */}
+              <div className="flex flex-col gap-6">
+                <h2 className="headline-large text-2xl font-bold">Implementation Framework</h2>
+                {/* Content will be added later */}
+              </div>
+              {/* Section 11 ends */}
+            </>
+          ) : null}
 
-          {/* Section 12 begins — Outcome and impact (placeholder) */}
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-large text-2xl font-bold">Outcome and impact</h2>
-          </div>
-          {/* Section 12 ends */}
+          {showOutcomePlaceholder ? (
+            <>
+              {/* Section 12 begins — Outcome and impact (placeholder) */}
+              <div className="flex flex-col gap-6">
+                <h2 className="headline-large text-2xl font-bold">Outcome and impact</h2>
+              </div>
+              {/* Section 12 ends */}
+            </>
+          ) : null}
 
           {/* Section 13 begins — Challenges along the way */}
           <div className="flex flex-col gap-6">
@@ -405,11 +435,15 @@ export default function TDBridge() {
           </div>
           {/* Section 13 ends */}
 
-          {/* Section 14 begins — Future of the design system */}
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-large text-2xl font-bold">{"What's next?"}</h2>
-          </div>
-          {/* Section 14 ends */}
+          {showWhatsNext ? (
+            <>
+              {/* Section 14 begins — Future of the design system */}
+              <div className="flex flex-col gap-6">
+                <h2 className="headline-large text-2xl font-bold">{"What's next?"}</h2>
+              </div>
+              {/* Section 14 ends */}
+            </>
+          ) : null}
 
         </div>
       </Container>
