@@ -36,7 +36,7 @@ export default function TDBridge() {
             {/* Presentation Container */}
             <div
               className="w-full rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14"
-              style={{ backgroundColor: "#faf6ee" }}
+              style={{ backgroundColor: "#faf6ee", border: "1px solid #f9f1e8" }}
             >
               <div className="flex flex-col gap-6 sm:gap-8">
                 <div className="flex items-start gap-4">
@@ -115,7 +115,7 @@ export default function TDBridge() {
             <p className="body-xlarge">
               How many varieties of secondary buttons can you spot in the image below?
             </p>
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-lg border border-[#f9f1e8]">
               <img
                 src="/images/tdbridge/tdb_sec_btn_varieties.png"
                 alt="Common questions developers ask about design systems"
@@ -127,7 +127,7 @@ export default function TDBridge() {
             <p className="body-xlarge">
               This also meant that every new project had to spend time figuring out its own set of components before starting UI work. The same effort was repeated across projects, directly affecting delivery timelines.
             </p>
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-lg border border-[#f9f1e8]">
               <img
                 src="/images/tdbridge/tdb_gen_problems.png"
                 alt="Common questions developers ask about design systems"
@@ -142,13 +142,31 @@ export default function TDBridge() {
           {/* Section 1.7 begins */}
           <div className="flex flex-col gap-6">
             <h3 className="headline-small md:!text-[1.75rem]">The gradual shift from writing code to generating it</h3>
+
+            <p className="body-xlarge">
+              Many other teams were already using tools like Figma Make, GitHub Copilot and Claude Code to vibe code internal web apps by simply prompting the model with the basic brand colors and fonts which eventually created AI slop as shown below:
+            </p>
+            <div className="w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+              <img
+                src="/images/tdbridge/tdb_vibe_coding.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <p className="body-xlarge">
               AI could generate code for UI, but without a shared system it would only reproduce the same inconsistencies faster.
             </p>
-            <code style={{ color: "red" }}>Add an image</code>
-            <p className="body-xlarge">
-              If AI could understand our tokens, components, and patterns, it could generate a UI that was not only faster, but also consistent and aligned with our UX and branding.
-            </p>
+            <div className="w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+              <img
+                src="/images/tdbridge/tdb_proposal.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
           </div>
           {/* Section 1.7 ends */}
 
@@ -158,12 +176,30 @@ export default function TDBridge() {
             <p className="body-xlarge">
               Because I was working as a frontend developer and was also involved in maintaining the Figma design system, I had visibility into the code across projects and how each team implemented the UI. It became easy to spot the gap between what was designed and what actually got shipped.
             </p>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_steve_rogers.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
           </div>
           {/* Section 2 ends */}
 
           {/* Section 3 begins */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">The problems felt obvious, but we needed data.</h2>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_research_plan.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <p className="body-xlarge">
               My research process had three phases: discover, analyze, and define.
             </p>
@@ -236,12 +272,12 @@ export default function TDBridge() {
             </h2>
             <p className="body-xlarge">
               {
-                "Considering the emerging agentic workflows, just fixing the DLS and creating a component library wasn't enough. The bigger problem was establishing a reliable design-to-code workflow around it. The design system was no longer the end goal, it had to become part of a larger system that could scale, stay consistent, and work with generated frontend code."
+                "Considering the emerging agentic workflows, just fixing the DLS and creating a component library wasn't enough. The bigger problem was establishing a scalable and reliable design-to-code workflow system around it."
               }
             </p>
             <p className="body-xlarge">
               {
-                "We also had access to tools like GitHub Copilot, Claude Code, and Figma Make that were changing how UI was being built. But building with AI isn't deterministic. It's not like calling a function and expecting the same output every time."
+                "We also had access to tools like GitHub Copilot, Claude Code, and Figma Make that were changing how UI was being built."
               }
             </p>
             <code style={{ color: "red" }}>The above paragraph can be converted as a single image</code>
@@ -253,11 +289,11 @@ export default function TDBridge() {
 
           {/* Section 6 begins */}
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <h2 className="headline-small md:!text-[1.75rem]">POC 1: Same design, same prompts, different results</h2>
-            </div>
+            <h2 className="headline-small md:!text-[1.75rem]">
+              POC 1: Same design, same prompts, different results
+            </h2>
             <p className="body-xlarge">
-              I started exploring Figma MCP and its ability to read and understand design using its built-in tools. Since AI workflows are not deterministic, I wanted to see how consistent the results would be when different developers followed the same process.
+              I started exploring Figma MCP and its ability to read and understand design using its built-in tools. I was curious to see how consistent the results would be when different developers followed the same process.
             </p>
             <p className="body-xlarge">
               To test this, I asked three of my colleagues to participate. For the experiment, I chose Razorpay’s Blade design system as a reference because it is mature and publicly available as a Figma library.
@@ -266,9 +302,9 @@ export default function TDBridge() {
               Each developer was given the same landing page design and the same set of prompts. First, they used Figma MCP and GitHub Copilot Agent to generate the required components. After that, they were asked to generate the full page using those components.
             </p>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <p className="body-xlarge font-semibold">Findings:</p>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-6">
                 <li className="body-large flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
                   All three developers ended up with different UI results, both at the component
@@ -417,21 +453,50 @@ export default function TDBridge() {
           {/* Section 13 begins — Challenges along the way */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-large text-2xl font-bold">{"It wasn't as smooth as it sounds"}</h2>
-            <p className="body-xlarge">
-              One of the first issues came from typography. The fonts used across production were named as variable fonts, but the actual files were static. This caused inconsistent font weight rendering across pages, something everyone had noticed but no one had fixed for years. Since typography is a core part of a design system, this couldn’t be ignored. I ran multiple POCs to validate the issue, measured the breaking impact across existing projects, and replaced the font files with the correct variable fonts after aligning with both design and engineering teams.
-            </p>
-            <p className="body-xlarge">
-              Icons were another long-standing problem. SVG icons were being used directly in the DOM, increasing DOM size and affecting performance. Developers had been asking for font icons, but the design team didn’t have the bandwidth or tooling to support it. Since icons are part of the design system foundation, I ran a comparison POC between SVG, font icons, and sprites, and built a pipeline to convert SVG icons into font icons without losing quality, based on an earlier experiment done by a colleague.
-            </p>
-            <p className="body-xlarge">
-              Choosing the tech stack for the component library was also a challenge. I proposed using StencilJS, which had a bad reputation internally because it had been used earlier for the wrong use case and became hard to maintain. I ran comparison POCs with other options and showed that the earlier issues were not with Stencil itself, but with lack of quality gates, unclear requirements, and business logic being forced into UI components. This helped justify using StencilJS for the design system library.
-            </p>
-            <p className="body-xlarge">
-              Keeping design tokens in sync between Figma and code turned out to be another complex problem. Initially, I tried pulling token data using the Figma API and converting it to CSS using Style Dictionary, but caching issues made the API unreliable. To fix this, I built a Figma plugin that could extract the latest token and style data directly from the file. A local MCP server connected to the plugin and synced the data to the codebase. The same plugin was later extended to sync SVG icons as well.
-            </p>
-            <p className="body-xlarge">
-              On the design side, sanitizing the existing Figma file was slow to do manually, so I built Figma plugins to speed up the process. These plugins helped find token usage across the file, detect values from old libraries, replace hard-coded styles with tokens, and generate proper change logs. This made it easier to maintain versioning, track updates, and keep the design system stable as it evolved.
-            </p>
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <div className="w-full rounded-lg border border-gray-200 bg-gray-50 px-5 py-4 sm:px-6 sm:py-5">
+                <div className="flex flex-col gap-4">
+                  <h3 className="title-medium font-semibold text-gray-900">
+                    Static fonts used instead of variable fonts
+                  </h3>
+                  <p className="body-large text-gray-700">
+                    While building the component library, I found static fonts were used as variable
+                    fonts in production, so I ran POCs, checked breaking impact across repos, and
+                    replaced them with proper variable fonts.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full rounded-lg border border-gray-200 bg-gray-50 px-5 py-4 sm:px-6 sm:py-5">
+                <div className="flex flex-col gap-4">
+                  <h3 className="title-medium font-semibold text-gray-900">
+                    Choosing font icons over SVG due to performance concerns
+                  </h3>
+                  <p className="body-large text-gray-700">
+                    In production, direct usage of SVG icons increased the DOM size, causing performance concerns, so I ran POCs on different icon approaches and built a pipeline to generate font icons for the system.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full rounded-lg border border-gray-200 bg-gray-50 px-5 py-4 sm:px-6 sm:py-5">
+                <div className="flex flex-col gap-4">
+                  <h3 className="title-medium font-semibold text-gray-900">
+                    The internal bad reputation of Stencil.js
+                  </h3>
+                  <p className="body-large text-gray-700">
+                    While choosing the tech stack for the component library, Stencil.js faced internal pushback due to past misuse, so I validated the choice through POCs and showed the real problem was missing quality gates, business logic in components, and using the framework for the wrong use case.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full rounded-lg border border-gray-200 bg-gray-50 px-5 py-4 sm:px-6 sm:py-5">
+                <div className="flex flex-col gap-4">
+                  <h3 className="title-medium font-semibold text-gray-900">
+                    Manual workflows slowing down the design system
+                  </h3>
+                  <p className="body-large text-gray-700">
+                    Several design workflows were manual and time-consuming, so I created Figma plugins to automate and reduce effort and fasten the design-dev handoff.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           {/* Section 13 ends */}
 
