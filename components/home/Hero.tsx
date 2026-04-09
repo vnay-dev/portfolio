@@ -7,28 +7,27 @@ import ColorBends from "@/components/animations/ColorBends/ColorBends";
 import StarBorder from "@/components/animations/StarBorder/StarBorder";
 
 export function Hero() {
-  const [heroHeight, setHeroHeight] = useState("100vh");
+  const [heroMinHeight, setHeroMinHeight] = useState("100vh");
 
   useEffect(() => {
-    const calculateHeroHeight = () => {
-      // Since navbar is fixed positioned, hero should fill full viewport height
-      const viewportHeight = window.innerHeight;
-      setHeroHeight(`${viewportHeight}px`);
+    const syncHeroMinHeight = () => {
+      // Navbar is fixed; hero should be at least full viewport tall but may grow when content is taller (e.g. short window height).
+      setHeroMinHeight(`${window.innerHeight}px`);
     };
 
-    // Calculate on mount
-    calculateHeroHeight();
-
-    // Recalculate on resize to maintain full viewport height
-    window.addEventListener("resize", calculateHeroHeight);
+    syncHeroMinHeight();
+    window.addEventListener("resize", syncHeroMinHeight);
 
     return () => {
-      window.removeEventListener("resize", calculateHeroHeight);
+      window.removeEventListener("resize", syncHeroMinHeight);
     };
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black" style={{ height: heroHeight }}>
+    <section
+      className="relative flex w-full flex-col overflow-hidden bg-black"
+      style={{ minHeight: heroMinHeight }}
+    >
       {/* Background Animation */}
       <div className="absolute inset-0">
         <ColorBends
@@ -49,7 +48,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mt-8 flex h-full flex-col items-start justify-center">
+      <div className="relative z-10 mt-8 flex w-full flex-1 flex-col items-start justify-center pb-10">
         <Container>
           <div className="flex flex-col gap-10">
             <Image

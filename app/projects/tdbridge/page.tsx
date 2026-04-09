@@ -1,5 +1,208 @@
+import {
+  MdOutlineAltRoute,
+  MdBlock,
+  MdBolt,
+  MdOutlineCategory,
+  MdDeviceHub,
+  MdGesture,
+  MdHistory,
+  MdLayers,
+  MdOutlineLibraryBooks,
+  MdNoteAlt,
+  MdOutlineEventRepeat,
+  MdOutlineGesture,
+  MdOutlinePeopleAlt,
+  MdOutlineSearch,
+  MdOutlineSyncProblem,
+  MdPalette,
+  MdPsychology,
+  MdReportProblem,
+  MdSearch,
+  MdStraighten,
+  MdTextFields,
+  MdViewModule,
+  MdOutlineWorkspaces,
+  MdOutlineAutoAwesome,
+  MdOutlineArticle,
+  MdOutlineBugReport,
+  MdOutlineLayers,
+  MdOutlineTimer,
+  MdOutlineViewModule,
+} from "react-icons/md";
 import { Container, Navbar } from "@/components/shared/composite";
 import { isFeatureEnabled } from "@/app/constants";
+import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
+
+const craftIssueCards = [
+  {
+    id: "versioning",
+    icon: MdOutlineAltRoute,
+    text: "No versioning, changelog, migration steps, or maturity indicators, so teams didn't know what changed or what was safe to use",
+  },
+  {
+    id: "docs-a11y",
+    icon: MdOutlineLibraryBooks,
+    text: "Missing documentation and accessibility guidelines",
+  },
+  {
+    id: "tokens",
+    icon: MdOutlineWorkspaces,
+    text: "No proper token architecture, with hard-coded values used instead of linking with tokens",
+  },
+  {
+    id: "mixed-tokens",
+    icon: MdOutlineCategory,
+    text: "Tokens from external libraries mixed with ours, along with old DLS token values still being used inside the new DLS",
+  },
+] as const;
+
+const workflowIssueCards = [
+  {
+    id: "discovery",
+    icon: MdOutlineSearch,
+    text: "No single place to discover or browse components, so teams often didn't know what already existed",
+  },
+  {
+    id: "structure",
+    icon: MdOutlinePeopleAlt,
+    text: "Many developers, designers, and stakeholders didn't understand the structure of the design system — tokens, components, styles, and guidelines",
+  },
+  {
+    id: "contribution",
+    icon: MdOutlineSyncProblem,
+    text: "Components created inside projects rarely made their way back into the design system, so reusable work stayed locked inside individual figma files",
+  },
+  {
+    id: "reuse-copy",
+    icon: MdOutlineEventRepeat,
+    text: "Reuse across projects usually meant manually copying code and modifying it, which slowed down development and introduced inconsistencies",
+  },
+  {
+    id: "interaction",
+    icon: MdOutlineGesture,
+    text: "Interaction design inside components was often ignored, which affected the overall UX consistency across the website",
+  },
+] as const;
+
+const poc1FindingsCards = [
+  {
+    id: "different-ui-results",
+    icon: MdOutlineViewModule,
+    text: "All 3 developers ended up with different UI results, both at the component level and at the page level",
+  },
+  {
+    id: "copilot-time",
+    icon: MdOutlineTimer,
+    text: "GitHub Copilot took a significant amount of time to generate UI",
+  },
+  {
+    id: "instructions-file",
+    icon: MdOutlineArticle,
+    text: "The instructions file existed, but it was too large and not structured well for AI to parse through.",
+  },
+  {
+    id: "figma-mcp-relationship",
+    icon: MdOutlineBugReport,
+    text: "Figma MCP often struggled to understand the exact relationship between the design and the implemented UI, especially during bug-fix prompts",
+  },
+  {
+    id: "prompting-workflow",
+    icon: MdOutlineAutoAwesome,
+    text: "Using identical prompts was not practical, but following a consistent workflow for prompting was",
+  },
+  {
+    id: "missing-foundations",
+    icon: MdOutlineLayers,
+    text: "Missing foundations like tokens, styles, and proper documentation led to inconsistent results",
+  },
+] as const;
+
+const poc2IssuesCards = [
+  {
+    id: "hallucinations",
+    icon: MdPsychology,
+    text: "Occasional hallucinations while generating UI",
+  },
+  {
+    id: "incorrect-implementations",
+    icon: MdReportProblem,
+    text: "Incorrect implementations that didn't match the design intent",
+  },
+  {
+    id: "spacing",
+    icon: MdStraighten,
+    text: "Spacing inconsistencies between generated output and the design",
+  },
+  {
+    id: "copilot-context",
+    icon: MdDeviceHub,
+    text: "GitHub Copilot sometimes struggled to understand the expected design even with Figma MCP providing context",
+  },
+  {
+    id: "interaction-logic",
+    icon: MdGesture,
+    text: "Interaction logic still required manual refinement",
+  },
+] as const;
+
+const poc2TimeTakenCards = [
+  {
+    id: "library-setup",
+    icon: MdLayers,
+    text: "Tokenization, style definitions, component design, and reviews took around 3 to 4 days",
+  },
+  {
+    id: "form-ui-generation",
+    icon: MdBolt,
+    text: "Once the library was ready, the form UI was generated in less than half a day",
+  },
+] as const;
+
+const poc2AgentReadyCards = [
+  {
+    id: "figma-structure",
+    icon: MdHistory,
+    text: "Based on the learnings from the previous POC, the Figma file was structured properly this time",
+  },
+  {
+    id: "token-architecture",
+    icon: MdPalette,
+    text: "A token architecture was created with correctly mapped collections and groups",
+  },
+  {
+    id: "typography-styles",
+    icon: MdTextFields,
+    text: "Reusable typography styles were defined",
+  },
+  {
+    id: "components-linked",
+    icon: MdViewModule,
+    text: "Components were built with all values linked to the right tokens and styles",
+  },
+  {
+    id: "documented-for-agents",
+    icon: MdNoteAlt,
+    text: "Components were documented, labeled clearly, and organized to make the structure easier to understand for AI agents and MCP",
+  },
+] as const;
+
+const poc2SpecFileCards = [
+  {
+    id: "library-instructions",
+    icon: MdNoteAlt,
+    text: "The instructions.md file inside the component library repo was optimised to be shorter and clearer with rules and guidelines with examples",
+  },
+  {
+    id: "search-library-match",
+    icon: MdSearch,
+    text: "In the project repo, the instructions explicitly told the agent to first search for a matching component from the installed library based on the Figma node, and only proceed if a match was found",
+  },
+  {
+    id: "no-match-inform",
+    icon: MdBlock,
+    text: "If no matching component existed, the agent had to inform the user instead of generating a new one",
+  },
+] as const;
 
 export default function TDBridge() {
   const showImplementationFramework = isFeatureEnabled("tdbridgeImplementationFramework");
@@ -18,7 +221,7 @@ export default function TDBridge() {
 
           <div className="w-full overflow-hidden rounded-lg">
             <img
-              src="/images/tdbridge/hero_banner.png"
+              src="/images/tdbridge/tdb_hero_banner.png"
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
@@ -27,7 +230,7 @@ export default function TDBridge() {
           </div>
 
           {/* Section 1 begins */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-10">
             <h2 className="headline-small md:!text-[1.75rem]">We had a design system, but nobody used it.</h2>
             <p className="body-xlarge">
               DLS Web 2.0 lived as a Figma library, while around 6 frontend projects in Consumer Tech were running in parallel, each building their own UI components independently.
@@ -146,7 +349,7 @@ export default function TDBridge() {
             <p className="body-xlarge">
               Many other teams were already using tools like Figma Make, GitHub Copilot and Claude Code to vibe code internal web apps by simply prompting the model with the basic brand colors and fonts which eventually created AI slop as shown below:
             </p>
-            <div className="w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+            <div className="w-full overflow-hidden rounded-lg">
               <img
                 src="/images/tdbridge/tdb_vibe_coding.png"
                 alt="Common questions developers ask about design systems"
@@ -191,6 +394,9 @@ export default function TDBridge() {
           {/* Section 3 begins */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">The problems felt obvious, but we needed data.</h2>
+            <p className="body-xlarge">
+              My research process had three phases: discover, analyze, and define.
+            </p>
             <div className="w-full overflow-hidden rounded-lg">
               <img
                 src="/images/tdbridge/tdb_research_plan.png"
@@ -200,10 +406,6 @@ export default function TDBridge() {
                 className="h-auto w-full rounded-lg"
               />
             </div>
-            <p className="body-xlarge">
-              My research process had three phases: discover, analyze, and define.
-            </p>
-            <code style={{ color: "red" }}>This entire section can be converted as a single image</code>
             <p className="body-xlarge">
               In the discovery phase, I collected as much context as possible. I compared our design system with industry-standard systems from similar organizations, spoke with developers and designers to understand their day-to-day workflow, went through code repositories to see how components were actually being implemented, and audited the existing DLS Web 2.0 library in Figma.
             </p>
@@ -219,48 +421,37 @@ export default function TDBridge() {
           {/* Section 4 begins */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">It wasn&apos;t just broken, it was messy underneath</h2>
-            <code style={{ color: "red" }}>Add an meme image showing what the research revealed as craft and workflow isses</code>
-            <div className="flex flex-col gap-6">
+            <div className="mt-6 flex flex-col gap-6 md:mt-10">
               <h3 className="headline-small text-gray-800">Craft level issues inside the Figma file</h3>
-              <code style={{ color: "red" }}>Bullet points can be converted as a single image</code>
-              <p className="body-xlarge">
-                No versioning, changelog, migration steps, or maturity indicators, so teams didn&apos;t
-                know what changed or what was safe to use
-              </p>
-              <p className="body-xlarge">
-                Missing documentation and accessibility guidelines
-              </p>
-              <p className="body-xlarge">
-                No proper token architecture, with hard-coded values used instead of linking with tokens
-              </p>
-              <p className="body-xlarge">
-                Tokens from external libraries mixed with ours, along with old DLS token values still being
-                used inside the new DLS
-              </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {craftIssueCards.map(({ id, icon: Icon, text }) => (
+                  <div
+                    key={id}
+                    className="flex h-full flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="mt-6 flex flex-col gap-6 md:mt-10">
               <h3 className="headline-small text-gray-800">Workflow-level issues</h3>
-              <code style={{ color: "red" }}>Bullet points can be converted as a single image</code>
-              <p className="body-xlarge">
-                No single place to discover or browse components, so teams often didn&apos;t know what
-                already existed
-              </p>
-              <p className="body-xlarge">
-                Many developers, designers, and stakeholders didn&apos;t understand the structure of the
-                design system — tokens, components, styles, and guidelines
-              </p>
-              <p className="body-xlarge">
-                Components created inside projects rarely made their way back into the design
-                system, so reusable work stayed locked inside individual figma files
-              </p>
-              <p className="body-xlarge">
-                Reuse across projects usually meant manually copying code and modifying it, which
-                slowed down development and introduced inconsistencies
-              </p>
-              <p className="body-xlarge">
-                Interaction design inside components was often ignored, which affected the overall UX
-                consistency across the website
-              </p>
+              <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2 md:flex-wrap md:overflow-visible">
+                {workflowIssueCards.map(({ id, icon: Icon, text }) => (
+                  <div
+                    key={id}
+                    className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           {/* Section 4 ends */}
@@ -272,17 +463,8 @@ export default function TDBridge() {
             </h2>
             <p className="body-xlarge">
               {
-                "Considering the emerging agentic workflows, just fixing the DLS and creating a component library wasn't enough. The bigger problem was establishing a scalable and reliable design-to-code workflow system around it."
+                "Considering emerging agentic workflows using tools like GitHub Copilot, Claude Code, and Figma Make, just fixing the DLS and building a component library wasn’t enough, the bigger challenge was creating a scalable and reliable design-to-code workflow system around it."
               }
-            </p>
-            <p className="body-xlarge">
-              {
-                "We also had access to tools like GitHub Copilot, Claude Code, and Figma Make that were changing how UI was being built."
-              }
-            </p>
-            <code style={{ color: "red" }}>The above paragraph can be converted as a single image</code>
-            <p className="body-xlarge">
-              {"Because of that, the next step wasn't implementation, it was experimentation."}
             </p>
           </div>
           {/* Section 5 ends */}
@@ -293,48 +475,38 @@ export default function TDBridge() {
               POC 1: Same design, same prompts, different results
             </h2>
             <p className="body-xlarge">
-              I started exploring Figma MCP and its ability to read and understand design using its built-in tools. I was curious to see how consistent the results would be when different developers followed the same process.
+              I started exploring Figma MCP to see how well it could read and understand design, and how consistent the results would be when different developers followed the same process.
             </p>
             <p className="body-xlarge">
-              To test this, I asked three of my colleagues to participate. For the experiment, I chose Razorpay’s Blade design system as a reference because it is mature and publicly available as a Figma library.
+              For testing, I asked my colleagues to participate and used Razorpay’s Blade design system as a reference since it’s mature and publicly available.
             </p>
             <p className="body-xlarge">
-              Each developer was given the same landing page design and the same set of prompts. First, they used Figma MCP and GitHub Copilot Agent to generate the required components. After that, they were asked to generate the full page using those components.
+              Each developer was given the same landing page design and prompts. They used Figma MCP and GitHub Copilot Agent to generate the components first, and then the full page using those components.
             </p>
-
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_poc1.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <div className="flex flex-col gap-6">
-              <p className="body-xlarge font-semibold">Findings:</p>
-              <ul className="flex flex-col gap-6">
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  All three developers ended up with different UI results, both at the component
-                  level and at the page level
-                </li>
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  GitHub Copilot took a significant amount of time to generate UI
-                </li>
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  The instructions file existed, but it was too large and not structured well for AI
-                  to parse through.
-                </li>
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  Figma MCP often struggled to understand the exact relationship between the design
-                  and the implemented UI, especially during bug-fix prompts
-                </li>
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  Using identical prompts was not practical, but following a consistent workflow for
-                  prompting was
-                </li>
-                <li className="body-large flex items-start gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-500" />
-                  Missing foundations like tokens, styles, and proper documentation led to inconsistent
-                  results
-                </li>
-              </ul>
+              <h3 className="headline-small text-gray-800">Findings</h3>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4">
+                {poc1FindingsCards.map(({ id, icon: Icon, text }) => (
+                  <div
+                    key={id}
+                    className="flex gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4 sm:px-5 sm:py-5"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <p className="body-large text-gray-800">{text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           {/* Section 6 ends */}
@@ -342,24 +514,94 @@ export default function TDBridge() {
           {/* Section 7 begins — POC 2: structured design system */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-large text-2xl font-bold">POC 2: What happens when the design system is structured properly</h2>
-            <p className="body-xlarge">For the second POC, instead of using an external design system, I created a small internal DLS by building our own UI components and tested the workflow by building a form component.</p>
-            <p className="body-xlarge">
-              Based on the learnings from the previous POC, the Figma file was structured properly this time. A token architecture was created with correctly mapped collections and groups, reusable typography styles were defined, and components were built with all values linked to the right tokens and styles. Components were documented, labeled clearly, and organized to make the structure easier to understand for AI agents and MCP.
-            </p>
-            <p className="body-xlarge">
-              Using Figma MCP, the component library was generated first. The instructions file inside the component library repo was rewritten to be shorter and clearer. In the project repo, the instructions explicitly told the agent to first search for a matching component from the installed library based on the Figma node, and only proceed if a match was found. If no matching component existed, the agent had to inform the user instead of generating a new one.
-            </p>
+            <p className="body-xlarge">Now instead of using an external design system, I created a small scale DLS, built the UI components using Figma MCP and tested the workflow by building a form component using GitHub Copilot and Claude Code.</p>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Making the DLS agent ready</h3>
+            <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2 md:flex-wrap md:overflow-visible">
+              {poc2AgentReadyCards.map(({ id, icon: Icon, text }) => (
+                <div
+                  key={id}
+                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+              <img
+                src="/images/tdbridge/tdb_poc2_vars.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
+            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+              <VisibilityVideo
+                src="/images/tdbridge/tdb_mini_dls_walkthrough.mp4"
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Optimizing the SPEC.md file for better context</h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {poc2SpecFileCards.map(({ id, icon: Icon, text }) => (
+                <div
+                  key={id}
+                  className="flex h-full items-start gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                </div>
+              ))}
+            </div>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Result</h3>
             <p className="body-xlarge">
               The library was then exported and installed in a new project, where the form UI design was given to the agent to generate.
             </p>
+            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+              <img
+                src="/images/tdbridge/tdb_poc2_result.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <p className="body-xlarge">
-              The generated UI was 70-75% closer to the UI design, and the overall workflow felt more predictable.
+              The generated UI was 60% closer to the UI design, and the overall workflow felt more predictable.
             </p>
-            <p className="body-xlarge">Tokenization, style definitions, component design, and reviews took around 3 to 4 days, but once the library was ready, the form UI was generated in less than half a day. The workflow was tested using both Claude Code and GitHub Copilot.
-            </p>
-            <p className="body-xlarge">
-              However, some issues still remained. There were occasional hallucinations, incorrect implementations, and spacing inconsistencies. Interaction logic still required manual refinement, and GitHub Copilot sometimes struggled to understand the expected design even with Figma MCP providing context.
-            </p>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Time taken</h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4">
+              {poc2TimeTakenCards.map(({ id, icon: Icon, text }) => (
+                <div
+                  key={id}
+                  className="flex h-full items-start gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                </div>
+              ))}
+            </div>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Issues found</h3>
+            <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2 md:flex-wrap md:overflow-visible">
+              {poc2IssuesCards.map(({ id, icon: Icon, text }) => (
+                <div
+                  key={id}
+                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
           {/* Section 7 ends */}
 
@@ -368,35 +610,64 @@ export default function TDBridge() {
             <h2 className="headline-large text-2xl font-bold">POC 3: What happens when this is used for a real full page UI</h2>
             <p className="body-xlarge">Next, I wanted to see how this workflow would behave in a real day-to-day scenario where a developer has to build an entire page instead of a single component. So this time, I took a full page UI and followed the same approach as the previous POC, with a few important changes.</p>
             <p className="body-xlarge">
+              Because the page contained many components, the mini DLS from the previous POC had to be expanded further.
+            </p>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Introducing Code Connect by Figma</h3>
+            <p className="body-xlarge">
               After building the components, the code was merged into the main branch and linked back to the corresponding Figma components using the Code Connect feature. This allowed the design and code to stay connected, and the additional descriptions helped the agent understand the component behavior and intended usage, reducing some of the incorrect implementations seen in the previous POC.
             </p>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_code_connect.jpg"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Underrated combo: Figma MCP + Chrome DevTools MCP</h3>
             <p className="body-xlarge">
               Instead of relying only on Figma MCP, I also used Chrome DevTools MCP so the agent could compare the current UI with the expected design and understand the gaps more clearly during debugging.
             </p>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Prompting strategy</h3>
             <p className="body-xlarge">
-              Agents struggled when components were designed outside common UI design patterns, which showed that agents are not fully capable of pulling off out of the box UI design patterns.
+              Instead of giving the agent the full page and asking it to build everything at once (that normally many developers do), I created an analyze–review–build loop for each section of the page, gradually assembling the UI like Lego blocks. This gave much better control over UI generation and made it easier to fix issues early.
             </p>
-            <p className="body-xlarge">
-              Another change was the way I approached prompting. Instead of giving the agent the full page and asking it to build everything at once (that normally many developers do), I introduced an analyze–review–build loop for each section of the page, gradually assembling the UI like Lego blocks. This gave much better control over generation and made it easier to fix issues early. This also meant that though we have AI workflows, patience and understanding of the workflow is still required.
-            </p>
-            <p className="body-xlarge">
-              Because the page contained many components, the mini DLS from the previous POC had to be expanded further. Designing, reviewing, and stabilizing the components took about a week, but once the system was ready, the final page UI was generated using Claude Code in about a day.
-            </p>
+            <div className="w-full overflow-hidden rounded-lg">
+              <img
+                src="/images/tdbridge/tdb_prompting.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Final result</h3>
+            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+              <img
+                src="/images/tdbridge/tdb_poc3_result.png"
+                alt="Common questions developers ask about design systems"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg"
+              />
+            </div>
             <p className="body-xlarge">
               The generated UI matched the design roughly 70 to 75%, which was significantly better than the earlier experiments and showed that the workflow could work in a realistic scenario.
+            </p>
+
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Time taken</h3>
+            <p className="body-xlarge">Designing & reviewing the components took about a week, but once the system was ready, the final page UI was generated using Claude Code in about a day.
+            </p>
+
+            <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Issues found</h3>
+            <p className="body-xlarge">
+              Agents struggled when components were designed outside common UI design patterns, which showed that agents are not fully capable of pulling off out of the box UI design patterns.
             </p>
           </div>
           {/* Section 8 ends */}
 
-          {/* Section 9 begins — POC results and buy-in */}
-          <div className="flex flex-col gap-6">
-            <p className="body-xlarge">
-              The POCs made it easier to show the real results, which worked much better than trying to convince people with slides.
-            </p>
-          </div>
-          {/* Section 9 ends */}
-
-          {/* Section 10 begins — Building the component library for the web */}
+          {/* Section 9 begins — Building the component library for the web */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-large text-2xl font-bold">Building the component library for the web</h2>
 
@@ -421,36 +692,31 @@ export default function TDBridge() {
             <p className="body-xlarge">
               Once the first set of components was ready, I began testing them against other frontend projects to check compatibility. Issues were fixed based on priority before moving to the next batch.
             </p>
-
-            <p className="body-xlarge">
-              These problems did not stay inside design files. They directly affected product
-              delivery, engineering efficiency, and user experience quality across teams.
-            </p>
           </div>
-          {/* Section 10 ends */}
+          {/* Section 9 ends */}
 
           {showImplementationFramework ? (
             <>
-              {/* Section 11 begins — Implementation Framework */}
+              {/* Section 10 begins — Implementation Framework */}
               <div className="flex flex-col gap-6">
                 <h2 className="headline-large text-2xl font-bold">Implementation Framework</h2>
                 {/* Content will be added later */}
               </div>
-              {/* Section 11 ends */}
+              {/* Section 10 ends */}
             </>
           ) : null}
 
           {showOutcomePlaceholder ? (
             <>
-              {/* Section 12 begins — Outcome and impact (placeholder) */}
+              {/* Section 11 begins — Outcome and impact (placeholder) */}
               <div className="flex flex-col gap-6">
                 <h2 className="headline-large text-2xl font-bold">Outcome and impact</h2>
               </div>
-              {/* Section 12 ends */}
+              {/* Section 11 ends */}
             </>
           ) : null}
 
-          {/* Section 13 begins — Challenges along the way */}
+          {/* Section 12 begins — Challenges along the way */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-large text-2xl font-bold">{"It wasn't as smooth as it sounds"}</h2>
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -498,15 +764,15 @@ export default function TDBridge() {
               </div>
             </div>
           </div>
-          {/* Section 13 ends */}
+          {/* Section 12 ends */}
 
           {showWhatsNext ? (
             <>
-              {/* Section 14 begins — Future of the design system */}
+              {/* Section 13 begins — Future of the design system */}
               <div className="flex flex-col gap-6">
                 <h2 className="headline-large text-2xl font-bold">{"What's next?"}</h2>
               </div>
-              {/* Section 14 ends */}
+              {/* Section 13 ends */}
             </>
           ) : null}
 
