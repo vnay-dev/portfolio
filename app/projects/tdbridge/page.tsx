@@ -6,6 +6,7 @@ import {
   MdOutlineWorkspaces,
 } from "react-icons/md";
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container, Navbar } from "@/components/shared/composite";
 import { getNavbarFeatureFlags, isFeatureEnabled } from "@/app/constants";
@@ -72,11 +73,12 @@ export default function TDBridge() {
           </div>
 
           <div className="w-full overflow-hidden rounded-lg">
-            <img
+            <Image
               src={getTDBridgeAssetUrl("tdb_hero_banner.png")}
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
+              priority
               className="h-full w-full rounded-lg object-contain"
             />
           </div>
@@ -140,11 +142,12 @@ export default function TDBridge() {
             </p>
 
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_dev_questions_v2.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -161,11 +164,12 @@ export default function TDBridge() {
               How many varieties of secondary buttons can you spot in the image below?
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f9f1e8]">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_sec_btn_varieties.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -173,11 +177,12 @@ export default function TDBridge() {
               This also meant that every new project had to spend time figuring out its own set of components before starting UI work. The same effort was repeated across projects, directly affecting delivery timelines.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_gen_problems.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -191,11 +196,12 @@ export default function TDBridge() {
               Many other teams were already using tools like Figma Make, GitHub Copilot and Claude Code to vibe code internal web apps by simply prompting the model with the basic brand colors and fonts which eventually created AI slop as shown below:
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_vibe_coding.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -203,11 +209,12 @@ export default function TDBridge() {
               AI could generate code for UI, but without a shared system it would only reproduce the same inconsistencies faster.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_proposal.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -221,11 +228,12 @@ export default function TDBridge() {
               Because I was working as a frontend developer and was also involved in maintaining the Figma design system, I had visibility into the code across projects and how each team implemented the UI. It became easy to spot the gap between what was designed and what actually got shipped.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_steve_rogers.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -239,11 +247,12 @@ export default function TDBridge() {
               My research process had three phases: discover, analyze, and define.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_research_plan.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -313,11 +322,12 @@ export default function TDBridge() {
             <p className="body-xlarge">The first step was to fix the craft-level issues in the existing Figma library. We defined a proper token architecture, cleaned up naming conventions, linked components to tokens, fixed styles, and improved documentation so the foundations were stable.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_craft.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -325,11 +335,12 @@ export default function TDBridge() {
               Using Figma data analysis and discussions with designers, we identified a small set of components to focus on for the first batch. This helped us avoid building everything at once and instead stabilize the system step by step.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
-              <img
+              <Image
                 src={getTDBridgeAssetUrl("tdb_analytics.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
+                loading="lazy"
                 className="h-auto w-full rounded-lg"
               />
             </div>
@@ -360,11 +371,12 @@ export default function TDBridge() {
                   With the intention of bridging the gap between design and engineering, I designed a system that would adopt and maintain the design system in both Figma and code.
                 </p>
                 <div className="my-4 w-full overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={getTDBridgeAssetUrl("tdb_framework.png")}
                     alt="Common questions developers ask about design systems"
                     width={1920}
                     height={1080}
+                    loading="lazy"
                     className="h-auto w-full rounded-lg"
                   />
                 </div>
