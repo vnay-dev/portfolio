@@ -20,6 +20,7 @@ import {
   MdTextFields,
   MdViewModule,
 } from "react-icons/md";
+import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
@@ -173,7 +174,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <div className="w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_poc1.png"
+                src={getTDBridgeAssetUrl("tdb_poc1.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -223,7 +224,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </div>
             <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_poc2_vars.png"
+                src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -231,7 +232,10 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               />
             </div>
             <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
-              <VisibilityVideo src="/images/tdbridge/tdb_mini_dls_walkthrough.mp4" className="h-auto w-full rounded-lg" />
+              <VisibilityVideo
+                src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")}
+                className="h-auto w-full rounded-lg"
+              />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Optimizing the SPEC.md file for better context</h3>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -253,7 +257,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_poc2_result.png"
+                src={getTDBridgeAssetUrl("tdb_poc2_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -313,7 +317,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <div className="w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_code_connect.jpg"
+                src={getTDBridgeAssetUrl("tdb_code_connect.jpg")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -332,7 +336,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <div className="w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_prompting.png"
+                src={getTDBridgeAssetUrl("tdb_prompting.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -342,7 +346,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Final result</h3>
             <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_poc3_result.png"
+                src={getTDBridgeAssetUrl("tdb_poc3_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}

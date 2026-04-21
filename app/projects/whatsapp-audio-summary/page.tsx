@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getNavbarFeatureFlags } from "@/app/constants";
+import { getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
 import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
 import { Ticker } from "@/components/projects/whatsapp-audio-summary/Ticker";
@@ -46,7 +47,7 @@ export default function WhatsAppAudioSummary() {
           </div>
 
           <Image
-            src="/images/whatsapp/whtsp_hero_sctn_motion.gif"
+            src={getWhatsAppAssetUrl("whtsp_hero_sctn_motion.gif")}
             alt="WhatsApp Hero Animation"
             width={1200}
             height={800}
@@ -60,7 +61,7 @@ export default function WhatsAppAudioSummary() {
           >
             <div className="flex flex-row items-center gap-4 lg:flex-shrink-0">
               <Image
-                src="/images/whatsapp/rocket.png"
+                src={getWhatsAppAssetUrl("rocket.png")}
                 alt="Rocket"
                 width={96}
                 height={96}
@@ -98,7 +99,7 @@ export default function WhatsAppAudioSummary() {
           </p>
 
           <Image
-            src="/images/whatsapp/whatsapp_case_study_prototype.gif"
+            src={getWhatsAppAssetUrl("whatsapp_case_study_prototype.gif")}
             alt="WhatsApp Case Study Prototype"
             width={1200}
             height={800}
@@ -127,7 +128,7 @@ export default function WhatsAppAudioSummary() {
             </div>
             <div className="flex w-full items-end justify-center md:pt-16">
               <Image
-                src="/images/whatsapp/whtsp_voice_notes_list.png"
+                src={getWhatsAppAssetUrl("whtsp_voice_notes_list.png")}
                 alt="WhatsApp Voice Notes List"
                 width={1200}
                 height={800}
@@ -138,7 +139,7 @@ export default function WhatsAppAudioSummary() {
           </div>
 
           <Image
-            src="/images/whatsapp/whtsp_claws.gif"
+            src={getWhatsAppAssetUrl("whtsp_claws.gif")}
             alt="WhatsApp Claws Animation"
             width={1200}
             height={800}
@@ -195,7 +196,7 @@ export default function WhatsAppAudioSummary() {
               <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
                 <div className="relative w-full overflow-hidden rounded-lg">
                   <Image
-                    src="/images/whatsapp/user_job_1.png"
+                    src={getWhatsAppAssetUrl("user_job_1.png")}
                     alt="User Job 1"
                     width={1200}
                     height={800}
@@ -224,7 +225,7 @@ export default function WhatsAppAudioSummary() {
               <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
                 <div className="relative w-full overflow-hidden rounded-lg">
                   <Image
-                    src="/images/whatsapp/user_job_2.png"
+                    src={getWhatsAppAssetUrl("user_job_2.png")}
                     alt="User Job 2"
                     width={1200}
                     height={800}
@@ -291,7 +292,7 @@ export default function WhatsAppAudioSummary() {
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
-                    src="/images/whatsapp/uj1_final_scrn1.png"
+                    src={getWhatsAppAssetUrl("uj1_final_scrn1.png")}
                     alt="Final Screen 1"
                     width={1200}
                     height={800}
@@ -304,7 +305,7 @@ export default function WhatsAppAudioSummary() {
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
-                    src="/images/whatsapp/uj1_final_scrn2.png"
+                    src={getWhatsAppAssetUrl("uj1_final_scrn2.png")}
                     alt="Final Screen 2"
                     width={1200}
                     height={800}
@@ -317,7 +318,7 @@ export default function WhatsAppAudioSummary() {
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
-                    src="/images/whatsapp/uj1_final_scrn3.png"
+                    src={getWhatsAppAssetUrl("uj1_final_scrn3.png")}
                     alt="Final Screen 3"
                     width={1200}
                     height={800}
@@ -385,7 +386,7 @@ export default function WhatsAppAudioSummary() {
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
                 <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
                   <Image
-                    src="/images/whatsapp/uj1_itr1_scr1.png"
+                    src={getWhatsAppAssetUrl("uj1_itr1_scr1.png")}
                     alt="Iteration 1 Screen 1"
                     width={1200}
                     height={800}
@@ -395,7 +396,7 @@ export default function WhatsAppAudioSummary() {
                 </div>
                 <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
                   <Image
-                    src="/images/whatsapp/uj1_itr1_scr2.png"
+                    src={getWhatsAppAssetUrl("uj1_itr1_scr2.png")}
                     alt="Iteration 1 Screen 2"
                     width={1200}
                     height={800}
@@ -445,7 +446,7 @@ export default function WhatsAppAudioSummary() {
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
                 <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
                   <Image
-                    src="/images/whatsapp/uj1_itr2_scr1.png"
+                    src={getWhatsAppAssetUrl("uj1_itr2_scr1.png")}
                     alt="Iteration 2 Screen 1"
                     width={1200}
                     height={800}
@@ -455,7 +456,7 @@ export default function WhatsAppAudioSummary() {
                 </div>
                 <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
                   <Image
-                    src="/images/whatsapp/uj1_itr2_scr2.png"
+                    src={getWhatsAppAssetUrl("uj1_itr2_scr2.png")}
                     alt="Iteration 2 Screen 2"
                     width={1200}
                     height={800}
@@ -501,7 +502,7 @@ export default function WhatsAppAudioSummary() {
 
             <div className="relative w-full overflow-hidden rounded-lg">
               <Image
-                src="/images/whatsapp/uj1_iteration2_poster1.jpg"
+                src={getWhatsAppAssetUrl("uj1_iteration2_poster1.jpg")}
                 alt="Iteration 2 Poster 1"
                 width={1200}
                 height={800}
@@ -528,7 +529,7 @@ export default function WhatsAppAudioSummary() {
 
             <div className="relative w-full overflow-hidden rounded-lg">
               <Image
-                src="/images/whatsapp/uj1_iteration2_poster2.jpg"
+                src={getWhatsAppAssetUrl("uj1_iteration2_poster2.jpg")}
                 alt="Iteration 2 Poster 2"
                 width={1200}
                 height={800}
@@ -551,7 +552,7 @@ export default function WhatsAppAudioSummary() {
 
             <div className="relative w-full overflow-hidden rounded-lg">
               <Image
-                src="/images/whatsapp/uj1_iteration2_poster3.jpg"
+                src={getWhatsAppAssetUrl("uj1_iteration2_poster3.jpg")}
                 alt="Iteration 2 Poster 3"
                 width={1200}
                 height={800}
@@ -696,7 +697,7 @@ export default function WhatsAppAudioSummary() {
               </div>
               <div className="flex w-full flex-shrink-0 items-center justify-center md:w-auto md:max-w-[200px] lg:max-w-[240px]">
                 <Image
-                  src="/images/whatsapp/tech_constraints_illustration.svg"
+                  src={getWhatsAppAssetUrl("tech_constraints_illustration.svg")}
                   alt="Tech constraints illustration"
                   width={400}
                   height={400}

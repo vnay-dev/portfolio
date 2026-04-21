@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { NavbarFeatureFlags } from "@/app/constants";
+import { getPersonalAssetUrl } from "@/app/constants/mediaAssets";
 import { Navbar, Container } from "@/components/shared/composite";
 import ColorBends from "@/components/animations/ColorBends/ColorBends";
 import { StockBorderGlowBadge } from "./StockBorderGlowBadge";
@@ -68,7 +69,7 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
         <Container>
           <div className="flex flex-col items-start gap-8 sm:gap-10 md:gap-12">
             <Image
-              src="/images/profile_pic.jpg"
+              src={getPersonalAssetUrl("profile_pic.jpg")}
               alt="Hero"
               width={180}
               height={180}

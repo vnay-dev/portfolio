@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
 
 type ProjectCardProps = {
@@ -73,19 +74,19 @@ export function Projects() {
             <ProjectCard
               index={0}
               href="/projects/tdbridge"
-              imageSrc="/images/tdbridge/tech_design_research_thumbnail.png"
+              imageSrc={getTDBridgeAssetUrl("tech_design_research_thumbnail.png")}
               imageAlt="Tech Design Research Project"
             />
             <ProjectCard
               index={1}
               href="/projects/plugin-1"
-              imageSrc="/images/tdbridge/tech_design_research_thumbnail.png"
+              imageSrc={getTDBridgeAssetUrl("tech_design_research_thumbnail.png")}
               imageAlt="Figma Plugins Project"
             />
             <ProjectCard
               index={2}
               href="/projects/whatsapp-audio-summary"
-              imageSrc="/images/whatsapp/whatsapp_project_thumbnail.jpg"
+              imageSrc={getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg")}
               imageAlt="WhatsApp Project"
             />
           </div>

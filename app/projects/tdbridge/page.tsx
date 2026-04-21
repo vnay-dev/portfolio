@@ -9,6 +9,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Container, Navbar } from "@/components/shared/composite";
 import { getNavbarFeatureFlags, isFeatureEnabled } from "@/app/constants";
+import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import WorkflowIssuesCarousel from "@/components/projects/tdbridge/WorkflowIssuesCarousel";
 import ChallengesCarousel from "@/components/projects/tdbridge/ChallengesCarousel";
 
@@ -72,7 +73,7 @@ export default function TDBridge() {
 
           <div className="w-full overflow-hidden rounded-lg">
             <img
-              src="/images/tdbridge/tdb_hero_banner.png"
+              src={getTDBridgeAssetUrl("tdb_hero_banner.png")}
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
@@ -140,7 +141,7 @@ export default function TDBridge() {
 
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_dev_questions_v2.png"
+                src={getTDBridgeAssetUrl("tdb_dev_questions_v2.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -161,7 +162,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f9f1e8]">
               <img
-                src="/images/tdbridge/tdb_sec_btn_varieties.png"
+                src={getTDBridgeAssetUrl("tdb_sec_btn_varieties.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -173,7 +174,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_gen_problems.png"
+                src={getTDBridgeAssetUrl("tdb_gen_problems.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -191,7 +192,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_vibe_coding.png"
+                src={getTDBridgeAssetUrl("tdb_vibe_coding.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -203,7 +204,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
               <img
-                src="/images/tdbridge/tdb_proposal.png"
+                src={getTDBridgeAssetUrl("tdb_proposal.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -221,7 +222,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_steve_rogers.png"
+                src={getTDBridgeAssetUrl("tdb_steve_rogers.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -239,7 +240,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <img
-                src="/images/tdbridge/tdb_research_plan.png"
+                src={getTDBridgeAssetUrl("tdb_research_plan.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -313,7 +314,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_craft.png"
+                src={getTDBridgeAssetUrl("tdb_craft.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -325,7 +326,7 @@ export default function TDBridge() {
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg border border-gray-200/70">
               <img
-                src="/images/tdbridge/tdb_analytics.png"
+                src={getTDBridgeAssetUrl("tdb_analytics.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
@@ -360,7 +361,7 @@ export default function TDBridge() {
                 </p>
                 <div className="my-4 w-full overflow-hidden rounded-lg">
                   <img
-                    src="/images/tdbridge/tdb_framework.png"
+                    src={getTDBridgeAssetUrl("tdb_framework.png")}
                     alt="Common questions developers ask about design systems"
                     width={1920}
                     height={1080}
