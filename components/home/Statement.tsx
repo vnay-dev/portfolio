@@ -34,8 +34,8 @@ export function Statement() {
       style={{ minHeight: sectionMinHeight }}
     >
       <Container>
-        <div className="py-12 sm:py-16 md:py-20">
-          <h2 className="statement-headline">
+        <div className="flex w-full flex-col items-start gap-10 py-12 sm:py-16 md:py-20">
+          <h2 className="statement-headline w-full max-w-[90%] text-neutral-900 !text-left lg:w-9/10">
             I work across <span className="editorial-italic">design & code</span> to turn
             <br />
             intent into reliable, production-ready systems

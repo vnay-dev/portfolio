@@ -1,56 +1,93 @@
+ "use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/shared/composite";
+
+type ProjectCardProps = {
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  index: number;
+};
+
+function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
+  const cardRef = useRef<HTMLAnchorElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <Link
+      ref={cardRef}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block w-full cursor-pointer overflow-hidden rounded-lg transition-all duration-700 ease-out will-change-transform"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.97)",
+        transitionDelay: `${index * 120}ms`,
+      }}
+    >
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        className="h-auto w-full origin-center rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[0.97]"
+      />
+    </Link>
+  );
+}
 
 export function Projects() {
   return (
-    <section id="work" className="w-full">
+    <section id="work" className="w-full bg-white">
       <Container>
-        <div className="flex flex-col gap-8 pt-0 pb-16 sm:pb-24 md:gap-16 md:pb-32">
-          <h2 className="editorial-headline-small editorial-italic text-center">
+        <div className="flex flex-col items-start gap-8 pt-16 pb-16 sm:pt-24 sm:pb-24 md:gap-16 md:pt-32 md:pb-32">
+          <h2 className="editorial-headline-small editorial-italic w-full max-w-[90%] text-left text-neutral-900 lg:w-9/10">
             Few of my best works
           </h2>
 
           <div className="flex flex-col gap-16">
-            <Link
+            <ProjectCard
+              index={0}
               href="/projects/tdbridge"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block w-full cursor-pointer"
-            >
-              <img
-                src="/images/tdbridge/tech_design_research_thumbnail.png"
-                alt="Tech Design Research Project"
-                className="h-auto w-full rounded-lg object-cover"
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                <p
-                  className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
-                  style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
-                >
-                  View case study
-                </p>
-              </div>
-            </Link>
-            <Link
+              imageSrc="/images/tdbridge/tech_design_research_thumbnail.png"
+              imageAlt="Tech Design Research Project"
+            />
+            <ProjectCard
+              index={1}
+              href="/projects/plugin-1"
+              imageSrc="/images/tdbridge/tech_design_research_thumbnail.png"
+              imageAlt="Figma Plugins Project"
+            />
+            <ProjectCard
+              index={2}
               href="/projects/whatsapp-audio-summary"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block w-full cursor-pointer"
-            >
-              <img
-                src="/images/whatsapp/whatsapp_project_thumbnail.png"
-                alt="WhatsApp Project"
-                className="h-auto w-full rounded-lg object-cover"
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg bg-black/0 transition-colors duration-300 group-hover:bg-black/75">
-                <p
-                  className="pointer-events-auto text-sm leading-tight font-normal text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:text-base md:text-lg lg:text-[1.75rem]"
-                  style={{ fontFamily: "var(--font-gabarito), var(--font-hanken), sans-serif" }}
-                >
-                  View case study
-                </p>
-              </div>
-            </Link>
+              imageSrc="/images/whatsapp/whatsapp_project_thumbnail.jpg"
+              imageAlt="WhatsApp Project"
+            />
           </div>
         </div>
       </Container>

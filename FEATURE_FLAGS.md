@@ -14,7 +14,6 @@ This file is the single source of truth for feature flags implemented in this pr
 | Flag key | Env var | Default | Status | Used in |
 |---|---|---:|---|---|
 | `navHideAboutMe` | `NEXT_PUBLIC_FF_NAV_HIDE_ABOUT_ME` | `false` | Active | `components/shared/composite/Navbar.tsx` |
-| `navHideResume` | `NEXT_PUBLIC_FF_NAV_HIDE_RESUME` | `false` | Active | `components/shared/composite/Navbar.tsx` |
 | `homeHideThinkingBeyondConstraints` | `NEXT_PUBLIC_FF_HOME_HIDE_THINKING_BEYOND_CONSTRAINTS` | `false` | Active | `app/page.tsx` |
 | `homeHideReflections` | `NEXT_PUBLIC_FF_HOME_HIDE_REFLECTIONS` | `false` | Active | `app/page.tsx` |
 | `homeHideFormAndAesthetics` | `NEXT_PUBLIC_FF_HOME_HIDE_FORM_AND_AESTHETICS` | `false` | Active | `app/page.tsx` |

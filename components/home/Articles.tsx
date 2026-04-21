@@ -31,14 +31,14 @@ export function Articles() {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-neutral-950">
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
           <div className="flex flex-col gap-4">
-            <h2 className="editorial-headline-small editorial-italic text-center">
+            <h2 className="editorial-headline-small editorial-italic text-center text-neutral-100">
               Reflections
             </h2>
-            <p className="body-large text-center text-neutral-600">
+            <p className="body-large text-center text-neutral-400">
               When different patterns intersect in a system, new ideas emerge and get&apos;s translated into words
             </p>
           </div>
@@ -80,17 +80,17 @@ export function Articles() {
                   type="button"
                   onClick={() => scroll("left")}
                   aria-label="Scroll left"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 bg-white/80 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-600 bg-neutral-800/90 transition-colors hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-950"
                 >
-                  <MdChevronLeft className="h-7 w-7 text-neutral-700" />
+                  <MdChevronLeft className="h-7 w-7 text-neutral-200" />
                 </button>
                 <button
                   type="button"
                   onClick={() => scroll("right")}
                   aria-label="Scroll right"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 bg-white/80 transition-colors hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-600 bg-neutral-800/90 transition-colors hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-950"
                 >
-                  <MdChevronRight className="h-7 w-7 text-neutral-700" />
+                  <MdChevronRight className="h-7 w-7 text-neutral-200" />
                 </button>
               </div>
             )}

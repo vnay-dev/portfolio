@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getNavbarFeatureFlags } from "@/app/constants";
 import { Container, Navbar } from "@/components/shared/composite";
 import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
 import { Ticker } from "@/components/projects/whatsapp-audio-summary/Ticker";
@@ -26,12 +27,23 @@ import {
 } from "./constants";
 
 export default function WhatsAppAudioSummary() {
+  const navFeatureFlags = getNavbarFeatureFlags();
+
   return (
     <main className="min-h-screen w-full">
-      <Navbar variant="light" />
+      <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
         <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
-          <h1 className="display-medium text-center">Smart voice notes to keep the chat flowing</h1>
+          <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
+            <h1 className="display-medium">Smart voice notes to keep the chat flowing</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2024-08-08">Aug 8, 2024</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>Concept project</span>
+            </p>
+          </div>
 
           <Image
             src="/images/whatsapp/whtsp_hero_sctn_motion.gif"

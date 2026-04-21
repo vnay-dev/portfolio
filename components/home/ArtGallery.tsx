@@ -14,14 +14,14 @@ export function ArtGallery() {
   const items = [...GALLERY_ITEMS, ...GALLERY_ITEMS];
 
   return (
-    <section className="w-full overflow-hidden">
+    <section className="w-full overflow-hidden bg-neutral-950">
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
           <div className="flex flex-col gap-4">
-            <h2 className="editorial-headline-small editorial-italic text-center">
+            <h2 className="editorial-headline-small editorial-italic text-center text-neutral-100">
               Form & aesthetics
             </h2>
-            <p className="body-large text-center text-neutral-600">
+            <p className="body-large text-center text-neutral-400">
               Exploring visual craft that helps systems feel more memorable
             </p>
           </div>

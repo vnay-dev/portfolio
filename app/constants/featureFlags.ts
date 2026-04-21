@@ -4,10 +4,10 @@ export const FEATURE_FLAGS = {
     defaultValue: false,
     description: "Hide the “About Me” item in the Navbar.",
   },
-  navHideResume: {
-    envVar: "NEXT_PUBLIC_FF_NAV_HIDE_RESUME",
-    defaultValue: false,
-    description: "Hide the “Resume” item in the Navbar.",
+  navHideHamburger: {
+    envVar: "NEXT_PUBLIC_FF_NAV_HIDE_HAMBURGER",
+    defaultValue: true,
+    description: "Hide the mobile hamburger menu; nav links stay visible in the bar (useful with few items).",
   },
   homeHideThinkingBeyondConstraints: {
     envVar: "NEXT_PUBLIC_FF_HOME_HIDE_THINKING_BEYOND_CONSTRAINTS",
@@ -28,6 +28,11 @@ export const FEATURE_FLAGS = {
     envVar: "NEXT_PUBLIC_FF_HOME_ART_GALLERY",
     defaultValue: true,
     description: "Show the Art Gallery section on the home page.",
+  },
+  homeHideStatement: {
+    envVar: "NEXT_PUBLIC_FF_HOME_HIDE_STATEMENT",
+    defaultValue: true,
+    description: "Hide the statement section on the home page.",
   },
   tdbridgeImplementationFramework: {
     envVar: "NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK",
@@ -53,11 +58,12 @@ export type FeatureFlagKey = keyof typeof FEATURE_FLAGS;
 // hydration mismatches in client components).
 const FEATURE_FLAG_ENV_VALUES: Record<FeatureFlagKey, string | undefined> = {
   navHideAboutMe: process.env.NEXT_PUBLIC_FF_NAV_HIDE_ABOUT_ME,
-  navHideResume: process.env.NEXT_PUBLIC_FF_NAV_HIDE_RESUME,
+  navHideHamburger: process.env.NEXT_PUBLIC_FF_NAV_HIDE_HAMBURGER,
   homeHideThinkingBeyondConstraints: process.env.NEXT_PUBLIC_FF_HOME_HIDE_THINKING_BEYOND_CONSTRAINTS,
   homeHideReflections: process.env.NEXT_PUBLIC_FF_HOME_HIDE_REFLECTIONS,
   homeHideFormAndAesthetics: process.env.NEXT_PUBLIC_FF_HOME_HIDE_FORM_AND_AESTHETICS,
   homeArtGallery: process.env.NEXT_PUBLIC_FF_HOME_ART_GALLERY,
+  homeHideStatement: process.env.NEXT_PUBLIC_FF_HOME_HIDE_STATEMENT,
   tdbridgeImplementationFramework: process.env.NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK,
   tdbridgeOutcomePlaceholder: process.env.NEXT_PUBLIC_FF_TDBRIDGE_OUTCOME_PLACEHOLDER,
   tdbridgeWhatsNext: process.env.NEXT_PUBLIC_FF_TDBRIDGE_WHATS_NEXT,
@@ -75,5 +81,19 @@ export function isFeatureEnabled(flagKey: FeatureFlagKey): boolean {
   const flag = FEATURE_FLAGS[flagKey];
   const parsedValue = parseBooleanEnvValue(FEATURE_FLAG_ENV_VALUES[flagKey]);
   return parsedValue ?? flag.defaultValue;
+}
+
+/** Navbar UI flags — compute in a Server Component via {@link getNavbarFeatureFlags} and pass as props to avoid hydration mismatches. */
+export type NavbarFeatureFlags = {
+  hideHamburger: boolean;
+  showAboutMe: boolean;
+};
+
+/** Call from Server Components (pages/layouts) so nav markup matches on SSR and the client. */
+export function getNavbarFeatureFlags(): NavbarFeatureFlags {
+  return {
+    hideHamburger: isFeatureEnabled("navHideHamburger"),
+    showAboutMe: !isFeatureEnabled("navHideAboutMe"),
+  };
 }
 

@@ -1,6 +1,7 @@
 // Home page specific sections (not reused)
 // Examples: Hero, About, Projects, etc.
 
+export { StockBorderGlowBadge } from "./StockBorderGlowBadge";
 export { Hero } from "./Hero";
 export { Statement } from "./Statement";
 export { Projects } from "./Projects";
