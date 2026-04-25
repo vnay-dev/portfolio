@@ -9,50 +9,58 @@ export default function Plugin1CaseStudyPage() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex w-full flex-col gap-8 py-16 text-neutral-900 sm:py-24 md:py-32">
-          <h1 className="text-center text-4xl font-semibold sm:text-5xl">Plugin 1</h1>
-          <p className="body-xlarge w-full text-neutral-700">
-            While fixing our design system in Figma, the team kept running into slow manual repetitive
-            workflows. So I built four Figma plugins to solve them. This page is about the first plugin
-            that I built named Compounter.
-          </p>
+        <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-center text-4xl font-semibold sm:text-5xl">A safer and faster way to sanitize the design system</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2025-10">Jan 2026</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 week</span>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>2 designers & 1 design engineer</span>
+            </p>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Change something, break nothing</h2>
-
+          <div className="flex flex-col gap-6">
             <p className="body-xlarge">
               While sanitizing the design system and auditing project files, we kept running into the
               same question:
             </p>
-
             <p className="body-xlarge">If we change this, what else breaks?</p>
+            <p className="body-xlarge w-full text-neutral-700">
+              This plugin named Compounter helped us answer that question.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Every component action had a reaction</h2>
 
             <p className="body-xlarge">
-              A component might look simple in isolation, but the same component could be reused across
-              multiple pages, flows, and features. Updating it without knowing where it was used was
-              risky. Deleting an old component was even riskier.
+              A component change might look simple in isolation, but the same component could be reused across
+              multiple pages, flows, and features. Updating or deleting a component and publishing it without knowing where it was used was
+              risky.
             </p>
 
             <p className="body-xlarge">
-              Figma did not give us a clear way to understand that impact across files.
+              Figma did not give us a clear way to understand the impact of a change across files.
             </p>
 
             <p className="body-xlarge">So the first feature I built solved exactly that.</p>
 
             <p className="body-xlarge">
-              When a designer selects a base component or an instance, the plugin scans the file and
-              shows every place that component is currently being used. Instead of guessing, teams could
-              now see the blast radius before making a change.
+              When a designer selects a master component or one of its instances, the plugin scans the file and shows everywhere it is being used. Instead of guessing what might break, teams could clearly see the impact before making a change.
             </p>
+          </div>
 
-            <p className="body-xlarge">That alone saved a lot of accidental regressions.</p>
-          </section>
-
-          <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">variables chaos</h2>
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Having trust issues with the variables table</h2>
 
             <p className="body-xlarge">
-              Our DLS had a large variables table with poor structure, inconsistent grouping, and no
+              Our variable collection table was quite large with poor structure, inconsistent grouping, and no
               real architecture behind it.
             </p>
 
@@ -61,7 +69,7 @@ export default function Plugin1CaseStudyPage() {
             <p className="body-xlarge">Where is this variable used?</p>
             <p className="body-xlarge">Can it be deleted?</p>
             <p className="body-xlarge">If renamed, what breaks?</p>
-            <p className="body-xlarge">Is it local, unpublished, or from somewhere else?</p>
+            <p className="body-xlarge">Is it scoped, local, unpublished, or from somewhere else?</p>
 
             <p className="body-xlarge">
               Without that visibility, cleanup itself could become a breaking change.
@@ -84,17 +92,17 @@ export default function Plugin1CaseStudyPage() {
             <div className="mt-4 flex w-full flex-col gap-6">
               <h3 className="title-large">The challenge</h3>
 
-              <p className="body-xlarge">Initially, I explored using the Figma API for this.</p>
+              <p className="body-xlarge">Initially, I referred the API documentation provided by Figma and used their variables API for loading the variables.</p>
 
               <p className="body-xlarge">
-                But it only exposed published variables reliably, and some local or scoped variables
-                were still hard to access properly.
+                But it only exposed published variables, and some local or scoped variables
+                was not showing up in the response.
               </p>
 
               <p className="body-xlarge">So I moved the logic into the plugin environment instead.</p>
 
               <p className="body-xlarge">
-                That gave direct access to the live file, removed the need for PAT tokens, file IDs,
+                Figma plugins have direct access to the live file, removed the need for PAT tokens, file IDs,
                 rate limits, and made the workflow much faster.
               </p>
 
@@ -105,10 +113,10 @@ export default function Plugin1CaseStudyPage() {
                 made everyday use much quicker.
               </p>
             </div>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">tokenization</h2>
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Tokenization for MCP</h2>
 
             <p className="body-xlarge">
               As our design-to-code workflow evolved, tokenization became much more important.
@@ -143,16 +151,20 @@ export default function Plugin1CaseStudyPage() {
             <p className="body-xlarge">So I added a Tokenize feature.</p>
 
             <p className="body-xlarge">
-              When a designer selects a frame or component, the plugin scans it, identifies properties
+              When a designer selects a frame or component, the plugin scans & loads the existing variables, identifies properties
               that need tokenization, and suggests the closest matching variables automatically.
             </p>
 
             <p className="body-xlarge">
-              Instead of starting from scratch, designers only had to review and adjust the suggestions.
+              In case if the suggestion is not correct, the designer can also manually select the correct variable from the variables list.
             </p>
-          </section>
 
-          <section className="flex w-full flex-col gap-6">
+            <p className="body-xlarge">
+              Instead of starting from scratch, designers only had to review, adjust the suggestions and apply changes with a single click.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Final sanity check</h2>
 
             <p className="body-xlarge">
@@ -161,41 +173,37 @@ export default function Plugin1CaseStudyPage() {
 
             <p className="body-xlarge">We wanted to know:</p>
 
-            <p className="body-xlarge">Are we still using variables from external libraries?</p>
-            <p className="body-xlarge">Are old components still present?</p>
-            <p className="body-xlarge">Where are hardcoded values still hiding?</p>
+            <p className="body-xlarge">Are we still using variables or components from external libraries?</p>
+
+            <p className="body-xlarge">Are there any more hard coded values that need to be tokenized?</p>
 
             <p className="body-xlarge">
               So I added an audit mode that scans the file and reports these issues, along with the
               exact node locations so they could be fixed quickly.
             </p>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Impact</h2>
 
             <p className="body-xlarge">
-              What used to be slow, manual detective work became a repeatable workflow.
+              What started as slow, manual detective work became a repeatable workflow.
             </p>
 
             <p className="body-xlarge">
-              Instead of cleaning the design system blindly, designers could now:
+              Instead of cleaning the design system blindly with a moving target, designers could now see the impact before making changes, understand what needed attention first, and fix issues with more confidence.
             </p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>understand impact before changes</li>
-              <li>clean variables safely</li>
-              <li>tokenize faster</li>
-              <li>catch leftover issues early</li>
-              <li>move weeks faster than before</li>
-            </ul>
 
             <p className="body-xlarge">
-              This plugin became the foundation for how we sanitized the design system at scale.
+              Earlier, it was difficult to explain why certain cleanup tasks mattered or why they needed priority to the stakeholders. Now we had clear usage data and impact signals to back every decision.
             </p>
-          </section>
 
-          <section className="flex w-full flex-col gap-4">
+            <p className="body-xlarge">
+              Most importantly, this plugin became the foundation for how we sanitized the design system at scale, turning a messy one-time cleanup effort into a systemized workflow.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
             <p className="title-medium text-neutral-700">Next case study</p>
             <Link
               href="/projects/plugin-2"
@@ -207,7 +215,7 @@ export default function Plugin1CaseStudyPage() {
                 </p>
               </div>
             </Link>
-          </section>
+          </div>
         </div>
       </Container>
     </main>

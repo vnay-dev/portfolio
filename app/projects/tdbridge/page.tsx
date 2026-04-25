@@ -68,7 +68,7 @@ export default function TDBridge() {
               <span className="select-none text-zinc-400" aria-hidden="true">
                 ·
               </span>
-              <span>2 designers & 1 developer</span>
+              <span>2 designers & 1 design engineer</span>
             </p>
           </div>
 
