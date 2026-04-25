@@ -9,17 +9,32 @@ export default function Plugin2CaseStudyPage() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex w-full flex-col gap-8 py-16 text-neutral-900 sm:py-24 md:py-32">
-          <h1 className="text-center text-4xl font-semibold sm:text-5xl">Plugin 2</h1>
-          <p className="body-xlarge w-full text-neutral-700">
-            While fixing our design system in Figma, the team kept running into slow manual repetitive
-            workflows. So I built four Figma plugins to solve them. This page is about the second
-            plugin I built, which kept our token system in sync between Figma and the codebase.
-          </p>
+        <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-center text-4xl font-semibold sm:text-5xl">Syncing the Figma variables with codebase in seconds</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2025-10">Feb 2026</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 week</span>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>2 designers & 1 design engineer</span>
+            </p>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <p className="body-xlarge">
-              As we rebuilt the token architecture inside Figma, we defined proper collections,
+              While I was building the component library, it was important to ensure that the Figma changes related to variables and styles were synced with the codebase. Nebula Figma Sync plugin was built to solve this problem.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">As the system grew, manual sync couldn&apos;t keep up</h2>
+            <p className="body-xlarge">
+              As we rebuilt the token architecture in Figma, we defined proper collections,
               groups, naming conventions, and relationships.
             </p>
 
@@ -41,28 +56,19 @@ export default function Plugin2CaseStudyPage() {
             </p>
 
             <p className="body-xlarge">So I built a sync engine.</p>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">The first version was simple</h2>
 
             <p className="body-xlarge">
-              I started by testing whether the plugin could read the variable collections directly from
-              the Figma file and export them as JSON.
+              Since Figma already had a feature to export the variable collections as JSON, I started testing whether the plugin could read the variable collections directly and show them in the UI in a customizable format for copying to codebase.
             </p>
 
-            <p className="body-xlarge">It worked.</p>
+            <p className="body-xlarge">It worked. This proved that we can go beyond copy-paste and automate the sync process.</p>
+          </div>
 
-            <p className="body-xlarge">That proved the core idea:</p>
-
-            <p className="body-xlarge">
-              If Figma could expose the token system, we could automate the rest.
-            </p>
-
-            <p className="body-xlarge">So I moved beyond copy-paste.</p>
-          </section>
-
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">One click from Figma to code</h2>
 
             <p className="body-xlarge">
@@ -83,9 +89,9 @@ export default function Plugin2CaseStudyPage() {
               Designers no longer had to document every token change or explain each rename in
               detail. A high-level update was enough.
             </p>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Why not use the Figma API?</h2>
 
             <p className="body-xlarge">That was the original plan.</p>
@@ -108,9 +114,9 @@ export default function Plugin2CaseStudyPage() {
               Because it runs inside the file itself, it had direct access to the latest data and was
               much faster to work with.
             </p>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Raw data was not enough</h2>
 
             <p className="body-xlarge">
@@ -143,9 +149,9 @@ export default function Plugin2CaseStudyPage() {
               <li>typography objects with nested values</li>
               <li>deeply structured token groups</li>
             </ul>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Then icons became part of the problem</h2>
 
             <p className="body-xlarge">
@@ -184,9 +190,9 @@ export default function Plugin2CaseStudyPage() {
             <p className="body-xlarge">
               So the processor strips fixed colors while preserving the original geometry.
             </p>
-          </section>
+          </div>
 
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Security mattered too</h2>
 
             <p className="body-xlarge">
@@ -199,13 +205,9 @@ export default function Plugin2CaseStudyPage() {
               <li>file path validation</li>
               <li>requests restricted to localhost and Figma origins</li>
             </ul>
+          </div>
 
-            <p className="body-xlarge">
-              The goal was automation without opening unnecessary risk.
-            </p>
-          </section>
-
-          <section className="flex w-full flex-col gap-6">
+          <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Impact</h2>
 
             <p className="body-xlarge">
@@ -214,7 +216,7 @@ export default function Plugin2CaseStudyPage() {
 
             <p className="body-xlarge">
               Instead of manually tracking token edits, style changes, and icon exports, designers
-              could make updates in Figma and sync them in one step.
+              could make updates in Figma and I can sync them in one step.
             </p>
 
             <p className="body-xlarge">
@@ -222,13 +224,9 @@ export default function Plugin2CaseStudyPage() {
               because the token system was already flowing into code while the design work was still
               evolving.
             </p>
+          </div>
 
-            <p className="body-xlarge">
-              What could have become a slow maintenance problem turned into a repeatable system.
-            </p>
-          </section>
-
-          <section className="flex w-full flex-col gap-4">
+          <div className="flex flex-col gap-4">
             <p className="title-medium text-neutral-700">Next case study</p>
             <Link
               href="/projects/plugin-3"
@@ -240,7 +238,7 @@ export default function Plugin2CaseStudyPage() {
                 </p>
               </div>
             </Link>
-          </section>
+          </div>
         </div>
       </Container>
     </main>
