@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { isFeatureEnabled } from "@/app/constants";
 import { getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
 
@@ -62,6 +63,29 @@ function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
 }
 
 export function Projects() {
+  const showSecondCaseStudyThumbnail = isFeatureEnabled("homeShowSecondCaseStudyThumbnail");
+
+  const projectCards = [
+    {
+      href: "/projects/tdbridge",
+      imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
+      imageAlt: "Tech Design Research Project",
+      hidden: false,
+    },
+    {
+      href: "/projects/plugin-1",
+      imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
+      imageAlt: "Figma Plugins Project",
+      hidden: !showSecondCaseStudyThumbnail,
+    },
+    {
+      href: "/projects/whatsapp-audio-summary",
+      imageSrc: getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg"),
+      imageAlt: "WhatsApp Project",
+      hidden: false,
+    },
+  ];
+
   return (
     <section id="work" className="w-full bg-white">
       <Container>
@@ -71,24 +95,17 @@ export function Projects() {
           </h2>
 
           <div className="flex flex-col gap-16">
-            <ProjectCard
-              index={0}
-              href="/projects/tdbridge"
-              imageSrc={getTDBridgeAssetUrl("tech_design_research_thumbnail.png")}
-              imageAlt="Tech Design Research Project"
-            />
-            <ProjectCard
-              index={1}
-              href="/projects/plugin-1"
-              imageSrc={getTDBridgeAssetUrl("tech_design_research_thumbnail.png")}
-              imageAlt="Figma Plugins Project"
-            />
-            <ProjectCard
-              index={2}
-              href="/projects/whatsapp-audio-summary"
-              imageSrc={getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg")}
-              imageAlt="WhatsApp Project"
-            />
+            {projectCards
+              .filter((card) => !card.hidden)
+              .map((card, index) => (
+                <ProjectCard
+                  key={card.href}
+                  index={index}
+                  href={card.href}
+                  imageSrc={card.imageSrc}
+                  imageAlt={card.imageAlt}
+                />
+              ))}
           </div>
         </div>
       </Container>

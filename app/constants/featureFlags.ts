@@ -34,6 +34,11 @@ export const FEATURE_FLAGS = {
     defaultValue: true,
     description: "Hide the statement section on the home page.",
   },
+  homeShowSecondCaseStudyThumbnail: {
+    envVar: "NEXT_PUBLIC_FF_HOME_SHOW_SECOND_CASE_STUDY_THUMBNAIL",
+    defaultValue: false,
+    description: "Show the second case study thumbnail on the home page.",
+  },
   tdbridgeImplementationFramework: {
     envVar: "NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK",
     defaultValue: true,
@@ -64,6 +69,7 @@ const FEATURE_FLAG_ENV_VALUES: Record<FeatureFlagKey, string | undefined> = {
   homeHideFormAndAesthetics: process.env.NEXT_PUBLIC_FF_HOME_HIDE_FORM_AND_AESTHETICS,
   homeArtGallery: process.env.NEXT_PUBLIC_FF_HOME_ART_GALLERY,
   homeHideStatement: process.env.NEXT_PUBLIC_FF_HOME_HIDE_STATEMENT,
+  homeShowSecondCaseStudyThumbnail: process.env.NEXT_PUBLIC_FF_HOME_SHOW_SECOND_CASE_STUDY_THUMBNAIL,
   tdbridgeImplementationFramework: process.env.NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK,
   tdbridgeOutcomePlaceholder: process.env.NEXT_PUBLIC_FF_TDBRIDGE_OUTCOME_PLACEHOLDER,
   tdbridgeWhatsNext: process.env.NEXT_PUBLIC_FF_TDBRIDGE_WHATS_NEXT,

@@ -18,6 +18,7 @@ This file is the single source of truth for feature flags implemented in this pr
 | `homeHideReflections` | `NEXT_PUBLIC_FF_HOME_HIDE_REFLECTIONS` | `false` | Active | `app/page.tsx` |
 | `homeHideFormAndAesthetics` | `NEXT_PUBLIC_FF_HOME_HIDE_FORM_AND_AESTHETICS` | `false` | Active | `app/page.tsx` |
 | `homeArtGallery` | `NEXT_PUBLIC_FF_HOME_ART_GALLERY` | `true` | Active | `app/page.tsx` |
+| `homeShowSecondCaseStudyThumbnail` | `NEXT_PUBLIC_FF_HOME_SHOW_SECOND_CASE_STUDY_THUMBNAIL` | `false` | Active | `components/home/Projects.tsx` |
 | `tdbridgeImplementationFramework` | `NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK` | `true` | Active | `app/projects/tdbridge/page.tsx` |
 | `tdbridgeOutcomePlaceholder` | `NEXT_PUBLIC_FF_TDBRIDGE_OUTCOME_PLACEHOLDER` | `true` | Active | `app/projects/tdbridge/page.tsx` |
 | `tdbridgeWhatsNext` | `NEXT_PUBLIC_FF_TDBRIDGE_WHATS_NEXT` | `true` | Active | `app/projects/tdbridge/page.tsx` |
