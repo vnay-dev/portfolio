@@ -1,6 +1,7 @@
 const whatsappBlobBaseUrl = process.env.NEXT_PUBLIC_WHATSAPP_BLOB_BASE_URL?.trim();
 const personalBlobBaseUrl = process.env.NEXT_PUBLIC_PERSONAL_BLOB_BASE_URL?.trim();
 const tdbridgeBlobBaseUrl = process.env.NEXT_PUBLIC_TDBRIDGE_BLOB_BASE_URL?.trim();
+const pluginsBlobBaseUrl = process.env.NEXT_PUBLIC_PLUGINS_BLOB_BASE_URL?.trim();
 
 const normalizedWhatsappBlobBaseUrl = whatsappBlobBaseUrl
   ? whatsappBlobBaseUrl.replace(/\/+$/, "")
@@ -10,6 +11,9 @@ const normalizedPersonalBlobBaseUrl = personalBlobBaseUrl
   : "";
 const normalizedTDBridgeBlobBaseUrl = tdbridgeBlobBaseUrl
   ? tdbridgeBlobBaseUrl.replace(/\/+$/, "")
+  : "";
+const normalizedPluginsBlobBaseUrl = pluginsBlobBaseUrl
+  ? pluginsBlobBaseUrl.replace(/\/+$/, "")
   : "";
 
 export const getWhatsAppAssetUrl = (assetName: string) => {
@@ -40,4 +44,15 @@ export const getTDBridgeAssetUrl = (assetName: string) => {
   }
 
   return `${normalizedTDBridgeBlobBaseUrl}/images/tdbridge/${normalizedAssetName}`;
+};
+
+/** Path under `images/plugins/` (e.g. `compounter/Compounter-tab1.png`). */
+export const getPluginsAssetUrl = (pathUnderPlugins: string) => {
+  const normalizedPath = pathUnderPlugins.replace(/^\/+/, "");
+
+  if (!normalizedPluginsBlobBaseUrl) {
+    return `/images/plugins/${normalizedPath}`;
+  }
+
+  return `${normalizedPluginsBlobBaseUrl}/images/plugins/${normalizedPath}`;
 };

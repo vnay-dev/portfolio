@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { Container, Navbar } from "@/components/shared/composite";
+import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
+import Image from "next/image";
 
 export default function Plugin2CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
@@ -56,6 +58,36 @@ export default function Plugin2CaseStudyPage() {
             </p>
 
             <p className="body-xlarge">So I built a sync engine.</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set3.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-6">

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { Container, Navbar } from "@/components/shared/composite";
+import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
+import Image from "next/image";
 
 export default function Plugin3CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
@@ -84,6 +86,17 @@ export default function Plugin3CaseStudyPage() {
               change report.
             </p>
 
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-set1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
             <p className="body-xlarge">
               Since Figma does not offer a simple branch selector like Git, I had to work around it.
             </p>
@@ -98,9 +111,42 @@ export default function Plugin3CaseStudyPage() {
               <li>Compare both states and generate the delta</li>
             </ol>
 
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-set2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
             <p className="body-xlarge">
               The output could be copied to clipboard or downloaded as a markdown file.
             </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-set3.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-set4.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
           </section>
 
           <section className="flex w-full flex-col gap-6">

@@ -1,5 +1,7 @@
 import { getNavbarFeatureFlags } from "@/app/constants";
+import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
+import Image from "next/image";
 
 export default function Plugin4CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
@@ -68,10 +70,31 @@ export default function Plugin4CaseStudyPage() {
             <p className="body-xlarge">
               Daisy starts by loading the latest data from the main design system file.
             </p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-set1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">
               Once synced, a designer can open any project file and run the plugin against:
             </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-set2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
               <li>a component</li>
@@ -82,6 +105,17 @@ export default function Plugin4CaseStudyPage() {
             <p className="body-xlarge">
               The plugin then generates a compliance score and shows categorized issues that need fixing.
             </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-set3.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">For every issue, Daisy explains:</p>
 
