@@ -1,8 +1,71 @@
-import Link from "next/link";
+import type { IconType } from "react-icons";
+import {
+  MdOutlineCached,
+  MdOutlineDataObject,
+  MdOutlinePalette,
+  MdOutlineVpnKey,
+  MdTitle,
+} from "react-icons/md";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { Container, Navbar } from "@/components/shared/composite";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
 import Image from "next/image";
+
+const figmaApiLimitationCards = [
+  {
+    id: "scoped-variables",
+    icon: MdOutlineDataObject,
+    line1: "The API returned published variables",
+    line2: "but not local or scoped ones",
+  },
+  {
+    id: "stale-cache",
+    icon: MdOutlineCached,
+    line1: "Token updates could arrive stale",
+    line2: "because of API caching",
+  },
+  {
+    id: "pat-setup",
+    icon: MdOutlineVpnKey,
+    line1: "Required PAT tokens and file IDs",
+    line2: "plus extra setup overhead",
+  },
+] as const;
+
+const FigmaVariablesIcon: IconType = ({ className }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" aria-hidden>
+    <path
+      fill="currentColor"
+      d="M11.117 5.586A2 2 0 0 1 13 5.649l4 2.31.113.07A2 2 0 0 1 18 9.69v4.62a2 2 0 0 1-.887 1.66l-.113.072-4 2.309a2 2 0 0 1-1.883.063L11 18.351l-4-2.309a2 2 0 0 1-1-1.732V9.69a2 2 0 0 1 1-1.73l4-2.31zm1.383.93a1 1 0 0 0-1 0l-4 2.308-.11.074A1 1 0 0 0 7 9.69v4.62l.009.132c.04.305.22.578.491.734l4 2.31c.27.155.597.175.88.058l.12-.059 4-2.31a1 1 0 0 0 .491-.733L17 14.31V9.69a1 1 0 0 0-.39-.792l-.11-.074zM12 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4m0 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+    />
+  </svg>
+);
+
+type ComplexCaseCard = {
+  id: string;
+  icon: IconType;
+  label: string;
+  iconClassName?: string;
+};
+
+const complexCaseCards: ComplexCaseCard[] = [
+  {
+    id: "gradients",
+    icon: MdOutlinePalette,
+    label: "Gradients with multiple color stops",
+  },
+  {
+    id: "typography",
+    icon: MdTitle,
+    label: "Typography style objects with nested values",
+  },
+  {
+    id: "token-groups",
+    icon: FigmaVariablesIcon,
+    iconClassName: "h-7 w-7",
+    label: "Deeply structured token groups",
+  },
+];
 
 export default function Plugin2CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
@@ -13,7 +76,7 @@ export default function Plugin2CaseStudyPage() {
       <Container>
         <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
           <div className="flex flex-col gap-6">
-            <h1 className="text-center text-4xl font-semibold sm:text-5xl">Syncing the Figma variables with codebase in seconds</h1>
+            <h1 className="text-center text-4xl font-semibold sm:text-5xl">Keeping the design token system in sync with the codebase</h1>
             <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
               <time dateTime="2025-10">Feb 2026</time>
               <span className="select-none text-zinc-400" aria-hidden="true">
@@ -23,41 +86,30 @@ export default function Plugin2CaseStudyPage() {
               <span className="select-none text-zinc-400" aria-hidden="true">
                 ·
               </span>
-              <span>2 designers & 1 design engineer</span>
+              <span>1 design engineer</span>
             </p>
           </div>
 
           <div className="flex flex-col gap-6">
             <p className="body-xlarge">
-              While I was building the component library, it was important to ensure that the Figma changes related to variables and styles were synced with the codebase. Nebula Figma Sync plugin was built to solve this problem.
+              While I was building the component library, it was important to ensure that the changes related to variables and styles in Figma were synced with the codebase. Nebula Figma Sync plugin was built to solve this problem.
             </p>
           </div>
 
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">As the system grew, manual sync couldn&apos;t keep up</h2>
             <p className="body-xlarge">
-              As we rebuilt the token architecture in Figma, we defined proper collections,
-              groups, naming conventions, and relationships.
-            </p>
-
-            <p className="body-xlarge">That worked well, until the system started growing.</p>
-
-            <p className="body-xlarge">
-              Every new component introduced more tokens. Existing tokens got renamed, regrouped, or
-              restructured. Styles evolved too.
+              As we rebuilt the token architecture in Figma with proper collections, groups, naming conventions, and relationships, the system started scaling quickly. New components introduced more tokens, existing structures evolved constantly, and manually syncing those changes with the codebase became unsustainable.
             </p>
 
             <p className="body-xlarge">
-              Keeping all of those changes manually synced with the codebase quickly became
-              unsustainable.
+              The more the design system improved, the harder it became to keep design and code aligned.
             </p>
 
             <p className="body-xlarge">
-              The more the design system improved, the harder it became to keep design and code
-              aligned.
+              So I built a sync engine.
             </p>
 
-            <p className="body-xlarge">So I built a sync engine.</p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set1.png")}
@@ -78,6 +130,86 @@ export default function Plugin2CaseStudyPage() {
                 className="h-auto w-full rounded-lg object-contain"
               />
             </div>
+            <p className="body-xlarge">
+              Because Figma already supported exporting variable collections as JSON, I was able to build this plugin that reads them directly and displays them in a customizable format for copying into the codebase.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Why not use the Figma API?</h2>
+
+            <p className="body-xlarge">That was the original plan. But the API had a few problems:</p>
+
+            <div className="my-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {figmaApiLimitationCards.map(({ id, icon: Icon, line1, line2 }) => (
+                <div
+                  key={id}
+                  className="flex h-full min-w-0 items-start gap-3 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <div className="flex min-w-0 flex-1 flex-col justify-center gap-1">
+                    <p className="body-large min-w-0 leading-snug text-gray-800">{line1}</p>
+                    <p className="body-large min-w-0 leading-snug text-gray-800">{line2}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="body-xlarge">The plugin environment solved all of that. Because it runs inside the file itself, it had direct access to the latest data and was
+              much faster to work with.</p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Raw data was not enough</h2>
+
+            <p className="body-xlarge">
+              Even after sync was working, the exported values still needed cleanup. For example, colors often came through as hardcoded hex values like #DA0E29, while our
+              actual system relied on token references such as{"\u00A0"}
+              <span className="box-decoration-clone rounded-sm bg-neutral-100 px-1 py-0.5 font-mono text-[0.95em] leading-snug tracking-normal text-neutral-800">
+                primitives.color.ai-red-500
+              </span>.
+            </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
+            <p className="body-xlarge">So I built a post-sync transformation system that converted raw values into token references, restructured the output using the W3C Design Tokens Community Group standard, and made the files compatible with tools like Style Dictionary.</p>
+
+            <p className="body-xlarge">It also handled more edge cases like:</p>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {complexCaseCards.map(({ id, icon: Icon, label, iconClassName }) => (
+                <div
+                  key={id}
+                  className="flex h-full min-w-0 items-start gap-3 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
+                    <Icon className={iconClassName ?? "h-5 w-5"} aria-hidden />
+                  </div>
+                  <p className="body-large min-w-0 flex-1 leading-snug text-gray-800">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="headline-small md:!text-[1.75rem]">Manual workflow for exporting icons</h2>
+
+            <p className="body-xlarge">
+              Every time a designer added or updated an icon, I had to export SVGs manually,
+              rename files, optimize them, and update the codebase which was an time consuming and error prone process.
+            </p>
+
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set3.png")}
@@ -88,155 +220,31 @@ export default function Plugin2CaseStudyPage() {
                 className="h-auto w-full rounded-lg object-contain"
               />
             </div>
+
+            <p className="body-xlarge">
+              So I added another feature where when icons are updated in Figma, the plugin extracts the SVG data and shows the data as JSON for copying into the codebase. This raw JSON data once pasted into the codebase was then processed in several ways:
+            </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">The first version was simple</h2>
+            <h2 className="headline-small md:!text-[1.75rem]">First version and its limitations</h2>
 
             <p className="body-xlarge">
-              Since Figma already had a feature to export the variable collections as JSON, I started testing whether the plugin could read the variable collections directly and show them in the UI in a customizable format for copying to codebase.
+              The first version of the plugin acted as a true sync engine. Instead of manually copying JSON data, a local HTTP server running inside the component library project allowed the plugin to push the latest token and style data directly into the repo and write the files automatically in one click.
             </p>
 
-            <p className="body-xlarge">It worked. This proved that we can go beyond copy-paste and automate the sync process.</p>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">One click from Figma to code</h2>
-
-            <p className="body-xlarge">
-              The next version connected Figma directly to the codebase.
-            </p>
-
-            <p className="body-xlarge">
-              I built a local HTTP server that runs inside the component library project. When the
-              plugin fetches the latest token and style data, it sends that data directly into the
-              repo and writes the files automatically.
-            </p>
-
-            <p className="body-xlarge">
-              What used to be a manual handoff became a one-click sync.
-            </p>
-
-            <p className="body-xlarge">
-              Designers no longer had to document every token change or explain each rename in
-              detail. A high-level update was enough.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Why not use the Figma API?</h2>
-
-            <p className="body-xlarge">That was the original plan.</p>
-
-            <p className="body-xlarge">But the API had a few problems:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>
-                It reliably exposed published variables, but local and scoped values were
-                inconsistent
-              </li>
-              <li>Some token updates arrived stale due to caching</li>
-              <li>It required PAT tokens, file IDs, and extra setup</li>
-              <li>It added more friction than the workflow needed</li>
-            </ul>
-
-            <p className="body-xlarge">The plugin environment solved all of that.</p>
-
-            <p className="body-xlarge">
-              Because it runs inside the file itself, it had direct access to the latest data and was
-              much faster to work with.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Raw data was not enough</h2>
-
-            <p className="body-xlarge">
-              Even after sync was working, the exported values still needed cleanup.
-            </p>
-
-            <p className="body-xlarge">
-              For example, colors often came through as hardcoded hex values like #DA0E29, while our
-              actual system relied on token references such as:
-            </p>
-
-            <p className="body-xlarge font-mono text-neutral-800">primitives.color.ai-red-500</p>
-
-            <p className="body-xlarge">So I built a transformation pipeline after sync.</p>
-
-            <p className="body-xlarge">
-              It automatically converted raw values into token references, restructured the output,
-              and formatted everything using the W3C Design Tokens Community Group standard.
-            </p>
-
-            <p className="body-xlarge">
-              That meant the files could work cleanly with tools like Style Dictionary and other token
-              tooling later.
-            </p>
-
-            <p className="body-xlarge">It also handled more complex cases like:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>gradients with multiple color stops</li>
-              <li>typography objects with nested values</li>
-              <li>deeply structured token groups</li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Then icons became part of the problem</h2>
-
-            <p className="body-xlarge">
-              As the library grew, icons became another manual bottleneck.
-            </p>
-
-            <p className="body-xlarge">
-              Every time a designer added or updated an icon, someone had to export SVGs manually,
-              rename files, optimize them, and update the codebase.
-            </p>
-
-            <p className="body-xlarge">So I extended the same plugin.</p>
-
-            <p className="body-xlarge">
-              Now, when icons are updated in Figma, the plugin extracts the SVG data and sends it
-              through a processing pipeline that:
-            </p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>optimizes SVGs for web use</li>
-              <li>preserves existing icons instead of replacing the whole library</li>
-              <li>recovers orphaned files safely</li>
-              <li>sanitizes filenames across operating systems</li>
-              <li>generates searchable keywords</li>
-              <li>creates TypeScript types for autocomplete</li>
-              <li>can generate icon fonts when needed</li>
-            </ul>
-
-            <p className="body-xlarge">There was one more challenge.</p>
-
-            <p className="body-xlarge">
-              Figma exports icons with hardcoded fills and strokes, but production icons needed to
-              inherit color using currentColor.
-            </p>
-
-            <p className="body-xlarge">
-              So the processor strips fixed colors while preserving the original geometry.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Security mattered too</h2>
-
-            <p className="body-xlarge">
-              Because the plugin writes into a local codebase, I added safeguards:
-            </p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>rate limiting</li>
-              <li>payload size limits</li>
-              <li>file path validation</li>
-              <li>requests restricted to localhost and Figma origins</li>
-            </ul>
+            <p className="body-xlarge">While the approach worked technically, the file write operations kept triggering recurring vulnerability warnings during GitHub code scanning and eventually became a blocker. After discussing it with the team, we realized a simpler copy-paste JSON workflow was easier to maintain, more transparent, and safer than a fully automated sync.</p>
           </div>
 
           <div className="flex flex-col gap-6">
@@ -258,7 +266,7 @@ export default function Plugin2CaseStudyPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <p className="title-medium text-neutral-700">Next case study</p>
             <Link
               href="/projects/plugin-3"
@@ -270,7 +278,7 @@ export default function Plugin2CaseStudyPage() {
                 </p>
               </div>
             </Link>
-          </div>
+          </div> */}
         </div>
       </Container>
     </main>
