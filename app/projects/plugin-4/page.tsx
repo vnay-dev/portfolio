@@ -10,65 +10,71 @@ export default function Plugin4CaseStudyPage() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex w-full flex-col gap-8 py-16 text-neutral-900 sm:py-24 md:py-32">
-          <h1 className="text-center text-4xl font-semibold sm:text-5xl">Plugin 4</h1>
-          <p className="body-xlarge w-full text-neutral-700">
-            While fixing our design system, I kept running into slow manual workflows inside Figma. So I
-            built four internal plugins to solve them. This page is about the fourth one, a plugin that
-            turned design system compliance into something measurable.
-          </p>
+        <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-center text-4xl font-semibold sm:text-5xl">Bringing accountability into design system workflows</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2025-10">March 2026</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 week</span>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 design engineer</span>
+            </p>
+          </div>
 
           <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Plugin 4: Daisy</h2>
 
             <p className="body-xlarge">
-              By this stage, we had fixed most of the maintenance issues inside the design system file.
+              By this stage, we had fixed most of the maintenance issues inside the design system file. The focus had now shifted to designing new components, scaling the system, auditing project files, and helping teams adopt the new standards.
             </p>
 
-            <p className="body-xlarge">The focus had shifted to:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>designing new components</li>
-              <li>scaling the system</li>
-              <li>auditing project files</li>
-              <li>helping teams adopt the new standards</li>
-            </ul>
-
-            <p className="body-xlarge">That created a new problem.</p>
-
             <p className="body-xlarge">
-              Even if the design system was clean, project-level designs could still drift away from it.
+              But fixing the design system alone was not enough. Project-level designs could still drift away from it.
             </p>
 
             <p className="body-xlarge">
               A page might look correct visually, but from a DLS perspective it could still contain:
             </p>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>components from external libraries</li>
-              <li>wrong or missing tokens</li>
-              <li>hardcoded values</li>
-              <li>incorrect styles</li>
-              <li>partially tokenized layouts</li>
-            </ul>
-
-            <p className="body-xlarge">We had no reliable way to measure compliance.</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-pc-1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">
-              And if adoption was the goal, compliance had to become part of the workflow, not an
-              afterthought.
+              We had no reliable way to measure compliance, which also meant there was no real governance around design system adoption. If teams were expected to follow the system consistently, compliance had to become part of the workflow, not an afterthought.
             </p>
 
-            <p className="body-xlarge">So I built Daisy.</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg border-[1.2px] border-[#E4FFB4]">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-pc-5.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
           </section>
 
           <section className="flex w-full flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">
-              A design system scorecard for Figma
+              Turning design system compliance into a measurable workflow
             </h2>
 
             <p className="body-xlarge">
-              Daisy starts by loading the latest data from the main design system file.
+              The plugin starts by loading the latest data saved from the main design system file.
             </p>
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
@@ -81,10 +87,6 @@ export default function Plugin4CaseStudyPage() {
               />
             </div>
 
-            <p className="body-xlarge">
-              Once synced, a designer can open any project file and run the plugin against:
-            </p>
-
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-set2.png")}
@@ -96,11 +98,9 @@ export default function Plugin4CaseStudyPage() {
               />
             </div>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>a component</li>
-              <li>a frame</li>
-              <li>or an entire page</li>
-            </ul>
+            <p className="body-xlarge">
+              Once synced, a designer can open any project file and run the plugin against a frame or a component.
+            </p>
 
             <p className="body-xlarge">
               The plugin then generates a compliance score and shows categorized issues that need fixing.
@@ -117,41 +117,7 @@ export default function Plugin4CaseStudyPage() {
               />
             </div>
 
-            <p className="body-xlarge">For every issue, Daisy explains:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>what is wrong</li>
-              <li>how to fix it</li>
-              <li>where the exact node exists on canvas</li>
-            </ul>
-
-            <p className="body-xlarge">
-              Selecting an issue automatically focuses the node inside the file.
-            </p>
-
-            <p className="body-xlarge">
-              That meant designers no longer had to guess what was compliant. They just had to move the
-              score toward 100%.
-            </p>
-          </section>
-
-          <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">Why this mattered</h2>
-
-            <p className="body-xlarge">
-              The new design system introduced better practices, but people still needed time to adapt.
-            </p>
-
-            <p className="body-xlarge">Daisy helped turn learning into feedback.</p>
-
-            <p className="body-xlarge">
-              Instead of reviewing files manually or correcting the same mistakes repeatedly, designers
-              could self-audit their work and improve as they designed.
-            </p>
-
-            <p className="body-xlarge">
-              What used to be tribal knowledge became a visible checklist.
-            </p>
+            <p className="body-xlarge">For every issue, Daisy explains what is wrong, how to fix it, and points designers to the exact node on the canvas.</p>
           </section>
 
           <section className="flex w-full flex-col gap-6">
@@ -160,59 +126,64 @@ export default function Plugin4CaseStudyPage() {
             </h2>
 
             <p className="body-xlarge">
-              A few days after building Daisy, Figma released an internal beta called Check Design.
+              A few days after building Daisy, Figma released a similar feature as an internal beta called <strong>Check Design</strong>.
             </p>
 
-            <p className="body-xlarge">It overlapped with some of the same ideas:</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-pc-2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>detecting components from outside added libraries</li>
-              <li>spotting hardcoded values</li>
-              <li>suggesting token matches</li>
-            </ul>
-
-            <p className="body-xlarge">So I compared both.</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-pc-3.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">
-              Check Design was useful, but it lacked some of the deeper checks we needed, such as
-              property-level validations like effect styles and more specific rules tied to our own design
+              Check Design was useful, but it lacked some of the deeper checks and design system context we needed, such as
+              property-level validations (like effects, styles) and more specific rules tied to our own design
               system.
             </p>
-
-            <p className="body-xlarge">That meant Daisy still had value.</p>
 
             <p className="body-xlarge">
               While Check Design handled generic checks, Daisy could evolve around our internal standards
               and workflows.
             </p>
 
-            <p className="body-xlarge">So the team continued using both.</p>
           </section>
 
           <section className="flex w-full flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">Impact</h2>
 
             <p className="body-xlarge">
-              Daisy helped make compliance measurable and repeatable.
+              Instead of discovering design system issues late during development, teams could now catch them much earlier as part of the design workflow itself.
             </p>
 
-            <p className="body-xlarge">
-              Instead of asking whether a design &quot;looked fine,&quot; teams could now verify whether it
-              truly followed the system.
-            </p>
-
-            <p className="body-xlarge">It helped us:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>improve adoption of the new DLS</li>
-              <li>train designers through feedback</li>
-              <li>reduce manual review time</li>
-              <li>catch issues early</li>
-              <li>create a culture of compliance by default</li>
-            </ul>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("daisy/Daisy-pc-4.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">
-              It became the bridge between a good design system and teams actually using it correctly.
+              By the time designs reached handoff, they were already done in a way that was suited for agentic design-to-code workflows, which meant fewer ambiguities, smoother implementation, and much faster UI delivery.
             </p>
           </section>
         </div>
