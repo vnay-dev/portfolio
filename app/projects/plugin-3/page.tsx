@@ -11,29 +11,30 @@ export default function Plugin3CaseStudyPage() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex w-full flex-col gap-8 py-16 text-neutral-900 sm:py-24 md:py-32">
-          <h1 className="text-center text-4xl font-semibold sm:text-5xl">Plugin 3</h1>
-          <p className="body-xlarge w-full text-neutral-700">
-            While fixing our design system, I kept running into slow manual workflows inside Figma. So I
-            built four internal plugins to solve them. This page is about the third one, a plugin that
-            gave us the changelog Figma didn&apos;t.
-          </p>
+        <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
+
+          <div className="flex flex-col gap-6">
+            <h1 className="text-center text-4xl font-semibold sm:text-5xl">Making branch-level reviews more reliable in Figma</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2025-10">Feb 2026</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 week</span>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 design engineer & 1 designer</span>
+            </p>
+          </div>
 
           <section className="flex w-full flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">
-              Plugin 3: Figma showed changes, but not enough of them
-            </h2>
-
             <p className="body-xlarge">
-              Three of us were working in parallel to clean up and stabilize the design system.
+              Three of us were working in parallel branches to clean up and stabilize the Figma design system.
             </p>
 
-            <p className="body-xlarge">To move faster, we used branches.</p>
-
             <p className="body-xlarge">
-              But with only a few weeks to fix years of maintenance debt, each branch naturally
-              contained many changes at once. Tokens were renamed, components were cleaned up, styles
-              were updated, values were corrected.
+              With only a few weeks to fix years of maintenance debt, each branch ended up carrying many changes at once. Tokens were renamed, components cleaned up, styles updated, and values corrected.
             </p>
 
             <p className="body-xlarge">
@@ -41,18 +42,19 @@ export default function Plugin3CaseStudyPage() {
               changes at a high level.
             </p>
 
-            <p className="body-xlarge">It could tell us:</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-pc-1.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>which page changed</li>
-              <li>which frame changed</li>
-              <li>which component changed</li>
-              <li>whether styles or variables changed</li>
-            </ul>
-
-            <p className="body-xlarge">But it could not tell us what actually changed.</p>
-
-            <p className="body-xlarge">And that became the real problem.</p>
+            <p className="body-xlarge">It could tell us which pages, frames, components, styles, or variables had changed, but not which exact properties were modified, making reviews difficult.
+            </p>
           </section>
 
           <section className="flex w-full flex-col gap-6">
@@ -60,30 +62,41 @@ export default function Plugin3CaseStudyPage() {
 
             <p className="body-xlarge">During review, we kept asking questions like:</p>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>Did the fill change from a hex value to a token?</li>
-              <li>Which token was replaced with which new token?</li>
-              <li>Was spacing updated or just moved visually?</li>
-              <li>Did stroke values change?</li>
-              <li>Was the shadow edited or removed?</li>
-            </ul>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-pc-3.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
-            <p className="body-xlarge">
-              Without that visibility, we had to manually inspect screens and compare visuals to
-              understand what happened.
-            </p>
+            <p className="body-xlarge">Without that visibility, reviewing changes means manually inspecting screens and comparing visuals to understand what happened which became a slow, manual, and risky process.</p>
 
-            <p className="body-xlarge">It was slow, repetitive, and risky.</p>
-
-            <p className="body-xlarge">So I built a change logger plugin.</p>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-pc-2.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
           </section>
 
           <section className="flex w-full flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">A diff tool for Figma branches</h2>
 
             <p className="body-xlarge">
-              The plugin compares a child branch against the main branch and generates a detailed
+              The plugin I built compares a child branch against the main branch and generates a detailed
               change report.
+            </p>
+
+            <p className="body-xlarge">
+              Since Figma does not provide a simple branch selector like Git, I designed a workflow where the plugin first saves the main branch data locally, then compares it against the child branch to generate a detailed change report.
             </p>
 
             <div className="my-4 w-full overflow-hidden rounded-lg">
@@ -97,20 +110,6 @@ export default function Plugin3CaseStudyPage() {
               />
             </div>
 
-            <p className="body-xlarge">
-              Since Figma does not offer a simple branch selector like Git, I had to work around it.
-            </p>
-
-            <p className="body-xlarge">The flow worked like this:</p>
-
-            <ol className="body-xlarge list-decimal space-y-2 pl-6 text-neutral-900">
-              <li>Open the plugin in the main file</li>
-              <li>Read and store the file data locally inside the Figma desktop app</li>
-              <li>Open the branch file</li>
-              <li>Run the plugin again</li>
-              <li>Compare both states and generate the delta</li>
-            </ol>
-
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set2.png")}
@@ -122,24 +121,9 @@ export default function Plugin3CaseStudyPage() {
               />
             </div>
 
-            <p className="body-xlarge">
-              The output could be copied to clipboard or downloaded as a markdown file.
-            </p>
-
             <div className="my-4 w-full overflow-hidden rounded-lg">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set3.png")}
-                alt="Changelogger plugin: generate a changelog for a branch"
-                width={1920}
-                height={1080}
-                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
-              />
-            </div>
-
-            <div className="my-4 w-full overflow-hidden rounded-lg">
-              <Image
-                src={getPluginsAssetUrl("changelogger/Changelogger-set4.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
@@ -152,28 +136,21 @@ export default function Plugin3CaseStudyPage() {
           <section className="flex w-full flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">What the report included</h2>
 
+
             <p className="body-xlarge">
-              Instead of high-level summaries, the plugin generated granular changes like:
+              Instead of high-level summaries, the plugin generated granular property-level changes across pages, frames, components, styles, and tokens, such as token replacements, padding updates, typography swaps, shadow removals, and hex-to-token conversions.
             </p>
 
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>Fill changed from hex to token</li>
-              <li>Token A replaced with Token B</li>
-              <li>Padding changed from 16 to 12</li>
-              <li>Shadow removed</li>
-              <li>Stroke width updated</li>
-              <li>Typography style swapped</li>
-            </ul>
-
-            <p className="body-xlarge">And it did this across:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>pages</li>
-              <li>frames</li>
-              <li>components</li>
-              <li>styles</li>
-              <li>tokens</li>
-            </ul>
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getPluginsAssetUrl("changelogger/Changelogger-set4.png")}
+                alt="Changelogger plugin: generate a changelog for a branch"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
 
             <p className="body-xlarge">That made reviews much faster and much more reliable.</p>
           </section>
@@ -184,24 +161,7 @@ export default function Plugin3CaseStudyPage() {
             </h2>
 
             <p className="body-xlarge">
-              The change report quickly became useful beyond reviews.
-            </p>
-
-            <p className="body-xlarge">
-              We started using it as the foundation for design system release notes.
-            </p>
-
-            <p className="body-xlarge">It helped us clearly communicate:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>major breaking changes</li>
-              <li>minor improvements</li>
-              <li>token migrations</li>
-              <li>component updates</li>
-            </ul>
-
-            <p className="body-xlarge">
-              Instead of vague update messages, teams now had clear changelogs they could trust.
+              The change report quickly became useful beyond reviews and eventually turned into the foundation for our design system release notes, helping teams clearly understand breaking changes, token migrations, component updates, and everything in between.
             </p>
           </section>
 
@@ -209,26 +169,13 @@ export default function Plugin3CaseStudyPage() {
             <h2 className="headline-small md:!text-[1.75rem]">Impact</h2>
 
             <p className="body-xlarge">
-              What used to take manual visual inspection now became a structured review workflow.
+              What once required slow manual visual inspection became a much more structured review workflow.
             </p>
 
-            <p className="body-xlarge">The plugin helped us:</p>
-
-            <ul className="body-xlarge list-disc space-y-2 pl-6 text-neutral-900">
-              <li>review branch changes faster</li>
-              <li>merge with more confidence</li>
-              <li>reduce accidental regressions</li>
-              <li>document releases properly</li>
-              <li>communicate changes across teams clearly</li>
-            </ul>
-
-            <p className="body-xlarge">
-              It turned Figma branches from &quot;hope this is fine&quot; into something much closer to
-              an engineering workflow.
-            </p>
+            <p className="body-xlarge">The plugin helped us review changes faster, merge with confidence, catch risky changes earlier, and communicate design system updates more clearly across teams.</p>
           </section>
 
-          <section className="flex w-full flex-col gap-4">
+          {/* <section className="flex w-full flex-col gap-4">
             <p className="title-medium text-neutral-700">Next case study</p>
             <Link
               href="/projects/plugin-4"
@@ -240,7 +187,7 @@ export default function Plugin3CaseStudyPage() {
                 </p>
               </div>
             </Link>
-          </section>
+          </section> */}
         </div>
       </Container>
     </main>
