@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 export function Footer() {
   const socialLinks = [
     // { label: "Instagram", href: "https://instagram.com" },
@@ -11,12 +13,20 @@ export function Footer() {
   const version = "6.0.0";
 
   return (
-    <footer className="w-full border-t border-gray-200 bg-white">
-      <div className="container mx-auto px-4 py-6 md:px-24">
-        <div className="flex w-full min-w-0 flex-row items-center justify-between gap-4">
-          <ul className="flex min-w-0 flex-1 flex-wrap gap-x-4 gap-y-2 sm:gap-x-6">
-            {socialLinks.map((social) => (
-              <li key={social.href}>
+    <footer className="w-full overflow-hidden border-t border-gray-200 bg-white">
+      <div className="container mx-auto px-4 py-6 sm:px-6 md:px-12 lg:px-24">
+        <div className="flex w-full min-w-0 flex-col items-center gap-4 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-3 lg:flex-nowrap lg:justify-between lg:text-left">
+          <nav
+            aria-label="Social links"
+            className="flex min-w-0 flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6"
+          >
+            {socialLinks.map((social, index) => (
+              <Fragment key={social.href}>
+                {index > 0 && (
+                  <span className="select-none text-gray-400 lg:hidden" aria-hidden>
+                    ·
+                  </span>
+                )}
                 <a
                   href={social.href}
                   target="_blank"
@@ -25,16 +35,13 @@ export function Footer() {
                 >
                   {social.label}
                 </a>
-              </li>
+              </Fragment>
             ))}
-          </ul>
+          </nav>
 
-          <div className="flex shrink-0 items-center gap-2 text-gray-500 sm:gap-4">
-            <p className="body-medium">Built with Cursor</p>
-            <span className="text-gray-400" aria-hidden>
-              •
-            </span>
-            <p className="body-medium">Version {version}</p>
+          <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-3 gap-y-1 text-gray-500">
+            <p className="body-medium whitespace-nowrap">Built with Cursor</p>
+            <p className="body-medium whitespace-nowrap">Version {version}</p>
           </div>
         </div>
       </div>
