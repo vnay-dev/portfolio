@@ -256,15 +256,15 @@ export default function TDBridge() {
                 className="h-auto w-full rounded-lg"
               />
             </div>
-            <p className="body-xlarge">
+            {/* <p className="body-xlarge">
               In the discovery phase, I collected as much context as possible. I compared our design system with industry-standard systems from similar organizations, spoke with developers and designers to understand their day-to-day workflow, went through code repositories to see how components were actually being implemented, and audited the existing DLS Web 2.0 library in Figma.
-            </p>
-            <p className="body-xlarge">
+            </p> */}
+            {/* <p className="body-xlarge">
               Once I had enough data, the next step was to make sense of it. I grouped the findings into patterns, identified recurring issues, and converted them into clear problem statements.
             </p>
             <p className="body-xlarge">
               In the final step, I prioritized these problems based on their impact on delivery, consistency, and long-term maintainability. For each one, I explored possible solutions and started thinking about how the design system could be stabilized in a way that would work not just now, but for future workflows as well.
-            </p>
+            </p> */}
           </div>
           {/* Section 3 ends */}
 
@@ -347,12 +347,24 @@ export default function TDBridge() {
             <p className="body-xlarge">
               While the design foundations were being fixed, I started scaffolding the component library project in parallel using Stencil.js. As components were finalized in Figma, I built them one by one in the library.
             </p>
+
+            <div className="my-4 w-full overflow-hidden rounded-lg">
+              <Image
+                src={getTDBridgeAssetUrl("tdb_pc_1.png")}
+                alt="Building the component library for the web"
+                width={1920}
+                height={1080}
+                sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </div>
+
             <p className="body-xlarge">
               As components were developed, documentation was generated alongside the code using Astro Docs, so the library, docs, and design stayed in sync.
             </p>
-            <p className="body-xlarge">
+            {/* <p className="body-xlarge">
               Each component went through proper quality checks, including cross-browser testing, performance testing, accessibility validation based on WCAG guidelines, and design-UI verification. The results of these tests were documented inside the repository for future reference.
-            </p>
+            </p> */}
             <p className="body-xlarge">
               I also spent time refining interaction design, something that was often overlooked earlier. All interactions were reviewed with designers and tested to make sure the components behaved consistently across use cases.
             </p>
@@ -392,52 +404,109 @@ export default function TDBridge() {
                 <h2 className="headline-large text-2xl font-bold">Outcome &amp; Impact</h2>
 
                 <p className="body-xlarge">
-                  We introduced a proper governance model, so the design system was no longer a side
-                  project floating between teams. Ownership became clearer, and I continued
-                  maintaining it closely with support from the design team.
+                  Developers also no longer had to dig through Figma files to understand how the
+                  system worked. We created a documentation website that explained foundations,
+                  components, guidelines, and usage patterns in simple language anyone could follow.
                 </p>
-                <p className="body-xlarge">
-                  My role naturally evolved into a bridge between design and engineering. Instead of
-                  both sides working in parallel and meeting late, collaboration started happening
-                  much earlier and with fewer gaps.
-                </p>
+                <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_docs.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
                 <p className="body-xlarge">
                   We built a shared component library along with a CSS foundation bundle that carried our tokens, typography, and brand styles. This meant teams no longer had to recreate the same foundations inside every new project, while designers and product owners could also use the same bundle to prototype with production-aligned styles.
                 </p>
+                <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_tokens.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
                 <p className="body-xlarge">
                   As more consumer tech web projects adopted the shared bundle, duplicated styling
                   code & components could be removed from individual codebases, helping reduce unnecessary bundle
                   weight over time & improve overall performance.
                 </p>
+
                 <p className="body-xlarge">
-                  We also introduced a centralized icon system, which helped reduce DOM size and
+                  We also introduced a centralized font icon library, which helped reduce DOM size and
                   brought more consistency to how icons were used across products.
                 </p>
+                <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_icons.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
                 <p className="body-xlarge">
                   Projects could now start from production-ready components instead of rebuilding
                   common UI patterns each time. That helped move the overall web experience toward a
                   more consistent UX.
                 </p>
-                <p className="body-xlarge">
-                  Developers also no longer had to dig through Figma files to understand how the
-                  system worked. We created a documentation website that explained foundations,
-                  components, guidelines, and usage patterns in simple language anyone could follow.
-                </p>
-                <p className="body-xlarge">
-                  At the same time, the design-to-code workflow became much stronger. With Claude
-                  Code, Figma MCP, Code Connect, shared tokens, and reusable components working
-                  together, UI delivery became faster from months to weeks and more reliable.
-                </p>
-                <p className="body-xlarge">
-                  Earlier, teams could spend weeks building and refining basic UI foundations before
-                  getting to actual product work. Now that effort was significantly reduced, allowing
-                  engineers to focus more on business logic, functionality, and optimization.
-                </p>
-                <p className="body-xlarge">
+                <div className="my-4 w-full overflow-hidden rounded-lg border border-[#f5f5f5]">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_components.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
+                <div className="my-4 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_3.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
+                <div className="my-4 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_1.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+
+                <div className="my-4 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={getTDBridgeAssetUrl("tdb_outcome_2.png")}
+                    alt="Outcome & Impact"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    className="h-auto w-full rounded-lg"
+                  />
+                </div>
+                {/* <p className="body-xlarge">
                   Most importantly, we moved from treating the design system as a file to treating it
                   as infrastructure. That foundation can continue scaling with future needs, including
                   models like micro frontends.
-                </p>
+                </p> */}
               </div>
               {/* Section 11 ends */}
             </>
