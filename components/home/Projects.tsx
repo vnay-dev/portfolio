@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { isFeatureEnabled } from "@/app/constants";
-import { getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
+import { getPluginsAssetUrl, getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
 
 type ProjectCardProps = {
@@ -44,8 +43,8 @@ function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
     <Link
       ref={cardRef}
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className="group block w-full cursor-pointer overflow-hidden rounded-lg transition-all duration-700 ease-out will-change-transform"
       style={{
         opacity: isVisible ? 1 : 0,
@@ -63,8 +62,6 @@ function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
 }
 
 export function Projects() {
-  const showSecondCaseStudyThumbnail = isFeatureEnabled("homeShowSecondCaseStudyThumbnail");
-
   const projectCards = [
     {
       href: "/projects/tdbridge",
@@ -74,9 +71,9 @@ export function Projects() {
     },
     {
       href: "/projects/plugin-1",
-      imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
-      imageAlt: "Figma Plugins Project",
-      hidden: !showSecondCaseStudyThumbnail,
+      imageSrc: getPluginsAssetUrl("project-thumb-plugin.png"),
+      imageAlt: "Figma plugins case study",
+      hidden: false,
     },
     {
       href: "/projects/whatsapp-audio-summary",
