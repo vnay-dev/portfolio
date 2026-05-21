@@ -1,10 +1,13 @@
 import { getNavbarFeatureFlags } from "@/app/constants";
+import { getNextPluginCaseStudy } from "@/app/constants/pluginCaseStudies";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
+import { NextPluginCaseStudyCard } from "@/components/projects/plugins";
 import { Container, Navbar } from "@/components/shared/composite";
 import Image from "next/image";
 
 export default function Plugin4CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
+  const nextCaseStudy = getNextPluginCaseStudy("plugin-4");
 
   return (
     <main className="min-h-screen w-full">
@@ -185,6 +188,15 @@ export default function Plugin4CaseStudyPage() {
             <p className="body-xlarge">
               By the time designs reached handoff, they were already done in a way that was suited for agentic design-to-code workflows, which meant fewer ambiguities, smoother implementation, and much faster UI delivery.
             </p>
+          </section>
+
+          <section className="w-full">
+            <NextPluginCaseStudyCard
+              href={nextCaseStudy.href}
+              title="The design system had become too large to clean manually"
+              subtitle="Without dependency visibility, sanitizing the system safely became slow, repetitive, and risky"
+              gradient={nextCaseStudy.gradient}
+            />
           </section>
         </div>
       </Container>

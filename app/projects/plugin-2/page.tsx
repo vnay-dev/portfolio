@@ -7,8 +7,10 @@ import {
   MdTitle,
 } from "react-icons/md";
 import { getNavbarFeatureFlags } from "@/app/constants";
-import { Container, Navbar } from "@/components/shared/composite";
+import { getNextPluginCaseStudy } from "@/app/constants/pluginCaseStudies";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
+import { NextPluginCaseStudyCard } from "@/components/projects/plugins";
+import { Container, Navbar } from "@/components/shared/composite";
 import Image from "next/image";
 
 const figmaApiLimitationCards = [
@@ -69,6 +71,7 @@ const complexCaseCards: ComplexCaseCard[] = [
 
 export default function Plugin2CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
+  const nextCaseStudy = getNextPluginCaseStudy("plugin-2");
 
   return (
     <main className="min-h-screen w-full">
@@ -266,19 +269,14 @@ export default function Plugin2CaseStudyPage() {
             </p>
           </div>
 
-          {/* <div className="flex flex-col gap-4">
-            <p className="title-medium text-neutral-700">Next case study</p>
-            <Link
-              href="/projects/plugin-3"
-              className="group block w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-8 transition-colors hover:bg-neutral-100"
-            >
-              <div className="flex min-h-40 w-full items-center justify-center rounded-md border border-dashed border-neutral-300 bg-white">
-                <p className="body-large text-neutral-500 transition-colors group-hover:text-neutral-700">
-                  Thumbnail placeholder - Plugin 3 case study
-                </p>
-              </div>
-            </Link>
-          </div> */}
+          <div className="w-full">
+            <NextPluginCaseStudyCard
+              href={nextCaseStudy.href}
+              title="Branch reviews in Figma became difficult under tight timelines"
+              subtitle="Large design system changes across branches made it hard to understand what had actually changed before merging"
+              gradient={nextCaseStudy.gradient}
+            />
+          </div>
         </div>
       </Container>
     </main>

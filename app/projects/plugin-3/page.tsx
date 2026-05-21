@@ -1,11 +1,13 @@
-// import Link from "next/link";
 import { getNavbarFeatureFlags } from "@/app/constants";
-import { Container, Navbar } from "@/components/shared/composite";
+import { getNextPluginCaseStudy } from "@/app/constants/pluginCaseStudies";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
+import { NextPluginCaseStudyCard } from "@/components/projects/plugins";
+import { Container, Navbar } from "@/components/shared/composite";
 import Image from "next/image";
 
 export default function Plugin3CaseStudyPage() {
   const navFeatureFlags = getNavbarFeatureFlags();
+  const nextCaseStudy = getNextPluginCaseStudy("plugin-3");
 
   return (
     <main className="min-h-screen w-full">
@@ -175,19 +177,14 @@ export default function Plugin3CaseStudyPage() {
             <p className="body-xlarge">The plugin helped us review changes faster, merge with confidence, catch risky changes earlier, and communicate design system updates more clearly across teams.</p>
           </section>
 
-          {/* <section className="flex w-full flex-col gap-4">
-            <p className="title-medium text-neutral-700">Next case study</p>
-            <Link
-              href="/projects/plugin-4"
-              className="group block w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-8 transition-colors hover:bg-neutral-100"
-            >
-              <div className="flex min-h-40 w-full items-center justify-center rounded-md border border-dashed border-neutral-300 bg-white">
-                <p className="body-large text-neutral-500 transition-colors group-hover:text-neutral-700">
-                  Thumbnail placeholder - Plugin 4 case study
-                </p>
-              </div>
-            </Link>
-          </section> */}
+          <section className="w-full">
+            <NextPluginCaseStudyCard
+              href={nextCaseStudy.href}
+              title="The design system was clean, but not ready for agentic workflows"
+              subtitle="The system needed stronger compliance and governance to make handoff reliable for agentic workflows"
+              gradient={nextCaseStudy.gradient}
+            />
+          </section>
         </div>
       </Container>
     </main>
