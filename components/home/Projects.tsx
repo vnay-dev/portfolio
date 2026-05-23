@@ -83,6 +83,7 @@ export function Projects() {
     {
       href: "/projects/plugin-1",
       imageSrc: getPluginsAssetUrl("project-thumb-plugin.png"),
+      imageSrcMobile: getPluginsAssetUrl("project-thumb-plugins_mob.png"),
       imageAlt: "Figma plugins case study",
       hidden: false,
     },
