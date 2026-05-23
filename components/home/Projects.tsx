@@ -5,14 +5,19 @@ import { useEffect, useRef, useState } from "react";
 import { getPluginsAssetUrl, getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
 
-type ProjectCardProps = {
+type ProjectCardData = {
   href: string;
   imageSrc: string;
+  imageSrcMobile?: string;
   imageAlt: string;
+  hidden: boolean;
+};
+
+type ProjectCardProps = Omit<ProjectCardData, "hidden"> & {
   index: number;
 };
 
-function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
+function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -52,20 +57,26 @@ function ProjectCard({ href, imageSrc, imageAlt, index }: ProjectCardProps) {
         transitionDelay: `${index * 120}ms`,
       }}
     >
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        className="h-auto w-full origin-center rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[0.97]"
-      />
+      <picture>
+        {imageSrcMobile ? (
+          <source media="(min-width: 768px)" srcSet={imageSrc} />
+        ) : null}
+        <img
+          src={imageSrcMobile ?? imageSrc}
+          alt={imageAlt}
+          className={`h-auto w-full origin-center rounded-lg transition-transform duration-500 ease-out group-hover:scale-[0.97] ${imageSrcMobile ? "object-contain md:object-cover" : "object-cover"}`}
+        />
+      </picture>
     </Link>
   );
 }
 
 export function Projects() {
-  const projectCards = [
+  const projectCards: ProjectCardData[] = [
     {
       href: "/projects/tdbridge",
       imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
+      imageSrcMobile: getTDBridgeAssetUrl("mobile/project-thumb-tdb_mob.png"),
       imageAlt: "Tech Design Research Project",
       hidden: false,
     },
@@ -100,6 +111,7 @@ export function Projects() {
                   index={index}
                   href={card.href}
                   imageSrc={card.imageSrc}
+                  imageSrcMobile={card.imageSrcMobile}
                   imageAlt={card.imageAlt}
                 />
               ))}
