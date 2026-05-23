@@ -32,7 +32,7 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
     const thresholds = Array.from({ length: 21 }, (_, step) => step / 20);
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const progress = Math.min(1, entry.intersectionRatio * 1.15);
+        const progress = Math.min(1, entry.intersectionRatio * 2.25);
         setReveal((previous) => Math.max(previous, progress));
         if (progress >= 0.98) {
           observer.disconnect();
@@ -40,7 +40,7 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
       },
       {
         threshold: thresholds,
-        rootMargin: "0px 0px -6% 0px",
+        rootMargin: "0px 0px -2% 0px",
       },
     );
 
@@ -51,9 +51,9 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
     };
   }, []);
 
-  const blurPx = (1 - reveal) * 12;
-  const translateY = (1 - reveal) * 28;
-  const scale = 0.96 + reveal * 0.04;
+  const blurPx = (1 - reveal) * 10;
+  const translateY = (1 - reveal) * 20;
+  const scale = 0.97 + reveal * 0.03;
 
   return (
     <Link
@@ -66,7 +66,7 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
         opacity: reveal,
         transform: `translateY(${translateY}px) scale(${scale})`,
         filter: blurPx > 0.25 ? `blur(${blurPx}px)` : "none",
-        transition: "opacity 0.45s ease-out, transform 0.55s ease-out, filter 0.55s ease-out",
+        transition: "opacity 0.26s ease-out, transform 0.26s ease-out, filter 0.26s ease-out",
       }}
     >
       <picture>
