@@ -13,36 +13,47 @@ type ProjectCardData = {
   hidden: boolean;
 };
 
-type ProjectCardProps = Omit<ProjectCardData, "hidden"> & {
-  index: number;
-};
+type ProjectCardProps = Omit<ProjectCardData, "hidden">;
 
-function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, index }: ProjectCardProps) {
+function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [reveal, setReveal] = useState(0);
 
   useEffect(() => {
-    if (!cardRef.current) return;
+    const element = cardRef.current;
+    if (!element) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setReveal(1);
+      return;
+    }
+
+    const thresholds = Array.from({ length: 21 }, (_, step) => step / 20);
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+        const progress = Math.min(1, entry.intersectionRatio * 1.15);
+        setReveal((previous) => Math.max(previous, progress));
+        if (progress >= 0.98) {
           observer.disconnect();
         }
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: thresholds,
+        rootMargin: "0px 0px -6% 0px",
       },
     );
 
-    observer.observe(cardRef.current);
+    observer.observe(element);
 
     return () => {
       observer.disconnect();
     };
   }, []);
+
+  const blurPx = (1 - reveal) * 12;
+  const translateY = (1 - reveal) * 28;
+  const scale = 0.96 + reveal * 0.04;
 
   return (
     <Link
@@ -50,11 +61,12 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, index }: Projec
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="group block w-full cursor-pointer overflow-hidden rounded-lg transition-all duration-700 ease-out will-change-transform"
+      className="group block w-full cursor-pointer overflow-hidden rounded-lg ease-out will-change-[transform,opacity,filter]"
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.97)",
-        transitionDelay: `${index * 120}ms`,
+        opacity: reveal,
+        transform: `translateY(${translateY}px) scale(${scale})`,
+        filter: blurPx > 0.25 ? `blur(${blurPx}px)` : "none",
+        transition: "opacity 0.45s ease-out, transform 0.55s ease-out, filter 0.55s ease-out",
       }}
     >
       <picture>
@@ -90,6 +102,7 @@ export function Projects() {
     {
       href: "/projects/whatsapp-audio-summary",
       imageSrc: getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg"),
+      imageSrcMobile: getWhatsAppAssetUrl("mobile/project-thumb-whatsapp_mob.png"),
       imageAlt: "WhatsApp Project",
       hidden: false,
     },
@@ -106,10 +119,9 @@ export function Projects() {
           <div className="flex flex-col gap-16">
             {projectCards
               .filter((card) => !card.hidden)
-              .map((card, index) => (
+              .map((card) => (
                 <ProjectCard
                   key={card.href}
-                  index={index}
                   href={card.href}
                   imageSrc={card.imageSrc}
                   imageSrcMobile={card.imageSrcMobile}
