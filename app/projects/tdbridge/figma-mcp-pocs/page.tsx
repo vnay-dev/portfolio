@@ -153,7 +153,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
+        <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
           <h1 className="display-medium text-center">Exploring Figma MCP for agentic UI workflows</h1>
           <p className="body-xlarge text-center">
             This short case study captures three focused POCs I ran to understand how Figma MCP behaves in real design-to-code workflows, what improves output quality, and what still needs human refinement.

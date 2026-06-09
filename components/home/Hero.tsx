@@ -56,10 +56,7 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
         />
       </div>
 
-      {/* Floating Navbar */}
-      <div className="absolute top-0 right-0 left-0 z-50">
-        <Navbar featureFlags={navFeatureFlags} />
-      </div>
+      <Navbar featureFlags={navFeatureFlags} overlay />
 
       {/* Content: vertically centered below fixed navbar; equal space above photo and below badge */}
       <div
@@ -67,7 +64,7 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
         style={{ minHeight: heroMinHeight }}
       >
         <Container>
-          <div className="flex flex-col items-start gap-8 sm:gap-10 md:gap-12">
+          <div className="flex flex-col items-start gap-10 sm:gap-12 md:gap-16">
             <Image
               src={getPersonalAssetUrl("profile_pic.jpg")}
               alt="Hero"
@@ -75,27 +72,26 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
               height={180}
               quality={100}
               sizes="(max-width: 640px) 112px, (max-width: 768px) 140px, 180px"
-              className={`h-28 w-28 shrink-0 rounded-[12px] object-cover transition-all duration-1000 ease-out sm:h-[9.375rem] sm:w-[9.375rem] md:h-[11.25rem] md:w-[11.25rem] ${
-                isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-8 scale-90 blur-sm opacity-0"
-              }`}
+              className={`h-28 w-28 shrink-0 rounded-[12px] object-cover transition-all duration-1000 ease-out sm:h-[9.375rem] sm:w-[9.375rem] md:h-[11.25rem] md:w-[11.25rem] ${isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-8 scale-90 blur-sm opacity-0"
+                }`}
               style={{ transitionDelay: "120ms" }}
             />
-            <div className="flex w-full flex-col gap-8 sm:gap-10 md:gap-12">
+            <div className="flex w-full flex-col gap-6 sm:gap-6">
               <div
-                className={`flex flex-col gap-3 transition-all duration-1000 ease-out ${
-                  isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-10 scale-95 blur-sm opacity-0"
-                }`}
+                className={`flex flex-col gap-3 transition-all duration-1000 ease-out ${isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-10 scale-95 blur-sm opacity-0"
+                  }`}
                 style={{ transitionDelay: "300ms" }}
               >
                 <h1 className="w-full max-w-[90%] text-white text-xl leading-snug sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight lg:w-9/10 lg:text-[2.75rem] lg:leading-[3.25rem]">
-                  I design and build software that reduces friction in workflows and helps teams
-                  ship faster
+                  I build software as a designer
                 </h1>
+                <p className="w-full max-w-[90%] text-base leading-relaxed text-white/75 sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:w-9/10 lg:text-2xl lg:leading-snug">
+                  Helping teams ship faster by bridging the gap between design and engineering
+                </p>
               </div>
               <div
-                className={`transition-all duration-1000 ease-out ${
-                  isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-12 scale-95 blur-sm opacity-0"
-                }`}
+                className={`transition-all duration-1000 ease-out ${isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-12 scale-95 blur-sm opacity-0"
+                  }`}
                 style={{ transitionDelay: "520ms" }}
               >
                 <StockBorderGlowBadge />

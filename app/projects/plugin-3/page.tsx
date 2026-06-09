@@ -13,7 +13,7 @@ export default function Plugin3CaseStudyPage() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex flex-col gap-20 py-16 sm:py-24 md:py-32">
+        <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
 
           <div className="flex flex-col gap-6">
             <h1 className="text-center text-4xl font-semibold sm:text-5xl">Making branch-level reviews more reliable in Figma</h1>

@@ -34,7 +34,7 @@ export default function WhatsAppAudioSummary() {
     <main className="min-h-screen w-full">
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
-        <div className="flex flex-col gap-16 py-16 sm:py-24 md:py-32">
+        <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
           <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
             <h1 className="display-medium">Smart voice notes to keep the chat flowing</h1>
             <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">

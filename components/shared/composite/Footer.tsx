@@ -10,11 +10,11 @@ export function Footer() {
     { label: "Github", href: "https://github.com/vnay-dev/" },
   ];
 
-  const version = "6.0.0";
+  const email = "vinaykrishnan.design@gmail.com";
 
   return (
     <footer className="w-full overflow-hidden border-t border-gray-200 bg-white">
-      <div className="container mx-auto px-4 py-6 sm:px-6 md:px-12 lg:px-24">
+      <div className="container mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 sm:py-14 md:px-12 md:py-16 lg:px-24">
         <div className="flex w-full min-w-0 flex-col items-center gap-4 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-3 lg:flex-nowrap lg:justify-between lg:text-left">
           <nav
             aria-label="Social links"
@@ -39,10 +39,7 @@ export function Footer() {
             ))}
           </nav>
 
-          <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-3 gap-y-1 text-gray-500">
-            <p className="body-medium whitespace-nowrap">Built with Cursor</p>
-            <p className="body-medium whitespace-nowrap">Version {version}</p>
-          </div>
+          <p className="body-medium whitespace-nowrap text-gray-500">{email}</p>
         </div>
       </div>
     </footer>

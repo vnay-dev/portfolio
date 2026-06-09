@@ -116,7 +116,7 @@ export function Projects() {
             Few of my best works
           </h2>
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-20 sm:gap-24 md:gap-28">
             {projectCards
               .filter((card) => !card.hidden)
               .map((card) => (
