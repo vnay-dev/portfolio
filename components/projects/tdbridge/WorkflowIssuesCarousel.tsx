@@ -135,7 +135,7 @@ export default function WorkflowIssuesCarousel() {
         {workflowIssueCards.map(({ id, icon: Icon, text }) => (
           <div
             key={id}
-            className="flex w-full shrink-0 snap-start flex-col items-start gap-5 rounded-lg border border-[#EDE7D8] bg-gradient-to-br from-white via-[#FBFAF4] to-[#F9F6EE] px-4 py-5 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] xl:w-[calc((100%-72px)/4)]"
+            className="flex w-full shrink-0 snap-start flex-col items-start gap-5 rounded-2xl border border-[#EDE7D8] bg-gradient-to-br from-white via-[#FBFAF4] to-[#F9F6EE] px-4 py-5 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] xl:w-[calc((100%-72px)/4)]"
           >
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[#EDE7D8] bg-white text-[#9F7624] shadow-[0_1px_2px_rgba(225,218,202,0.65)]">
               <Icon className="h-5 w-5" aria-hidden />

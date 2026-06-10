@@ -30,14 +30,14 @@ export function StockBorderGlowBadge({
   return (
     <BorderGlow
       className={`w-fit max-w-full ${className}`.trim()}
-      borderRadius={12}
+      borderRadius={16}
       coneSpread={22}
       glowRadius={0}
       repeatIntervalMs={AUTO_REPEAT_ENABLED}
       repeatGapMs={repeatGapMs}
       elevatedShadow={false}
     >
-      <p className="font-hanken px-5 py-3 text-sm leading-snug text-white sm:px-5 sm:py-3 sm:text-base md:px-5 md:py-3 md:text-lg">
+      <p className="font-hanken p-4 text-sm leading-snug text-white sm:text-base md:text-lg">
         {children ?? DEFAULT_LABEL}
       </p>
     </BorderGlow>

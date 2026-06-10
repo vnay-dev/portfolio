@@ -113,24 +113,24 @@ export default function Plugin2CaseStudyPage() {
               So I built a sync engine.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
             <p className="body-xlarge">
@@ -147,7 +147,7 @@ export default function Plugin2CaseStudyPage() {
               {figmaApiLimitationCards.map(({ id, icon: Icon, line1, line2 }) => (
                 <div
                   key={id}
-                  className="flex h-full min-w-0 items-start gap-3 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
+                  className="flex h-full min-w-0 items-start gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
@@ -175,14 +175,14 @@ export default function Plugin2CaseStudyPage() {
               </span>.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -194,7 +194,7 @@ export default function Plugin2CaseStudyPage() {
               {complexCaseCards.map(({ id, icon: Icon, label, iconClassName }) => (
                 <div
                   key={id}
-                  className="flex h-full min-w-0 items-start gap-3 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
+                  className="flex h-full min-w-0 items-start gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className={iconClassName ?? "h-5 w-5"} aria-hidden />
@@ -213,14 +213,14 @@ export default function Plugin2CaseStudyPage() {
               rename files, optimize them, and update the codebase which was an time consuming and error prone process.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -228,14 +228,14 @@ export default function Plugin2CaseStudyPage() {
               So I added another feature where when icons are updated in Figma, the plugin extracts the SVG data and shows the data as JSON for copying into the codebase. This raw JSON data once pasted into the codebase was then processed in several ways:
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
           </div>

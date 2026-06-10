@@ -44,14 +44,14 @@ export default function Plugin3CaseStudyPage() {
               changes at a high level.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-pc-1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -64,27 +64,27 @@ export default function Plugin3CaseStudyPage() {
 
             <p className="body-xlarge">During review, we kept asking questions like:</p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-pc-3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
             <p className="body-xlarge">Without that visibility, reviewing changes means manually inspecting screens and comparing visuals to understand what happened which became a slow, manual, and risky process.</p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-pc-2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
           </section>
@@ -101,36 +101,36 @@ export default function Plugin3CaseStudyPage() {
               Since Figma does not provide a simple branch selector like Git, I designed a workflow where the plugin first saves the main branch data locally, then compares it against the child branch to generate a detailed change report.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
           </section>
@@ -143,14 +143,14 @@ export default function Plugin3CaseStudyPage() {
               Instead of high-level summaries, the plugin generated granular property-level changes across pages, frames, components, styles, and tokens, such as token replacements, padding updates, typography swaps, shadow removals, and hex-to-token conversions.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("changelogger/Changelogger-set4.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 

@@ -149,7 +149,7 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
                     )
                   : description.text}
               </p>
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-2xl">
                 <Image
                   src={image}
                   alt={`${altPrefix} ${imageIndex + 1}`}

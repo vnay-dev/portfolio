@@ -173,14 +173,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               Each developer was given the same landing page design and prompts. They used Figma MCP and GitHub Copilot Agent to generate the components first, and then the full page using those components.
             </p>
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-2xl">
               <Image
                 src={getTDBridgeAssetUrl("tdb_poc1.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <div className="flex flex-col gap-6">
@@ -189,7 +189,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
                 {poc1FindingsCards.map(({ id, icon: Icon, text }) => (
                   <div
                     key={id}
-                    className="flex gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4 sm:px-5 sm:py-5"
+                    className="flex gap-4 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-4 sm:px-5 sm:py-5"
                   >
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                       <Icon className="h-5 w-5" aria-hidden />
@@ -215,7 +215,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               {poc2AgentReadyCards.map(({ id, icon: Icon, text }) => (
                 <div
                   key={id}
-                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
+                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
@@ -224,20 +224,20 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
                 </div>
               ))}
             </div>
-            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
               <Image
                 src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
-            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
               <VisibilityVideo
                 src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")}
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Optimizing the SPEC.md file for better context</h3>
@@ -245,7 +245,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               {poc2SpecFileCards.map(({ id, icon: Icon, text }) => (
                 <div
                   key={id}
-                  className="flex h-full items-start gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
+                  className="flex h-full items-start gap-4 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
@@ -258,14 +258,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               The library was then exported and installed in a new project, where the form UI design was given to the agent to generate.
             </p>
-            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
               <Image
                 src={getTDBridgeAssetUrl("tdb_poc2_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <p className="body-xlarge">
@@ -276,7 +276,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               {poc2TimeTakenCards.map(({ id, icon: Icon, text }) => (
                 <div
                   key={id}
-                  className="flex h-full items-start gap-4 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
+                  className="flex h-full items-start gap-4 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
@@ -290,7 +290,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               {poc2IssuesCards.map(({ id, icon: Icon, text }) => (
                 <div
                   key={id}
-                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
+                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
@@ -319,14 +319,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               After building the components, the code was merged into the main branch and linked back to the corresponding Figma components using the Code Connect feature. This allowed the design and code to stay connected, and the additional descriptions helped the agent understand the component behavior and intended usage, reducing some of the incorrect implementations seen in the previous POC.
             </p>
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-2xl">
               <Image
                 src={getTDBridgeAssetUrl("tdb_code_connect.jpg")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">
@@ -339,25 +339,25 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               Instead of giving the agent the full page and asking it to build everything at once (that normally many developers do), I created an analyze–review–build loop for each section of the page, gradually assembling the UI like Lego blocks. This gave much better control over UI generation and made it easier to fix issues early.
             </p>
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden rounded-2xl">
               <Image
                 src={getTDBridgeAssetUrl("tdb_prompting.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Final result</h3>
-            <div className="w-full overflow-hidden rounded-lg border border-gray-200/70">
+            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
               <Image
                 src={getTDBridgeAssetUrl("tdb_poc3_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-lg"
+                className="h-auto w-full rounded-2xl"
               />
             </div>
             <p className="body-xlarge">

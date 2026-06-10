@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { MdNorthEast } from "react-icons/md";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
@@ -52,42 +52,43 @@ export default function WhatsAppAudioSummary() {
             width={1200}
             height={800}
             quality={100}
-            className="h-auto w-full rounded-lg object-cover"
+            className="h-auto w-full rounded-2xl object-cover"
           />
           {/* Section 1 begins */}
           <div
-            className="flex w-full flex-col gap-6 overflow-hidden rounded-lg px-6 py-5 sm:gap-8 sm:px-8 sm:py-6 md:gap-8 md:px-8 md:py-6 lg:flex-row lg:items-center lg:gap-8 lg:px-8 lg:py-5"
+            className="flex w-full flex-col gap-6 overflow-hidden rounded-2xl p-6 sm:gap-8 sm:p-8 md:gap-8 lg:flex-row lg:items-center lg:gap-8"
             style={{ backgroundColor: "var(--color-light-green)" }}
           >
             <div className="flex flex-row items-center gap-4 lg:flex-shrink-0">
               <Image
-                src={getWhatsAppAssetUrl("rocket.png")}
+                src={getWhatsAppAssetUrl("rocket3d.png")}
                 alt="Rocket"
                 width={96}
                 height={96}
                 className="h-auto w-10 flex-shrink-0 sm:w-12 md:w-16 lg:w-16"
               />
               <p className="title-large text-lg sm:text-xl md:text-xl lg:hidden">
-                Looks like WhatsApp and I were on the same page!
+                Looks like WhatsApp and I were thinking about the same problem
               </p>
             </div>
             <div className="flex w-full flex-col gap-2 text-left">
               <p className="title-large hidden lg:block">
-                Looks like WhatsApp and I were on the same page!
+                Looks like WhatsApp and I were thinking about the same problem
               </p>
               <p className="body-large text-sm sm:text-base md:text-base">
-                WhatsApp just released{" "}
-                <span className="font-semibold">&quot;Transcripts&quot;</span>, which is pretty
-                similar to what I visualized in this case study. Check out their blog post over{" "}
-                <Link
+                I published this case study on August 8, 2024. Three months later, WhatsApp introduced
+                Voice Message{" "}
+                <a
                   href="https://blog.whatsapp.com/introducing-voice-message-transcripts"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline transition-colors hover:text-blue-800"
+                  className="inline-flex items-baseline gap-0.5 font-semibold text-inherit underline decoration-neutral-900/25 underline-offset-2 transition-colors hover:decoration-neutral-900/60"
                 >
-                  here
-                </Link>
-                .
+                  Transcripts
+                  <MdNorthEast className="size-3.5 shrink-0 translate-y-px" aria-hidden="true" />
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>{" "}
+                on November 21, 2024, a feature that shares many of the ideas explored here.
               </p>
             </div>
           </div>
@@ -104,7 +105,7 @@ export default function WhatsAppAudioSummary() {
             width={1200}
             height={800}
             quality={100}
-            className="h-auto w-full rounded-lg object-cover"
+            className="h-auto w-full rounded-2xl object-cover"
           />
 
           <p className="body-xlarge">
@@ -113,7 +114,7 @@ export default function WhatsAppAudioSummary() {
           </p>
 
           <div
-            className="flex flex-col items-center justify-between gap-8 rounded-lg px-6 pt-5 sm:px-8 sm:pt-6 md:items-center md:gap-8 md:px-12 md:pt-12 lg:flex-row"
+            className="flex flex-col items-center justify-between gap-8 rounded-2xl px-6 pt-5 sm:px-8 sm:pt-6 md:items-center md:gap-8 md:px-12 md:pt-12 lg:flex-row"
             style={{ backgroundColor: "#fff5eb" }}
           >
             <div className="flex w-full flex-col gap-4">
@@ -133,7 +134,7 @@ export default function WhatsAppAudioSummary() {
                 width={1200}
                 height={800}
                 quality={100}
-                className="h-auto w-full rounded-lg object-contain sm:w-3/4 md:w-18/25"
+                className="h-auto w-full rounded-2xl object-contain sm:w-3/4 md:w-18/25"
               />
             </div>
           </div>
@@ -144,7 +145,7 @@ export default function WhatsAppAudioSummary() {
             width={1200}
             height={800}
             quality={100}
-            className="h-auto w-full rounded-lg object-cover"
+            className="h-auto w-full rounded-2xl object-cover"
           />
           {/* Section 1 ends */}
 
@@ -157,7 +158,7 @@ export default function WhatsAppAudioSummary() {
               when they had to.
             </p>
             <div
-              className="flex w-full flex-col gap-8 rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12"
+              className="flex w-full flex-col gap-8 rounded-2xl px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12"
               style={{ backgroundColor: "#111b21" }}
             >
               <h3 className="text-center text-xl font-medium text-white sm:text-2xl md:text-3xl">
@@ -193,8 +194,8 @@ export default function WhatsAppAudioSummary() {
               validate my initial hypothesis and define the problem statement(s) as user jobs:
             </p>
             <div className="flex flex-col gap-16 sm:flex-row sm:gap-8">
-              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
-                <div className="relative w-full overflow-hidden rounded-lg">
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-2xl">
+                <div className="relative w-full overflow-hidden rounded-2xl">
                   <Image
                     src={getWhatsAppAssetUrl("user_job_1.png")}
                     alt="User Job 1"
@@ -222,8 +223,8 @@ export default function WhatsAppAudioSummary() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-lg">
-                <div className="relative w-full overflow-hidden rounded-lg">
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-2xl">
+                <div className="relative w-full overflow-hidden rounded-2xl">
                   <Image
                     src={getWhatsAppAssetUrl("user_job_2.png")}
                     alt="User Job 2"
@@ -277,7 +278,7 @@ export default function WhatsAppAudioSummary() {
             </p>
 
             <div
-              className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+              className="flex flex-col gap-8 rounded-2xl px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
               style={{ backgroundColor: "#d0ffcf" }}
             >
               <h3
@@ -288,7 +289,7 @@ export default function WhatsAppAudioSummary() {
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
                 <div
-                  className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
@@ -301,7 +302,7 @@ export default function WhatsAppAudioSummary() {
                   />
                 </div>
                 <div
-                  className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
@@ -314,7 +315,7 @@ export default function WhatsAppAudioSummary() {
                   />
                 </div>
                 <div
-                  className="relative w-full overflow-hidden rounded-lg border sm:w-auto"
+                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
@@ -331,7 +332,7 @@ export default function WhatsAppAudioSummary() {
 
             <div className="flex w-full flex-col gap-6">
               <div
-                className="relative aspect-video w-full overflow-hidden rounded-lg border"
+                className="relative aspect-video w-full overflow-hidden rounded-2xl border"
                 style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
               >
                 <iframe
@@ -363,7 +364,7 @@ export default function WhatsAppAudioSummary() {
             </p>
 
             <div
-              className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+              className="flex flex-col gap-8 rounded-2xl px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
               style={{ backgroundColor: "#d0ffcf" }}
             >
               <h3
@@ -384,7 +385,7 @@ export default function WhatsAppAudioSummary() {
                 </span>
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
-                <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr1_scr1.png")}
                     alt="Iteration 1 Screen 1"
@@ -394,7 +395,7 @@ export default function WhatsAppAudioSummary() {
                     quality={100}
                   />
                 </div>
-                <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr1_scr2.png")}
                     alt="Iteration 1 Screen 2"
@@ -423,7 +424,7 @@ export default function WhatsAppAudioSummary() {
             </div>
 
             <div
-              className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+              className="flex flex-col gap-8 rounded-2xl px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
               style={{ backgroundColor: "#d0ffcf" }}
             >
               <h3
@@ -444,7 +445,7 @@ export default function WhatsAppAudioSummary() {
                 </span>
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
-                <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr2_scr1.png")}
                     alt="Iteration 2 Screen 1"
@@ -454,7 +455,7 @@ export default function WhatsAppAudioSummary() {
                     quality={100}
                   />
                 </div>
-                <div className="relative w-full overflow-hidden rounded-lg sm:w-auto">
+                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr2_scr2.png")}
                     alt="Iteration 2 Screen 2"
@@ -500,7 +501,7 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-lg">
+            <div className="relative w-full overflow-hidden rounded-2xl">
               <Image
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster1.jpg")}
                 alt="Iteration 2 Poster 1"
@@ -527,7 +528,7 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-lg">
+            <div className="relative w-full overflow-hidden rounded-2xl">
               <Image
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster2.jpg")}
                 alt="Iteration 2 Poster 2"
@@ -550,7 +551,7 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-lg">
+            <div className="relative w-full overflow-hidden rounded-2xl">
               <Image
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster3.jpg")}
                 alt="Iteration 2 Poster 3"
@@ -585,7 +586,7 @@ export default function WhatsAppAudioSummary() {
             </p>
 
             <div
-              className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+              className="flex flex-col gap-8 rounded-2xl px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
               style={{ backgroundColor: "#fef5ea" }}
             >
               <h3
@@ -603,7 +604,7 @@ export default function WhatsAppAudioSummary() {
 
             <div className="flex w-full flex-col gap-6">
               <div
-                className="relative aspect-video w-full overflow-hidden rounded-lg border"
+                className="relative aspect-video w-full overflow-hidden rounded-2xl border"
                 style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
               >
                 <iframe
@@ -639,7 +640,7 @@ export default function WhatsAppAudioSummary() {
             </p>
 
             <div
-              className="flex flex-col gap-8 rounded-lg px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
+              className="flex flex-col gap-8 rounded-2xl px-6 py-8 sm:gap-10 sm:px-8 sm:py-10 md:gap-12 md:px-10 md:py-12"
               style={{ backgroundColor: "#fef5ea" }}
             >
               <h3
@@ -683,7 +684,7 @@ export default function WhatsAppAudioSummary() {
           {/* Section 7 begins */}
           <div className="flex flex-col gap-16">
             <div
-              className="flex flex-col gap-6 rounded-lg px-6 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:px-10 md:py-12"
+              className="flex flex-col gap-6 rounded-2xl px-6 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:px-10 md:py-12"
               style={{ backgroundColor: "#e0ffd6" }}
             >
               <div className="flex w-full flex-col gap-6 md:max-w-xl lg:max-w-2xl">
@@ -720,7 +721,7 @@ export default function WhatsAppAudioSummary() {
                   <div className="flex flex-col gap-6">
                     {/* Advantage 1 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -743,7 +744,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Advantage 2 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -766,7 +767,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Advantage 3 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -797,7 +798,7 @@ export default function WhatsAppAudioSummary() {
                   <div className="flex flex-col gap-6">
                     {/* Disadvantage 1 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -820,7 +821,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Disadvantage 2 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -859,7 +860,7 @@ export default function WhatsAppAudioSummary() {
                   <div className="flex flex-col gap-6">
                     {/* Advantage 1 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -882,7 +883,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Advantage 2 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -905,7 +906,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Advantage 3 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -928,7 +929,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Advantage 4 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -960,7 +961,7 @@ export default function WhatsAppAudioSummary() {
                   <div className="flex flex-col gap-6">
                     {/* Disadvantage 1 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -983,7 +984,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Disadvantage 2 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">
@@ -1006,7 +1007,7 @@ export default function WhatsAppAudioSummary() {
                     </div>
                     {/* Disadvantage 3 */}
                     <div
-                      className="flex flex-col gap-4 rounded-lg border px-4 py-4 sm:px-6 sm:py-6"
+                      className="flex flex-col gap-4 rounded-2xl border px-4 py-4 sm:px-6 sm:py-6"
                       style={{ borderColor: "#d3d3d3", borderWidth: "1px" }}
                     >
                       <div className="flex items-start gap-4">

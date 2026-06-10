@@ -72,7 +72,7 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
               height={180}
               quality={100}
               sizes="(max-width: 640px) 112px, (max-width: 768px) 140px, 180px"
-              className={`h-28 w-28 shrink-0 rounded-[12px] object-cover transition-all duration-1000 ease-out sm:h-[9.375rem] sm:w-[9.375rem] md:h-[11.25rem] md:w-[11.25rem] ${isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-8 scale-90 blur-sm opacity-0"
+              className={`h-28 w-28 shrink-0 rounded-2xl object-cover transition-all duration-1000 ease-out sm:h-[9.375rem] sm:w-[9.375rem] md:h-[11.25rem] md:w-[11.25rem] ${isHeroVisible ? "translate-y-0 scale-100 blur-0 opacity-100" : "translate-y-8 scale-90 blur-sm opacity-0"
                 }`}
               style={{ transitionDelay: "120ms" }}
             />

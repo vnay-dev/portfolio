@@ -10,12 +10,14 @@ type ProjectCardData = {
   imageSrc: string;
   imageSrcMobile?: string;
   imageAlt: string;
+  title: string;
+  subtitle: string;
   hidden: boolean;
 };
 
 type ProjectCardProps = Omit<ProjectCardData, "hidden">;
 
-function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardProps) {
+function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, title, subtitle }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const [reveal, setReveal] = useState(0);
 
@@ -61,7 +63,7 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="group block w-full cursor-pointer overflow-hidden rounded-lg ease-out will-change-[transform,opacity,filter]"
+      className="group block w-full cursor-pointer overflow-hidden rounded-2xl ease-out will-change-[transform,opacity,filter]"
       style={{
         opacity: reveal,
         transform: `translateY(${translateY}px) scale(${scale})`,
@@ -76,9 +78,13 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt }: ProjectCardPr
         <img
           src={imageSrcMobile ?? imageSrc}
           alt={imageAlt}
-          className={`h-auto w-full origin-center rounded-lg transition-transform duration-500 ease-out group-hover:scale-[0.97] ${imageSrcMobile ? "object-contain md:object-cover" : "object-cover"}`}
+          className={`h-auto w-full origin-center rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[0.97] ${imageSrcMobile ? "object-contain md:object-cover" : "object-cover"}`}
         />
       </picture>
+      <div className="mt-5 flex flex-col gap-2 sm:mt-6 sm:gap-3">
+        <h3 className="headline-medium text-neutral-900 md:headline-large">{title}</h3>
+        <p className="body-xlarge text-neutral-500 md:text-xl md:leading-8">{subtitle}</p>
+      </div>
     </Link>
   );
 }
@@ -90,6 +96,9 @@ export function Projects() {
       imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
       imageSrcMobile: getTDBridgeAssetUrl("mobile/project-thumb-tdb_mob.png"),
       imageAlt: "Tech Design Research Project",
+      title: "Building the foundation for AI-Native web design system",
+      subtitle:
+        "Scaled the design system through standards, architecture, and a reusable component library, laying the foundation for design-to-code agentic workflows.",
       hidden: false,
     },
     {
@@ -97,6 +106,8 @@ export function Projects() {
       imageSrc: getPluginsAssetUrl("project-thumb-plugin.png"),
       imageSrcMobile: getPluginsAssetUrl("project-thumb-plugins_mob.png"),
       imageAlt: "Figma plugins case study",
+      title: "Reducing the design system maintenance from months to weeks",
+      subtitle: "Built custom Figma plugins to automate repetitive workflows at scale.",
       hidden: false,
     },
     {
@@ -104,6 +115,9 @@ export function Projects() {
       imageSrc: getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg"),
       imageSrcMobile: getWhatsAppAssetUrl("mobile/project-thumb-whatsapp_mob.png"),
       imageAlt: "WhatsApp Project",
+      title: "Turning voice notes into instant summaries",
+      subtitle:
+        "Designed a smart voice note experience that helped users quickly catch up on long voice messages.",
       hidden: false,
     },
   ];
@@ -126,6 +140,8 @@ export function Projects() {
                   imageSrc={card.imageSrc}
                   imageSrcMobile={card.imageSrcMobile}
                   imageAlt={card.imageAlt}
+                  title={card.title}
+                  subtitle={card.subtitle}
                 />
               ))}
           </div>

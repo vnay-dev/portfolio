@@ -7,7 +7,7 @@ const challengeCards = [
   {
     id: "fonts",
     title: "Static fonts used instead of variable fonts",
-    text: "While building the component library, I found static fonts were used as variable fonts in production, so I ran POCs, checked breaking impact across repos, and replaced them with proper variable fonts.",
+    text: "While building the component library, migrating from static fonts to variable fonts was challenging. With usage spread across multiple repositories, I ran POCs and assessed breaking impact before rolling out the migration.",
   },
   {
     id: "icons",
@@ -16,8 +16,8 @@ const challengeCards = [
   },
   {
     id: "stencil",
-    title: "The internal bad reputation of Stencil.js",
-    text: "While choosing the tech stack for the component library, Stencil.js faced internal pushback due to past misuse, so I validated the choice through POCs and showed the real problem was missing quality gates, business logic in components, and using the framework for the wrong use case.",
+    title: "Validating Stencil.js for the component library",
+    text: "There were mixed opinions about using Stencil.js for the component library. Instead of relying on assumptions, I ran multiple POCs to evaluate its fit and define clear guidelines for how it should be used.",
   },
   {
     id: "workflow",
@@ -122,7 +122,7 @@ export default function ChallengesCarousel() {
         {challengeCards.map(({ id, title, text }) => (
           <div
             key={id}
-            className="flex w-full shrink-0 snap-start flex-col gap-4 rounded-lg border border-gray-200 bg-gray-50 px-4 py-4 sm:w-[calc((100%-24px)/2)] sm:px-5 sm:py-4"
+            className="flex w-full shrink-0 snap-start flex-col gap-4 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-4 sm:w-[calc((100%-24px)/2)] sm:px-5 sm:py-4"
           >
             <h3 className="title-medium font-semibold text-gray-900">{title}</h3>
             <p className="body-large text-gray-700">{text}</p>

@@ -43,14 +43,14 @@ export default function Plugin4CaseStudyPage() {
               A page might look correct visually, but from a DLS perspective it could still contain:
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-pc-1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -58,14 +58,14 @@ export default function Plugin4CaseStudyPage() {
               We had no reliable way to measure compliance, which also meant there was no real governance around design system adoption. If teams were expected to follow the system consistently, compliance had to become part of the workflow, not an afterthought.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg border-[1.2px] border-[#E4FFB4]">
+            <div className="my-4 w-full overflow-hidden rounded-2xl border-[1.2px] border-[#E4FFB4]">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-pc-5.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -79,25 +79,25 @@ export default function Plugin4CaseStudyPage() {
             <p className="body-xlarge">
               The plugin starts by loading the latest data saved from the main design system file.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-set1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-set2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -109,14 +109,14 @@ export default function Plugin4CaseStudyPage() {
               The plugin then generates a compliance score and shows categorized issues that need fixing.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-set3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -132,25 +132,25 @@ export default function Plugin4CaseStudyPage() {
               A few days after building Daisy, Figma released a similar feature as an internal beta called <strong>Check Design</strong>.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-pc-2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-pc-3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
@@ -174,14 +174,14 @@ export default function Plugin4CaseStudyPage() {
               Instead of discovering design system issues late during development, teams could now catch them much earlier as part of the design workflow itself.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-lg">
+            <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
                 src={getPluginsAssetUrl("daisy/Daisy-pc-4.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-lg object-contain"
+                className="h-auto w-full rounded-2xl object-contain"
               />
             </div>
 
