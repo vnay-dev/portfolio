@@ -93,49 +93,53 @@ export default function WhatsAppAudioSummary() {
             </div>
           </div>
 
-          <p className="body-xlarge">
-            Ever been stuck in a situation where someone important sends you a bunch of voice notes
-            but you just can&apos;t listen or reply right away, and they end up distracting you the
-            whole time?
-          </p>
+          <div className="flex flex-col gap-6">
+            <p className="body-xlarge">
+              Ever been stuck in a situation where someone important sends you a bunch of voice notes
+              but you just can&apos;t listen or reply right away, and they end up distracting you the
+              whole time?
+            </p>
 
-          <Image
-            src={getWhatsAppAssetUrl("whatsapp_case_study_prototype.gif")}
-            alt="WhatsApp Case Study Prototype"
-            width={1200}
-            height={800}
-            quality={100}
-            className="h-auto w-full rounded-2xl object-cover"
-          />
+            <Image
+              src={getWhatsAppAssetUrl("whatsapp_case_study_prototype.gif")}
+              alt="WhatsApp Case Study Prototype"
+              width={1200}
+              height={800}
+              quality={100}
+              className="h-auto w-full rounded-2xl object-cover"
+            />
+          </div>
 
-          <p className="body-xlarge">
-            And when the voice note is long, you tell yourself you will listen to it later, and then
-            you either forget about it or realize you do not even have your earphones with you.
-          </p>
+          <div className="flex flex-col gap-6">
+            <p className="body-xlarge">
+              And when the voice note is long, you tell yourself you will listen to it later, and then
+              you either forget about it or realize you do not even have your earphones with you.
+            </p>
 
-          <div
-            className="flex flex-col items-center justify-between gap-8 rounded-2xl px-6 pt-5 sm:px-8 sm:pt-6 md:items-center md:gap-8 md:px-12 md:pt-12 lg:flex-row"
-            style={{ backgroundColor: "#fff5eb" }}
-          >
-            <div className="flex w-full flex-col gap-4">
-              <h2 className="headline-small md:!text-[1.75rem]">
-                Scrolling through a long list of voice notes..
-              </h2>
-              <p className="body-xlarge">
-                ...means playing each one separately. If they&apos;re all over the place or mixed
-                with other messages, it&apos;s tough to make sense of them, especially when the
-                conversation&apos;s old.
-              </p>
-            </div>
-            <div className="flex w-full items-end justify-center md:pt-16">
-              <Image
-                src={getWhatsAppAssetUrl("whtsp_voice_notes_list.png")}
-                alt="WhatsApp Voice Notes List"
-                width={1200}
-                height={800}
-                quality={100}
-                className="h-auto w-full rounded-2xl object-contain sm:w-3/4 md:w-18/25"
-              />
+            <div
+              className="flex flex-col items-center justify-between gap-8 rounded-2xl px-6 pt-5 sm:px-8 sm:pt-6 md:items-center md:gap-8 md:px-12 md:pt-12 lg:flex-row"
+              style={{ backgroundColor: "#fff5eb" }}
+            >
+              <div className="flex w-full flex-col gap-4">
+                <h2 className="headline-small md:!text-[1.75rem]">
+                  Scrolling through a long list of voice notes..
+                </h2>
+                <p className="body-xlarge">
+                  ...means playing each one separately. If they&apos;re all over the place or mixed
+                  with other messages, it&apos;s tough to make sense of them, especially when the
+                  conversation&apos;s old.
+                </p>
+              </div>
+              <div className="flex w-full items-end justify-center md:pt-16">
+                <Image
+                  src={getWhatsAppAssetUrl("whtsp_voice_notes_list.png")}
+                  alt="WhatsApp Voice Notes List"
+                  width={1200}
+                  height={800}
+                  quality={100}
+                  className="h-auto w-full rounded-2xl object-contain sm:w-3/4 md:w-18/25"
+                />
+              </div>
             </div>
           </div>
 
@@ -194,7 +198,7 @@ export default function WhatsAppAudioSummary() {
               validate my initial hypothesis and define the problem statement(s) as user jobs:
             </p>
             <div className="flex flex-col gap-16 sm:flex-row sm:gap-8">
-              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-2xl">
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden">
                 <div className="relative w-full overflow-hidden rounded-2xl">
                   <Image
                     src={getWhatsAppAssetUrl("user_job_1.png")}
@@ -223,7 +227,7 @@ export default function WhatsAppAudioSummary() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-1 flex-col gap-6 overflow-hidden rounded-2xl">
+              <div className="flex flex-1 flex-col gap-6 overflow-hidden">
                 <div className="relative w-full overflow-hidden rounded-2xl">
                   <Image
                     src={getWhatsAppAssetUrl("user_job_2.png")}
@@ -258,10 +262,9 @@ export default function WhatsAppAudioSummary() {
 
           {/* Section 5 begins */}
           <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">User job 1</h2>
             <blockquote
-              className="text-xl italic md:text-2xl"
-              style={{ color: "#1c1e21", fontFamily: "var(--font-editorial), sans-serif" }}
+              className="text-xl md:text-2xl headline-large"
+              style={{ color: "#1c1e21" }}
             >
               &quot;When I receive a long audio message, I want to read a gist of it so that I can
               quickly understand the context&quot;
@@ -571,10 +574,9 @@ export default function WhatsAppAudioSummary() {
 
           {/* Section 6 begins */}
           <div className="flex flex-col gap-6">
-            <h2 className="headline-small md:!text-[1.75rem]">User job 2</h2>
             <blockquote
-              className="text-xl italic md:text-2xl"
-              style={{ color: "#1c1e21", fontFamily: "var(--font-editorial), sans-serif" }}
+              className="text-xl md:text-2xl headline-large"
+              style={{ color: "#1c1e21" }}
             >
               &quot;I want to search for keywords within voice notes to quickly find what I need in
               a chat history&quot;
@@ -1093,7 +1095,7 @@ export default function WhatsAppAudioSummary() {
 
           {/* Section 9 begins */}
           <div className="flex flex-col gap-6">
-            <h2 className="headline-small editorial-italic md:!text-[1.75rem]">
+            <h2 className="headline-large" style={{ color: "#1c1e21" }}>
               Thanks for sticking around!
             </h2>
             <p className="body-xlarge" style={{ color: "#1c1e21" }}>

@@ -11,7 +11,6 @@ A clean, minimal portfolio website built with Next.js and Tailwind CSS. This is 
 - **Fonts**: 
   - [Gabarito](https://fonts.google.com/specimen/Gabarito) - Headings (h1-h6)
   - [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) - Body text
-  - PP Editorial New - Custom font for special typography
 
 ## ✨ Current State
 
@@ -75,7 +74,6 @@ portfolio/
 │   │   ├── body.css            # Body text styles
 │   │   ├── label.css           # Label styles
 │   │   ├── utility.css         # Utility classes
-│   │   ├── editorial.css       # Editorial font classes
 │   │   ├── responsive.css      # Mobile responsive overrides
 │   │   └── index.css           # Main typography import
 │   ├── globals.css              # Global styles and Tailwind imports
@@ -98,8 +96,6 @@ portfolio/
 │   │   └── ColorBends.css     # Animation styles
 │   └── projects/               # Project-specific components
 ├── public/                      # Static assets
-│   ├── fonts/                  # Custom fonts (Editorial)
-│   │   └── editorial/         # PP Editorial New font files
 │   └── images/                 # Image assets (preserved)
 ├── .cursorrules                # Development guidelines and testing rules
 ├── next.config.ts              # Next.js configuration
@@ -117,7 +113,6 @@ The project includes a comprehensive, modular typography system based on Materia
 - **Body**: `.body-large`, `.body-medium`, `.body-small`
 - **Label**: `.label-large`, `.label-medium`, `.label-small`
 - **Utility**: `.text-overline`, `.text-caption`
-- **Editorial**: `.editorial-display`, `.editorial-headline`, `.editorial-body`, `.editorial-italic`
 
 All typography styles are organized in separate CSS files under `app/typography/` for easy maintenance.
 

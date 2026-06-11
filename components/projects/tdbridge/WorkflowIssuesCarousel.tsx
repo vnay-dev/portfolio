@@ -135,9 +135,9 @@ export default function WorkflowIssuesCarousel() {
         {workflowIssueCards.map(({ id, icon: Icon, text }) => (
           <div
             key={id}
-            className="flex w-full shrink-0 snap-start flex-col items-start gap-5 rounded-2xl border border-[#EDE7D8] bg-gradient-to-br from-white via-[#FBFAF4] to-[#F9F6EE] px-4 py-5 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] xl:w-[calc((100%-72px)/4)]"
+            className="flex w-full shrink-0 snap-start flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-5 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] xl:w-[calc((100%-72px)/4)]"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[#EDE7D8] bg-white text-[#9F7624] shadow-[0_1px_2px_rgba(225,218,202,0.65)]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
               <Icon className="h-5 w-5" aria-hidden />
             </div>
             <p className="body-large leading-relaxed text-gray-800">{text}</p>
@@ -150,7 +150,7 @@ export default function WorkflowIssuesCarousel() {
           type="button"
           onClick={() => scrollByCards("left")}
           disabled={!canScrollLeft}
-          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-[#EDE7D8] bg-white text-[#9F7624] transition-colors enabled:hover:border-[#9F7624] enabled:hover:bg-[#F9F6EE] disabled:opacity-40"
+          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-white text-gray-700 transition-colors enabled:hover:border-gray-400 enabled:hover:bg-gray-50 disabled:opacity-40"
           aria-label="Scroll workflow issues left"
         >
           <MdChevronLeft className="h-5 w-5" aria-hidden />
@@ -159,7 +159,7 @@ export default function WorkflowIssuesCarousel() {
           type="button"
           onClick={() => scrollByCards("right")}
           disabled={!canScrollRight}
-          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-[#EDE7D8] bg-white text-[#9F7624] transition-colors enabled:hover:border-[#9F7624] enabled:hover:bg-[#F9F6EE] disabled:opacity-40"
+          className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-white text-gray-700 transition-colors enabled:hover:border-gray-400 enabled:hover:bg-gray-50 disabled:opacity-40"
           aria-label="Scroll workflow issues right"
         >
           <MdChevronRight className="h-5 w-5" aria-hidden />

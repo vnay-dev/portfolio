@@ -35,7 +35,7 @@ export function Articles() {
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
           <div className="flex flex-col gap-4">
-            <h2 className="editorial-headline-small editorial-italic text-center text-neutral-100">
+            <h2 className="headline-large text-center text-neutral-100">
               Reflections
             </h2>
             <p className="body-large text-center text-neutral-400">

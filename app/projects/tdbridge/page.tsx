@@ -93,7 +93,7 @@ export default function TDBridge() {
 
           <div className="w-full overflow-hidden rounded-2xl">
             <Image
-              src={getTDBridgeAssetUrl("tdb_hero_banner.png")}
+              src={getTDBridgeAssetUrl("tdb_hero_banner.jpg")}
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
@@ -303,9 +303,9 @@ export default function TDBridge() {
               {craftIssueCards.map(({ id, icon: Icon, text }) => (
                 <div
                   key={id}
-                  className="flex h-full flex-col items-start gap-5 rounded-2xl border border-[#F3E5E1] bg-gradient-to-br from-white via-[#FFF9F8] to-[#FFF6F4] px-4 py-5"
+                  className="flex h-full flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-5"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-[#F3E5E1] bg-white text-[#62092d] shadow-[0_1px_2px_rgba(238,221,216,0.65)]">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
                     <Icon className="h-5 w-5" aria-hidden />
                   </div>
                   <p className="body-large leading-relaxed text-gray-800">{text}</p>

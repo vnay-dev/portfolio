@@ -36,7 +36,7 @@ export default function Plugin1CaseStudyPage() {
             </p>
             <div className="my-4 w-full overflow-hidden">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-pc-1.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-pc-1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -67,7 +67,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab1-set1.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab1-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -78,7 +78,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab1-set2.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab1-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -98,7 +98,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-pc-2.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-pc-2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -113,7 +113,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab2-set1.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab2-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -134,7 +134,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab2-set2.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab2-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -150,7 +150,7 @@ export default function Plugin1CaseStudyPage() {
 
               <div className="my-4 w-full overflow-hidden rounded-2xl">
                 <Image
-                  src={getPluginsAssetUrl("compounter/Compounter-pc-3.png")}
+                  src={getPluginsAssetUrl("compounter/Compounter-pc-3.jpg")}
                   alt="Compounter plugin: find all occurrences of a component across the file"
                   width={1920}
                   height={1080}
@@ -165,7 +165,7 @@ export default function Plugin1CaseStudyPage() {
 
               <div className="my-4 w-full overflow-hidden rounded-2xl">
                 <Image
-                  src={getPluginsAssetUrl("compounter/Compounter-tab2-set3.png")}
+                  src={getPluginsAssetUrl("compounter/Compounter-tab2-set3.jpg")}
                   alt="Compounter plugin: find all occurrences of a component across the file"
                   width={1920}
                   height={1080}
@@ -194,7 +194,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-pc-4.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-pc-4.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -212,7 +212,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab3-set1.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab3-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -232,7 +232,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab3-set2.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab3-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -253,7 +253,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab4-set1.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab4-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -268,7 +268,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab4-set2.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab4-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -278,7 +278,7 @@ export default function Plugin1CaseStudyPage() {
             </div>
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab4-set3.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab4-set3.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -289,7 +289,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-tab4-set4.png")}
+                src={getPluginsAssetUrl("compounter/Compounter-tab4-set4.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
