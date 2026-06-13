@@ -27,6 +27,11 @@ import {
   uj2SearchFlowDescriptions,
 } from "./constants";
 
+const presentationMockupFrameClass =
+  "relative mx-auto w-full max-w-[160px] overflow-hidden rounded-2xl sm:max-w-[200px] md:max-w-[240px]";
+
+const presentationMockupImageClass = "h-auto w-full object-contain";
+
 export default function WhatsAppAudioSummary() {
   const navFeatureFlags = getNavbarFeatureFlags();
 
@@ -292,41 +297,41 @@ export default function WhatsAppAudioSummary() {
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
                 <div
-                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
+                  className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
                     src={getWhatsAppAssetUrl("uj1_final_scrn1.png")}
                     alt="Final Screen 1"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
                 <div
-                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
+                  className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
                     src={getWhatsAppAssetUrl("uj1_final_scrn2.png")}
                     alt="Final Screen 2"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
                 <div
-                  className="relative w-full overflow-hidden rounded-2xl border sm:w-auto"
+                  className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
                   <Image
                     src={getWhatsAppAssetUrl("uj1_final_scrn3.png")}
                     alt="Final Screen 3"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
@@ -387,24 +392,24 @@ export default function WhatsAppAudioSummary() {
                   Using a bottom sheet to show summary of voice notes
                 </span>
               </h3>
-              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
-                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
+                <div className={presentationMockupFrameClass}>
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr1_scr1.png")}
                     alt="Iteration 1 Screen 1"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
-                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
+                <div className={presentationMockupFrameClass}>
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr1_scr2.png")}
                     alt="Iteration 1 Screen 2"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
@@ -447,24 +452,24 @@ export default function WhatsAppAudioSummary() {
                   Vertical expansion of the voice note
                 </span>
               </h3>
-              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
-                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
+                <div className={presentationMockupFrameClass}>
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr2_scr1.png")}
                     alt="Iteration 2 Screen 1"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>
-                <div className="relative w-full overflow-hidden rounded-2xl sm:w-auto">
+                <div className={presentationMockupFrameClass}>
                   <Image
                     src={getWhatsAppAssetUrl("uj1_itr2_scr2.png")}
                     alt="Iteration 2 Screen 2"
-                    width={1200}
-                    height={800}
-                    className="h-auto w-full"
+                    width={720}
+                    height={1660}
+                    className={presentationMockupImageClass}
                     quality={100}
                   />
                 </div>

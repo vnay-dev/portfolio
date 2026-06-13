@@ -135,10 +135,7 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
           return (
             <div
               key={`${image}-${index}`}
-              className="flex flex-shrink-0 flex-col gap-3"
-              style={{
-                width: "300px",
-              }}
+              className="flex w-[160px] flex-shrink-0 flex-col gap-3 sm:w-[200px] md:w-[240px]"
             >
               <p className="body-large text-center" style={{ color: "#1c1e21" }}>
                 {description.highlightText && description.highlightLength !== undefined
@@ -153,9 +150,9 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
                 <Image
                   src={image}
                   alt={`${altPrefix} ${imageIndex + 1}`}
-                  width={1200}
-                  height={800}
-                  className="h-auto w-full"
+                  width={720}
+                  height={1600}
+                  className="h-auto w-full object-contain"
                   quality={100}
                 />
               </div>

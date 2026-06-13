@@ -98,7 +98,7 @@ export default function Plugin1CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden">
               <Image
-                src={getPluginsAssetUrl("compounter/Compounter-pc-2.jpg")}
+                src={getPluginsAssetUrl("compounter/Compounter-pc-2.png")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
@@ -108,7 +108,7 @@ export default function Plugin1CaseStudyPage() {
             </div>
 
             <p className="body-xlarge">
-              Without that visibility, even cleanup could become a breaking change, so I built another feature into the same plugin to solve it.
+              Without that visibility, even cleanup could become a breaking change, so I built another feature to solve it.
             </p>
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">

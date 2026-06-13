@@ -45,7 +45,7 @@ export default function Plugin4CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("daisy/Daisy-pc-1.png")}
+                src={getPluginsAssetUrl("daisy/Daisy-pc-1.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
@@ -60,7 +60,7 @@ export default function Plugin4CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl border-[1.2px] border-[#E4FFB4]">
               <Image
-                src={getPluginsAssetUrl("daisy/Daisy-pc-5.png")}
+                src={getPluginsAssetUrl("daisy/Daisy-pc-5.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
@@ -145,7 +145,7 @@ export default function Plugin4CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("daisy/Daisy-pc-3.png")}
+                src={getPluginsAssetUrl("daisy/Daisy-pc-3.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
@@ -176,7 +176,7 @@ export default function Plugin4CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("daisy/Daisy-pc-4.png")}
+                src={getPluginsAssetUrl("daisy/Daisy-pc-4.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}

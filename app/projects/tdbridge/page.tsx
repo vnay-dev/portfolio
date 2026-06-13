@@ -437,7 +437,7 @@ export default function TDBridge() {
                 </p>
                 <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
                   <Image
-                    src={getTDBridgeAssetUrl("tdb_outcome_docs.png")}
+                    src={getTDBridgeAssetUrl("tdb_outcome_docs_mockup.jpg")}
                     alt="Outcome & Impact"
                     width={1920}
                     height={1080}

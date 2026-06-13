@@ -177,7 +177,7 @@ export default function Plugin2CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-1.png")}
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-1.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
@@ -230,7 +230,7 @@ export default function Plugin2CaseStudyPage() {
 
             <div className="my-4 w-full overflow-hidden rounded-2xl">
               <Image
-                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-2.png")}
+                src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-2.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}

@@ -1,9 +1,6 @@
 import {
   MdBlock,
   MdBolt,
-  MdDeviceHub,
-  MdGesture,
-  MdHistory,
   MdLayers,
   MdNoteAlt,
   MdOutlineArticle,
@@ -12,19 +9,15 @@ import {
   MdOutlineLayers,
   MdOutlineTimer,
   MdOutlineViewModule,
-  MdPalette,
-  MdPsychology,
-  MdReportProblem,
   MdSearch,
-  MdStraighten,
-  MdTextFields,
-  MdViewModule,
 } from "react-icons/md";
 import Image from "next/image";
 import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
+import AgentReadyCarousel from "@/components/projects/tdbridge/AgentReadyCarousel";
+import Poc2IssuesCarousel from "@/components/projects/tdbridge/Poc2IssuesCarousel";
 
 const poc1FindingsCards = [
   {
@@ -59,34 +52,6 @@ const poc1FindingsCards = [
   },
 ] as const;
 
-const poc2IssuesCards = [
-  {
-    id: "hallucinations",
-    icon: MdPsychology,
-    text: "Occasional hallucinations while generating UI",
-  },
-  {
-    id: "incorrect-implementations",
-    icon: MdReportProblem,
-    text: "Incorrect implementations that didn't match the design intent",
-  },
-  {
-    id: "spacing",
-    icon: MdStraighten,
-    text: "Spacing inconsistencies between generated output and the design",
-  },
-  {
-    id: "copilot-context",
-    icon: MdDeviceHub,
-    text: "GitHub Copilot sometimes struggled to understand the expected design even with Figma MCP providing context",
-  },
-  {
-    id: "interaction-logic",
-    icon: MdGesture,
-    text: "Interaction logic still required manual refinement",
-  },
-] as const;
-
 const poc2TimeTakenCards = [
   {
     id: "library-setup",
@@ -97,34 +62,6 @@ const poc2TimeTakenCards = [
     id: "form-ui-generation",
     icon: MdBolt,
     text: "Once the library was ready, the form UI was generated in less than half a day",
-  },
-] as const;
-
-const poc2AgentReadyCards = [
-  {
-    id: "figma-structure",
-    icon: MdHistory,
-    text: "Based on the learnings from the previous POC, the Figma file was structured properly this time",
-  },
-  {
-    id: "token-architecture",
-    icon: MdPalette,
-    text: "A token architecture was created with correctly mapped collections and groups",
-  },
-  {
-    id: "typography-styles",
-    icon: MdTextFields,
-    text: "Reusable typography styles were defined",
-  },
-  {
-    id: "components-linked",
-    icon: MdViewModule,
-    text: "Components were built with all values linked to the right tokens and styles",
-  },
-  {
-    id: "documented-for-agents",
-    icon: MdNoteAlt,
-    text: "Components were documented, labeled clearly, and organized to make the structure easier to understand for AI agents and MCP",
   },
 ] as const;
 
@@ -155,8 +92,8 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
       <Container>
         <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
           <h1 className="display-medium text-center">Exploring Figma MCP for agentic UI workflows</h1>
-          <p className="body-xlarge text-center">
-            This short case study captures three focused POCs I ran to understand how Figma MCP behaves in real design-to-code workflows, what improves output quality, and what still needs human refinement.
+          <p className="body-xlarge">
+            This case study captures 3 focused POCs I ran to understand how Figma MCP behaves in real design-to-code workflows, what improves output quality, and what still needs human refinement.
           </p>
 
           {/* Section 1 begins */}
@@ -211,19 +148,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               Now instead of using an external design system, I created a small scale DLS, built the UI components using Figma MCP and tested the workflow by building a form component using GitHub Copilot and Claude Code.
             </p>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Making the DLS agent ready</h3>
-            <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2 md:flex-wrap md:overflow-visible">
-              {poc2AgentReadyCards.map(({ id, icon: Icon, text }) => (
-                <div
-                  key={id}
-                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
-                </div>
-              ))}
-            </div>
+            <AgentReadyCarousel />
             <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
               <Image
                 src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
@@ -286,19 +211,7 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
               ))}
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Issues found</h3>
-            <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2 md:flex-wrap md:overflow-visible">
-              {poc2IssuesCards.map(({ id, icon: Icon, text }) => (
-                <div
-                  key={id}
-                  className="flex min-w-[220px] flex-1 flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-gray-100/80 px-4 py-5 md:min-w-[240px] md:max-w-[280px]"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
-                </div>
-              ))}
-            </div>
+            <Poc2IssuesCarousel />
           </div>
           {/* Section 2 ends */}
 
