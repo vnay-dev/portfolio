@@ -93,7 +93,7 @@ export function Projects() {
   const projectCards: ProjectCardData[] = [
     {
       href: "/projects/tdbridge",
-      imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail.png"),
+      imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail_v2.1.png"),
       imageSrcMobile: getTDBridgeAssetUrl("mobile/project-thumb-tdb_mob.png"),
       imageAlt: "Tech Design Research Project",
       title: "Building the foundation for AI-Native web design system",
