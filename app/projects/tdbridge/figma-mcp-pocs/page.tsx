@@ -11,9 +11,9 @@ import {
   MdOutlineViewModule,
   MdSearch,
 } from "react-icons/md";
-import Image from "next/image";
 import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
+import { BlobImage } from "@/components/shared/atoms";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
 import AgentReadyCarousel from "@/components/projects/tdbridge/AgentReadyCarousel";
@@ -110,14 +110,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               Each developer was given the same landing page design and prompts. They used Figma MCP and GitHub Copilot Agent to generate the components first, and then the full page using those components.
             </p>
-            <div className="w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_poc1.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <div className="flex flex-col gap-6">
@@ -149,21 +149,18 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Making the DLS agent ready</h3>
             <AgentReadyCarousel />
-            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
-            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <VisibilityVideo
-                src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")}
-                className="h-auto w-full rounded-2xl"
-              />
+            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+              <VisibilityVideo src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")} />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Optimizing the SPEC.md file for better context</h3>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -183,14 +180,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               The library was then exported and installed in a new project, where the form UI design was given to the agent to generate.
             </p>
-            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_poc2_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <p className="body-xlarge">
@@ -232,14 +229,14 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               After building the components, the code was merged into the main branch and linked back to the corresponding Figma components using the Code Connect feature. This allowed the design and code to stay connected, and the additional descriptions helped the agent understand the component behavior and intended usage, reducing some of the incorrect implementations seen in the previous POC.
             </p>
-            <div className="w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_code_connect.jpg")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">
@@ -252,25 +249,25 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               Instead of giving the agent the full page and asking it to build everything at once (that normally many developers do), I created an analyze–review–build loop for each section of the page, gradually assembling the UI like Lego blocks. This gave much better control over UI generation and made it easier to fix issues early.
             </p>
-            <div className="w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_prompting.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Final result</h3>
-            <div className="w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_poc3_result.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <p className="body-xlarge">

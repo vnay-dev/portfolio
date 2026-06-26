@@ -3,6 +3,7 @@ import { MdNorthEast } from "react-icons/md";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
+import { BlobImage, YouTubeEmbed } from "@/components/shared/atoms";
 import { Carousel, InsightCard } from "@/components/projects/whatsapp-audio-summary";
 import { Ticker } from "@/components/projects/whatsapp-audio-summary/Ticker";
 import {
@@ -28,7 +29,7 @@ import {
 } from "./constants";
 
 const presentationMockupFrameClass =
-  "relative mx-auto w-full max-w-[160px] overflow-hidden rounded-2xl sm:max-w-[200px] md:max-w-[240px]";
+  "relative mx-auto w-full max-w-[160px] overflow-hidden rounded-media sm:max-w-[200px] md:max-w-[240px]";
 
 const presentationMockupImageClass = "h-auto w-full object-contain";
 
@@ -51,13 +52,14 @@ export default function WhatsAppAudioSummary() {
             </p>
           </div>
 
-          <Image
+          <BlobImage
             src={getWhatsAppAssetUrl("whtsp_hero_sctn_motion.gif")}
             alt="WhatsApp Hero Animation"
             width={1200}
             height={800}
             quality={100}
-            className="h-auto w-full rounded-2xl object-cover"
+            frameClassName="overflow-hidden rounded-media"
+            className="h-auto w-full rounded-media object-cover"
           />
           {/* Section 1 begins */}
           <div
@@ -105,13 +107,14 @@ export default function WhatsAppAudioSummary() {
               whole time?
             </p>
 
-            <Image
+            <BlobImage
               src={getWhatsAppAssetUrl("whatsapp_case_study_prototype.gif")}
               alt="WhatsApp Case Study Prototype"
               width={1200}
               height={800}
               quality={100}
-              className="h-auto w-full rounded-2xl object-cover"
+              frameClassName="overflow-hidden rounded-media"
+              className="h-auto w-full rounded-media object-cover"
             />
           </div>
 
@@ -136,25 +139,27 @@ export default function WhatsAppAudioSummary() {
                 </p>
               </div>
               <div className="flex w-full items-end justify-center md:pt-16">
-                <Image
+                <BlobImage
                   src={getWhatsAppAssetUrl("whtsp_voice_notes_list.png")}
                   alt="WhatsApp Voice Notes List"
                   width={1200}
                   height={800}
                   quality={100}
-                  className="h-auto w-full rounded-2xl object-contain sm:w-3/4 md:w-18/25"
+                  frameClassName="w-full overflow-hidden rounded-media sm:w-3/4 md:w-18/25"
+                  className="h-auto w-full rounded-media object-contain"
                 />
               </div>
             </div>
           </div>
 
-          <Image
+          <BlobImage
             src={getWhatsAppAssetUrl("whtsp_claws.gif")}
             alt="WhatsApp Claws Animation"
             width={1200}
             height={800}
             quality={100}
-            className="h-auto w-full rounded-2xl object-cover"
+            frameClassName="overflow-hidden rounded-media"
+            className="h-auto w-full rounded-media object-cover"
           />
           {/* Section 1 ends */}
 
@@ -204,8 +209,8 @@ export default function WhatsAppAudioSummary() {
             </p>
             <div className="flex flex-col gap-16 sm:flex-row sm:gap-8">
               <div className="flex flex-1 flex-col gap-6 overflow-hidden">
-                <div className="relative w-full overflow-hidden rounded-2xl">
-                  <Image
+                <div className="relative w-full overflow-hidden rounded-media">
+                  <BlobImage
                     src={getWhatsAppAssetUrl("user_job_1.png")}
                     alt="User Job 1"
                     width={1200}
@@ -233,8 +238,8 @@ export default function WhatsAppAudioSummary() {
                 </div>
               </div>
               <div className="flex flex-1 flex-col gap-6 overflow-hidden">
-                <div className="relative w-full overflow-hidden rounded-2xl">
-                  <Image
+                <div className="relative w-full overflow-hidden rounded-media">
+                  <BlobImage
                     src={getWhatsAppAssetUrl("user_job_2.png")}
                     alt="User Job 2"
                     width={1200}
@@ -300,7 +305,7 @@ export default function WhatsAppAudioSummary() {
                   className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_final_scrn1.png")}
                     alt="Final Screen 1"
                     width={720}
@@ -313,7 +318,7 @@ export default function WhatsAppAudioSummary() {
                   className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_final_scrn2.png")}
                     alt="Final Screen 2"
                     width={720}
@@ -326,7 +331,7 @@ export default function WhatsAppAudioSummary() {
                   className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
                 >
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_final_scrn3.png")}
                     alt="Final Screen 3"
                     width={720}
@@ -339,31 +344,7 @@ export default function WhatsAppAudioSummary() {
             </div>
 
             <div className="flex w-full flex-col gap-6">
-              <div
-                className="relative aspect-video w-full overflow-hidden rounded-2xl border"
-                style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/WrmuKrA2ha4?autoplay=1&mute=1&vq=hd1080&rel=0&loop=1&playlist=WrmuKrA2ha4&modestbranding=1"
-                  title="Prototype Video"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  frameBorder="0"
-                  className="absolute top-0 left-0 h-full w-full border-0"
-                  style={{
-                    outline: "none",
-                    border: "none",
-                    margin: 0,
-                    padding: 0,
-                    left: "-2px",
-                    top: "-1px",
-                    width: "calc(100% + 4px)",
-                    height: "calc(100% + 2px)",
-                    transform: "translateZ(0)",
-                    borderRadius: "8px",
-                  }}
-                />
-              </div>
+              <YouTubeEmbed videoId="WrmuKrA2ha4" />
             </div>
 
             <p className="body-xlarge" style={{ color: "#1c1e21" }}>
@@ -394,7 +375,7 @@ export default function WhatsAppAudioSummary() {
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
                 <div className={presentationMockupFrameClass}>
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr1_scr1.png")}
                     alt="Iteration 1 Screen 1"
                     width={720}
@@ -404,7 +385,7 @@ export default function WhatsAppAudioSummary() {
                   />
                 </div>
                 <div className={presentationMockupFrameClass}>
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr1_scr2.png")}
                     alt="Iteration 1 Screen 2"
                     width={720}
@@ -454,7 +435,7 @@ export default function WhatsAppAudioSummary() {
               </h3>
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
                 <div className={presentationMockupFrameClass}>
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr2_scr1.png")}
                     alt="Iteration 2 Screen 1"
                     width={720}
@@ -464,7 +445,7 @@ export default function WhatsAppAudioSummary() {
                   />
                 </div>
                 <div className={presentationMockupFrameClass}>
-                  <Image
+                  <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr2_scr2.png")}
                     alt="Iteration 2 Screen 2"
                     width={720}
@@ -509,8 +490,8 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="relative w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster1.jpg")}
                 alt="Iteration 2 Poster 1"
                 width={1200}
@@ -536,8 +517,8 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="relative w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster2.jpg")}
                 alt="Iteration 2 Poster 2"
                 width={1200}
@@ -559,8 +540,8 @@ export default function WhatsAppAudioSummary() {
               </li>
             </ol>
 
-            <div className="relative w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="relative w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getWhatsAppAssetUrl("uj1_iteration2_poster3.jpg")}
                 alt="Iteration 2 Poster 3"
                 width={1200}
@@ -610,31 +591,7 @@ export default function WhatsAppAudioSummary() {
             </div>
 
             <div className="flex w-full flex-col gap-6">
-              <div
-                className="relative aspect-video w-full overflow-hidden rounded-2xl border"
-                style={{ backgroundColor: "#000", borderColor: "#1c1e21", borderWidth: "1.35px" }}
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/a_jS0rgBODA?autoplay=1&mute=1&vq=hd1080&rel=0&loop=1&playlist=a_jS0rgBODA&modestbranding=1"
-                  title="Prototype Video"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  frameBorder="0"
-                  className="absolute top-0 left-0 h-full w-full border-0"
-                  style={{
-                    outline: "none",
-                    border: "none",
-                    margin: 0,
-                    padding: 0,
-                    left: "-2px",
-                    top: "-1px",
-                    width: "calc(100% + 4px)",
-                    height: "calc(100% + 2px)",
-                    transform: "translateZ(0)",
-                    borderRadius: "8px",
-                  }}
-                />
-              </div>
+              <YouTubeEmbed videoId="a_jS0rgBODA" />
             </div>
 
             <p className="body-xlarge" style={{ color: "#1c1e21" }}>

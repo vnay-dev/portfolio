@@ -1,15 +1,21 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { getPluginsAssetUrl, getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
+import { MediaSkeleton } from "@/components/shared/atoms";
 
 type ProjectCardData = {
   href: string;
   imageSrc: string;
   imageSrcMobile?: string;
   imageAlt: string;
+  /** Aspect ratio of the web thumbnail, e.g. "1920 / 945" — reserves the skeleton box. */
+  aspectRatio: string;
+  /** Aspect ratio of the mobile thumbnail (defaults to the web ratio). */
+  aspectRatioMobile?: string;
   title: string;
   subtitle: string;
   hidden: boolean;
@@ -17,9 +23,26 @@ type ProjectCardData = {
 
 type ProjectCardProps = Omit<ProjectCardData, "hidden">;
 
-function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, title, subtitle }: ProjectCardProps) {
+function ProjectCard({
+  href,
+  imageSrc,
+  imageSrcMobile,
+  imageAlt,
+  aspectRatio,
+  aspectRatioMobile,
+  title,
+  subtitle,
+}: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
   const [reveal, setReveal] = useState(0);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (imageRef.current?.complete) {
+      setIsImageLoaded(true);
+    }
+  }, []);
 
   useEffect(() => {
     const element = cardRef.current;
@@ -63,7 +86,7 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, title, subtitle
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="group block w-full cursor-pointer overflow-hidden rounded-2xl ease-out will-change-[transform,opacity,filter]"
+      className="group block w-full cursor-pointer overflow-hidden rounded-media ease-out will-change-[transform,opacity,filter]"
       style={{
         opacity: reveal,
         transform: `translateY(${translateY}px) scale(${scale})`,
@@ -71,16 +94,29 @@ function ProjectCard({ href, imageSrc, imageSrcMobile, imageAlt, title, subtitle
         transition: "opacity 0.26s ease-out, transform 0.26s ease-out, filter 0.26s ease-out",
       }}
     >
-      <picture>
-        {imageSrcMobile ? (
-          <source media="(min-width: 768px)" srcSet={imageSrc} />
-        ) : null}
-        <img
-          src={imageSrcMobile ?? imageSrc}
-          alt={imageAlt}
-          className={`h-auto w-full origin-center rounded-2xl transition-transform duration-500 ease-out group-hover:scale-[0.97] ${imageSrcMobile ? "object-contain md:object-cover" : "object-cover"}`}
-        />
-      </picture>
+      <span
+        className="media-frame thumb-frame w-full overflow-hidden rounded-media"
+        style={
+          {
+            "--thumb-ar-mobile": aspectRatioMobile ?? aspectRatio,
+            "--thumb-ar-web": aspectRatio,
+          } as CSSProperties
+        }
+      >
+        <picture>
+          {imageSrcMobile ? (
+            <source media="(min-width: 768px)" srcSet={imageSrc} />
+          ) : null}
+          <img
+            ref={imageRef}
+            src={imageSrcMobile ?? imageSrc}
+            alt={imageAlt}
+            onLoad={() => setIsImageLoaded(true)}
+            className="h-full w-full origin-center rounded-media object-cover transition-transform duration-500 ease-out group-hover:scale-[0.97]"
+          />
+        </picture>
+        <MediaSkeleton isLoaded={isImageLoaded} />
+      </span>
       <div className="mt-5 flex flex-col gap-2 sm:mt-6 sm:gap-3">
         <h3 className="headline-medium text-neutral-900 md:headline-large">{title}</h3>
         <p className="body-xlarge text-neutral-500 md:text-xl md:leading-8">{subtitle}</p>
@@ -94,11 +130,11 @@ export function Projects() {
     {
       href: "/projects/tdbridge",
       imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail_v2.1.png"),
-      imageSrcMobile: getTDBridgeAssetUrl("mobile/project-thumb-tdb_mob.png"),
       imageAlt: "Tech Design Research Project",
+      aspectRatio: "1920 / 945",
       title: "Building the foundation for AI-Native web design system",
       subtitle:
-        "Scaled the design system through standards, architecture, and a reusable component library, laying the foundation for design-to-code agentic workflows.",
+        "Scaled Air India's consumer web design system through standards, architecture, and a reusable component library, laying the foundation for design-to-code agentic workflows.",
       hidden: false,
     },
     {
@@ -106,6 +142,8 @@ export function Projects() {
       imageSrc: getPluginsAssetUrl("project-thumb-plugin.png"),
       imageSrcMobile: getPluginsAssetUrl("project-thumb-plugins_mob.png"),
       imageAlt: "Figma plugins case study",
+      aspectRatio: "3840 / 1677",
+      aspectRatioMobile: "780 / 942",
       title: "Reducing the design system maintenance from months to weeks",
       subtitle: "Built custom Figma plugins to automate repetitive workflows at scale.",
       hidden: false,
@@ -115,6 +153,8 @@ export function Projects() {
       imageSrc: getWhatsAppAssetUrl("whatsapp_project_thumbnail.jpg"),
       imageSrcMobile: getWhatsAppAssetUrl("mobile/project-thumb-whatsapp_mob.png"),
       imageAlt: "WhatsApp Project",
+      aspectRatio: "7680 / 3354",
+      aspectRatioMobile: "782 / 942",
       title: "Turning voice notes into instant summaries",
       subtitle:
         "Designed a smart voice note experience that helped users quickly catch up on long voice messages.",
@@ -140,6 +180,8 @@ export function Projects() {
                   imageSrc={card.imageSrc}
                   imageSrcMobile={card.imageSrcMobile}
                   imageAlt={card.imageAlt}
+                  aspectRatio={card.aspectRatio}
+                  aspectRatioMobile={card.aspectRatioMobile}
                   title={card.title}
                   subtitle={card.subtitle}
                 />

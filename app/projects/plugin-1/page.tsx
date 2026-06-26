@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BlobImage } from "@/components/shared/atoms";
 import { getNavbarFeatureFlags } from "@/app/constants";
 import { getNextPluginCaseStudy } from "@/app/constants/pluginCaseStudies";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
@@ -35,7 +35,7 @@ export default function Plugin1CaseStudyPage() {
               same question:
             </p>
             <div className="my-4 w-full overflow-hidden">
-              <Image
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-pc-1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
@@ -65,25 +65,25 @@ export default function Plugin1CaseStudyPage() {
               When a designer selects a master component or one of its instances, the plugin scans the file and shows everywhere it is being used. Instead of guessing what might break, teams could clearly see the impact before making a change.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab1-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab1-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function Plugin1CaseStudyPage() {
             </p>
 
             <div className="my-4 w-full overflow-hidden">
-              <Image
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-pc-2.png")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
@@ -111,14 +111,14 @@ export default function Plugin1CaseStudyPage() {
               Without that visibility, even cleanup could become a breaking change, so I built another feature to solve it.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab2-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -132,14 +132,14 @@ export default function Plugin1CaseStudyPage() {
               it is being used. This made variable cleanup much safer and much faster.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab2-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -148,14 +148,14 @@ export default function Plugin1CaseStudyPage() {
 
               <p className="body-xlarge">Initially, I used Figma’s Variables API, but it only exposed published variables while missing some local and scoped ones in the response.</p>
 
-              <div className="my-4 w-full overflow-hidden rounded-2xl">
-                <Image
+              <div className="my-4 w-full overflow-hidden rounded-media">
+                <BlobImage
                   src={getPluginsAssetUrl("compounter/Compounter-pc-3.jpg")}
                   alt="Compounter plugin: find all occurrences of a component across the file"
                   width={1920}
                   height={1080}
                   sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                  className="h-auto w-full rounded-2xl object-contain"
+                  className="h-auto w-full rounded-media object-contain"
                 />
               </div>
 
@@ -163,14 +163,14 @@ export default function Plugin1CaseStudyPage() {
                 So I moved the logic into the plugin environment instead. Since plugins have direct access to the live file with all the variables, it removed the need for PAT tokens, file IDs, rate limits, and made the workflow much faster.
               </p>
 
-              <div className="my-4 w-full overflow-hidden rounded-2xl">
-                <Image
+              <div className="my-4 w-full overflow-hidden rounded-media">
+                <BlobImage
                   src={getPluginsAssetUrl("compounter/Compounter-tab2-set3.jpg")}
                   alt="Compounter plugin: find all occurrences of a component across the file"
                   width={1920}
                   height={1080}
                   sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                  className="h-auto w-full rounded-2xl object-contain"
+                  className="h-auto w-full rounded-media object-contain"
                 />
               </div>
 
@@ -192,14 +192,14 @@ export default function Plugin1CaseStudyPage() {
               variables.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-pc-4.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -210,14 +210,14 @@ export default function Plugin1CaseStudyPage() {
 
             <p className="body-xlarge">So I added a Tokenize feature.</p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab3-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -230,14 +230,14 @@ export default function Plugin1CaseStudyPage() {
               In case if the suggestion is not correct, the designer can also manually select the correct variable from the variables list.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab3-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
           </div>
@@ -251,14 +251,14 @@ export default function Plugin1CaseStudyPage() {
 
             <p className="body-xlarge">So I added an audit mode that scans the file, flags these issues, and points designers to the exact node locations for quick fixes.</p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab4-set1.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -266,35 +266,35 @@ export default function Plugin1CaseStudyPage() {
               For the audit to work correctly, the plugin first needs a reference point. Designers must first save the latest data from the main DLS file, after which the plugin can compare and identify externally used components, variables, and styles accurately.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab4-set2.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab4-set3.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("compounter/Compounter-tab4-set4.jpg")}
                 alt="Compounter plugin: find all occurrences of a component across the file"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
           </div>

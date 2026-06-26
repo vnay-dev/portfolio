@@ -11,7 +11,7 @@ import { getNextPluginCaseStudy } from "@/app/constants/pluginCaseStudies";
 import { getPluginsAssetUrl } from "@/app/constants/mediaAssets";
 import { NextPluginCaseStudyCard } from "@/components/projects/plugins";
 import { Container, Navbar } from "@/components/shared/composite";
-import Image from "next/image";
+import { BlobImage } from "@/components/shared/atoms";
 
 const figmaApiLimitationCards = [
   {
@@ -113,24 +113,24 @@ export default function Plugin2CaseStudyPage() {
               So I built a sync engine.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set1.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set2.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
             <p className="body-xlarge">
@@ -175,14 +175,14 @@ export default function Plugin2CaseStudyPage() {
               </span>.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-1.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -213,14 +213,14 @@ export default function Plugin2CaseStudyPage() {
               rename files, optimize them, and update the codebase which was an time consuming and error prone process.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-set3.png")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -228,14 +228,14 @@ export default function Plugin2CaseStudyPage() {
               So I added another feature where when icons are updated in Figma, the plugin extracts the SVG data and shows the data as JSON for copying into the codebase. This raw JSON data once pasted into the codebase was then processed in several ways:
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getPluginsAssetUrl("nebula-figma-sync/Nebula-pc-2.jpg")}
                 alt="Changelogger plugin: generate a changelog for a branch"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
           </div>

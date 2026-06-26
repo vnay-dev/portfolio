@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import { BlobImage } from "@/components/shared/atoms";
 
 interface TickerDescription {
   text: string;
@@ -146,16 +146,15 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
                     )
                   : description.text}
               </p>
-              <div className="relative overflow-hidden rounded-2xl">
-                <Image
-                  src={image}
-                  alt={`${altPrefix} ${imageIndex + 1}`}
-                  width={720}
-                  height={1600}
-                  className="h-auto w-full object-contain"
-                  quality={100}
-                />
-              </div>
+              <BlobImage
+                src={image}
+                alt={`${altPrefix} ${imageIndex + 1}`}
+                width={720}
+                height={1600}
+                frameClassName="overflow-hidden rounded-media"
+                className="h-auto w-full object-contain"
+                quality={100}
+              />
             </div>
           );
         })}

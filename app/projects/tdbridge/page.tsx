@@ -6,13 +6,14 @@ import {
   MdOutlineWorkspaces,
 } from "react-icons/md";
 import type { CSSProperties } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Container, Navbar } from "@/components/shared/composite";
+import { BlobImage } from "@/components/shared/atoms";
 import { getNavbarFeatureFlags, isFeatureEnabled } from "@/app/constants";
 import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import WorkflowIssuesCarousel from "@/components/projects/tdbridge/WorkflowIssuesCarousel";
 import ChallengesCarousel from "@/components/projects/tdbridge/ChallengesCarousel";
+import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
 
 const craftIssueCards = [
   {
@@ -91,14 +92,14 @@ export default function TDBridge() {
             </p>
           </div>
 
-          <div className="w-full overflow-hidden rounded-2xl">
-            <Image
+          <div className="w-full overflow-hidden rounded-media">
+            <BlobImage
               src={getTDBridgeAssetUrl("tdb_hero_banner.jpg")}
               alt="TDBridge Hero Banner"
               width={1200}
               height={800}
               priority
-              className="h-full w-full rounded-2xl object-contain"
+              className="h-auto w-full rounded-media object-contain"
             />
           </div>
 
@@ -159,14 +160,14 @@ export default function TDBridge() {
               The design system wasn&apos;t keeping up with how fast the product was growing. So, even though it existed, teams kept solving the same problems over and over again.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_dev_questions_v2.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
           </div>
@@ -179,14 +180,14 @@ export default function TDBridge() {
               The poor adoption of the design system led to inconsistent UX across applications. Since the website is where all projects come together, these differences were clearly visible.
             </p>
             <figure className="my-4 w-full">
-              <div className="overflow-hidden rounded-2xl border border-[#f9f1e8]">
-                <Image
+              <div className="overflow-hidden rounded-media border border-[#f9f1e8]">
+                <BlobImage
                   src={getTDBridgeAssetUrl("tdb_sec_btn_varieties.png")}
                   alt="Secondary button varieties across consumer tech web projects"
                   width={1920}
                   height={1080}
                   loading="lazy"
-                  className="h-auto w-full rounded-2xl"
+                  className="h-auto w-full rounded-media"
                 />
               </div>
               <figcaption className="body-medium mt-3 text-center text-zinc-500">
@@ -196,14 +197,14 @@ export default function TDBridge() {
             <p className="body-xlarge">
               This also meant that every new project had to spend time figuring out its own set of components before starting UI work. The same effort was repeated across projects, directly affecting delivery timelines.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_gen_problems.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
           </div>
@@ -216,14 +217,14 @@ export default function TDBridge() {
               Many other teams were already using tools like Figma Make, GitHub Copilot and Claude Code to vibe code internal web apps by simply prompting the model with the basic brand colors and fonts which eventually created AI slop as shown below:
             </p>
             <figure className="my-4 w-full">
-              <div className="overflow-hidden rounded-2xl">
-                <Image
+              <div className="overflow-hidden rounded-media">
+                <BlobImage
                   src={getTDBridgeAssetUrl("tdb_vibe_coding.png")}
                   alt="Vibe coding that produced AI slop"
                   width={1920}
                   height={1080}
                   loading="lazy"
-                  className="h-auto w-full rounded-2xl"
+                  className="h-auto w-full rounded-media"
                 />
               </div>
               <figcaption className="body-medium mt-3 text-center text-zinc-500">
@@ -233,14 +234,14 @@ export default function TDBridge() {
             <p className="body-xlarge">
               AI could generate code for UI, but without a shared system it would only reproduce the same inconsistencies faster.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_proposal.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
           </div>
@@ -252,14 +253,14 @@ export default function TDBridge() {
             <p className="body-xlarge">
               Because I was working as a frontend developer and was also involved in maintaining the Figma design system, I had visibility into the code across projects and how each team implemented the UI. It became easy to spot the gap between what was designed and what actually got shipped.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_steve_rogers.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
           </div>
@@ -269,14 +270,14 @@ export default function TDBridge() {
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">The problems felt obvious, but we needed data.</h2>
             <figure className="my-4 w-full">
-              <div className="overflow-hidden rounded-2xl">
-                <Image
+              <div className="overflow-hidden rounded-media">
+                <BlobImage
                   src={getTDBridgeAssetUrl("tdb_research_plan.png")}
                   alt="Three-step primary research process: discover, analyze, and define"
                   width={1920}
                   height={1080}
                   loading="lazy"
-                  className="h-auto w-full rounded-2xl"
+                  className="h-auto w-full rounded-media"
                 />
               </div>
               <figcaption className="body-medium mt-3 text-center text-zinc-500">
@@ -348,41 +349,41 @@ export default function TDBridge() {
             <h2 className="headline-large text-2xl font-bold">Building the component library for the web</h2>
             <p className="body-xlarge">The first step was to fix the craft-level issues in the existing Figma library. We defined a proper token architecture, cleaned up naming conventions, linked components to tokens, fixed styles, and improved documentation so the foundations were stable.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_craft.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <p className="body-xlarge">
               Using Figma data analysis and discussions with designers, we identified a small set of components to focus on for the first batch. This helped us avoid building everything at once and instead stabilize the system step by step.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-2xl border border-gray-200/70">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media border border-gray-200/70">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_analytics.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-2xl"
+                className="h-auto w-full rounded-media"
               />
             </div>
             <p className="body-xlarge">
               While the design foundations were being fixed, I started scaffolding the component library project in parallel using Stencil.js. As components were finalized in Figma, I built them one by one in the library.
             </p>
 
-            <div className="my-4 w-full overflow-hidden rounded-2xl">
-              <Image
+            <div className="my-4 w-full overflow-hidden rounded-media">
+              <BlobImage
                 src={getTDBridgeAssetUrl("tdb_pc_1.png")}
                 alt="Building the component library for the web"
                 width={1920}
                 height={1080}
                 sizes="(max-width: 768px) 100vw, min(1200px, 100vw)"
-                className="h-auto w-full rounded-2xl object-contain"
+                className="h-auto w-full rounded-media object-contain"
               />
             </div>
 
@@ -409,14 +410,14 @@ export default function TDBridge() {
                 <p className="body-xlarge">
                   With the intention of bridging the gap between design and engineering, I designed a system that would adopt and maintain the design system in both Figma and code.
                 </p>
-                <div className="my-4 w-full overflow-hidden rounded-2xl">
-                  <Image
+                <div className="my-4 w-full overflow-hidden rounded-media">
+                  <BlobImage
                     src={getTDBridgeAssetUrl("tdb_framework.png")}
                     alt="Common questions developers ask about design systems"
                     width={1920}
                     height={1080}
                     loading="lazy"
-                    className="h-auto w-full rounded-2xl"
+                    className="h-auto w-full rounded-media"
                   />
                 </div>
               </div>
@@ -435,30 +436,28 @@ export default function TDBridge() {
                   system worked. We created a documentation website that explained foundations,
                   components, guidelines, and usage patterns in simple language anyone could follow.
                 </p>
-                <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
-                  <Image
+                <div className="my-4 w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+                  <BlobImage
                     src={getTDBridgeAssetUrl("tdb_outcome_docs_mockup.jpg")}
                     alt="Outcome & Impact"
                     width={1920}
                     height={1080}
                     loading="lazy"
-                    className="h-auto w-full rounded-2xl"
+                    className="h-auto w-full rounded-media"
                   />
                 </div>
 
                 <p className="body-xlarge">
                   We built a shared component library along with a CSS foundation bundle that carried our tokens, typography, and brand styles. This meant teams no longer had to recreate the same foundations inside every new project, while designers and product owners could also use the same bundle to prototype with production-aligned styles.
                 </p>
-                <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
-                  <Image
-                    src={getTDBridgeAssetUrl("tdb_outcome_tokens.png")}
-                    alt="Outcome & Impact"
-                    width={1920}
-                    height={1080}
-                    loading="lazy"
-                    className="h-auto w-full rounded-2xl"
-                  />
-                </div>
+                <figure className="my-4 w-full">
+                  <div className="w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+                    <VisibilityVideo src={getTDBridgeAssetUrl("component_tokens.mp4")} aspectRatio="1896 / 988" />
+                  </div>
+                  <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                    Design tokens and the shared CSS foundation bundle in action
+                  </figcaption>
+                </figure>
 
                 <p className="body-xlarge">
                   As more consumer tech web projects adopted the shared bundle, duplicated styling
@@ -470,32 +469,36 @@ export default function TDBridge() {
                   We also introduced a centralized font icon library, which helped reduce DOM size and
                   brought more consistency to how icons were used across products.
                 </p>
-                <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
-                  <Image
-                    src={getTDBridgeAssetUrl("tdb_outcome_icons.png")}
-                    alt="Outcome & Impact"
-                    width={1920}
-                    height={1080}
-                    loading="lazy"
-                    className="h-auto w-full rounded-2xl"
-                  />
-                </div>
+                <figure className="my-4 w-full">
+                  <div className="w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+                    <VisibilityVideo src={getTDBridgeAssetUrl("icon_lib.mp4")} aspectRatio="1894 / 984" />
+                  </div>
+                  <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                    The centralized font icon library
+                  </figcaption>
+                </figure>
 
                 <p className="body-xlarge">
                   Projects could now start from production-ready components instead of rebuilding
                   common UI patterns each time. That helped move the overall web experience toward a
                   more consistent UX.
                 </p>
-                <div className="my-4 w-full overflow-hidden rounded-2xl border border-[#f5f5f5]">
-                  <Image
-                    src={getTDBridgeAssetUrl("tdb_outcome_components.png")}
-                    alt="Outcome & Impact"
-                    width={1920}
-                    height={1080}
-                    loading="lazy"
-                    className="h-auto w-full rounded-2xl"
-                  />
-                </div>
+                <figure className="my-4 w-full">
+                  <div className="w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+                    <VisibilityVideo src={getTDBridgeAssetUrl("button_component.mp4")} aspectRatio="1894 / 984" />
+                  </div>
+                  <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                    The Button component from the component library
+                  </figcaption>
+                </figure>
+                <figure className="my-4 w-full">
+                  <div className="w-full overflow-hidden rounded-media border border-[#f5f5f5]">
+                    <VisibilityVideo src={getTDBridgeAssetUrl("input_field_component.mp4")} aspectRatio="1894 / 984" />
+                  </div>
+                  <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                    The Input Field component from the component library
+                  </figcaption>
+                </figure>
 
                 <div className="my-4 grid w-full grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
                   {outcomeImpactCards.map((card) => (
