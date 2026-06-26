@@ -46,6 +46,17 @@ export const getTDBridgeAssetUrl = (assetName: string) => {
   return `${normalizedTDBridgeBlobBaseUrl}/images/tdbridge/${normalizedAssetName}`;
 };
 
+/** Path under `images/figmaMCP/` (e.g. `blade_dls.png`), served from the tdbridge store. */
+export const getFigmaMCPAssetUrl = (assetName: string) => {
+  const normalizedAssetName = assetName.replace(/^\/+/, "");
+
+  if (!normalizedTDBridgeBlobBaseUrl) {
+    return `/images/figmaMCP/${normalizedAssetName}`;
+  }
+
+  return `${normalizedTDBridgeBlobBaseUrl}/images/figmaMCP/${normalizedAssetName}`;
+};
+
 /** Path under `images/plugins/` (e.g. `compounter/Compounter-tab1.png`). */
 export const getPluginsAssetUrl = (pathUnderPlugins: string) => {
   const normalizedPath = pathUnderPlugins.replace(/^\/+/, "");

@@ -11,7 +11,7 @@ import {
   MdOutlineViewModule,
   MdSearch,
 } from "react-icons/md";
-import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
+import { getFigmaMCPAssetUrl, getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
 import { Container, Navbar } from "@/components/shared/composite";
 import { BlobImage } from "@/components/shared/atoms";
 import { getNavbarFeatureFlags } from "@/app/constants";
@@ -91,10 +91,32 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
       <Navbar variant="light" featureFlags={navFeatureFlags} />
       <Container>
         <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
-          <h1 className="display-medium text-center">Exploring Figma MCP for agentic UI workflows</h1>
-          <p className="body-xlarge">
-            This case study captures 3 focused POCs I ran to understand how Figma MCP behaves in real design-to-code workflows, what improves output quality, and what still needs human refinement.
-          </p>
+          <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
+            <h1 className="display-medium">Exploring Figma MCP for agentic UI workflows</h1>
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+              <time dateTime="2025-10">Oct–Nov 2025</time>
+              <span className="select-none text-zinc-400" aria-hidden="true">
+                ·
+              </span>
+              <span>1 design engineer</span>
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div className="w-full overflow-hidden rounded-media">
+              <BlobImage
+                src={getFigmaMCPAssetUrl("poc_hero.png")}
+                alt="Exploring Figma MCP for agentic UI workflows"
+                width={3840}
+                height={1677}
+                priority
+                className="h-auto w-full rounded-media"
+              />
+            </div>
+            <p className="body-xlarge">
+              This case study captures 3 POCs I ran to understand how Figma MCP behaves in real design-to-code workflows. I wanted to see what improves output quality and what still needs a human touch. What I learned along the way ended up being instrumental in getting the design system ready for AI-driven workflows.
+            </p>
+          </div>
 
           {/* Section 1 begins */}
           <div className="flex flex-col gap-6">
@@ -107,6 +129,16 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               For testing, I asked my colleagues to participate and used Razorpay’s Blade design system as a reference since it’s mature and publicly available.
             </p>
+            <div className="w-full overflow-hidden rounded-media">
+              <BlobImage
+                src={getFigmaMCPAssetUrl("blade_dls.png")}
+                alt="Razorpay's Blade design system used as the reference"
+                width={3840}
+                height={1677}
+                loading="lazy"
+                className="h-auto w-full rounded-media"
+              />
+            </div>
             <p className="body-xlarge">
               Each developer was given the same landing page design and prompts. They used Figma MCP and GitHub Copilot Agent to generate the components first, and then the full page using those components.
             </p>
@@ -149,19 +181,29 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             </p>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Making the DLS agent ready</h3>
             <AgentReadyCarousel />
-            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
-              <BlobImage
-                src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
-                alt="Common questions developers ask about design systems"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="h-auto w-full rounded-media"
-              />
-            </div>
-            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
-              <VisibilityVideo src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")} />
-            </div>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+                <BlobImage
+                  src={getTDBridgeAssetUrl("tdb_poc2_vars.png")}
+                  alt="Token architecture defined for the design system built for this POC"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="h-auto w-full rounded-media"
+                />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                The token architecture defined for the design system built for this POC
+              </figcaption>
+            </figure>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+                <VisibilityVideo src={getTDBridgeAssetUrl("tdb_mini_dls_walkthrough.mp4")} />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                A walkthrough of the UI components designed within the POC&apos;s design system
+              </figcaption>
+            </figure>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Optimizing the SPEC.md file for better context</h3>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {poc2SpecFileCards.map(({ id, icon: Icon, text }) => (
@@ -180,16 +222,21 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               The library was then exported and installed in a new project, where the form UI design was given to the agent to generate.
             </p>
-            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
-              <BlobImage
-                src={getTDBridgeAssetUrl("tdb_poc2_result.png")}
-                alt="Common questions developers ask about design systems"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="h-auto w-full rounded-media"
-              />
-            </div>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+                <BlobImage
+                  src={getTDBridgeAssetUrl("tdb_poc2_result.png")}
+                  alt="The form component design compared with the UI generated by the agent"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="h-auto w-full rounded-media"
+                />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                A side-by-side comparison of the form component designed with the design system and the UI the agent generated from it
+              </figcaption>
+            </figure>
             <p className="body-xlarge">
               The generated UI was 60% closer to the UI design, and the overall workflow felt more predictable.
             </p>
@@ -229,16 +276,21 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               After building the components, the code was merged into the main branch and linked back to the corresponding Figma components using the Code Connect feature. This allowed the design and code to stay connected, and the additional descriptions helped the agent understand the component behavior and intended usage, reducing some of the incorrect implementations seen in the previous POC.
             </p>
-            <div className="w-full overflow-hidden rounded-media">
-              <BlobImage
-                src={getTDBridgeAssetUrl("tdb_code_connect.jpg")}
-                alt="Common questions developers ask about design systems"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="h-auto w-full rounded-media"
-              />
-            </div>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media">
+                <BlobImage
+                  src={getTDBridgeAssetUrl("tdb_code_connect.jpg")}
+                  alt="Code Connect view inside Figma linking the UI component code to its design"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="h-auto w-full rounded-media"
+                />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                The Code Connect view inside Figma, linking the UI component&apos;s code to its Figma design
+              </figcaption>
+            </figure>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">
               Underrated combo: Figma MCP + Chrome DevTools MCP
             </h3>
@@ -249,27 +301,37 @@ export default function ExploringFigmaMcpForAgenticUiWorkflows() {
             <p className="body-xlarge">
               Instead of giving the agent the full page and asking it to build everything at once (that normally many developers do), I created an analyze–review–build loop for each section of the page, gradually assembling the UI like Lego blocks. This gave much better control over UI generation and made it easier to fix issues early.
             </p>
-            <div className="w-full overflow-hidden rounded-media">
-              <BlobImage
-                src={getTDBridgeAssetUrl("tdb_prompting.png")}
-                alt="Common questions developers ask about design systems"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="h-auto w-full rounded-media"
-              />
-            </div>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media">
+                <BlobImage
+                  src={getTDBridgeAssetUrl("tdb_prompting.png")}
+                  alt="The analyze, review, and build loop used to generate the UI section by section"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="h-auto w-full rounded-media"
+                />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                The analyze–review–build loop used to generate the page one section at a time, assembling the UI piece by piece
+              </figcaption>
+            </figure>
             <h3 className="mt-6 headline-small text-gray-800 md:mt-10">Final result</h3>
-            <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
-              <BlobImage
-                src={getTDBridgeAssetUrl("tdb_poc3_result.png")}
-                alt="Common questions developers ask about design systems"
-                width={1920}
-                height={1080}
-                loading="lazy"
-                className="h-auto w-full rounded-media"
-              />
-            </div>
+            <figure className="my-4 w-full">
+              <div className="w-full overflow-hidden rounded-media border border-gray-200/70">
+                <BlobImage
+                  src={getTDBridgeAssetUrl("tdb_poc3_result.png")}
+                  alt="Design versus generated output comparison for a full page"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  className="h-auto w-full rounded-media"
+                />
+              </div>
+              <figcaption className="body-medium mt-3 text-center text-zinc-500">
+                Taking it a step further — the same process applied to an entire page instead of a single component, comparing the design with the generated output
+              </figcaption>
+            </figure>
             <p className="body-xlarge">
               The generated UI matched the design roughly 70 to 75%, which was significantly better than the earlier experiments and showed that the workflow could work in a realistic scenario.
             </p>
