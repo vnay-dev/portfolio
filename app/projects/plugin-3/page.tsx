@@ -17,7 +17,7 @@ export default function Plugin3CaseStudyPage() {
 
           <div className="flex flex-col gap-6">
             <h1 className="text-center text-4xl font-semibold sm:text-5xl">Making branch-level reviews more reliable in Figma</h1>
-            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 text-zinc-500">
               <time dateTime="2025-10">Feb 2026</time>
               <span className="select-none text-zinc-400" aria-hidden="true">
                 ·

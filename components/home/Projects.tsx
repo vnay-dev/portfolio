@@ -118,8 +118,8 @@ function ProjectCard({
         <MediaSkeleton isLoaded={isImageLoaded} />
       </span>
       <div className="mt-5 flex flex-col gap-2 sm:mt-6 sm:gap-3">
-        <h3 className="headline-medium text-neutral-900 md:headline-large">{title}</h3>
-        <p className="body-xlarge text-neutral-500 md:text-xl md:leading-8">{subtitle}</p>
+        <h3 className="project-thumb-title headline-medium text-neutral-900">{title}</h3>
+        <p className="project-thumb-subtitle body-xlarge text-neutral-500">{subtitle}</p>
       </div>
     </Link>
   );
@@ -130,8 +130,10 @@ export function Projects() {
     {
       href: "/projects/tdbridge",
       imageSrc: getTDBridgeAssetUrl("tech_design_research_thumbnail_v2.1.png"),
+      imageSrcMobile: getTDBridgeAssetUrl("mobile/project-thumb-tdb_mob_v2.png"),
       imageAlt: "Tech Design Research Project",
       aspectRatio: "1920 / 945",
+      aspectRatioMobile: "780 / 942",
       title: "Building the foundation for AI-Native web design system",
       subtitle:
         "Scaled Air India's consumer web design system through standards, architecture, and a reusable component library, laying the foundation for design-to-code agentic workflows.",

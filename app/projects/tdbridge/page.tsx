@@ -79,7 +79,7 @@ export default function TDBridge() {
             <h1 className="display-medium">
               Getting an overlooked design system ready for agentic UI workflows
             </h1>
-            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 text-zinc-500">
               <time dateTime="2025-10">Oct 2025</time>
               <span className="select-none text-zinc-400" aria-hidden="true">
                 ·

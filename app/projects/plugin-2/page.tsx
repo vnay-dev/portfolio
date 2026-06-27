@@ -80,7 +80,7 @@ export default function Plugin2CaseStudyPage() {
         <div className="flex flex-col gap-28 py-16 sm:gap-32 sm:py-24 md:gap-40 md:py-32">
           <div className="flex flex-col gap-6">
             <h1 className="text-center text-4xl font-semibold sm:text-5xl">Keeping the design token system in sync with the codebase</h1>
-            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 tracking-wide text-zinc-500">
+            <p className="body-large flex flex-row flex-wrap items-center justify-center gap-x-2 text-zinc-500">
               <time dateTime="2025-10">Feb 2026</time>
               <span className="select-none text-zinc-400" aria-hidden="true">
                 ·
@@ -170,7 +170,7 @@ export default function Plugin2CaseStudyPage() {
             <p className="body-xlarge">
               Even after sync was working, the exported values still needed cleanup. For example, colors often came through as hardcoded hex values like #DA0E29, while our
               actual system relied on token references such as{"\u00A0"}
-              <span className="box-decoration-clone rounded-sm bg-neutral-100 px-1 py-0.5 font-mono text-[0.95em] leading-snug tracking-normal text-neutral-800">
+              <span className="box-decoration-clone rounded-sm bg-neutral-100 px-1 py-0.5 font-mono text-[0.95em] leading-snug text-neutral-800">
                 primitives.color.ai-red-500
               </span>.
             </p>

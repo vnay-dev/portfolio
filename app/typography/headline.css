@@ -5,7 +5,6 @@
   font-size: 2rem; /* 32px - Material Design 2 Headline Large */
   font-weight: 400;
   line-height: 2.5rem; /* 40px */
-  letter-spacing: 0;
 }
 
 .headline-medium {
@@ -13,7 +12,6 @@
   font-size: 1.75rem; /* 28px - Material Design 2 Headline Medium */
   font-weight: 400;
   line-height: 2.25rem; /* 36px */
-  letter-spacing: 0;
 }
 
 .headline-small {
@@ -21,6 +19,4 @@
   font-size: 1.5rem; /* 24px - Material Design 2 Headline Small */
   font-weight: 400;
   line-height: 2rem; /* 32px */
-  letter-spacing: 0;
 }
-

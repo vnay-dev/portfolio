@@ -43,5 +43,20 @@
     font-size: 1.125rem; /* 18px - scaled from 24px */
     line-height: 1.5rem; /* 24px */
   }
-}
 
+  /*
+    Home project thumbnails: scale the title and subtitle down on mobile so the
+    type hierarchy stays consistent (hero title > section title > thumbnail title
+    > thumbnail subtitle). Without this, the thumbnail title would render larger
+    than the section title on small screens.
+  */
+  .project-thumb-title {
+    font-size: 1.25rem; /* 20px - scaled from 28px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .project-thumb-subtitle {
+    font-size: 1rem; /* 16px - scaled from 18px */
+    line-height: 1.5rem; /* 24px */
+  }
+}
