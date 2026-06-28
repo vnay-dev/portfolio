@@ -13,7 +13,7 @@ export function Footer() {
   const email = "vinaykrishnan.design@gmail.com";
 
   return (
-    <footer className="w-full overflow-hidden border-t border-gray-200 bg-white">
+    <footer className="w-full overflow-hidden bg-white">
       <div className="container mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 sm:py-14 md:px-12 md:py-16 lg:px-24">
         <div className="flex w-full min-w-0 flex-col items-center gap-4 text-center sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-3 lg:flex-nowrap lg:justify-between lg:text-left">
           <nav

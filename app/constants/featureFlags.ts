@@ -29,11 +29,6 @@ export const FEATURE_FLAGS = {
     defaultValue: true,
     description: "Show the Art Gallery section on the home page.",
   },
-  homeHideStatement: {
-    envVar: "NEXT_PUBLIC_FF_HOME_HIDE_STATEMENT",
-    defaultValue: true,
-    description: "Hide the statement section on the home page.",
-  },
   tdbridgeImplementationFramework: {
     envVar: "NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK",
     defaultValue: true,
@@ -63,7 +58,6 @@ const FEATURE_FLAG_ENV_VALUES: Record<FeatureFlagKey, string | undefined> = {
   homeHideReflections: process.env.NEXT_PUBLIC_FF_HOME_HIDE_REFLECTIONS,
   homeHideFormAndAesthetics: process.env.NEXT_PUBLIC_FF_HOME_HIDE_FORM_AND_AESTHETICS,
   homeArtGallery: process.env.NEXT_PUBLIC_FF_HOME_ART_GALLERY,
-  homeHideStatement: process.env.NEXT_PUBLIC_FF_HOME_HIDE_STATEMENT,
   tdbridgeImplementationFramework: process.env.NEXT_PUBLIC_FF_TDBRIDGE_IMPLEMENTATION_FRAMEWORK,
   tdbridgeOutcomePlaceholder: process.env.NEXT_PUBLIC_FF_TDBRIDGE_OUTCOME_PLACEHOLDER,
   tdbridgeWhatsNext: process.env.NEXT_PUBLIC_FF_TDBRIDGE_WHATS_NEXT,

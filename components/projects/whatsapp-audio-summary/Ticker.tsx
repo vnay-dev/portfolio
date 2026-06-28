@@ -12,7 +12,17 @@ interface TickerDescription {
 interface TickerProps {
   images: string[];
   altPrefix: string;
-  descriptions: TickerDescription[];
+  descriptions?: TickerDescription[];
+  /**
+   * Tailwind width classes for each ticker item. Defaults to the standard
+   * mockup sizes. Override to scale items up/down for a specific section.
+   */
+  itemWidthClassName?: string;
+  /**
+   * Tailwind classes for the image frame. Defaults to a rounded, clipped box.
+   * Override to add a border (e.g. for the final-solution mockups).
+   */
+  imageFrameClassName?: string;
 }
 
 function renderTextWithOpacity(text: string, highlightText?: string, highlightLength?: number) {
@@ -49,8 +59,17 @@ function renderTextWithOpacity(text: string, highlightText?: string, highlightLe
   );
 }
 
-export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
+export function Ticker({
+  images,
+  altPrefix,
+  descriptions,
+  itemWidthClassName = "w-[160px] sm:w-[200px] md:w-[240px]",
+  imageFrameClassName = "overflow-hidden rounded-media",
+}: TickerProps) {
+  // Paused while a mouse hovers (desktop) or a finger/pointer is held down (mobile)
   const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+  const isPaused = isHovered || isPressed;
   const tickerRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | null>(null);
   const positionRef = useRef(0);
@@ -58,7 +77,8 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
   // Duplicate content for seamless loop
   // When we reach 50%, we reset to 0% - but since content is duplicated, it's invisible
   const duplicatedImages = [...images, ...images];
-  const duplicatedDescriptions = [...descriptions, ...descriptions];
+  const safeDescriptions = descriptions ?? [];
+  const duplicatedDescriptions = [...safeDescriptions, ...safeDescriptions];
 
   useEffect(() => {
     const ticker = tickerRef.current;
@@ -90,7 +110,7 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
     const animate = (currentTime: number) => {
       if (!ticker) return;
 
-      if (!isHovered) {
+      if (!isPaused) {
         const deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
         positionRef.current += speed * deltaTime;
 
@@ -119,13 +139,16 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isHovered, images.length]);
+  }, [isPaused, images.length]);
 
   return (
     <div
       className="relative w-full overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onPointerDown={() => setIsPressed(true)}
+      onPointerUp={() => setIsPressed(false)}
+      onPointerCancel={() => setIsPressed(false)}
     >
       <div ref={tickerRef} className="flex gap-6 sm:gap-8" style={{ willChange: "transform" }}>
         {duplicatedImages.map((image, index) => {
@@ -135,23 +158,25 @@ export function Ticker({ images, altPrefix, descriptions }: TickerProps) {
           return (
             <div
               key={`${image}-${index}`}
-              className="flex w-[160px] flex-shrink-0 flex-col gap-3 sm:w-[200px] md:w-[240px]"
+              className={`flex flex-shrink-0 flex-col gap-3 ${itemWidthClassName}`}
             >
-              <p className="body-large text-center" style={{ color: "#1c1e21" }}>
-                {description.highlightText && description.highlightLength !== undefined
-                  ? renderTextWithOpacity(
-                      description.text,
-                      description.highlightText,
-                      description.highlightLength
-                    )
-                  : description.text}
-              </p>
+              {description?.text && (
+                <p className="body-large text-center" style={{ color: "#1c1e21" }}>
+                  {description.highlightText && description.highlightLength !== undefined
+                    ? renderTextWithOpacity(
+                        description.text,
+                        description.highlightText,
+                        description.highlightLength
+                      )
+                    : description.text}
+                </p>
+              )}
               <BlobImage
                 src={image}
                 alt={`${altPrefix} ${imageIndex + 1}`}
                 width={720}
                 height={1600}
-                frameClassName="overflow-hidden rounded-media"
+                frameClassName={imageFrameClassName}
                 className="h-auto w-full object-contain"
                 quality={100}
               />

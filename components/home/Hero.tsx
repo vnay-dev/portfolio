@@ -8,7 +8,17 @@ import { Navbar, Container } from "@/components/shared/composite";
 import ColorBends from "@/components/animations/ColorBends/ColorBends";
 import { StockBorderGlowBadge } from "./StockBorderGlowBadge";
 
-export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags }) {
+type HeroProps = {
+  navFeatureFlags: NavbarFeatureFlags;
+  /** Whether the hero intro section is currently expanded. */
+  isIntroOpen?: boolean;
+  /** Id of the intro section the badge expands (for aria-controls). */
+  introSectionId?: string;
+  /** Toggles the hero intro section open/closed. */
+  onToggleIntro?: () => void;
+};
+
+export function Hero({ navFeatureFlags, isIntroOpen = false, introSectionId, onToggleIntro }: HeroProps) {
   const [heroMinHeight, setHeroMinHeight] = useState("100vh");
   const [isHeroVisible, setIsHeroVisible] = useState(false);
 
@@ -94,7 +104,11 @@ export function Hero({ navFeatureFlags }: { navFeatureFlags: NavbarFeatureFlags 
                   }`}
                 style={{ transitionDelay: "520ms" }}
               >
-                <StockBorderGlowBadge />
+                <StockBorderGlowBadge
+                  onClick={onToggleIntro}
+                  expanded={isIntroOpen}
+                  controlsId={introSectionId}
+                />
               </div>
             </div>
           </div>

@@ -72,6 +72,22 @@ export const insightsData: InsightItem[] = [
   },
 ];
 
+export const uj1FinalScreenImages = [
+  getWhatsAppAssetUrl("uj1_final_scrn1.png"),
+  getWhatsAppAssetUrl("uj1_final_scrn2.png"),
+  getWhatsAppAssetUrl("uj1_final_scrn3.png"),
+];
+
+export const uj1Iteration1Images = [
+  getWhatsAppAssetUrl("uj1_itr1_scr1.png"),
+  getWhatsAppAssetUrl("uj1_itr1_scr2.png"),
+];
+
+export const uj1Iteration2Images = [
+  getWhatsAppAssetUrl("uj1_itr2_scr1.png"),
+  getWhatsAppAssetUrl("uj1_itr2_scr2.png"),
+];
+
 export const uj2Iteration1Images = [
   getWhatsAppAssetUrl("uj2_itr1_screen1.png"),
   getWhatsAppAssetUrl("uj2_itr1_screen2.png"),
@@ -87,7 +103,7 @@ export interface TickerDescription {
 
 export const uj2Iteration1Descriptions: TickerDescription[] = [
   {
-    text: "User taps on the search bar",
+    text: "Taps the search bar",
   },
   {
     text: "Starts typing 'Apple'",
@@ -114,7 +130,7 @@ export const uj2SearchFlowImages = [
 
 export const uj2SearchFlowDescriptions: TickerDescription[] = [
   {
-    text: "User taps on the search bar",
+    text: "Taps the search bar",
   },
   {
     text: "Starts typing 'Apple'",

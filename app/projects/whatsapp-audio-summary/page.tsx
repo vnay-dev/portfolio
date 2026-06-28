@@ -22,6 +22,9 @@ import {
 import {
   interviewCarouselData,
   insightsData,
+  uj1FinalScreenImages,
+  uj1Iteration1Images,
+  uj1Iteration2Images,
   uj2Iteration1Images,
   uj2Iteration1Descriptions,
   uj2SearchFlowImages,
@@ -74,13 +77,13 @@ export default function WhatsAppAudioSummary() {
                 height={96}
                 className="h-auto w-10 flex-shrink-0 sm:w-12 md:w-16 lg:w-16"
               />
-              <p className="title-large text-lg sm:text-xl md:text-xl lg:hidden">
-                Looks like WhatsApp and I were thinking about the same problem
+              <p className="title-large text-lg! sm:text-xl! lg:hidden">
+                Looks like WhatsApp and I were thinking about the same problem!
               </p>
             </div>
             <div className="flex w-full flex-col gap-2 text-left">
               <p className="title-large hidden lg:block">
-                Looks like WhatsApp and I were thinking about the same problem
+                Looks like WhatsApp and I were thinking about the same problem!
               </p>
               <p className="body-large text-sm sm:text-base md:text-base">
                 I published this case study on August 8, 2024. Three months later, WhatsApp introduced
@@ -273,7 +276,7 @@ export default function WhatsAppAudioSummary() {
           {/* Section 5 begins */}
           <div className="flex flex-col gap-6">
             <blockquote
-              className="text-xl md:text-2xl headline-large"
+              className="max-md:!text-xl headline-large"
               style={{ color: "#1c1e21" }}
             >
               &quot;When I receive a long audio message, I want to read a gist of it so that I can
@@ -300,7 +303,19 @@ export default function WhatsAppAudioSummary() {
               >
                 Read quick summaries of your voice notes
               </h3>
-              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
+              {/* Mobile: an auto-scrolling ticker keeps the three final screens
+                  compact instead of stacking. Press and hold to pause, release to resume. */}
+              <div className="sm:hidden">
+                <Ticker
+                  images={uj1FinalScreenImages}
+                  altPrefix="Final Screen"
+                  itemWidthClassName="w-[240px]"
+                  imageFrameClassName="overflow-hidden rounded-media border-2 border-[#1c1e21]"
+                />
+              </div>
+
+              {/* Tablet and up: show all three final screens side by side */}
+              <div className="hidden sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-8">
                 <div
                   className={`${presentationMockupFrameClass} border`}
                   style={{ borderColor: "#1c1e21", borderWidth: "2px" }}
@@ -373,7 +388,18 @@ export default function WhatsAppAudioSummary() {
                   Using a bottom sheet to show summary of voice notes
                 </span>
               </h3>
-              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
+              {/* Mobile: auto-scrolling ticker keeps the screens compact instead of
+                  stacking. Press and hold to pause, release to resume. */}
+              <div className="sm:hidden">
+                <Ticker
+                  images={uj1Iteration1Images}
+                  altPrefix="Iteration 1 Screen"
+                  itemWidthClassName="w-[240px]"
+                />
+              </div>
+
+              {/* Tablet and up: show the screens side by side */}
+              <div className="hidden sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-0">
                 <div className={presentationMockupFrameClass}>
                   <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr1_scr1.png")}
@@ -433,7 +459,18 @@ export default function WhatsAppAudioSummary() {
                   Vertical expansion of the voice note
                 </span>
               </h3>
-              <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
+              {/* Mobile: auto-scrolling ticker keeps the screens compact instead of
+                  stacking. Press and hold to pause, release to resume. */}
+              <div className="sm:hidden">
+                <Ticker
+                  images={uj1Iteration2Images}
+                  altPrefix="Iteration 2 Screen"
+                  itemWidthClassName="w-[240px]"
+                />
+              </div>
+
+              {/* Tablet and up: show the screens side by side */}
+              <div className="hidden sm:flex sm:flex-row sm:items-center sm:justify-center sm:gap-0">
                 <div className={presentationMockupFrameClass}>
                   <BlobImage
                     src={getWhatsAppAssetUrl("uj1_itr2_scr1.png")}
@@ -561,7 +598,7 @@ export default function WhatsAppAudioSummary() {
           {/* Section 6 begins */}
           <div className="flex flex-col gap-6">
             <blockquote
-              className="text-xl md:text-2xl headline-large"
+              className="max-md:!text-xl headline-large"
               style={{ color: "#1c1e21" }}
             >
               &quot;I want to search for keywords within voice notes to quickly find what I need in
@@ -648,10 +685,10 @@ export default function WhatsAppAudioSummary() {
           {/* Section 7 begins */}
           <div className="flex flex-col gap-16">
             <div
-              className="flex flex-col gap-6 rounded-2xl px-6 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:px-10 md:py-12"
+              className="flex flex-col gap-10 rounded-2xl px-6 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:justify-between md:gap-8 md:px-10 md:py-12"
               style={{ backgroundColor: "#e0ffd6" }}
             >
-              <div className="flex w-full flex-col gap-6 md:max-w-xl lg:max-w-2xl">
+              <div className="flex w-full flex-col gap-3 md:max-w-xl md:gap-6 lg:max-w-2xl">
                 <h2 className="headline-small md:!text-[1.75rem]">
                   Tech constraints that may affect the UX
                 </h2>
@@ -660,13 +697,13 @@ export default function WhatsAppAudioSummary() {
                   depending on how it&apos;s set up.
                 </p>
               </div>
-              <div className="flex w-full flex-shrink-0 items-center justify-center md:w-auto md:max-w-[200px] lg:max-w-[240px]">
+              <div className="order-first flex w-full flex-shrink-0 items-center justify-start md:order-none md:w-auto md:max-w-[200px] md:justify-center lg:max-w-[240px]">
                 <Image
                   src={getWhatsAppAssetUrl("tech_constraints_illustration.svg")}
                   alt="Tech constraints illustration"
                   width={400}
                   height={400}
-                  className="h-auto max-h-[120px] w-full object-contain sm:max-h-[150px] md:max-h-[180px]"
+                  className="h-auto w-auto max-h-[96px] object-contain sm:max-h-[150px] md:max-h-[180px] md:w-full"
                   quality={100}
                 />
               </div>
@@ -1054,17 +1091,6 @@ export default function WhatsAppAudioSummary() {
             </ol>
           </div>
           {/* Section 8 ends */}
-
-          {/* Section 9 begins */}
-          <div className="flex flex-col gap-6">
-            <h2 className="headline-large" style={{ color: "#1c1e21" }}>
-              Thanks for sticking around!
-            </h2>
-            <p className="body-xlarge" style={{ color: "#1c1e21" }}>
-              Thanks you for taking the time to check out my case study! If you found it
-              interesting, feel free to check out my other articles as well.
-            </p>
-          </div>
         </div>
       </Container>
     </main>
