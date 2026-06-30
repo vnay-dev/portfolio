@@ -238,8 +238,12 @@ function createPointerData(params: {
   if (!pointerMap.has(params.domElement)) {
     pointerMap.set(params.domElement, data);
     if (!pointerListenersActive) {
+      // pointerdown also drives interaction so a touch starts stirring immediately, not only on drag.
+      document.body.addEventListener("pointerdown", onPointerMove);
       document.body.addEventListener("pointermove", onPointerMove);
-      document.body.addEventListener("pointerleave", onPointerLeave);
+      document.body.addEventListener("pointerleave", releaseAllPointers);
+      document.body.addEventListener("pointerup", onPointerRelease);
+      document.body.addEventListener("pointercancel", onPointerRelease);
       pointerListenersActive = true;
     }
   }
@@ -247,8 +251,11 @@ function createPointerData(params: {
   data.dispose = () => {
     pointerMap.delete(params.domElement);
     if (pointerMap.size === 0) {
+      document.body.removeEventListener("pointerdown", onPointerMove);
       document.body.removeEventListener("pointermove", onPointerMove);
-      document.body.removeEventListener("pointerleave", onPointerLeave);
+      document.body.removeEventListener("pointerleave", releaseAllPointers);
+      document.body.removeEventListener("pointerup", onPointerRelease);
+      document.body.removeEventListener("pointercancel", onPointerRelease);
       pointerListenersActive = false;
     }
   };
@@ -272,7 +279,14 @@ function onPointerMove(event: PointerEvent) {
   }
 }
 
-function onPointerLeave() {
+// On touch/pen there is no real "hover", so lifting the finger must release the stirrer. A mouse keeps
+// hovering after a click, so we ignore mouse pointerup here and let pointermove keep it engaged.
+function onPointerRelease(event: PointerEvent) {
+  if (event.pointerType === "mouse") return;
+  releaseAllPointers();
+}
+
+function releaseAllPointers() {
   for (const data of pointerMap.values()) {
     if (data.hover) {
       data.hover = false;
@@ -663,7 +677,9 @@ function createBallpit(
 
   let pointer: PointerData | undefined;
   if (enablePointer) {
-    canvas.style.touchAction = "none";
+    // Note: we deliberately do NOT set `touch-action: none` here. Interaction is driven by
+    // body-level pointer listeners (no preventDefault), so touch drags can stir the pit while the
+    // page still scrolls normally.
     canvas.style.userSelect = "none";
     pointer = createPointerData({
       domElement: canvas,
@@ -701,7 +717,8 @@ export interface BallpitProps {
   count?: number;
   /** Gradient of colors spread across the spheres. Accepts hex strings or numbers. */
   colors?: Array<number | string>;
-  /** Whether the cursor pushes the spheres (auto-disabled on touch so it never blocks scrolling). */
+  /** Whether the visible cursor-controlled sphere is shown (hover devices only). Stirring works on
+   * touch regardless via body-level pointer listeners that never block scrolling. */
   followCursor?: boolean;
   gravity?: number;
   friction?: number;
@@ -724,13 +741,13 @@ export default function Ballpit({ className = "", followCursor = true, ...config
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Cursor stirring only on devices that truly hover; on touch we skip it entirely so the canvas
-    // never hijacks touch scrolling over the section. `followCursor` only controls whether the
-    // cursor-controlled sphere is *visible* — the pit can still be stirred without showing it.
+    // Stirring works on both mouse (hover) and touch (drag) — the body-level pointer listeners never
+    // block scrolling. `followCursor` only controls whether the cursor-controlled sphere is *visible*;
+    // we keep it visible on hover devices only (a finger would cover it on touch anyway).
     const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const instance = createBallpit(canvas, {
       followCursor: followCursor && canHover,
-      enablePointer: canHover,
+      enablePointer: true,
       ...config,
     });
 

@@ -13,7 +13,7 @@ export function PlayArena() {
       <div className="container mx-auto w-full max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-24 lg:px-24">
         <div className="mb-8 text-left sm:mb-10">
           <h2 className="headline-medium font-semibold text-gray-900">
-            Thanks so much for stopping by!{" "}
+            Thank you for stopping by!{" "}
             <LuHeart
               aria-hidden
               className="inline-block -translate-y-[0.08em] align-middle text-[0.85em] text-rose-500"
