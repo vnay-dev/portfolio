@@ -12,12 +12,15 @@ const INTRO_BODY =
   "I've been a frontend developer for the past five years, but from early on I was already designing in Figma, building prototypes and exploring better ways to connect design with engineering. Today, I design and build Nebula, the design system powering airindia.com.";
 
 /** Background ball-pit tuning — edit these to change how many balls show, their colors and sizes. */
-const BALLPIT_COUNT = 15;
+const BALLPIT_COUNT_DESKTOP = 15;
+const BALLPIT_COUNT_MOBILE = 8;
 // Violet (#7A5CFF) sits between the blue and light-cyan so it blends into the same family.
 const BALLPIT_COLORS = ["#4DD4FF", "#2A52D8", "#7A5CFF", "#9FE4FF"];
-// Wider range = a mix of small, medium and a few bigger balls.
-const BALLPIT_MIN_SIZE = 0.6;
-const BALLPIT_MAX_SIZE = 1.6;
+// Wider min→max range gives a mix of small, medium and larger balls per viewport.
+const BALLPIT_MIN_SIZE_DESKTOP = 0.6;
+const BALLPIT_MAX_SIZE_DESKTOP = 1.6;
+const BALLPIT_MIN_SIZE_MOBILE = 0.45;
+const BALLPIT_MAX_SIZE_MOBILE = 1.25;
 // Flat pit (no depth) so every ball rests on the section's true bottom edge — no floating.
 const BALLPIT_MAX_Z = 0;
 
@@ -49,11 +52,21 @@ export function IntroReveal({ open, id = "hero-intro" }: IntroRevealProps) {
   const [expanded, setExpanded] = useState(false);
   // Skip the (GPU-heavy) ball-pit background for users who prefer reduced motion.
   const [reducedMotion, setReducedMotion] = useState(false);
+  // Fewer, smaller balls on narrow viewports so the intro copy stays readable.
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(query.matches);
     const handleChange = (event: MediaQueryListEvent) => setReducedMotion(event.matches);
+    query.addEventListener("change", handleChange);
+    return () => query.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 767px)");
+    setIsMobileViewport(query.matches);
+    const handleChange = (event: MediaQueryListEvent) => setIsMobileViewport(event.matches);
     query.addEventListener("change", handleChange);
     return () => query.removeEventListener("change", handleChange);
   }, []);
@@ -128,11 +141,12 @@ export function IntroReveal({ open, id = "hero-intro" }: IntroRevealProps) {
             {open && !reducedMotion ? (
               <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                 <Ballpit
+                  key={isMobileViewport ? "ballpit-mobile" : "ballpit-desktop"}
                   className="h-full w-full"
-                  count={BALLPIT_COUNT}
+                  count={isMobileViewport ? BALLPIT_COUNT_MOBILE : BALLPIT_COUNT_DESKTOP}
                   colors={BALLPIT_COLORS}
-                  minSize={BALLPIT_MIN_SIZE}
-                  maxSize={BALLPIT_MAX_SIZE}
+                  minSize={isMobileViewport ? BALLPIT_MIN_SIZE_MOBILE : BALLPIT_MIN_SIZE_DESKTOP}
+                  maxSize={isMobileViewport ? BALLPIT_MAX_SIZE_MOBILE : BALLPIT_MAX_SIZE_DESKTOP}
                   maxZ={BALLPIT_MAX_Z}
                   followCursor={false}
                 />

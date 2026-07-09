@@ -1,42 +1,14 @@
-import {
-  MdOutlineAltRoute,
-  MdOutlineCategory,
-  MdOutlineLibraryBooks,
-  MdNorthEast,
-  MdOutlineWorkspaces,
-} from "react-icons/md";
+import { MdNorthEast } from "react-icons/md";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Container, Navbar } from "@/components/shared/composite";
 import { BlobImage } from "@/components/shared/atoms";
 import { getNavbarFeatureFlags, isFeatureEnabled } from "@/app/constants";
 import { getTDBridgeAssetUrl } from "@/app/constants/mediaAssets";
+import CraftIssuesCarousel from "@/components/projects/tdbridge/CraftIssuesCarousel";
 import WorkflowIssuesCarousel from "@/components/projects/tdbridge/WorkflowIssuesCarousel";
 import ChallengesCarousel from "@/components/projects/tdbridge/ChallengesCarousel";
 import { VisibilityVideo } from "@/components/projects/tdbridge/VisibilityVideo";
-
-const craftIssueCards = [
-  {
-    id: "versioning",
-    icon: MdOutlineAltRoute,
-    text: "No versioning, changelog, migration steps, or maturity indicators, so teams didn't know what changed or what was safe to use",
-  },
-  {
-    id: "docs-a11y",
-    icon: MdOutlineLibraryBooks,
-    text: "Missing documentation and accessibility guidelines",
-  },
-  {
-    id: "tokens",
-    icon: MdOutlineWorkspaces,
-    text: "No proper token architecture, with hard-coded values used instead of linking with tokens",
-  },
-  {
-    id: "mixed-tokens",
-    icon: MdOutlineCategory,
-    text: "Tokens from external libraries mixed with ours, along with old DLS token values still being used inside the new DLS",
-  },
-] as const;
 
 const outcomeImpactCards = [
   {
@@ -197,14 +169,14 @@ export default function TDBridge() {
             <p className="body-xlarge">
               This also meant that every new project had to spend time figuring out its own set of components before starting UI work. The same effort was repeated across projects, directly affecting delivery timelines.
             </p>
-            <div className="my-4 w-full overflow-hidden rounded-media">
+            <div className="my-4 w-full overflow-hidden">
               <BlobImage
                 src={getTDBridgeAssetUrl("tdb_gen_problems.png")}
                 alt="Common questions developers ask about design systems"
                 width={1920}
                 height={1080}
                 loading="lazy"
-                className="h-auto w-full rounded-media"
+                className="h-auto w-full"
               />
             </div>
           </div>
@@ -299,21 +271,9 @@ export default function TDBridge() {
           {/* Section 4 begins */}
           <div className="flex flex-col gap-6">
             <h2 className="headline-small md:!text-[1.75rem]">It wasn&apos;t just broken, it was messy underneath</h2>
-            <h3 className="headline-small text-gray-800">Craft level issues inside the Figma file</h3>
-            <div className="my-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {craftIssueCards.map(({ id, icon: Icon, text }) => (
-                <div
-                  key={id}
-                  className="flex h-full flex-col items-start gap-5 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-5"
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-gray-200/90 bg-white text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <p className="body-large leading-relaxed text-gray-800">{text}</p>
-                </div>
-              ))}
-            </div>
-            <h3 className="headline-small text-gray-800">Workflow-level issues</h3>
+            <h3 className="title-large text-gray-800">Craft level issues</h3>
+            <CraftIssuesCarousel />
+            <h3 className="title-large text-gray-800">Workflow-level issues</h3>
             <WorkflowIssuesCarousel />
           </div>
           {/* Section 4 ends */}
@@ -334,12 +294,14 @@ export default function TDBridge() {
                 href="/projects/tdbridge/figma-mcp-pocs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-700 transition hover:text-blue-800 hover:underline hover:decoration-blue-700 hover:underline-offset-4"
+                className="text-blue-700 transition hover:text-blue-800 hover:underline hover:decoration-blue-700 hover:underline-offset-4"
               >
-                Exploring Figma MCP for agentic UI workflows
-                <MdNorthEast className="h-4 w-4" aria-hidden />
+                Exploring Figma MCP for agentic UI workflows{" "}
+                <span className="whitespace-nowrap">
+                  <MdNorthEast className="inline-block h-4 w-4 align-middle" aria-hidden />
+                  .
+                </span>
               </Link>
-              .
             </p>
           </div>
           {/* Section 5 ends */}

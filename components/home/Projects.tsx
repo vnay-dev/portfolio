@@ -136,7 +136,7 @@ export function Projects() {
       aspectRatioMobile: "780 / 942",
       title: "Building the foundation for AI-Native web design system",
       subtitle:
-        "Scaled Air India's consumer web design system through standards, architecture, and a reusable component library, laying the foundation for design-to-code agentic workflows.",
+        "Scaled Air India's consumer web design system through standards, architecture, and built a reusable component library, laying the foundation for design-to-code agentic workflows.",
       hidden: false,
     },
     {
