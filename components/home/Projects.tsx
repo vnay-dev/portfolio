@@ -165,7 +165,7 @@ export function Projects() {
   ];
 
   return (
-    <section id="work" className="w-full bg-white">
+    <section id="work" className="w-full bg-[#fcfcfc]">
       <Container>
         <div className="flex flex-col items-start gap-8 pt-16 pb-16 sm:pt-24 sm:pb-24 md:gap-16 md:pt-32 md:pb-32">
           <h2 className="display-small w-full max-w-[90%] text-left text-neutral-900 lg:w-9/10">
