@@ -4,3 +4,4 @@
 export { MediaSkeleton } from "./MediaSkeleton";
 export { BlobImage } from "./BlobImage";
 export { YouTubeEmbed } from "./YouTubeEmbed";
+export { GitHubContributionGraph } from "./GitHubContributionGraph";
