@@ -1,0 +1,129 @@
+/* Heartbeat while hovering the thanks title (desktop hover only). */
+@keyframes footerHeartbeat {
+  0%,
+  100% {
+    transform: translateY(-0.08em) scale(1);
+  }
+  14% {
+    transform: translateY(-0.08em) scale(1.28);
+  }
+  28% {
+    transform: translateY(-0.08em) scale(1);
+  }
+  42% {
+    transform: translateY(-0.08em) scale(1.18);
+  }
+  70% {
+    transform: translateY(-0.08em) scale(1);
+  }
+}
+
+/* Tiny hearts drift outward and dissolve with even, linear progress. */
+@keyframes footerHeartPop {
+  0% {
+    transform: translate(0, 0) scale(0.35) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  25% {
+    transform: translate(
+        calc(var(--dx) * 0.25),
+        calc(var(--dy) * 0.25)
+      )
+      scale(0.85)
+      rotate(calc(var(--rot) * 0.25));
+    opacity: 0.9;
+    filter: blur(0.4px);
+  }
+  50% {
+    transform: translate(
+        calc(var(--dx) * 0.5),
+        calc(var(--dy) * 0.5)
+      )
+      scale(0.7)
+      rotate(calc(var(--rot) * 0.5));
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+  75% {
+    transform: translate(
+        calc(var(--dx) * 0.75),
+        calc(var(--dy) * 0.75)
+      )
+      scale(0.5)
+      rotate(calc(var(--rot) * 0.75));
+    opacity: 0.3;
+    filter: blur(1.8px);
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0.3) rotate(var(--rot));
+    opacity: 0;
+    filter: blur(2.8px);
+  }
+}
+
+.title {
+  cursor: pointer;
+  user-select: none;
+}
+
+.title:focus-visible {
+  outline: 2px solid rgb(244 63 94 / 0.45);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.heartWrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.heart {
+  display: inline-block;
+  color: #f43f5e;
+  font-size: 0.85em;
+  transform: translateY(-0.08em);
+  transform-origin: center;
+  vertical-align: middle;
+  animation: footerHeartbeat 0.9s ease-in-out infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .heartWrap:hover .heart {
+    animation-duration: 0.45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart {
+    animation: none;
+  }
+}
+
+.popper {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  overflow: visible;
+}
+
+.popHeart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f43f5e;
+  will-change: transform, opacity, filter;
+  animation: footerHeartPop 1.7s linear forwards;
+  animation-delay: var(--delay);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popHeart {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}

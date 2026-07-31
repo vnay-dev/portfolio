@@ -1,9 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { LuArrowRight } from "react-icons/lu";
 import BorderGlow from "@/components/BorderGlow";
+import styles from "./StockBorderGlowBadge.module.css";
 
-const DEFAULT_LABEL = "Design Systems @ Air India, Digital & Tech";
+const DEFAULT_LABEL = "Take a glimpse into my journey";
 
 /** Enables `BorderGlow` auto-repeat (value must be > 0; timing uses sweep duration + gap). */
 const AUTO_REPEAT_ENABLED = 1;
@@ -52,8 +54,11 @@ export function StockBorderGlowBadge({
       hoverSpeedMultiplier={hoverSpeedMultiplier}
       elevatedShadow={false}
     >
-      <p className="font-hanken p-4 text-sm leading-snug text-white sm:text-base md:text-lg">
-        {children ?? DEFAULT_LABEL}
+      <p className="font-hanken flex items-center gap-4 overflow-hidden p-4 text-sm leading-snug text-white sm:text-base md:text-lg">
+        <span>{children ?? DEFAULT_LABEL}</span>
+        <span className={`${styles.slot} ${expanded ? styles.slotExpanded : ""}`}>
+          <LuArrowRight aria-hidden className={`${styles.icon} size-[1.25em]`} />
+        </span>
       </p>
     </BorderGlow>
   );
@@ -66,7 +71,7 @@ export function StockBorderGlowBadge({
       onClick={onClick}
       aria-expanded={expanded}
       aria-controls={controlsId}
-      className="w-fit max-w-full cursor-pointer appearance-none border-0 bg-transparent p-0 text-left"
+      className={`${styles.toggle} w-fit max-w-full cursor-pointer appearance-none border-0 bg-transparent p-0 text-left`}
     >
       {badge}
     </button>

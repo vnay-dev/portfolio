@@ -12,13 +12,15 @@ const INTRO_BODY =
   "I've been a frontend developer for the past five years, but from early on I was already designing in Figma, building prototypes and exploring better ways to connect design with engineering. Today, I design and build Nebula, the design system powering airindia.com.";
 
 /** Background ball-pit tuning — edit these to change how many balls show, their colors and sizes. */
-const BALLPIT_COUNT_DESKTOP = 15;
+const BALLPIT_COUNT_DESKTOP = 17;
 const BALLPIT_COUNT_MOBILE = 8;
 // Violet (#7A5CFF) sits between the blue and light-cyan so it blends into the same family.
 const BALLPIT_COLORS = ["#4DD4FF", "#2A52D8", "#7A5CFF", "#9FE4FF"];
-// Wider min→max range gives a mix of small, medium and larger balls per viewport.
-const BALLPIT_MIN_SIZE_DESKTOP = 0.6;
-const BALLPIT_MAX_SIZE_DESKTOP = 1.6;
+// Wide range: tiny → small → medium, with a few large (max capped so they don't dominate).
+const BALLPIT_MIN_SIZE_DESKTOP = 0.4;
+const BALLPIT_MAX_SIZE_DESKTOP = 1.7;
+/** One desktop-only oversized ball sitting among the tiny/small/medium mix. */
+const BALLPIT_FEATURED_SIZE_DESKTOP = 2.2;
 const BALLPIT_MIN_SIZE_MOBILE = 0.45;
 const BALLPIT_MAX_SIZE_MOBILE = 1.25;
 // Flat pit (no depth) so every ball rests on the section's true bottom edge — no floating.
@@ -147,6 +149,7 @@ export function IntroReveal({ open, id = "hero-intro" }: IntroRevealProps) {
                   colors={BALLPIT_COLORS}
                   minSize={isMobileViewport ? BALLPIT_MIN_SIZE_MOBILE : BALLPIT_MIN_SIZE_DESKTOP}
                   maxSize={isMobileViewport ? BALLPIT_MAX_SIZE_MOBILE : BALLPIT_MAX_SIZE_DESKTOP}
+                  featuredSize={isMobileViewport ? undefined : BALLPIT_FEATURED_SIZE_DESKTOP}
                   maxZ={BALLPIT_MAX_Z}
                   followCursor={false}
                 />

@@ -1,0 +1,171 @@
+/*
+  Bow-and-arrow:
+  draw → tremor → ballistic throw → pause → return from the left →
+  sit idle 1.8s → play again
+*/
+
+@keyframes storyBadgeArrowShot {
+  /* Rest / idle (also the hold between cycles) */
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.5, 1);
+  }
+
+  /* Draw — tip aims UP */
+  7% {
+    transform: translate3d(-0.55rem, 0.06rem, 0) rotate(-22deg) scale(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  }
+
+  12% {
+    transform: translate3d(-1.05rem, 0.12rem, 0) rotate(-34deg) scale(1);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+
+  /* Tension tremor */
+  13% {
+    transform: translate3d(-1.0rem, 0.08rem, 0) rotate(-31deg) scale(1);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  14% {
+    transform: translate3d(-1.1rem, 0.15rem, 0) rotate(-36deg) scale(1);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  15% {
+    transform: translate3d(-0.98rem, 0.07rem, 0) rotate(-30deg) scale(1);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  16% {
+    transform: translate3d(-1.08rem, 0.14rem, 0) rotate(-35deg) scale(1);
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  17% {
+    transform: translate3d(-1.05rem, 0.12rem, 0) rotate(-34deg) scale(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.05, 0.8, 0.15, 1);
+  }
+
+  /* Explosive launch */
+  20% {
+    transform: translate3d(1.4rem, -1.15rem, 0) rotate(-48deg) scale(1.08, 0.92);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.15, 0.7, 0.25, 1);
+  }
+
+  23% {
+    transform: translate3d(2.6rem, -2.15rem, 0) rotate(-52deg) scale(1.04, 0.96);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.5, 0.5);
+  }
+
+  /* Apex */
+  26% {
+    transform: translate3d(3.6rem, -2.45rem, 0) rotate(-18deg) scale(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.55, 0.05, 0.8, 0.4);
+  }
+
+  /* Descending */
+  29% {
+    transform: translate3d(4.8rem, -1.7rem, 0) rotate(12deg) scale(1);
+    opacity: 0.85;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.7, 0.3);
+  }
+
+  /* Exit */
+  32% {
+    transform: translate3d(6.2rem, -0.6rem, 0) rotate(28deg) scale(0.96);
+    opacity: 0;
+    animation-timing-function: linear;
+  }
+
+  /* Wait off-stage ~1s (14.3% of 7s), then come back from the left */
+  32.01%,
+  46% {
+    transform: translate3d(-12rem, 0, 0) rotate(0deg) scale(1);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Arrive — tiny overshoot past the slot to the right */
+  55% {
+    transform: translate3d(0.22rem, 0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.22, 1.2, 0.36, 1);
+  }
+
+  /* Ease back left into the original position */
+  62% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    animation-timing-function: ease;
+  }
+
+  /*
+    Stable idle — ~1.8s of a 7s loop before the next shot.
+  */
+  74%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.slot {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.slotExpanded {
+  transform: rotate(90deg);
+  transition: transform 300ms ease;
+}
+
+.icon {
+  display: block;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* 7s total → ~1.8s idle at the end between cycles */
+@media (hover: hover) and (pointer: fine) {
+  .toggle {
+    overflow: hidden;
+  }
+
+  .toggle:hover .slotExpanded {
+    transform: none;
+  }
+
+  .toggle:hover .icon {
+    animation: storyBadgeArrowShot 7s infinite;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .toggle {
+    overflow: hidden;
+  }
+
+  .toggle .slotExpanded {
+    transform: none;
+  }
+
+  .toggle .icon {
+    animation: storyBadgeArrowShot 7s infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle:hover .icon,
+  .toggle .icon {
+    animation: none;
+  }
+}

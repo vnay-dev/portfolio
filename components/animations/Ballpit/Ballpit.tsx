@@ -24,8 +24,11 @@ interface WebGLCanvasParams {
 class WebGLCanvas {
   private params: WebGLCanvasParams;
   canvas: HTMLCanvasElement;
-  camera!: THREE.PerspectiveCamera;
-  cameraFov = 0;
+  // Orthographic so spheres stay perfectly circular at the edges — perspective FOV was making
+  // left/right balls look elliptical / "tilted inward" toward the viewer.
+  camera!: THREE.OrthographicCamera;
+  /** World-space height of the orthographic view (matches the old perspective FOV≈50° at z=20). */
+  orthoViewHeight = 2 * Math.tan(THREE.MathUtils.degToRad(25)) * 20;
   cameraMaxAspect?: number;
   maxPixelRatio = 2;
   scene!: THREE.Scene;
@@ -54,8 +57,7 @@ class WebGLCanvas {
   }
 
   private initCamera() {
-    this.camera = new THREE.PerspectiveCamera();
-    this.cameraFov = this.camera.fov;
+    this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 100);
   }
 
   private initScene() {
@@ -136,21 +138,21 @@ class WebGLCanvas {
   }
 
   private updateCamera() {
-    this.camera.aspect = this.size.width / this.size.height;
-    if (this.cameraMaxAspect && this.camera.aspect > this.cameraMaxAspect) {
-      const tan = Math.tan(THREE.MathUtils.degToRad(this.cameraFov / 2)) / (this.camera.aspect / this.cameraMaxAspect);
-      this.camera.fov = 2 * THREE.MathUtils.radToDeg(Math.atan(tan));
-    } else {
-      this.camera.fov = this.cameraFov;
+    const aspect = this.size.width / Math.max(this.size.height, 1);
+    // On ultra-wide screens, zoom in slightly (same idea as the old FOV clamp) so the pit
+    // doesn't stretch into a thin strip across the bottom.
+    let viewHeight = this.orthoViewHeight;
+    if (this.cameraMaxAspect && aspect > this.cameraMaxAspect) {
+      viewHeight = this.orthoViewHeight * (this.cameraMaxAspect / aspect);
     }
+    const viewWidth = viewHeight * aspect;
+    this.camera.left = -viewWidth / 2;
+    this.camera.right = viewWidth / 2;
+    this.camera.top = viewHeight / 2;
+    this.camera.bottom = -viewHeight / 2;
     this.camera.updateProjectionMatrix();
-    this.updateWorldSize();
-  }
-
-  private updateWorldSize() {
-    const fovRad = (this.camera.fov * Math.PI) / 180;
-    this.size.wHeight = 2 * Math.tan(fovRad / 2) * this.camera.position.length();
-    this.size.wWidth = this.size.wHeight * this.camera.aspect;
+    this.size.wHeight = viewHeight;
+    this.size.wWidth = viewWidth;
   }
 
   private updateRenderer() {
@@ -330,6 +332,8 @@ interface BallpitConfig {
   minSize: number;
   maxSize: number;
   size0: number;
+  /** When set, exactly one visible ball (index 1) uses this size — a single guaranteed large ball. */
+  featuredSize?: number;
   gravity: number;
   friction: number;
   wallBounce: number;
@@ -391,6 +395,10 @@ class BallpitPhysics {
     sizeData[0] = config.size0;
     for (let i = 1; i < config.count; i++) {
       sizeData[i] = randFloat(config.minSize, config.maxSize);
+    }
+    // Pin one visible ball to a featured size so we can guarantee a single large balloon.
+    if (config.featuredSize != null && config.count > 1) {
+      sizeData[1] = config.featuredSize;
     }
   }
 
@@ -569,7 +577,7 @@ const DEFAULT_CONFIG: BallpitConfig = {
   colors: [0x000000],
   ambientColor: 0xffffff,
   ambientIntensity: 1,
-  lightIntensity: 200,
+  lightIntensity: 2.2,
   materialParams: { metalness: 0.5, roughness: 0.5, clearcoat: 1, clearcoatRoughness: 0.15 },
   minSize: 0.5,
   maxSize: 1,
@@ -592,7 +600,7 @@ class BallpitSpheres extends THREE.InstancedMesh {
   config: BallpitConfig;
   physics: BallpitPhysics;
   ambientLight!: THREE.AmbientLight;
-  light!: THREE.PointLight;
+  light!: THREE.DirectionalLight;
 
   constructor(renderer: THREE.WebGLRenderer, config: BallpitConfig) {
     const environment = new RoomEnvironment();
@@ -614,7 +622,10 @@ class BallpitSpheres extends THREE.InstancedMesh {
   private initLights() {
     this.ambientLight = new THREE.AmbientLight(this.config.ambientColor, this.config.ambientIntensity);
     this.add(this.ambientLight);
-    this.light = new THREE.PointLight(this.config.colors[0], this.config.lightIntensity);
+    // Parallel rays so every ball gets the same viewer-facing highlight — a point light sitting
+    // in the pile made edge balls look "tilted" toward the light.
+    this.light = new THREE.DirectionalLight(this.config.colors[0], this.config.lightIntensity);
+    this.light.position.set(0, 2, 10);
     this.add(this.light);
   }
 
@@ -640,7 +651,14 @@ class BallpitSpheres extends THREE.InstancedMesh {
       }
       dummyObject.updateMatrix();
       this.setMatrixAt(index, dummyObject.matrix);
-      if (index === 0) this.light.position.copy(dummyObject.position);
+    }
+    // When the cursor sphere is visible, bias the key light toward it. Otherwise keep it locked
+    // in front of the scene so speculars sit on the viewer-facing side of every ball.
+    if (this.config.followCursor) {
+      this.light.position.fromArray(this.physics.positionData, 0);
+      this.light.position.z += 10;
+    } else {
+      this.light.position.set(0, 2, 10);
     }
     this.instanceMatrix.needsUpdate = true;
   }
@@ -728,6 +746,8 @@ export interface BallpitProps {
   maxZ?: number;
   minSize?: number;
   maxSize?: number;
+  /** Size of a single guaranteed featured ball (e.g. one large balloon). */
+  featuredSize?: number;
   ambientColor?: number | string;
   ambientIntensity?: number;
   lightIntensity?: number;

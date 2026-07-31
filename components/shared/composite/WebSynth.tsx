@@ -214,9 +214,9 @@ const SCALES: Record<string, number[]> = {
 };
 
 const SOUND_PRESETS = [
+  { name: "Ethereal Bells", value: "ethereal-bells" },
   { name: "Warm Pad", value: "warm-pad" },
   { name: "Lofi Dreams", value: "lofi-dreams" },
-  { name: "Ethereal Bells", value: "ethereal-bells" },
   { name: "Synth Wave", value: "synth-wave" },
   { name: "Ambient Choir", value: "ambient-choir" },
 ];
@@ -254,6 +254,7 @@ class TouchSynthesizer {
   private mouseMoveCount = 0;
   private trackpadTimeout: ReturnType<typeof setTimeout> | null = null;
   private isLaptop = false;
+  private activated = false;
 
   private readonly controller = new AbortController();
 
@@ -267,9 +268,25 @@ class TouchSynthesizer {
     this.setupEventListeners();
     this.controllerCursor.style.left = "50%";
     this.controllerCursor.style.top = "50%";
+    this.controllerCursor.dataset.activated = "false";
     // Centering translate + grab scale are handled in CSS (see .marble), so we
     // intentionally don't set an inline transform here — an inline value would
     // override the [data-grabbed] grab-scale rule.
+  }
+
+  /** Unlock the marble on first click / tap (plays a short reveal animation). */
+  private markActivated() {
+    if (this.activated) return;
+    this.activated = true;
+    this.controllerCursor.dataset.activated = "true";
+    this.controllerCursor.dataset.unlocking = "true";
+
+    const finishUnlock = () => {
+      delete this.controllerCursor.dataset.unlocking;
+      window.clearTimeout(fallback);
+    };
+
+    const fallback = window.setTimeout(finishUnlock, 1100);
   }
 
   // --- Public API used by the React controls ---
@@ -294,9 +311,27 @@ class TouchSynthesizer {
       if (this.audioContext.state === "suspended") {
         await this.audioContext.resume();
       }
+      if (this.audioContext.state === "running") {
+        this.markActivated();
+      }
     } catch (error) {
       console.error("Failed to initialize audio context:", error);
     }
+  }
+
+  private async ensureAudioRunning() {
+    if (!this.audioContext) {
+      await this.initAudioContext();
+      return !!this.audioContext;
+    }
+    if (this.audioContext.state === "suspended") {
+      await this.audioContext.resume();
+    }
+    if (this.audioContext.state === "running") {
+      this.markActivated();
+      return true;
+    }
+    return false;
   }
 
   private setupEventListeners() {
@@ -327,25 +362,32 @@ class TouchSynthesizer {
 
   private handleMouseDown = (event: MouseEvent) => {
     if (event.button !== 0) return;
+
+    // First click immediately activates the marble style, then unlocks audio.
+    if (!this.activated) {
+      this.markActivated();
+      this.isMouseDown = true;
+      this.isTrackpadMode = false;
+      this.ensureAudioRunning().then((ready) => {
+        if (ready) this.startPlayback(event);
+      });
+      return;
+    }
+
     if (this.isLaptop) return;
 
     this.isMouseDown = true;
     this.isTrackpadMode = false;
 
-    if (!this.audioContext) {
-      this.initAudioContext().then(() => {
-        if (this.audioContext) this.startPlayback(event);
-      });
-      return;
-    }
-    if (this.audioContext.state === "suspended") {
-      this.audioContext.resume().then(() => this.startPlayback(event));
-      return;
-    }
-    this.startPlayback(event);
+    this.ensureAudioRunning().then((ready) => {
+      if (ready) this.startPlayback(event);
+    });
   };
 
   private handleMouseMove = (event: MouseEvent) => {
+    // Locked marble stays centered — no tracking until the user unlocks it.
+    if (!this.activated) return;
+
     const currentTime = Date.now();
     const position = this.getPosition(event);
 
@@ -363,17 +405,9 @@ class TouchSynthesizer {
       }, 1000);
 
       if (this.isTrackpadMode && !this.isPlaying) {
-        if (!this.audioContext) {
-          this.initAudioContext().then(() => {
-            if (this.audioContext) this.startPlayback(event);
-          });
-          return;
-        }
-        if (this.audioContext.state === "suspended") {
-          this.audioContext.resume().then(() => this.startPlayback(event));
-          return;
-        }
-        this.startPlayback(event);
+        this.ensureAudioRunning().then((ready) => {
+          if (ready) this.startPlayback(event);
+        });
       }
 
       this.updatePosition(position);
@@ -423,20 +457,19 @@ class TouchSynthesizer {
       return;
     }
 
-    if (!this.audioContext) {
-      this.initAudioContext().then(() => {
-        if (this.audioContext) this.startPlayback(event);
-      });
-      return;
+    // First tap immediately activates the marble style, then unlocks audio.
+    if (!this.activated) {
+      this.markActivated();
     }
-    if (this.audioContext.state === "suspended") {
-      this.audioContext.resume().then(() => this.startPlayback(event));
-      return;
-    }
-    this.startPlayback(event);
+
+    this.ensureAudioRunning().then((ready) => {
+      if (ready) this.startPlayback(event);
+    });
   };
 
   private handleTouchMove = (event: TouchEvent) => {
+    if (!this.activated) return;
+
     const shouldPlay = event.touches.length === 1 && this.isMouseDown;
     if (!shouldPlay) {
       this.updatePosition(this.getPosition(event));
@@ -547,6 +580,9 @@ class TouchSynthesizer {
   }
 
   private updatePosition(position: Position) {
+    if (!this.activated) return;
+    // Keep the marble centered while the unlock pop plays.
+    if (this.controllerCursor.dataset.unlocking === "true") return;
     this.controllerCursor.style.left = `${position.x}%`;
     this.controllerCursor.style.top = `${position.y}%`;
     // The centering translate + grab scale live in CSS so they survive these
@@ -725,7 +761,7 @@ export function WebSynth() {
       <div className={styles.interactivePad} data-synth="touchArea">
         <div className={styles.padContent}>
           <div className={styles.padGrid} />
-          <div className={styles.marble} data-synth="cursor" aria-hidden>
+          <div className={styles.marble} data-synth="cursor" data-activated="false" aria-hidden>
             <span className={styles.marbleGlare} />
           </div>
         </div>
