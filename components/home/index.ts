@@ -6,6 +6,7 @@ export { Hero } from "./Hero";
 export { HeroWithIntro } from "./HeroWithIntro";
 export { IntroReveal } from "./IntroReveal";
 export { Projects } from "./Projects";
+export { Ideas } from "./Ideas";
 export { PlayArena } from "./PlayArena";
 export { Articles } from "./Articles";
 export { BuildingSoftware } from "./BuildingSoftware";

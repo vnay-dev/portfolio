@@ -1,4 +1,4 @@
-import { HeroWithIntro, Projects, Articles, BuildingSoftware, ArtGallery, PlayArena } from "@/components/home";
+import { HeroWithIntro, Projects, Ideas, Articles, BuildingSoftware, ArtGallery, PlayArena } from "@/components/home";
 import { getNavbarFeatureFlags, isFeatureEnabled } from "@/app/constants";
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen w-full bg-neutral-950">
       <HeroWithIntro navFeatureFlags={navFeatureFlags} />
       <Projects />
+      <Ideas />
       {!hideThinkingBeyondConstraints ? <BuildingSoftware /> : null}
       {!hideReflections ? <Articles /> : null}
       {showArtGallery && !hideFormAndAesthetics ? <ArtGallery /> : null}

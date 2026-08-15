@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { getPluginsAssetUrl, getTDBridgeAssetUrl, getWhatsAppAssetUrl } from "@/app/constants/mediaAssets";
 import { Container } from "@/components/shared/composite";
 import { MediaSkeleton } from "@/components/shared/atoms";
+import { SectionHeading } from "./SectionHeading";
 
 type ProjectCardData = {
   href: string;
@@ -168,9 +169,7 @@ export function Projects() {
     <section id="work" className="w-full bg-[#fcfcfc]">
       <Container>
         <div className="flex flex-col items-start gap-8 pt-16 pb-16 sm:pt-24 sm:pb-24 md:gap-16 md:pt-32 md:pb-32">
-          <h2 className="display-small w-full max-w-[90%] text-left text-neutral-900 lg:w-9/10">
-            Few of my best works
-          </h2>
+          <SectionHeading title="Few of my best works" />
 
           <div className="flex flex-col gap-20 sm:gap-24 md:gap-28">
             {projectCards

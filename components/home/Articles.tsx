@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Container } from "@/components/shared/composite";
+import { SectionHeading } from "./SectionHeading";
 
 const MIN_CARDS_FOR_ARROWS = 3;
 
@@ -34,14 +35,12 @@ export function Articles() {
     <section className="w-full bg-neutral-950">
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
-          <div className="flex flex-col gap-4">
-            <h2 className="headline-large text-center text-neutral-100">
-              Reflections
-            </h2>
-            <p className="body-large text-center text-neutral-400">
-              When different patterns intersect in a system, new ideas emerge and get&apos;s translated into words
-            </p>
-          </div>
+          <SectionHeading
+            align="center"
+            variant="dark"
+            title="Reflections"
+            subtitle="When different patterns intersect in a system, new ideas emerge and get's translated into words"
+          />
 
           <div className="flex flex-col items-center gap-6">
             <div

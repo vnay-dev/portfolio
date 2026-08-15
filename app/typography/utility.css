@@ -14,3 +14,43 @@
   font-weight: 400;
   line-height: 1rem; /* 16px */
 }
+
+/*
+  Home section titles stay on one line at every viewport.
+  The heading is a container; font-size uses cqi so the longest title
+  ("Some ideas keep me up until I build them.") scales down instead of wrapping.
+  Cap matches display-small (36px) on wide screens.
+*/
+.section-heading {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.section-title {
+  font-family: var(--font-gabarito), var(--font-hanken), sans-serif;
+  font-weight: 400;
+  white-space: nowrap;
+  font-size: clamp(1.125rem, 5.2cqi, 2.25rem);
+  line-height: 1.25;
+}
+
+/* Below the clamp floor, nowrap overflows the container. Allow two lines. */
+@media (max-width: 380px) {
+  .section-title {
+    white-space: normal;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
+
+.section-subtitle {
+  font-family: var(--font-hanken), sans-serif;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font-size: clamp(0.875rem, 2.7cqi, 1.125rem);
+  line-height: 1.45;
+}

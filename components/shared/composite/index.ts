@@ -5,4 +5,5 @@ export { Container } from "./Container";
 export { Navbar } from "./Navbar";
 export { Footer } from "./Footer";
 export { WebSynth } from "./WebSynth";
+export { Dialog } from "./Dialog";
 

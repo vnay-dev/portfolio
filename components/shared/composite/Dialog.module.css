@@ -1,0 +1,47 @@
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dialog {
+  margin: auto;
+  max-height: calc(100dvh - 2rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+  padding: 0;
+  background: #fcfcfc;
+}
+
+.dialog[open] {
+  animation: dialog-in 0.22s ease-out;
+}
+
+.dialog[open]::backdrop {
+  background: rgb(0 0 0 / 0.58);
+  backdrop-filter: blur(8px);
+  animation: backdrop-in 0.22s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog[open]::backdrop {
+    animation: none;
+  }
+}

@@ -1,4 +1,5 @@
 import { Container } from "@/components/shared/composite";
+import { SectionHeading } from "./SectionHeading";
 
 const EMBEDS = [
   {
@@ -14,14 +15,12 @@ export function BuildingSoftware() {
     <section className="w-full bg-neutral-950">
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
-          <div className="flex flex-col gap-4">
-            <h2 className="headline-large text-center text-neutral-100">
-              Thinking beyond constraints
-            </h2>
-            <p className="body-large text-center text-neutral-400">
-              It’s fun to take a break from systems and explore slightly quirky ideas for the joy of building
-            </p>
-          </div>
+          <SectionHeading
+            align="center"
+            variant="dark"
+            title="Thinking beyond constraints"
+            subtitle="It’s fun to take a break from systems and explore slightly quirky ideas for the joy of building"
+          />
 
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8">
             {EMBEDS.map((embed) => (

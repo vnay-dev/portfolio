@@ -2,6 +2,7 @@ const whatsappBlobBaseUrl = process.env.NEXT_PUBLIC_WHATSAPP_BLOB_BASE_URL?.trim
 const personalBlobBaseUrl = process.env.NEXT_PUBLIC_PERSONAL_BLOB_BASE_URL?.trim();
 const tdbridgeBlobBaseUrl = process.env.NEXT_PUBLIC_TDBRIDGE_BLOB_BASE_URL?.trim();
 const pluginsBlobBaseUrl = process.env.NEXT_PUBLIC_PLUGINS_BLOB_BASE_URL?.trim();
+const videosBlobBaseUrl = process.env.NEXT_PUBLIC_VIDEOS_BLOB_BASE_URL?.trim();
 
 const normalizedWhatsappBlobBaseUrl = whatsappBlobBaseUrl
   ? whatsappBlobBaseUrl.replace(/\/+$/, "")
@@ -15,6 +16,10 @@ const normalizedTDBridgeBlobBaseUrl = tdbridgeBlobBaseUrl
 const normalizedPluginsBlobBaseUrl = pluginsBlobBaseUrl
   ? pluginsBlobBaseUrl.replace(/\/+$/, "")
   : "";
+
+/** Shared public blob origin used when a videos-specific env var is not set. */
+const DEFAULT_PUBLIC_BLOB_ORIGIN = "https://epb7e7hfmn3lva8u.public.blob.vercel-storage.com";
+const normalizedVideosBlobBaseUrl = (videosBlobBaseUrl || DEFAULT_PUBLIC_BLOB_ORIGIN).replace(/\/+$/, "");
 
 export const getWhatsAppAssetUrl = (assetName: string) => {
   const normalizedAssetName = assetName.replace(/^\/+/, "");
@@ -55,6 +60,12 @@ export const getFigmaMCPAssetUrl = (assetName: string) => {
   }
 
   return `${normalizedTDBridgeBlobBaseUrl}/images/figmaMCP/${normalizedAssetName}`;
+};
+
+/** Path under `videos/` (e.g. `ente_journey_prototype.mp4`). */
+export const getVideoAssetUrl = (assetName: string) => {
+  const normalizedAssetName = assetName.replace(/^\/+/, "");
+  return `${normalizedVideosBlobBaseUrl}/videos/${normalizedAssetName}`;
 };
 
 /** Path under `images/plugins/` (e.g. `compounter/Compounter-tab1.png`). */

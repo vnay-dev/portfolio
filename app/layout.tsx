@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Gabarito, Hanken_Grotesk } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { METADATA } from "./constants";
 import { Footer } from "@/components/shared/composite";
 import "./globals.css";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );

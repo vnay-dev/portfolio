@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/shared/composite";
+import { SectionHeading } from "./SectionHeading";
 
 const GALLERY_ITEMS = [
   {
@@ -17,14 +18,12 @@ export function ArtGallery() {
     <section className="w-full overflow-hidden bg-neutral-950">
       <Container>
         <div className="flex flex-col gap-8 pb-16 pt-0 sm:pb-24 md:gap-16 md:pb-32">
-          <div className="flex flex-col gap-4">
-            <h2 className="headline-large text-center text-neutral-100">
-              Form & aesthetics
-            </h2>
-            <p className="body-large text-center text-neutral-400">
-              Exploring visual craft that helps systems feel more memorable
-            </p>
-          </div>
+          <SectionHeading
+            align="center"
+            variant="dark"
+            title="Form & aesthetics"
+            subtitle="Exploring visual craft that helps systems feel more memorable"
+          />
 
           <div className="relative -mx-4 sm:-mx-6 md:-mx-8">
             <div className="ticker-mask overflow-hidden">

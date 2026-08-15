@@ -44,6 +44,17 @@
     line-height: 1.5rem; /* 24px */
   }
 
+  /* Scale body copy on mobile so section subtitles and cards fit more comfortably */
+  .body-xlarge {
+    font-size: 1rem; /* 16px - scaled from 18px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .body-large {
+    font-size: 0.875rem; /* 14px - scaled from 16px */
+    line-height: 1.375rem; /* 22px */
+  }
+
   /*
     Home project thumbnails: scale the title and subtitle down on mobile so the
     type hierarchy stays consistent (hero title > section title > thumbnail title
